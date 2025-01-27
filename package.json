@@ -1,0 +1,23 @@
+{
+  "name": "hugo-mooc",
+  "version": "0.1.0",
+  "main": "index.js",
+  "scripts": {
+    "server": "hugo server",
+    "build": "hugo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielOAdev/hugo-mooc.git"
+  },
+  "author": "Daniel de Oliveira Araujo (danielaodev@gmail.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danielOAdev/hugo-mooc/issues"
+  },
+  "homepage": "https://github.com/danielOAdev/hugo-mooc#readme",
+  "description": "",
+  "dependencies": {
+    "bootstrap": "^5.3.3"
+  }
+}
