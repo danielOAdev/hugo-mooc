@@ -1,0 +1,52 @@
+// Add highcontrast color to light and dark theme maps
+// Light mode
+$highcontrast-text: ("highcontrast": $highcontrast-primary);
+$highcontrast-bg-subtle: ("highcontrast": $highcontrast-secondary);
+$highcontrast-border-subtle: ("highcontrast": $highcontrast-primary);
+
+$theme-colors-text: map-merge($theme-colors-text, $highcontrast-text);
+$theme-colors-bg-subtle: map-merge($theme-colors-bg-subtle, $highcontrast-bg-subtle);
+$theme-colors-border-subtle: map-merge($theme-colors-border-subtle, $highcontrast-border-subtle);
+
+// Dark mode
+$highcontrast-text-dark: ("highcontrast": $highcontrast-primary);
+$highcontrast-bg-subtle-dark: ("highcontrast": $highcontrast-secondary);
+$highcontrast-border-subtle-dark: ("highcontrast": $highcontrast-primary);
+
+$theme-colors-text-dark: map-merge($theme-colors-text-dark, $highcontrast-text-dark);
+$theme-colors-bg-subtle-dark: map-merge($theme-colors-bg-subtle-dark, $highcontrast-bg-subtle-dark);
+$theme-colors-border-subtle-dark: map-merge($theme-colors-border-subtle-dark, $highcontrast-border-subtle-dark);
+
+// Highcontrast maps
+$theme-colors-text-highcontrast: (
+  "primary": $primary-text-emphasis-highcontrast,
+  "secondary": $secondary-text-emphasis-highcontrast,
+  "success": $success-text-emphasis-highcontrast,
+  "info": $info-text-emphasis-highcontrast,
+  "warning": $warning-text-emphasis-highcontrast,
+  "danger": $danger-text-emphasis-highcontrast,
+  "light": $light-text-emphasis-highcontrast,
+  "dark": $dark-text-emphasis-highcontrast,
+) !default;
+
+$theme-colors-bg-subtle-highcontrast: (
+  "primary": $primary-bg-subtle-highcontrast,
+  "secondary": $secondary-bg-subtle-highcontrast,
+  "success": $success-bg-subtle-highcontrast,
+  "info": $info-bg-subtle-highcontrast,
+  "warning": $warning-bg-subtle-highcontrast,
+  "danger": $danger-bg-subtle-highcontrast,
+  "light": $light-bg-subtle-highcontrast,
+  "dark": $dark-bg-subtle-highcontrast,
+) !default;
+
+$theme-colors-border-subtle-highcontrast: (
+  "primary": $primary-border-subtle-highcontrast,
+  "secondary": $secondary-border-subtle-highcontrast,
+  "success": $success-border-subtle-highcontrast,
+  "info": $info-border-subtle-highcontrast,
+  "warning": $warning-border-subtle-highcontrast,
+  "danger": $danger-border-subtle-highcontrast,
+  "light": $light-border-subtle-highcontrast,
+  "dark": $dark-border-subtle-highcontrast,
+) !default;

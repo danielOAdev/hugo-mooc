@@ -1,0 +1,17 @@
+
+{{- $level := or (.Get "level") "2" }}
+{{- $title := (.Get "title")}}
+{{- $lead := (.Get "lead") }}
+
+<div class="row justify-content-center">
+    <div class="col-12 col-md-10 col-lg-8">
+        <!-- Heading Block (Título h2 ou h3 + Lead (se houver)) -->
+        <div class="heading__block">
+            <h{{ $level }} class="heading__title">{{- $title -}}</h3>
+            {{- with $lead}}
+                <p class="heading__lead">{{- $lead -}}</p>
+            {{- end}}
+        </div>
+        <!-- Fim dao Heading Block-->
+    </div>
+</div>

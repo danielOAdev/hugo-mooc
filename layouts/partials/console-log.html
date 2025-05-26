@@ -1,0 +1,10 @@
+{{/*
+    Use
+
+        {{ partial "console-log" $variavel }}
+
+    para exibir a variável no console do navegador.
+*/}}
+<script>
+    console.log('Hugo Debug: ', JSON.parse({{ jsonify . }}))
+</script>

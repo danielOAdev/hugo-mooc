@@ -1,0 +1,87 @@
+@include color-mode(highcontrast, true) {
+  color-scheme: dark;
+
+  --#{$prefix}body-color: #{$body-color-highcontrast};
+  --#{$prefix}body-color-rgb: #{to-rgb($body-color-highcontrast)};
+  --#{$prefix}body-bg: #{$body-bg-highcontrast};
+  --#{$prefix}body-bg-rgb: #{to-rgb($body-bg-highcontrast)};
+
+  --#{$prefix}emphasis-color: #{$body-emphasis-color-highcontrast};
+  --#{$prefix}emphasis-color-rgb: #{to-rgb($body-emphasis-color-highcontrast)};
+
+  --#{$prefix}secondary-color: #{$body-secondary-color-highcontrast};
+  --#{$prefix}secondary-color-rgb: #{to-rgb($body-secondary-color-highcontrast)};
+  --#{$prefix}secondary-bg: #{$body-secondary-bg-highcontrast};
+  --#{$prefix}secondary-bg-rgb: #{to-rgb($body-secondary-bg-highcontrast)};
+
+  --#{$prefix}tertiary-color: #{$body-tertiary-color-highcontrast};
+  --#{$prefix}tertiary-color-rgb: #{to-rgb($body-tertiary-color-highcontrast)};
+  --#{$prefix}tertiary-bg: #{$body-tertiary-bg-highcontrast};
+  --#{$prefix}tertiary-bg-rgb: #{to-rgb($body-tertiary-bg-highcontrast)};
+
+  @each $color, $value in $theme-colors {
+    --#{$prefix}#{$color}-rgb: #{to-rgb($highcontrast-primary)};
+    --#{$prefix}#{$color}-text: #{$highcontrast-primary};
+    --#{$prefix}#{$color}-text-emphasis: #{$highcontrast-primary};
+    --#{$prefix}#{$color}-bg-subtle: #{$highcontrast-secondary};
+    --#{$prefix}#{$color}-border-subtle: #{$highcontrast-primary};
+
+    .btn-#{$color} {
+      @include button-variant(
+        $highcontrast-primary,
+        $highcontrast-secondary,
+        $hover-background: tint-color($highcontrast-primary, $btn-hover-bg-tint-amount),
+        $hover-border: tint-color($highcontrast-primary, $btn-hover-border-tint-amount),
+        $active-background: tint-color($highcontrast-primary, $btn-active-bg-tint-amount),
+        $active-border: tint-color($highcontrast-primary, $btn-active-border-tint-amount)
+      );
+    }
+
+    .btn-outline-#{$color} {
+      @include button-outline-variant($highcontrast-primary);
+    }
+
+    .text-bg-#{$color} {
+      color: color-contrast($highcontrast-primary) if($enable-important-utilities, !important, null);
+    }
+  }
+
+  .badge {
+    --#{$prefix}badge-color: #{$highcontrast-secondary};
+  }
+
+  .nav-pills {
+    --#{$prefix}nav-pills-link-active-color: #{$highcontrast-secondary};
+    --#{$prefix}nav-pills-link-active-bg: #{$highcontrast-primary};
+  }
+
+  .pagination {
+    --#{$prefix}pagination-active-color: #{$highcontrast-secondary};
+    --#{$prefix}pagination-active-bg: #{$highcontrast-primary};
+    --#{$prefix}pagination-active-border-color: #{$highcontrast-primary};
+  }
+
+  .text-bg-dark, .bg-dark {
+    color: #{$highcontrast-primary} if($enable-important-utilities, !important, null);
+    background-color: RGBA(#{to-rgb($highcontrast-secondary)}, var(--#{$prefix}bg-opacity, 1)) if($enable-important-utilities, !important, null);
+  }
+
+  --#{$prefix}heading-color: #{$headings-color-highcontrast};
+
+  --#{$prefix}link-color: #{$link-color-highcontrast};
+  --#{$prefix}link-hover-color: #{$link-hover-color-highcontrast};
+  --#{$prefix}link-color-rgb: #{to-rgb($link-color-highcontrast)};
+  --#{$prefix}link-hover-color-rgb: #{to-rgb($link-hover-color-highcontrast)};
+
+  --#{$prefix}code-color: #{$code-color-highcontrast};
+  --#{$prefix}highlight-color: #{$mark-color-highcontrast};
+  --#{$prefix}highlight-bg: #{$mark-bg-highcontrast};
+
+  --#{$prefix}border-color: #{$border-color-highcontrast};
+  --#{$prefix}border-color-translucent: #{$border-color-translucent-highcontrast};
+
+  --#{$prefix}form-valid-color: #{$form-valid-color-highcontrast};
+  --#{$prefix}form-valid-border-color: #{$form-valid-border-color-highcontrast};
+  --#{$prefix}form-invalid-color: #{$form-invalid-color-highcontrast};
+  --#{$prefix}form-invalid-border-color: #{$form-invalid-border-color-highcontrast};
+}

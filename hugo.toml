@@ -1,4 +1,23 @@
 baseURL = 'https://example.org/'
-languageCode = 'en-us'
+defaultContentLanguage = 'pt-br'
 title = 'My New Hugo Site'
 pluralizeListTitles = false
+[menus]
+  [[menus.main]]
+    name = 'Módulos'
+    weight = 10
+  [[menus.main]]
+    name = 'Bibliografia'
+    weight = 90
+  [[menus.main]]
+    name = 'Créditos'
+    weight = 90
+[module]
+  [[module.mounts]]
+    disableWatch = false
+    lang = ''
+    source = 'assets'
+    target = 'assets'
+  [[module.mounts]]
+    source = "node_modules/@fortawesome/fontawesome-free/svgs"
+    target = "assets/svg"
