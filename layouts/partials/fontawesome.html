@@ -1,5 +1,9 @@
 {{- $settings := partial "func/getFontAwesomeSettings.html" (dict "style" .style "arg1" .arg1 "arg2" .arg2) -}}
-<span style="line-height:1em; vertical-align:middle;">
+  {{- if .class -}}
+    <span class="{{.class}}" style="line-height:1em; vertical-align:middle;">
+  {{- else -}}
+    <span style="line-height:1em; vertical-align:middle;">
+  {{- end -}}
   {{- $path := print "svg/" .style "/" .icon ".svg" -}}
   {{- with resources.Get $path -}}
     {{- $svg := .Content -}}

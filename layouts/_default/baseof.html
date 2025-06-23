@@ -7,9 +7,12 @@
         <header>
             {{ partial "header.html" . }}
         </header>
-        <main>
-            {{ block "main" . }}{{ end }}
-        </main>
+        <section id="content">
+            <main id="content-main">
+                {{ block "main" . }}{{ end }}
+            </main>
+            <aside></aside>
+        </section>
         <footer>
             {{ partial "footer.html" . }}
         </footer>

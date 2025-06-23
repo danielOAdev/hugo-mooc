@@ -8,4 +8,43 @@
             {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
         </div>
     </div>
+    <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="themeDropdown" data-bs-toggle="dropdown" aria-expanded="false">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "palette") }}</button>
+        <ul class="dropdown-menu" aria-labelledby="themeDropdown">
+            <li>
+                <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto">
+                    {{ partial "fontawesome.html" (dict "style" "solid" "icon" "microchip" "class" "me-2 opacity-50") }}
+                    Automático&nbsp;<small>(sistema)</small>
+                    {{ partial "fontawesome.html" (dict "style" "solid" "icon" "check" "class" "ms-auto") }}
+                </button>
+            </li>
+            <li>
+                <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="light">
+                    {{ partial "fontawesome.html" (dict "style" "solid" "icon" "sun" "class" "me-2 opacity-50") }}
+                    Claro
+                    <span class="ms-auto" style="line-height:1em; vertical-align:middle;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="height:1em; width:1em">
+                    </span>
+                </button>
+            </li>
+            <li>
+                <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="dark">
+                    {{ partial "fontawesome.html" (dict "style" "solid" "icon" "moon" "class" "me-2 opacity-50") }}
+                    Escuro
+                    <span class="ms-auto" style="line-height:1em; vertical-align:middle;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="height:1em; width:1em">
+                    </span>
+                </button>
+            </li>
+            <li>
+                <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="highcontrast">
+                    {{ partial "fontawesome.html" (dict "style" "solid" "icon" "circle-half-stroke" "class" "me-2 opacity-50") }}
+                    Alto contraste
+                    <span class="ms-auto" style="line-height:1em; vertical-align:middle;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="height:1em; width:1em">
+                    </span>
+                </button>
+            </li>
+        </ul>
+  </div>
 </nav>
