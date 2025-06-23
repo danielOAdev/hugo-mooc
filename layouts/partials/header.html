@@ -1,50 +1,20 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{{ site.BaseURL }}">{{ site.Title }}</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
-        </div>
+            <a class="navbar-brand" href="{{ site.BaseURL }}">
+                <img class="navbar-brand-img" src="/logo.png" alt="">
+                <span class="navbar-brand-text">{{ site.Title }}</span>
+            </a>
+        <div class="dropdown">
+            <button class="btn dropdown-toggle" type="button" id="nav-menu" data-bs-toggle="dropdown" aria-expanded="false">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "bars") }}</button>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu">
+                <li><a class="dropdown-item" href="#">Início</a></li>
+                <li><a class="dropdown-item" href="#">Escolher módulo</a></li>
+                <li><a class="dropdown-item" href="#">Escolher aula</a></li>
+                <li><a class="dropdown-item" href="#">Bibliografia</a></li>
+                <li><a class="dropdown-item" href="#">Créditos</a></li>
+                <li><button type="button" class="dropdown-item" popovertarget="popover-a11y">Acessibilidade {{ partial "fontawesome.html" (dict "style" "solid" "icon" "chevron-right") }}</button></li>
+            </ul>
+            {{- partial "popover-a11y.html" }}
+      </div>
     </div>
-    <div class="dropdown">
-        <button class="btn btn-primary dropdown-toggle" type="button" id="themeDropdown" data-bs-toggle="dropdown" aria-expanded="false">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "palette") }}</button>
-        <ul class="dropdown-menu" aria-labelledby="themeDropdown">
-            <li>
-                <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto">
-                    {{ partial "fontawesome.html" (dict "style" "solid" "icon" "microchip" "class" "me-2 opacity-50") }}
-                    Automático&nbsp;<small>(sistema)</small>
-                    {{ partial "fontawesome.html" (dict "style" "solid" "icon" "check" "class" "ms-auto") }}
-                </button>
-            </li>
-            <li>
-                <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="light">
-                    {{ partial "fontawesome.html" (dict "style" "solid" "icon" "sun" "class" "me-2 opacity-50") }}
-                    Claro
-                    <span class="ms-auto" style="line-height:1em; vertical-align:middle;">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="height:1em; width:1em">
-                    </span>
-                </button>
-            </li>
-            <li>
-                <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="dark">
-                    {{ partial "fontawesome.html" (dict "style" "solid" "icon" "moon" "class" "me-2 opacity-50") }}
-                    Escuro
-                    <span class="ms-auto" style="line-height:1em; vertical-align:middle;">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="height:1em; width:1em">
-                    </span>
-                </button>
-            </li>
-            <li>
-                <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="highcontrast">
-                    {{ partial "fontawesome.html" (dict "style" "solid" "icon" "circle-half-stroke" "class" "me-2 opacity-50") }}
-                    Alto contraste
-                    <span class="ms-auto" style="line-height:1em; vertical-align:middle;">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="height:1em; width:1em">
-                    </span>
-                </button>
-            </li>
-        </ul>
-  </div>
 </nav>

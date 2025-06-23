@@ -19,3 +19,35 @@
     max-width: 936px;
     min-width: 0;
 }
+
+#popover-a11y {
+  width: 30rem;
+  max-height: 80vh;
+  background-color: var(--vigi-secondary-bg);
+  padding: 0;
+  > div:first-child {
+    background-color: var(--vigi-tertiary-bg);
+  }
+
+  @include media-breakpoint-down(md) {
+    width: auto;
+    margin: auto 1rem;
+  }
+}
+
+.navbar-brand-img {
+  height: 1lh;
+}
+
+@include media-breakpoint-down(sm) {
+  .navbar-brand-text {
+    display: none;
+  }
+}
+
+:where(svg.icon) {
+  height: 1em;
+  width: 1em;
+  vertical-align: -0.15em !important;
+  font-size: 1em
+}

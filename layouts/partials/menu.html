@@ -13,6 +13,10 @@ Renders a menu for the given menu ID.
 {{- with index site.Menus $menuID }}
   <ul  class="navbar-nav">
     {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
+    <li class="nav-item">
+      <button type="button" class="nav-link" popovertarget="popover-a11y">Acessibilidade {{ partial "fontawesome.html" (dict "style" "solid" "icon" "chevron-right") }}</button>
+      {{- partial "popover-a11y.html" }}
+    </li>
   </ul>
 {{- end }}
 
