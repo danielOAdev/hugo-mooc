@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-body-tertiary flex-nowrap">
     <div class="container-fluid">
             <a class="navbar-brand" href="{{ site.BaseURL }}">
                 <img class="navbar-brand-img" src="/logo.png" alt="">
@@ -6,10 +6,10 @@
             </a>
         <div class="dropdown">
             <button class="btn dropdown-toggle" type="button" id="nav-menu" data-bs-toggle="dropdown" aria-expanded="false">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "bars") }}</button>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu">
+            <ul class="dropdown-menu dropdown-menu-end overflow-auto" aria-labelledby="nav-menu">
                 <li><a class="dropdown-item" href="#">Início</a></li>
                 <li><a class="dropdown-item" href="#">Escolher módulo</a></li>
-                <li><a class="dropdown-item" href="#">Escolher aula</a></li>
+                {{ partial "console-log" . }}
                 <li><a class="dropdown-item" href="#">Bibliografia</a></li>
                 <li><a class="dropdown-item" href="#">Créditos</a></li>
                 <li><button type="button" class="dropdown-item" popovertarget="popover-a11y">Acessibilidade {{ partial "fontawesome.html" (dict "style" "solid" "icon" "chevron-right") }}</button></li>

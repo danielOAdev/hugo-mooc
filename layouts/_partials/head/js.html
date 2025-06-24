@@ -10,6 +10,9 @@
     {{- end }}
   {{- end }}
 {{- end }}
-{{- with resources.Get "js/color-theme.js" }}
+{{- with resources.Get "js/theme.js" }}
+  <script src="{{ .RelPermalink }}"></script>
+{{- end }}
+{{- with resources.Get "js/font-scale.js" }}
   <script src="{{ .RelPermalink }}"></script>
 {{- end }}
