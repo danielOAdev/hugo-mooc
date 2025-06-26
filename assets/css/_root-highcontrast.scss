@@ -1,4 +1,4 @@
-@include color-mode(highcontrast, true) {
+@include color-mode(highcontrast) {
   color-scheme: dark;
 
   --#{$prefix}body-color: #{$body-color-highcontrast};
@@ -64,6 +64,10 @@
   .text-bg-dark, .bg-dark {
     color: #{$highcontrast-primary} if($enable-important-utilities, !important, null);
     background-color: RGBA(#{to-rgb($highcontrast-secondary)}, var(--#{$prefix}bg-opacity, 1)) if($enable-important-utilities, !important, null);
+  }
+
+  .form-switch .form-check-input:not(:checked):not(:focus) {
+    --#{$prefix}form-switch-bg: #{escape-svg($form-switch-bg-image-highcontrast)};
   }
 
   --#{$prefix}heading-color: #{$headings-color-highcontrast};

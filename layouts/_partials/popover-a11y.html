@@ -5,8 +5,8 @@
             {{ partial "fontawesome.html" (dict "style" "solid" "icon" "xmark" "classes" "fs-3") }}
         </button>
     </div>
-    <form id="id-form-a11y" class="p-3">
-        <div class="mb-3">
+    <form id="id-form-a11y" class="vstack gap-3 p-3">
+        <div>
             <h4>Tema</h4>
             <div class="form-check">
                 <label class="form-check-label">
@@ -51,6 +51,21 @@
                 <label class="form-check-label">
                     <input class="form-check-input" type="radio" name="font-scale" value="1.5">
                     Muito maior
+                </label>
+            </div>
+        </div>
+        <div>
+            <h4>Geral</h4>
+            <div class="form-check form-switch">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                    <span>
+                        Exibir conteúdos ocultos automaticamente
+                        <details class="d-inline">
+                            <summary class="d-inline">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "circle-question") }}</summary>
+                            <i><small>Elementos ocultos que só seriam exibibos após uma interação, serão exibidos automaticamente, sem a necessidade de interação.</small></i>
+                        </details>
+                    </span>
                 </label>
             </div>
         </div>
