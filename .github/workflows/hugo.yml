@@ -1,49 +1,68 @@
 name: Construir e Publicar Site Hugo
 
-# Dispara o workflow quando houver push na branch main ou execução manual
+# Dispara o workflow em push na branch main ou execução manual
 on:
   push:
     branches: [main]
-  workflow_dispatch:  # Permite executar manualmente pelo GitHub Actions
+  workflow_dispatch:
+
+# Permissões necessárias para publicar no GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
-  construir-e-publicar:
-    runs-on: ubuntu-latest  # Usa a versão mais recente do Ubuntu como ambiente
+  build:
+    name: Construir site
+    runs-on: ubuntu-latest
 
     steps:
       # Clona o repositório no ambiente do GitHub Actions
       - name: Obter código do repositório
         uses: actions/checkout@v4
 
-      # Configura o Node.js e ativa o cache do npm para acelerar builds futuros
+      # Configura o Node.js e ativa o cache do npm
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
 
-      # Configura o Go, necessário para o Hugo Extended funcionar corretamente
+      # Configura o Go, necessário para o Hugo Extended
       - name: Configurar Go
         uses: actions/setup-go@v5
         with:
           go-version: '1.22'
 
-      # Instala as dependências listadas no package.json (inclui Hugo, Bootstrap, FontAwesome)
+      # Instala as dependências do projeto
       - name: Instalar dependências do npm
         run: npm install
 
-      # Adiciona o diretório de binários do npm ao PATH para que o comando hugo funcione
+      # Adiciona o diretório de binários do npm ao PATH
       - name: Adicionar Hugo ao PATH
-        run: |
-          echo "$(npm bin)" >> $GITHUB_PATH
+        run: echo "$(npm bin)" >> $GITHUB_PATH
 
-      # Gera o site estático com o Hugo (saída na pasta ./public)
+      # Gera o site estático com Hugo
       - name: Gerar site com Hugo
         run: npm run build
 
-      # Faz o deploy do conteúdo da pasta ./public para o branch gh-pages (GitHub Pages)
-      - name: Publicar no GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
+      # Faz upload dos arquivos gerados para o job de deploy
+      - name: Enviar artefatos para publicação
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}  # Token gerado automaticamente para autenticação segura
-          publish_dir: ./public  # Diretório que será publicado no GitHub Pages
+          path: ./public
+
+  deploy:
+    name: Publicar no GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      # Realiza o deploy dos artefatos enviados no job anterior
+      - name: Fazer deploy no GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
