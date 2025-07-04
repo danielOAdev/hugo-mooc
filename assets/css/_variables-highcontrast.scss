@@ -62,7 +62,7 @@ $mark-bg-highcontrast:                      $yellow-800 !default;
 $form-select-indicator-color-highcontrast:  $body-color-highcontrast !default;
 $form-select-indicator-highcontrast:        url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='none' stroke='#{$form-select-indicator-color-highcontrast}' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/></svg>") !default;
 
-$form-switch-color-highcontrast:            rgba($white, .25) !default;
+$form-switch-color-highcontrast:            $highcontrast-primary !default;
 $form-switch-bg-image-highcontrast:         url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-color-highcontrast}'/></svg>") !default;
 
 $form-valid-color-highcontrast:             $green-300 !default;
@@ -70,6 +70,7 @@ $form-valid-border-color-highcontrast:      $green-300 !default;
 $form-invalid-color-highcontrast:           $red-300 !default;
 $form-invalid-border-color-highcontrast:    $red-300 !default;
 
+$form-range-track-bg:                       $highcontrast-primary !default;
 
 //
 // Accordion

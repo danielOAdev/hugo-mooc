@@ -1,7 +1,12 @@
 baseURL = 'https://example.org/'
 defaultContentLanguage = 'pt-br'
-title = 'My New Hugo Site'
+title = 'Vigifronteiras-Brasil'
+summary = 'Curso Doenças Crônicas não Transmissíveis(DCNT) e o Desafio da Vigilância em Saúde nas Regiões Fronteiriças'
 pluralizeListTitles = false
+enableRobotsTXT = true
+disableHugoGeneratorInject = true
+[params.meta]
+  msColor = "#ffffff"
 [menus]
   [[menus.main]]
     name = 'Módulos'
@@ -21,3 +26,6 @@ pluralizeListTitles = false
   [[module.mounts]]
     source = "node_modules/@fortawesome/fontawesome-free/svgs"
     target = "assets/svg"
+[services]
+  [services.googleAnalytics]
+    id = 'G-MEASUREMENT_ID'

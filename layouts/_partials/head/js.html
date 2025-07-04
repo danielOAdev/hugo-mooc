@@ -1,4 +1,4 @@
-{{- with resources.Get "js/main.js" }}
+{{- with resources.Get "js/bootstrap.js" }}
   {{- if eq hugo.Environment "development" }}
     {{- with . | js.Build }}
       <script src="{{ .RelPermalink }}"></script>
@@ -9,4 +9,10 @@
       <script src="{{ .RelPermalink }}" integrity="{{- .Data.Integrity }}" crossorigin="anonymous"></script>
     {{- end }}
   {{- end }}
+{{- end }}
+{{- with resources.Get "js/theme.js" }}
+  <script src="{{ .RelPermalink }}"></script>
+{{- end }}
+{{- with resources.Get "js/font-scale.js" }}
+  <script src="{{ .RelPermalink }}"></script>
 {{- end }}
