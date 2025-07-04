@@ -1,0 +1,49 @@
+name: Construir e Publicar Site Hugo
+
+# Dispara o workflow quando houver push na branch main ou execução manual
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:  # Permite executar manualmente pelo GitHub Actions
+
+jobs:
+  construir-e-publicar:
+    runs-on: ubuntu-latest  # Usa a versão mais recente do Ubuntu como ambiente
+
+    steps:
+      # Clona o repositório no ambiente do GitHub Actions
+      - name: Obter código do repositório
+        uses: actions/checkout@v4
+
+      # Configura o Node.js e ativa o cache do npm para acelerar builds futuros
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      # Configura o Go, necessário para o Hugo Extended funcionar corretamente
+      - name: Configurar Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.22'
+
+      # Instala as dependências listadas no package.json (inclui Hugo, Bootstrap, FontAwesome)
+      - name: Instalar dependências do npm
+        run: npm install
+
+      # Adiciona o diretório de binários do npm ao PATH para que o comando hugo funcione
+      - name: Adicionar Hugo ao PATH
+        run: |
+          echo "$(npm bin)" >> $GITHUB_PATH
+
+      # Gera o site estático com o Hugo (saída na pasta ./public)
+      - name: Gerar site com Hugo
+        run: npm run build
+
+      # Faz o deploy do conteúdo da pasta ./public para o branch gh-pages (GitHub Pages)
+      - name: Publicar no GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}  # Token gerado automaticamente para autenticação segura
+          publish_dir: ./public  # Diretório que será publicado no GitHub Pages
