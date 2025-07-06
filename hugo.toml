@@ -1,7 +1,8 @@
-baseURL = 'https://example.org/'
+baseURL = '/'
 defaultContentLanguage = 'pt-br'
 title = 'Vigifronteiras-Brasil'
 summary = 'Curso Doenças Crônicas não Transmissíveis(DCNT) e o Desafio da Vigilância em Saúde nas Regiões Fronteiriças'
+relativeURLs = true
 pluralizeListTitles = false
 enableRobotsTXT = true
 disableHugoGeneratorInject = true

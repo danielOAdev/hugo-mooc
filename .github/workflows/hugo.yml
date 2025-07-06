@@ -45,7 +45,7 @@ jobs:
 
       # Gera o site estático com Hugo
       - name: Gerar site com Hugo
-        run: npx hugo --baseURL "https://danielOAdev.github.io/hugo-mooc/"
+        run: npx hugo
 
       # Faz upload dos arquivos gerados para o job de deploy
       - name: Enviar artefatos para publicação
