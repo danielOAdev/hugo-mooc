@@ -1,0 +1,65 @@
+<form id="form-a11y" class="vstack gap-3">
+    <div>
+        <h4>Tema</h4>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="theme" value="auto" checked>
+                Automático <small>(sistema)</small>
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="theme" value="light">
+                Claro
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="theme" value="dark">
+                Escuro
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="theme" value="highcontrast">
+                Alto contraste
+            </label>
+        </div>
+    </div>
+    <div>
+        <h4>Tamanho do texto</h4>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="font-scale" value="1" checked>
+                Padrão
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="font-scale" value="1.25">
+                Maior
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="font-scale" value="1.5">
+                Muito maior
+            </label>
+        </div>
+    </div>
+    <div>
+        <h4>Geral</h4>
+        <div class="form-check form-switch">
+            <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                <span>
+                    Exibir conteúdos ocultos automaticamente
+                    <details class="d-inline">
+                        <summary class="d-inline">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "circle-question") }}</summary>
+                        <i><small>Elementos ocultos que só seriam exibibos após uma interação, serão exibidos automaticamente, sem a necessidade de interação.</small></i>
+                    </details>
+                </span>
+            </label>
+        </div>
+    </div>
+</form>

@@ -5,15 +5,10 @@
             <span class="navbar-brand-text">{{ site.Title }}</span>
         </a>
         <div class="dropdown">
-            <button class="btn dropdown-toggle" type="button" id="nav-menu" data-bs-toggle="dropdown" aria-expanded="false">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "bars") }}</button>
-            <ul class="dropdown-menu dropdown-menu-end overflow-auto" aria-labelledby="nav-menu">
-                <li><a class="dropdown-item" href="{{ .Site.Home.RelPermalink }}">Início</a></li>
-                <li><a class="dropdown-item" href="#">Escolher módulo</a></li>
-                <li><a class="dropdown-item" href="{{ (.Site.GetPage `bibliografia.html`).RelPermalink }}">Bibliografia</a></li>
-                <li><a class="dropdown-item" href="{{ (.Site.GetPage `creditos.html`).RelPermalink }}">Créditos</a></li>
-                <li><button type="button" class="dropdown-item" popovertarget="popover-a11y">Acessibilidade {{ partial "fontawesome.html" (dict "style" "solid" "icon" "chevron-right") }}</button></li>
-            </ul>
-            {{- partial "popover-a11y.html" }}
+            <button class="btn btn-secondary" type="button" id="main-menu-opener" popovertarget="popover-main-menu">
+                {{ partial "fontawesome.html" (dict "style" "solid" "icon" "bars") }}
+            </button>
+            {{- partial "popover-main-menu.html" }}
         </div>
     </div>
 </nav>
