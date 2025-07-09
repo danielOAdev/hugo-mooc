@@ -1,9 +1,3 @@
-/*!
- * Color mode toggler for Bootstrap's docs (https://getbootstrap.com/)
- * Copyright 2011-2025 The Bootstrap Authors
- * Licensed under the Creative Commons Attribution 3.0 Unported License.
- */
-
 (() => {
   'use strict'
 
@@ -88,7 +82,7 @@
         })
       })
 
-    document.querySelector('button[form="id-form-a11y"][type="reset"]')
+    document.querySelector('#form-a11y button[type="reset"]')
       .addEventListener('click', () => {
         removeStoredFontScale()
         setFontSize('1')

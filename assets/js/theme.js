@@ -87,7 +87,7 @@
         })
       })
 
-    document.querySelector('button[form="id-form-a11y"][type="reset"]')
+    document.querySelector('#form-a11y button[type="reset"]')
       .addEventListener('click', () => {
         removeStoredTheme()
         setTheme('auto')

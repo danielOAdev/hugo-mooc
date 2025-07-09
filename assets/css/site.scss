@@ -10,14 +10,10 @@
   -webkit-tap-highlight-color: rgba($black, 0); // 4
 }
 
-html:has(#popover-main-menu:popover-open) {
-  overflow: hidden;
-}
-
 #content {
   display: grid;
   grid-gap: 24px;
-  grid-template-columns: 1fr minmax(map-get($grid-breakpoints, "md"), 936px) 1fr;
+  grid-template-columns: 1fr minmax(0, map-get($grid-breakpoints, "lg")) 1fr;
   grid-template-rows: 1fr;
 }
 
@@ -36,23 +32,57 @@ html:has(#popover-main-menu:popover-open) {
   min-width: 0;
 }
 
-#popover-main-menu {
-  width: unset;
-  height: unset;
-  inset: 0;
+#popover-main-menu:popover-open {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  max-height: 80vh;
+  max-width: 80vw;
   padding: 0;
   background-color: var(--vigi-tertiary-bg);
-
-  @include media-breakpoint-down(sm) {
+  overflow: hidden;
+  bottom: auto;
+  top: 10vh;
+  
+  @include media-breakpoint-down(md) {
     width: auto;
-    margin: auto 1rem;
+    gap: .5rem;
   }
 }
 
 #main-menu-grid {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template: "nav content" 1fr / auto 1fr;
   gap: 1rem;
+  overflow: hidden;
+  @include media-breakpoint-down(md) {
+    grid-template:
+      "nav" auto
+      "content" 1fr / 1fr;
+    gap: 0;
+  }
+}
+
+#main-menu-content {
+  grid-area: content;
+  overflow: auto;
+  padding: .5rem;
+}
+
+#main-menu-nav {
+  grid-area: nav;
+  overflow: auto;
+  padding: .5rem;
+  @include media-breakpoint-down(md) {
+    display: none;
+  }
+}
+
+#main-menu-select {
+  display: none;
+  @include media-breakpoint-down(md) {
+    display: block;
+    padding: 0 .5rem;
+  }
 }
 
 .navbar-brand-img {

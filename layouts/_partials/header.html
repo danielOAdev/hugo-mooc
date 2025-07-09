@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary flex-nowrap">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{{ .Site.Home.RelPermalink }}">
+        <a class="navbar-brand hstack gap-2" href="{{ .Site.Home.RelPermalink }}">
             <img class="navbar-brand-img" src="{{ "logo.png" | relURL }}" alt="">
-            <span class="navbar-brand-text">{{ site.Title }}</span>
+            <h1 class="navbar-brand-text h3 m-0">{{ site.Title }}</h1>
         </a>
         <div class="dropdown">
             <button class="btn btn-secondary" type="button" id="main-menu-opener" popovertarget="popover-main-menu">

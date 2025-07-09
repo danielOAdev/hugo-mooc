@@ -8,7 +8,8 @@
 //
 // Import Bootstrap's bundle (all of Bootstrap's JS + Popper.js dependency)
 
-import "bootstrap";
+import * as bootstrap from 'bootstrap';
+window.bootstrap = bootstrap;
 
 
 // Option 2
