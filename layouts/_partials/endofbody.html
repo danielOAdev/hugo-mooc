@@ -10,8 +10,17 @@
     {{- end }}
   {{- end }}
 {{- end }}
-{{- with resources.Get "js/main-menu.js" }}
-  {{- with . | js.Build (dict "format" "esm" "loader" "js") }}
-    <script type="module" src="{{ .RelPermalink }}"></script>
-  {{- end }}
+
+{{/*
+  Como não estamos usando "js.Build", temos que publicar manualmente módulos importados.
+*/}}
+{{- range resources.Match "js/modules/*.*" }}
+  {{ .Publish }}
+{{- end }}
+
+{{/*
+  Menu principal
+*/}}
+{{- with resources.Get "js/modules/main-menu.js" }}
+  <script type="module" src="{{ .RelPermalink }}"></script>
 {{- end }}
