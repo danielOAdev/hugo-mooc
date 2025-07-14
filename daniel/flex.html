@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BS 5.3</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <style>
+        .grid {
+            display: grid;
+            grid-template: 1fr 1fr / 1fr 1fr;
+            gap: 1rem
+        }
+
+        .modulo {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: stretch;
+            border: white solid 1px;
+            padding: 1rem;
+            border-radius: .5rem;
+            row-gap: 1rem;
+        }
+
+        .char {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 0 1 8rem;
+
+            > img {
+                height: 100%;
+                transform: scale(calc(1.25));
+                pointer-events: none;
+            }
+        }
+
+        .content {
+            display: flex;
+            flex: 1 1 60%;
+            row-gap: .25rem;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .mariana, .pedro {
+            transform: scaleX(-1);
+        }
+    </style>
+</head>
+<body class="bg-dark p-3">
+    <div class="grid">
+        <div class="modulo">
+            <div class="char">
+                <img src="../assets/images/personagens/Luana_torso.svg">
+            </div>
+            <div class="content">
+                <span class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, enim.</span>
+                <a class="btn btn-primary text-center" href="">Aula 1</a>
+                <a class="btn btn-primary text-center" href="">Aula 2</a>
+            </div>
+        </div>
+        <div class="modulo">
+            <div class="char">
+                <img src="../assets/images/personagens/Luana_torso.svg">
+            </div>
+            <div class="content">
+                <span class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, enim.</span>
+                <a class="btn btn-primary text-center" href="">Aula 1</a>
+                <a class="btn btn-primary text-center" href="">Aula 2</a>
+                <a class="btn btn-primary text-center" href="">Aula 3</a>
+            </div>
+        </div>
+        <div class="modulo">
+            <div class="char mariana">
+                <img src="../assets/images/personagens/Mariana_torso.svg">
+            </div>
+            <div class="content">
+                <span class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, enim.</span>
+                <a class="btn btn-primary text-center" href="">Aula 1</a>
+                <a class="btn btn-primary text-center" href="">Aula 2</a>
+            </div>
+        </div>
+        <div class="modulo">
+            <div class="char pedro">
+                <img src="../assets/images/personagens/Pedro_torso.svg">
+            </div>
+            <div class="content">
+                <span class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, enim.</span>
+                <a class="btn btn-primary text-center" href="">Aula 1</a>
+                <a class="btn btn-primary text-center" href="">Aula 2</a>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+</body>
+</html>

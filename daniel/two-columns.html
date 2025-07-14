@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    .grid-container {
+      display: grid;
+      grid-template-columns: minmax(8rem, auto) 1fr;
+      gap: 20px;
+      align-items: stretch;
+      margin: 40px auto;
+    }
+
+    .column1 {
+      display: flex;
+      flex-direction: column;
+      background-color: #f0f0f0;
+      padding: 20px;
+    }
+
+    .column1 p {
+      margin-bottom: 20px;
+    }
+
+    .column1 button {
+      margin-bottom: 10px;
+    }
+
+    .column2 {
+      aspect-ratio: 1 / 1;
+      justify-self: center;
+      align-self: center;
+
+      img {
+        height: 100%;
+        max-height: 16rem;
+      }
+    }
+  </style>
+</head>
+<body class="bg-dark">
+  <div class="grid-container">
+    <div class="column2">
+        <img alt="" style="transform: scale(1.1);" src="128.png">
+    </div>
+    <div class="column1">
+      <p>This is a small text phrase.</p>
+      <button>Button 1</button>
+      <button>Button 2</button>
+      <button>Button 3</button>
+    </div>
+  </div>
+</body>
+</html>

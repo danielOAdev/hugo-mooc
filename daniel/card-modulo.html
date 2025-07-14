@@ -20,12 +20,12 @@
         }
     </style>
 </head>
-<body>
+<body class="bg-dark">
 
-    <div class="border" style="display: inline-grid;grid-template-columns: auto 1fr;justify-self: start;gap: 0.5rem;margin: 1rem;">
-        <img src="logo.png" alt="" class="luana" style="height: 100%;align-self: center;justify-self: center;transform: scale(calc(1.1));">
+    <div class="border" style="display: grid;grid-template-columns: minmax(8rem, auto) minmax(8rem, 1fr);justify-self: start;gap: 0.5rem;margin: 1rem;">
+        <img src="Luana_torso.svg" alt="" class="luana" style="height: 100%;align-self: center;justify-self: center;transform: scale(calc(1.1));">
         <div class="d-grid flex-grow-0 gap-1 text-center" style="align-content: center;padding:1rem;">
-            <span>Lorem ipsum dolor sit amet consectetur.</span>
+            <span class="text-white">Lorem ipsum dolor sit amet consectetur.</span>
             <a class="btn btn-primary d-flex justify-content-between gap-1" href="">
                 Aula 1 dsadas
                 <span>&gt;</span>
@@ -41,18 +41,55 @@
             </a>
         </div>
     </div>
-    <div class="border" style="display: inline-grid;grid-template-columns: 6rem 1fr;justify-self: start;gap: 0.5rem;margin: 1rem;width: 18rem;">
-        <img src="logo.png" alt="" style="height: 100%;transform: scale(calc(1.1));object-fit: scale-down;width: 100%;" class="luana"><div class="d-grid flex-grow-0 gap-1 text-center" style="align-content: center;padding:1rem;">
-            <span>Lorem ipsum dolor sit amet consectetur.</span>
+    <div class="container">
+        <div class="row">
+            <div class="bg-primary" style="max-width: 6rem;">
+                <img src="128.png" alt="" style="height: 100%;transform: scale(calc(1.1));object-fit: scale-down;width: 100%;" class="luana">
+            </div>
+            <div class="col bg-secondary">
+                <div class="d-grid flex-grow-0 gap-1 text-center" style="align-content: center;padding:1rem;">
+                    <span>Lorem ipsum dolor sit amet consectetur.</span>
+                    <a class="btn btn-primary d-flex justify-content-between gap-1" href="">
+                        Aula 1 <span>&gt;</span>
+                    </a><a class="btn btn-primary d-flex justify-content-between gap-1" href="">
+                        Aula 1 <span>&gt;</span>
+                    </a><a class="btn btn-primary d-flex justify-content-between gap-1" href="">
+                        Aula 1 <span>&gt;</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="resize: horizontal;overflow:auto;">
+        <div class="border" style="display: inline-grid;grid-template-columns: 6rem 1fr;justify-self: start;gap: 0.5rem;margin: 1rem;">
+            <img src="128.png" alt="" style="height: 100%;transform: scale(calc(1.1));object-fit: scale-down;width: 100%;" class="luana">
+            <div class="d-grid flex-grow-0 gap-1 text-center" style="align-content: center;padding:1rem;">
+                <span>Lorem ipsum dolor sit amet consectetur.</span>
+                <a class="btn btn-primary d-flex justify-content-between gap-1" href="">
+                    Aula 1 dsadas
+                    <span>&gt;</span>
+                </a><a class="btn btn-primary d-flex justify-content-between gap-1" href="">
+                    Aula 1 dsadas
+                    <span>&gt;</span>
+                </a><a class="btn btn-primary d-flex justify-content-between gap-1" href="">
+                    Aula 1 dsadas
+                    <span>&gt;</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div style="display:flex; justify-content:center; flex-wrap:wrap;">
+        <div style="display:flex; justify-content:center; align-items:center; min-width:8rem;">
+            <img src="Luana_torso.svg" alt="" style="height: 100%;transform: scale(calc(1.1));" class="luana">
+        </div>
+        <div style="display:flex; flex: 1 1 auto; row-gap: .25rem; flex-direction: column;">
+            <span class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, enim.</span>
             <a class="btn btn-primary d-flex justify-content-between gap-1" href="">
-                Aula 1 dsadas
-                <span>&gt;</span>
+                Aula 1 <span>&gt;</span>
             </a><a class="btn btn-primary d-flex justify-content-between gap-1" href="">
-                Aula 1 dsadas
-                <span>&gt;</span>
+                Aula 1 <span>&gt;</span>
             </a><a class="btn btn-primary d-flex justify-content-between gap-1" href="">
-                Aula 1 dsadas
-                <span>&gt;</span>
+                Aula 1 <span>&gt;</span>
             </a>
         </div>
     </div>
