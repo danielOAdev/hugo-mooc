@@ -1,4 +1,5 @@
-import './menu-a11y.js';
+import './menu-a11y.mjs';
+import * as bootstrap from '../bootstrap/bootstrap.min.mjs';
 
 const mainMenu = document.getElementById('popover-main-menu');
 

@@ -27,6 +27,12 @@ disableHugoGeneratorInject = true
   [[module.mounts]]
     source = "node_modules/@fortawesome/fontawesome-free/svgs"
     target = "assets/svg"
+  [[module.mounts]]
+    source = "node_modules/bootstrap/dist/js/bootstrap.esm.min.js"
+    target = "assets/js/bootstrap/bootstrap.min.mjs"
+  [[module.mounts]]
+    source = "node_modules/@popperjs"
+    target = "assets/js/popperjs"
 [services]
   [services.googleAnalytics]
     id = 'G-MEASUREMENT_ID'
