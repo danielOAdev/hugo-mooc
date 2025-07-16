@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@popperjs/core": "./js/popperjs/core/dist/esm/popper.js"
+    "@popperjs/core": "../popperjs/core/dist/esm/popper.js"
   }
 }

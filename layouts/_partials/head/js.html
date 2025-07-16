@@ -1,13 +1,17 @@
 <script type="importmap">
   {
     "imports": {
-      {{- with resources.Get "/js/popperjs/core/dist/esm/popper.js" }}
-        "@popperjs/core": "{{ .RelPermalink }}"
-      {{- end }}
-        "vigi/": "{{ urls.AbsURL "" }}js/vigi/"
+      "@popperjs/core": "../popperjs/core/dist/esm/popper.js"
   }
 }
 </script>
+
+{{/*  {{- with resources.Get "/js/importmap.json" }}
+<script type="importmap">
+  {{ .Content | safeHTML }}
+  {{ urls.RelRef $ "js/popperjs/core/dist/esm/popper.js"}}
+</script>
+{{- end }}  */}}
 
 {{/*
   Como não estamos usando "js.Build", temos que publicar manualmente módulos importados.

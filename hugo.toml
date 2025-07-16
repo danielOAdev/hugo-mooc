@@ -31,8 +31,8 @@ disableHugoGeneratorInject = true
     source = "node_modules/bootstrap/dist/js/bootstrap.esm.min.js"
     target = "assets/js/bootstrap/bootstrap.min.mjs"
   [[module.mounts]]
-    source = "node_modules/@popperjs"
-    target = "assets/js/popperjs"
+    source = "node_modules/@popperjs/core/dist/esm"
+    target = "assets/js/popperjs/core/dist/esm"
 [services]
   [services.googleAnalytics]
     id = 'G-MEASUREMENT_ID'
