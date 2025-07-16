@@ -4,7 +4,6 @@
  * @copyright Daniel de Oliveira Araujo 2025
  */
 
-setFontSize(getPreferredFontScale());
 showActiveFontScale(getPreferredFontScale());
 
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
@@ -23,32 +22,32 @@ document.querySelectorAll('input[name="font-scale"]').forEach(radio => {
 });
 
 /**
-* Retorna a preferência de tamanho do texto em Local Storage.
-* @returns {string} 1, 1.25, 1.5
-*/
+ * Retorna a preferência de tamanho do texto em Local Storage.
+ * @returns {string} 1, 1.25, 1.5
+ */
 export function getStoredFontScale() {
     localStorage.getItem('font-scale');
 }
 
 /**
-* Armazena preferência de tamanho do texto em Local Storage.
-* @param {string} fontScale  1, 1.25, 1.5
-*/
+ * Armazena preferência de tamanho do texto em Local Storage.
+ * @param {string} fontScale  1, 1.25, 1.5
+ */
 export function setStoredFontScale(fontScale) {
     localStorage.setItem('font-scale', fontScale);
 }
 
 /**
-* Remove preferência de tamanho do texto em Local Storage.
-*/
+ * Remove preferência de tamanho do texto em Local Storage.
+ */
 export function removeStoredFontScale() {
     localStorage.removeItem('font-scale');
 }
 
 /**
-* Retorna a preferência de tamanho do texto do usuário.
-* @returns {string} 1, 1.25, 1.5
-*/
+ * Retorna a preferência de tamanho do texto do usuário.
+ * @returns {string} 1, 1.25, 1.5
+ */
 export function getPreferredFontScale() {
     const storedFontScale = getStoredFontScale();
     if (storedFontScale) {
@@ -59,17 +58,17 @@ export function getPreferredFontScale() {
 }
 
 /**
-* Aplica a escala à propriedade de estilo "font-size" do elemento <html>.
-* @param {string} fontScale 1, 1.25, 1.5
-*/
+ * Aplica a escala à propriedade de estilo "font-size" do elemento <html>.
+ * @param {string} fontScale 1, 1.25, 1.5
+ */
 export function setFontSize(fontScale) {
     document.documentElement.style.setProperty("font-size", `${fontScale}em`);
 }
 
 /**
-* Marca o botão de radio correspondente.
-* @param {string} fontScale 1, 1.25, 1.5
-*/
+ * Marca o botão de radio correspondente.
+ * @param {string} fontScale 1, 1.25, 1.5
+ */
 export function showActiveFontScale(fontScale) {
     const radioToCheck = document.querySelector(`input[name="font-scale"][value="${fontScale}"]`);
     

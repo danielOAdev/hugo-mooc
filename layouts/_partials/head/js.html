@@ -1,17 +1,37 @@
+{{- with resources.Get "/js/init.js" }}
+<script src="{{ .RelPermalink }}"></script>
+{{- end }}
+
 <script type="importmap">
   {
     "imports": {
-      "@popperjs/core": "../popperjs/core/dist/esm/popper.js"
+      {{ $page := . }}
+      {{- with resources.Get "/js/popperjs/core/dist/esm/popper.js" }}
+        "@popperjs/core": "{{ partial "RelURLToCurPage.html" (dict "Page" $page "url" .RelPermalink) }}"
+      {{- end }}
   }
 }
 </script>
 
-{{/*  {{- with resources.Get "/js/importmap.json" }}
-<script type="importmap">
-  {{ .Content | safeHTML }}
-  {{ urls.RelRef $ "js/popperjs/core/dist/esm/popper.js"}}
-</script>
-{{- end }}  */}}
+{{- define "_partials/RelURLToCurPage.html" }}
+  {{- $url := .url}}
+  {{- $currenturl := .Page.RelPermalink }}
+  {{- $currentpath := trim (path.Dir $currenturl) "/" }}
+  {{- $segments := split $currentpath "/" }}
+  {{- $backtrack := "" }}
+  {{- $result := $url -}}
+
+  {{- if gt (len $currentpath) 0 }}
+    {{- range $k, $v := $segments }}
+      {{- $backtrack = printf "%s%s" $backtrack "../" }}
+    {{- end }}
+    {{- $result = path.Join $backtrack $url }}
+  {{- else }}
+    {{- $backtrack = "./" }}
+    {{- $result = printf "%s%s" $backtrack (strings.TrimLeft "./" $url) }}
+  {{- end }}
+  {{- return $result }}
+{{- end }}
 
 {{/*
   Como não estamos usando "js.Build", temos que publicar manualmente módulos importados.

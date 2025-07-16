@@ -1,4 +1,9 @@
-setTheme(getTheme());
+/**
+ * Implementa funcionalidade de definição da preferência de tema.
+ * @author Daniel de Oliveira Araujo <danieloadev@gmail.com>
+ * @copyright Daniel de Oliveira Araujo 2025
+ */
+
 showActiveTheme(getStoredTheme());
 
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
@@ -19,7 +24,7 @@ document.querySelectorAll('input[name="theme"]').forEach(radio => {
 /**
  * Retorna a preferência de tema em Local Storage.
  * @returns {string} auto, light, dark ou highcontrast
-*/
+ */
 export function getStoredTheme() {
     localStorage.getItem('theme');
 }
@@ -27,14 +32,14 @@ export function getStoredTheme() {
 /**
  * Armazena preferência de tema em Local Storage.
  * @param {string} theme auto, light, dark ou highcontrast
-*/
+ */
 export function setStoredTheme(theme) {
     localStorage.setItem('theme', theme);
 }
 
 /**
  * Remove preferência de tema em Local Storage.
-*/
+ */
 export function removeStoredTheme() {
     localStorage.removeItem('theme');
 }
@@ -42,7 +47,7 @@ export function removeStoredTheme() {
 /**
  * Retorna a preferência de tema do usuário.
  * @returns {string} auto, light, dark ou highcontrast
-*/
+ */
 export function getTheme() {
     const storedTheme = getStoredTheme()
     if (storedTheme && storedTheme !== 'auto') {
@@ -55,7 +60,7 @@ export function getTheme() {
 /**
  * Altera o atributo "data-bs-theme" do elemento <html>.
  * @param {string} theme auto, light, dark ou highcontrast
-*/
+ */
 export function setTheme(theme) {
     if (theme === 'auto') {
         document.documentElement.setAttribute('data-bs-theme', (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'))
@@ -67,7 +72,7 @@ export function setTheme(theme) {
 /**
  * Marca o botão de radio correspondente.
  * @param {string} theme auto, light, dark ou highcontrast
-*/
+ */
 export function showActiveTheme(theme) {
     const radioToCheck = document.querySelector(`input[name="theme"][value="${theme}"]`)
     
