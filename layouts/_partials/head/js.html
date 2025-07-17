@@ -1,52 +1,49 @@
-{{- with resources.Get "/js/init.js" }}
+{{- with resources.Get "/js/init.js" -}}
 <script src="{{ .RelPermalink }}"></script>
-{{- end }}
+{{- end -}}
 
-<script type="importmap">
-  {
-    "imports": {
-      {{ $page := . }}
-      {{- with resources.Get "/js/popperjs/core/dist/esm/popper.js" }}
-        "@popperjs/core": "{{ partial "RelURLToCurPage.html" (dict "Page" $page "url" .RelPermalink) }}"
-      {{- end }}
-  }
-}
-</script>
+{{/* Import map */}}
+<script type="importmap">{"imports":{
+      {{- $page := . -}}
+      {{- with resources.Get "/js/popperjs/core/dist/esm/popper.js" -}}
+        "@popperjs/core":"{{ partial "RelURLToCurPage.html" (dict "Page" $page "url" .RelPermalink) -}}"
+      {{- end -}}
+}}</script>
 
-{{- define "_partials/RelURLToCurPage.html" }}
-  {{- $url := .url}}
-  {{- $currenturl := .Page.RelPermalink }}
-  {{- $currentpath := trim (path.Dir $currenturl) "/" }}
-  {{- $segments := split $currentpath "/" }}
-  {{- $backtrack := "" }}
-  {{- $result := $url -}}
+{{- define "_partials/RelURLToCurPage.html" -}}
+{{- $url := .url -}}
+{{- $currenturl := .Page.RelPermalink -}}
+{{- $currentpath := trim (path.Dir $currenturl) "/" -}}
+{{- $segments := split $currentpath "/" -}}
+{{- $backtrack := "" -}}
+{{- $result := $url -}}
 
-  {{- if gt (len $currentpath) 0 }}
-    {{- range $k, $v := $segments }}
-      {{- $backtrack = printf "%s%s" $backtrack "../" }}
-    {{- end }}
-    {{- $result = path.Join $backtrack $url }}
-  {{- else }}
-    {{- $backtrack = "./" }}
-    {{- $result = printf "%s%s" $backtrack (strings.TrimLeft "./" $url) }}
-  {{- end }}
-  {{- return $result }}
-{{- end }}
+{{- if gt (len $currentpath) 0 -}}
+{{- range $k, $v := $segments -}}
+{{- $backtrack = printf "%s%s" $backtrack "../" -}}
+{{- end -}}
+{{- $result = path.Join $backtrack $url -}}
+{{- else -}}
+{{- $backtrack = "./" -}}
+{{- $result = printf "%s%s" $backtrack (strings.TrimLeft "./" $url) -}}
+{{- end -}}
+{{- return $result -}}
+{{- end -}}
 
 {{/*
-  Como não estamos usando "js.Build", temos que publicar manualmente módulos importados.
+Como não estamos usando "js.Build", temos que publicar manualmente módulos importados.
 */}}
-{{- range resources.Match "js/**" }}
-  {{ .Publish }}
-{{- end }}
+{{- range resources.Match "js/**" -}}
+{{- .Publish -}}
+{{- end -}}
 
 {{/*
-  Vigi Barrel module
+Vigi Barrel module
 */}}
 {{- with resources.Get "js/index.mjs" }}
-  <script type="module" src="{{ .RelPermalink }}"></script>
-  {{- if eq hugo.Environment "development" }}
-    {{/*  Adiciona exportações ao escopo global  */}}
-    <script async>import('{{ .RelPermalink }}').then(vigi => {Object.assign(globalThis, vigi)});</script>
-  {{- end }}
-{{- end }}
+<script type="module" src="{{ .RelPermalink }}"></script>
+{{- if eq hugo.Environment "development" -}}
+{{/* Adiciona exportações ao escopo global */}}
+<script async>import('{{ .RelPermalink }}').then(vigi => { Object.assign(globalThis, vigi) });</script>
+{{- end -}}
+{{- end -}}
