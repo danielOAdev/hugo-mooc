@@ -5,7 +5,8 @@
   "scripts": {
     "server": "hugo server --cleanDestinationDir",
     "build": "hugo",
-    "prettier": "prettier ./public/*.html ./public/**/*.html --write --ignore-path ''"
+    "prettier": "prettier ./public/*.html ./public/**/*.html --write --ignore-path ''",
+    "build + prettier": "npm run build && npm run prettier"
   },
   "repository": {
     "type": "git",

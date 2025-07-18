@@ -35,4 +35,4 @@ disableHugoGeneratorInject = true
     target = "assets/js/popperjs/core/dist/esm"
 [services]
   [services.googleAnalytics]
-    id = 'G-MEASUREMENT_ID'
+    id = 'G-WXPN4ETG2Q'

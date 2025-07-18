@@ -3,12 +3,16 @@
 {{- end -}}
 
 {{/* Import map */}}
-<script type="importmap">{"imports":{
-      {{- $page := . -}}
-      {{- with resources.Get "/js/popperjs/core/dist/esm/popper.js" -}}
-        "@popperjs/core":"{{ partial "RelURLToCurPage.html" (dict "Page" $page "url" .RelPermalink) -}}"
-      {{- end -}}
-}}</script>
+<script type="importmap">
+  {
+    "imports": {
+    {{ $page := . }}
+    {{ with resources.Get "/js/popperjs/core/dist/esm/popper.js" }}
+      "@popperjs/core":"{{ partial "RelURLToCurPage.html" (dict "Page" $page "url" .RelPermalink) }}"
+    {{ end }}
+    }
+  }
+</script>
 
 {{- define "_partials/RelURLToCurPage.html" -}}
 {{- $url := .url -}}
