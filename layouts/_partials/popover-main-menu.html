@@ -1,4 +1,4 @@
-<div popover id="popover-main-menu" class="border rounded">
+<div popover="hint" id="popover-main-menu" class="border rounded">
     <div id="main-menu-titlebar" class="d-flex justify-content-between bg-body-secondary p-3 border-bottom sticky-top">
         <h3 class="m-0">Menu principal</h3>
         <button type="button" class="btn p-0" popovertarget="popover-main-menu" aria-label="Fechar">
@@ -11,6 +11,7 @@
                 <button class="nav-link text-start active" id="main-menu-nav-modulos" data-bs-toggle="pill" data-bs-target="#main-menu-content-modulos" type="button" role="tab" aria-controls="main-menu-content-modulos" aria-selected="true">Módulos</button>
                 <button class="nav-link text-start" id="main-menu-nav-creditos" data-bs-toggle="pill" data-bs-target="#main-menu-content-creditos" type="button" role="tab" aria-controls="main-menu-content-creditos" aria-selected="false">Créditos</button>
                 <button class="nav-link text-start" id="main-menu-nav-a11y" data-bs-toggle="pill" data-bs-target="#main-menu-content-a11y" type="button" role="tab" aria-controls="main-menu-content-a11y" aria-selected="false">Acessibilidade</button>
+                <button class="nav-link text-start" id="main-menu-nav-privacidade" data-bs-toggle="pill" data-bs-target="#main-menu-content-privacidade" type="button" role="tab" aria-controls="main-menu-content-privacidade" aria-selected="false">Privacidade</button>
             </div>
         </div>
         <div id="main-menu-select" class="sticky-top">
@@ -18,6 +19,7 @@
                 <option value="módulos">Módulos</option>
                 <option value="créditos">Créditos</option>
                 <option value="acessibilidade">Acessibilidade</option>
+                <option value="privacidade">Privacidade</option>
             </select>
         </div>
         <div id="main-menu-content" class="tab-content">
@@ -29,6 +31,9 @@
             </div>
             <div class="tab-pane fade" id="main-menu-content-a11y" role="tabpanel" aria-labelledby="main-menu-nav-a11y" tabindex="0">
                 {{ partial "menu-a11y.html" }}
+            </div>
+            <div class="tab-pane fade" id="main-menu-content-privacidade" role="tabpanel" aria-labelledby="main-menu-nav-privacidade" tabindex="0">
+                {{ partial "menu-privacidade.html" }}
             </div>
         </div>
     </div>

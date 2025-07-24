@@ -7,15 +7,15 @@
  * @copyright Daniel de Oliveira Araujo 2025
  */
 
-setTheme(getTheme());
-setFontSize(getPreferredFontScale());
+setVigiConfigTema(getVigiConfigTema());
+setVigiConfigTamanhoDoTexto(getVigiConfigTamanhoDoTexto());
 
 /**
  * Retorna a preferência de tema do usuário.
  * @returns {string} auto, light, dark ou highcontrast
  */
-function getTheme() {
-  const storedTheme = localStorage.getItem('theme')
+function getVigiConfigTema() {
+  const storedTheme = localStorage.getItem('preferenciaTema')
   if (storedTheme && storedTheme !== 'auto') {
     return storedTheme
   }
@@ -25,13 +25,13 @@ function getTheme() {
 
 /**
  * Altera o atributo "data-bs-theme" do elemento <html>.
- * @param {string} theme auto, light, dark ou highcontrast
+ * @param {string} tema auto, light, dark ou highcontrast
  */
-function setTheme(theme) {
-  if (theme === 'auto') {
+function setVigiConfigTema(tema) {
+  if (tema === 'auto') {
     document.documentElement.setAttribute('data-bs-theme', (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'))
   } else {
-    document.documentElement.setAttribute('data-bs-theme', theme)
+    document.documentElement.setAttribute('data-bs-theme', tema)
   }
 }
 
@@ -39,10 +39,10 @@ function setTheme(theme) {
  * Retorna a preferência de tamanho do texto do usuário.
  * @returns {string} 1, 1.25, 1.5
  */
-function getPreferredFontScale() {
-  const storedFontScale = localStorage.getItem('font-scale');
-  if (storedFontScale) {
-    return storedFontScale;
+function getVigiConfigTamanhoDoTexto() {
+  const tamanhoDoTexto = localStorage.getItem('preferenciaTamanhoDoTexto');
+  if (tamanhoDoTexto) {
+    return tamanhoDoTexto;
   } else {
     return '1';
   }
@@ -50,8 +50,8 @@ function getPreferredFontScale() {
 
 /**
  * Aplica a escala à propriedade de estilo "font-size" do elemento <html>.
- * @param {string} fontScale 1, 1.25, 1.5
+ * @param {string} TamanhoDoTexto 1, 1.25, 1.5
  */
-function setFontSize(fontScale) {
-  document.documentElement.style.setProperty("font-size", `${fontScale}em`);
+function setVigiConfigTamanhoDoTexto(TamanhoDoTexto) {
+  document.documentElement.style.setProperty("font-size", `${TamanhoDoTexto}em`);
 }

@@ -26,7 +26,7 @@ document.querySelectorAll('input[name="font-scale"]').forEach(radio => {
  * @returns {string} 1, 1.25, 1.5
  */
 export function getStoredFontScale() {
-    localStorage.getItem('font-scale');
+    return localStorage.getItem('font-scale');
 }
 
 /**
@@ -34,7 +34,7 @@ export function getStoredFontScale() {
  * @param {string} fontScale  1, 1.25, 1.5
  */
 export function setStoredFontScale(fontScale) {
-    localStorage.setItem('font-scale', fontScale);
+    return localStorage.setItem('font-scale', fontScale);
 }
 
 /**

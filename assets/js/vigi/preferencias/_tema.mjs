@@ -4,20 +4,22 @@
  * @copyright Daniel de Oliveira Araujo 2025
  */
 
-showActiveTheme(getStoredTheme());
+selecionaVigiConfigTema(getLocal());
+
+// gtag('config', 'G-WXPN4ETG2Q', {'theme': getTema(), 'update': true});
 
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-    const storedTheme = getStoredTheme()
+    const storedTheme = getLocal()
     if (!storedTheme || storedTheme === 'auto' ) {
-        theme.setTheme('auto')
+        theme.setTema('auto')
     }
 });
 
 document.querySelectorAll('input[name="theme"]').forEach(radio => {
     radio.addEventListener('change', () => {
         const theme = radio.value
-        setStoredTheme(theme)
-        setTheme(theme)
+        setLocal(theme)
+        setTema(theme)
     })
 })
 
@@ -25,31 +27,31 @@ document.querySelectorAll('input[name="theme"]').forEach(radio => {
  * Retorna a preferência de tema em Local Storage.
  * @returns {string} auto, light, dark ou highcontrast
  */
-export function getStoredTheme() {
-    localStorage.getItem('theme');
+export function getLocal() {
+    return localStorage.getItem('preferenciaTema');
 }
 
 /**
  * Armazena preferência de tema em Local Storage.
  * @param {string} theme auto, light, dark ou highcontrast
  */
-export function setStoredTheme(theme) {
-    localStorage.setItem('theme', theme);
+export function setLocal(theme) {
+    return localStorage.setItem('preferenciaTema', theme);
 }
 
 /**
  * Remove preferência de tema em Local Storage.
  */
 export function removeStoredTheme() {
-    localStorage.removeItem('theme');
+    localStorage.removeItem('preferenciaTema');
 }
 
 /**
  * Retorna a preferência de tema do usuário.
  * @returns {string} auto, light, dark ou highcontrast
  */
-export function getTheme() {
-    const storedTheme = getStoredTheme()
+export function getTema() {
+    const storedTheme = getLocal()
     if (storedTheme && storedTheme !== 'auto') {
         return storedTheme
     }
@@ -61,7 +63,7 @@ export function getTheme() {
  * Altera o atributo "data-bs-theme" do elemento <html>.
  * @param {string} theme auto, light, dark ou highcontrast
  */
-export function setTheme(theme) {
+export function setTema(theme) {
     if (theme === 'auto') {
         document.documentElement.setAttribute('data-bs-theme', (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'))
     } else {
@@ -70,10 +72,10 @@ export function setTheme(theme) {
 }
 
 /**
- * Marca o botão de radio correspondente.
+ * Seleciona o botão de radio correspondente.
  * @param {string} theme auto, light, dark ou highcontrast
  */
-export function showActiveTheme(theme) {
+export function selecionaVigiConfigTema(theme) {
     const radioToCheck = document.querySelector(`input[name="theme"][value="${theme}"]`)
     
     if (!radioToCheck) {
