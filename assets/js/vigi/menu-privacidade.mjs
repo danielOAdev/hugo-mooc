@@ -1,20 +1,24 @@
-import { setPreferenciaGA, getPreferenciaGA } from './cookies.mjs';
+import GA from './preferencias/privacidade/ga.mjs';
 
-const tabPrivacidade = document.getElementById('main-menu-nav-privacidade');
-const toggleGA = document.getElementById('toggle-ga');
+const tab = document.getElementById('main-menu-privacidade-tab');
+const form = document.getElementById('main-menu-privacidade-form');
+const botaoGA = form.querySelector('#botao-ga');
 
-setToggleGA(Boolean(getPreferenciaGA()));
-
-toggleGA.addEventListener('change', event => {
-  setPreferenciaGA(Boolean(event.target.checked));
+tab.addEventListener('show.bs.tab', event => {
+    botaoGA.checked = GA.valor;
 });
 
-tabPrivacidade.addEventListener('show.bs.tab', event => {
-  setToggleGA(Boolean(getPreferenciaGA()));
+// Botão de alternância para Google Analytics
+botaoGA.addEventListener('change', event => {
+    GA.valor = event.target.checked;
 });
 
-export function setToggleGA(bool) {
-  if (toggleGA.checked !== bool) {
-    toggleGA.checked = bool;
-  }
-}
+
+/**
+ * Botão reset
+ */
+form.querySelector('button[type="reset"]')
+    .addEventListener('click', () => {
+        GA.esquecer();
+    }
+)

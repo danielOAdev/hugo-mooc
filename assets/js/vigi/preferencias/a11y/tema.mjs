@@ -1,8 +1,12 @@
-import { Preferencia } from "./preferencia.mjs";
+import { Preferencia } from "../preferencia.mjs";
 
 export default class Tema extends Preferencia {
     static get nome()   { return 'tema' }
     static get padrao() { return 'auto' }
+
+    static aoMudar(valorNovo, valorAntigo) {
+        this.aplicarTema(valorNovo);
+    }
 
     /**
      * Altera o atributo "data-bs-theme" do elemento <html>.
@@ -15,21 +19,4 @@ export default class Tema extends Preferencia {
             document.documentElement.setAttribute('data-bs-theme', valor)
         }
     }
-
-    static aoMudar(valorNovo, valorAntigo) {
-        this.aplicarTema(valorNovo);
-    }
 }
-
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-    if (Tema.valor === 'auto') {
-        Tema.aoMudar(Tema.valor, Tema.valor);
-    }
-});
-
-document.querySelectorAll('input[name="theme"]').forEach(radio => {
-    radio.addEventListener('change', () => {
-        Tema.valor = radio.value;
-    })
-})
-

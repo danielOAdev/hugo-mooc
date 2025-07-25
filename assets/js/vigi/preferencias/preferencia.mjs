@@ -10,18 +10,12 @@ export class Preferencia {
 
     static get valor() {
         const preferencias = this.getTodasAsPreferencias();
-        if (Object.keys(preferencias).length !== 0) {
-            return preferencias[this.nome];
-        }
-        return this.padrao;
+        return preferencias[this.nome] ?? this.padrao;
     };
 
     static set valor(valor) {
         let preferencias = this.getTodasAsPreferencias();
-        if (!preferencias) {
-            preferencias = {};
-        }
-        const valorAntigo = preferencias[this.nome];
+        const valorAntigo = this.valor;
         preferencias[this.nome] = valor;
         this.aoMudar(preferencias[this.nome], valorAntigo);
         setValorDoCookie('vigi_preferencias', JSON.stringify(preferencias));
@@ -33,7 +27,7 @@ export class Preferencia {
         if (json) {
             return JSON.parse(json);
         } else {
-            return null;
+            return {};
         }
     }
 
@@ -52,6 +46,10 @@ export class Preferencia {
         return false;
     }
 
+    /**
+     * Essa preferência está salva no cookie?
+     * @returns {Boolean}
+     */
     static isDefinida() {
         const preferencias = this.getTodasAsPreferencias();
         return preferencias.hasOwnProperty(this.nome);
@@ -60,5 +58,7 @@ export class Preferencia {
     /**
      * Executa ao mudar de valor.
      */
-    static aoMudar(valorNovo, valorAntigo) {}
+    static aoMudar(valorNovo, valorAntigo) {
+        // Implementar ao extender
+    }
 }

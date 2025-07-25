@@ -19,8 +19,8 @@
     <script>
       gtag('js', new Date());
       gtag('config', '{{ . }}', {
-        'VigiConfigTema': getVigiConfigTema(),
-        'VigiConfigTamanhoDoTexto': getVigiConfigTamanhoDoTexto()
+        'VigiConfigTema': Vigi.getNomeDoTemaEmPreferencia(),
+        'VigiConfigTamanhoDoTexto': Vigi.getPreferencia('tamanhoDoTexto')
       });
     </script>
   {{- end }}
@@ -52,7 +52,7 @@ Vigi Barrel module
   {{- if eq hugo.Environment "development" -}}
     {{/* Adiciona exportações ao escopo global */}}
     {{ $link := partial "RelURLToCurPage.html" (dict "Page" $ "url" .RelPermalink) }}
-    <script async>import('{{ $link }}').then(vigi => { Object.assign(globalThis, vigi) });</script>
+    <script async>import('{{ $link }}').then(modulos => { Object.assign(globalThis, modulos) });</script>
   {{- end -}}
 {{- end -}}
 

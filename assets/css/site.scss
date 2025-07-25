@@ -32,7 +32,7 @@
   min-width: 0;
 }
 
-#popover-main-menu:popover-open {
+#main-menu:popover-open {
   display: grid;
   grid-template-rows: auto 1fr;
   max-height: 80vh;
@@ -51,27 +51,29 @@
 
 #main-menu-grid {
   display: grid;
-  grid-template: "nav content" 1fr / auto 1fr;
+  grid-template: "tabs content" 1fr / auto 1fr;
   gap: 1rem;
   overflow: hidden;
   @include media-breakpoint-down(md) {
     grid-template:
-      "nav" auto
+      "tabs" auto
       "content" 1fr / 1fr;
     gap: 0;
   }
 }
 
-#main-menu-content {
+#main-menu-conteudo {
   grid-area: content;
   overflow: auto;
   padding: .5rem;
 }
 
-#main-menu-nav {
-  grid-area: nav;
-  overflow: auto;
+#main-menu-tabs {
+  grid-area: tabs;
   padding: .5rem;
+  padding-right: 1rem;
+  overflow-x: hidden;
+  overflow-y: auto;
   @include media-breakpoint-down(md) {
     display: none;
   }

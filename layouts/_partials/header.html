@@ -5,10 +5,10 @@
             <h1 class="navbar-brand-text h3 m-0">{{ site.Title }}</h1>
         </a>
         <div class="dropdown">
-            <button class="btn btn-secondary" type="button" id="main-menu-opener" popovertarget="popover-main-menu">
+            <button class="btn btn-secondary" type="button" id="main-menu-opener" popovertarget="main-menu">
                 {{ partial "fontawesome.html" (dict "style" "solid" "icon" "bars") }}
             </button>
-            {{- partial "popover-main-menu.html" }}
+            {{- partial "main-menu.html" }}
         </div>
     </div>
 </nav>

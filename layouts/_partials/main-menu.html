@@ -1,0 +1,40 @@
+<div popover="hint" id="main-menu" class="border rounded">
+    <div id="main-menu-titlebar" class="d-flex justify-content-between bg-body-secondary p-3 border-bottom sticky-top">
+        <h3 class="m-0">Menu principal</h3>
+        <button type="button" class="btn p-0" popovertarget="main-menu" aria-label="Fechar">
+            {{ partial "fontawesome.html" (dict "style" "solid" "icon" "xmark" "classes" "fs-3") }}
+        </button>
+    </div>
+    <div id="main-menu-grid">
+        <div id="main-menu-tabs">
+            <div class="nav nav-pills vstack" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <button class="nav-link text-start active" id="main-menu-modulos-tab" data-bs-toggle="pill" data-bs-target="#main-menu-modulos-conteudo" type="button" role="tab" aria-controls="main-menu-modulos-conteudo" aria-selected="true">Módulos</button>
+                <button class="nav-link text-start" id="main-menu-creditos-tab" data-bs-toggle="pill" data-bs-target="#main-menu-creditos-conteudo" type="button" role="tab" aria-controls="main-menu-creditos-conteudo" aria-selected="false">Créditos</button>
+                <button class="nav-link text-start" id="main-menu-a11y-tab" data-bs-toggle="pill" data-bs-target="#main-menu-a11y-conteudo" type="button" role="tab" aria-controls="main-menu-a11y-conteudo" aria-selected="false">Acessibilidade</button>
+                <button class="nav-link text-start" id="main-menu-privacidade-tab" data-bs-toggle="pill" data-bs-target="#main-menu-privacidade-conteudo" type="button" role="tab" aria-controls="main-menu-privacidade-conteudo" aria-selected="false">Privacidade</button>
+            </div>
+        </div>
+        <div id="main-menu-select" class="sticky-top">
+            <select name="main-menu-select" class="form-select">
+                <option value="módulos">Módulos</option>
+                <option value="créditos">Créditos</option>
+                <option value="acessibilidade">Acessibilidade</option>
+                <option value="privacidade">Privacidade</option>
+            </select>
+        </div>
+        <div id="main-menu-conteudo" class="tab-content">
+            <div class="tab-pane fade show active" id="main-menu-modulos-conteudo" role="tabpanel" aria-labelledby="main-menu-modulos-tab" tabindex="0">
+                <p>Ea irure est veniam duis deserunt eu dolor non id tempor id in aute. Anim esse non magna aliquip consequat ut amet id dolore. Commodo et magna nostrud magna cillum do consectetur Lorem laboris nostrud magna nulla sit. Veniam ipsum sunt ut consequat ad laboris in quis commodo non est. Ea non aliquip adipisicing consectetur. Laboris deserunt esse ullamco enim id aute velit et sint excepteur.</p>
+            </div>
+            <div class="tab-pane fade" id="main-menu-creditos-conteudo" role="tabpanel" aria-labelledby="main-menu-creditos-tab" tabindex="0">
+                <p>Magna culpa officia ea elit sint voluptate laboris duis ut in velit occaecat dolore excepteur. Aliqua dolore eu aliqua consequat occaecat est ea cillum nisi aliqua. Cillum culpa incididunt officia cupidatat commodo. Reprehenderit Lorem consequat exercitation eiusmod sint veniam deserunt non magna qui reprehenderit ex eiusmod velit.</p>
+            </div>
+            <div class="tab-pane fade" id="main-menu-a11y-conteudo" role="tabpanel" aria-labelledby="main-menu-a11y-tab" tabindex="0">
+                {{ partial "main-menu-a11y.html" }}
+            </div>
+            <div class="tab-pane fade" id="main-menu-privacidade-conteudo" role="tabpanel" aria-labelledby="main-menu-privacidade-tab" tabindex="0">
+                {{ partial "main-menu-privacidade.html" }}
+            </div>
+        </div>
+    </div>
+</div>
