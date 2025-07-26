@@ -1,27 +1,14 @@
-{{- with resources.Get "js/init.js" -}}
+{{/*  {{- with resources.Get "js/init.js" -}}
 <script src="{{ .RelPermalink }}"></script>
-{{- end -}}
+{{- end -}}  */}}
 
-{{/* Google Analytics */}}
+{{/* Google Analytics - dataLayer e função gtag */}}
 {{ if not site.Config.Privacy.GoogleAnalytics.Disable }}
   {{- with site.Config.Services.GoogleAnalytics.ID }}
+    <script>Object.defineProperty(globalThis, 'gTagID', {value: "{{ . }}",writable: false});</script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('consent', 'default', {
-        'ad_storage': 'denied',
-        'ad_user_data': 'denied',
-        'ad_personalization': 'denied',
-        'analytics_storage': JSON.parse(localStorage.getItem('cookie-GA')) ? 'granted' : 'denied'
-      });
-    </script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
-    <script>
-      gtag('js', new Date());
-      gtag('config', '{{ . }}', {
-        'VigiConfigTema': Vigi.getNomeDoTemaEmPreferencia(),
-        'VigiConfigTamanhoDoTexto': Vigi.getPreferencia('tamanhoDoTexto')
-      });
     </script>
   {{- end }}
 {{- end -}}
@@ -55,6 +42,9 @@ Vigi Barrel module
     <script async>import('{{ $link }}').then(modulos => { Object.assign(globalThis, modulos) });</script>
   {{- end -}}
 {{- end -}}
+
+{{/* Google Analytics - gtag.js */}}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
 
 {{- define "_partials/RelURLToCurPage.html" -}}
   {{- $url := .url -}}

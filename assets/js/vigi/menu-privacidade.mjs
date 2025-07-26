@@ -13,7 +13,6 @@ botaoGA.addEventListener('change', event => {
     GA.valor = event.target.checked;
 });
 
-
 /**
  * Botão reset
  */

@@ -1,4 +1,4 @@
-import { Preferencia } from "../preferencia.mjs";
+import Preferencia from "../preferencia.mjs";
 
 export default class TamanhoDoTexto extends Preferencia {
     static get nome()   { return 'tamanhoDoTexto' }
@@ -8,3 +8,5 @@ export default class TamanhoDoTexto extends Preferencia {
         document.documentElement.style.setProperty("font-size", `${valorNovo}em`);
     }
 }
+
+TamanhoDoTexto.inicializar();

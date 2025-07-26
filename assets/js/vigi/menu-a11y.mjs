@@ -5,7 +5,7 @@ import AutoExibir from './preferencias/a11y/auto-exibir.mjs';
 const tab = document.getElementById('main-menu-a11y-tab');
 const form = document.getElementById('main-menu-a11y-form');
 
-// Atualiza valores
+// Atualiza valores do menu
 tab.addEventListener('show.bs.tab', event => {
     form.querySelector(`input[name="tema"][value="${Tema.valor}"]`).checked = true;
     form.querySelector(`input[name="tamanhoDoTexto"][value="${TamanhoDoTexto.valor}"]`).checked = true;

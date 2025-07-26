@@ -1,16 +1,30 @@
 
 import { getValorDoCookie, setValorDoCookie } from '../cookies.mjs'
+import { gTagConfig } from '../gtag/gtag-config.mjs';
 
-export class Preferencia {
+export default class Preferencia {
     /**
      * Nome da preferência.
      */
-    static get nome()   { return '' }
+    static get nome() { return '' }
+
+    /**
+     * Valor padrão
+     */
     static get padrao() { return null }
+
+    /**
+     * Carrega o valor salvo no cookie pela primeira vez.
+     * Deve ser executado logo após a definição da classe.
+     */
+    static inicializar() {
+        this.aoMudar(this.valor, Preferencia.padrao);
+        gTagConfig['preferencia' + this.nome.charAt(0).toUpperCase() + this.nome.slice(1)] = this.valor;
+    }
 
     static get valor() {
         const preferencias = this.getTodasAsPreferencias();
-        return preferencias[this.nome] ?? this.padrao;
+        return Object.hasOwn(preferencias,this.nome) ? preferencias[this.nome] : this.padrao;
     };
 
     static set valor(valor) {
@@ -36,7 +50,7 @@ export class Preferencia {
      */
     static esquecer() {
         const preferencias = this.getTodasAsPreferencias();
-        if (preferencias[this.nome]) {
+        if (Object.hasOwn(preferencias,this.nome)) {
             const valorAntigo = preferencias[this.nome];
             const resultado = delete preferencias[this.nome];
             setValorDoCookie('vigi_preferencias', JSON.stringify(preferencias));
@@ -52,7 +66,7 @@ export class Preferencia {
      */
     static isDefinida() {
         const preferencias = this.getTodasAsPreferencias();
-        return preferencias.hasOwnProperty(this.nome);
+        return preferencias.hasOwn(this.nome);
     }
 
     /**

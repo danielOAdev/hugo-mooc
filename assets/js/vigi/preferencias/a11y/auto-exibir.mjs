@@ -1,4 +1,4 @@
-import { Preferencia } from "../preferencia.mjs";
+import Preferencia from "../preferencia.mjs";
 
 export default class AutoExibir extends Preferencia {
     static get nome()   { return 'autoExibir' }
@@ -12,3 +12,5 @@ export default class AutoExibir extends Preferencia {
         }
     }
 }
+
+AutoExibir.inicializar();

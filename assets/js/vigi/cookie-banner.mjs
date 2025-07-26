@@ -1,30 +1,30 @@
-import { setPreferenciaGA, getPreferenciaGA } from './cookies.mjs';
+import GA from './preferencias/privacidade/ga.mjs';
 import { showMainMenu } from './main-menu.mjs';
 
 const cookieBanner = document.getElementById('cookie-banner');
 
-if (getPreferenciaGA() !== null) {
-    cookieBanner.remove();
+if (GA.valor !== null) {
+    removeCookieBanner();
 } else {
     cookieBanner.classList.remove('d-none');
     cookieBanner.querySelector('#rejeitar-cookies')
         .addEventListener('click', (e) => {
+            GA.valor = false;
             removeCookieBanner();
-            setPreferenciaGA(false);
         }
     )
     
     cookieBanner.querySelector('#aceitar-cookies')
         .addEventListener('click', (e) => {
+            GA.valor = true;
             removeCookieBanner();
-            setPreferenciaGA(true);
         }
     )
     
     cookieBanner.querySelector('#gerenciar-cookies')
         .addEventListener('click', (e) => {
+            GA.valor = false;
             removeCookieBanner();
-            setPreferenciaGA(false);
             showMainMenu('privacidade');
         }
     )

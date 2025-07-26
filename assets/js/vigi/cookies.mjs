@@ -1,16 +1,3 @@
-/**
- * Salva preferência de consentimento para uso do Google Analytics.
- * @param {boolean} bool
- */
-export function setPreferenciaGA(bool) {
-    localStorage.setItem('cookie-GA', bool);
-    gtag('consent', 'update', {'analytics_storage': bool ? 'granted' : 'denied'});
-}
-
-export function getPreferenciaGA() {
-    return JSON.parse(localStorage.getItem('cookie-GA'));
-}
-
 export function getValorDoCookie(nome) {
     return document.cookie
         .split("; ")
