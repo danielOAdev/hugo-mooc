@@ -36,7 +36,8 @@
   display: grid;
   grid-template-rows: auto 1fr;
   max-height: 80vh;
-  max-width: 80vw;
+  width: auto;
+  max-width: Min(80vw, map-get($grid-breakpoints, "md"));
   padding: 0;
   background-color: var(--vigi-tertiary-bg);
   overflow: hidden;
@@ -101,9 +102,17 @@
   }
 }
 
-:where(svg.icon) {
+:where(svg.icone) {
   height: 1em;
   width: 1em;
   vertical-align: -0.15em !important;
   font-size: 1em
+}
+
+:focus-visible {
+  box-shadow: none !important;
+  outline-color: $white !important;
+  outline-offset: .25rem !important;
+  outline-width: .125rem !important;
+  outline-style: dashed !important;
 }
