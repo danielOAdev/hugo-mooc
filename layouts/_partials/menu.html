@@ -1,67 +1,40 @@
-{{- /*
-Renders a menu for the given menu ID.
-
-@context {page} page The current page.
-@context {string} menuID The menu ID.
-
-@example: {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
-*/}}
-
-{{- $page := .page }}
-{{- $menuID := .menuID }}
-
-{{- with index site.Menus $menuID }}
-  <ul  class="navbar-nav">
-    {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
-    <li class="nav-item">
-      <button type="button" class="nav-link" popovertarget="popover-a11y">Acessibilidade {{ partial "fontawesome.html" (dict "style" "solid" "icon" "chevron-right") }}</button>
-      {{- partial "popover-a11y.html" }}
-    </li>
-  </ul>
-{{- end }}
-
-{{- define "partials/inline/menu/walk.html" }}
-  {{- $page := .page }}
-  {{- $isChild := or .isChild false }}
-  {{- range .menuEntries }}
-    {{- $attrs := dict "href" (or .URL '#') }}
-    {{- $class := slice "nav-link" }}
-    {{- if $isChild }}
-        {{- $class = slice "dropdown-item" }}
-    {{- end }}
-    {{- if $page.IsMenuCurrent .Menu . }}
-      {{- $class = append "active" $class }}
-      {{- $attrs = merge $attrs (dict "aria-current" "page") }}
-    {{- else if $page.HasMenuCurrent .Menu .}}
-      {{- $class = append "ancestor" $class }}
-      {{- $attrs = merge $attrs (dict "aria-current" "true") }}
-    {{- end }}
-    {{ $liclass := slice "nav-item" }}
-    {{- with .Children }}
-        {{- $liclass = append "dropdown" $liclass }}
-        {{- $class = append "dropdown-toggle" $class }}
-        {{- $attrs = merge $attrs (dict "role" "button" "data-bs-toggle" "dropdown" "aria-expanded" "false") }}
-    {{- end }}
-    {{- $name := .Name }}
-    {{- with .Identifier }}
-      {{- with T . }}
-        {{- $name = . }}
-      {{- end }}
-    {{- end }}
-    {{- $attrs = merge $attrs (dict "class" (delimit $class " ")) }}
-    <li {{ cond $isChild "" (printf "class=%q" (delimit $liclass " ")) | safeHTMLAttr }} >
-      <a
-      {{- range $k, $v := $attrs }}
-        {{- with $v }}
-          {{- printf " %s=%q" $k $v | safeHTMLAttr }}
-        {{- end }}
-      {{- end -}}
-      >{{ $name }}</a>
-      {{- with .Children }}
-        <ul class="dropdown-menu">
-          {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" . "isChild" true) }}
-        </ul>
-      {{- end }}
-    </li>
-  {{- end }}
-{{- end }}
+<div popover="hint" id="menu" class="border rounded">
+    <div id="menu-titlebar" class="d-flex justify-content-between bg-body-secondary p-3 border-bottom sticky-top">
+        <h3 class="m-0">Menu principal</h3>
+        <button type="button" class="btn p-0" popovertarget="menu" aria-label="Fechar">
+            {{ partial "fontawesome.html" (dict "style" "solid" "icon" "xmark" "classes" "fs-3") }}
+        </button>
+    </div>
+    <div id="menu-grid">
+        <div id="menu-tabs">
+            <div class="nav nav-pills vstack" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <button class="nav-link text-start active" id="menu-modulos-tab" data-bs-toggle="pill" data-bs-target="#menu-modulos-conteudo" type="button" role="tab" aria-controls="menu-modulos-conteudo" aria-selected="true">Módulos</button>
+                <button class="nav-link text-start" id="menu-creditos-tab" data-bs-toggle="pill" data-bs-target="#menu-creditos-conteudo" type="button" role="tab" aria-controls="menu-creditos-conteudo" aria-selected="false">Créditos</button>
+                <button class="nav-link text-start" id="menu-a11y-tab" data-bs-toggle="pill" data-bs-target="#menu-a11y-conteudo" type="button" role="tab" aria-controls="menu-a11y-conteudo" aria-selected="false">Acessibilidade</button>
+                <button class="nav-link text-start" id="menu-privacidade-tab" data-bs-toggle="pill" data-bs-target="#menu-privacidade-conteudo" type="button" role="tab" aria-controls="menu-privacidade-conteudo" aria-selected="false">Privacidade</button>
+            </div>
+        </div>
+        <div id="menu-select" class="sticky-top">
+            <select name="menu-select" class="form-select">
+                <option value="módulos">Módulos</option>
+                <option value="créditos">Créditos</option>
+                <option value="acessibilidade">Acessibilidade</option>
+                <option value="privacidade">Privacidade</option>
+            </select>
+        </div>
+        <div id="menu-conteudo" class="tab-content">
+            <div class="tab-pane fade show active" id="menu-modulos-conteudo" role="tabpanel" aria-labelledby="menu-modulos-tab">
+                <p>Ea irure est veniam duis deserunt eu dolor non id tempor id in aute. Anim esse non magna aliquip consequat ut amet id dolore. Commodo et magna nostrud magna cillum do consectetur Lorem laboris nostrud magna nulla sit. Veniam ipsum sunt ut consequat ad laboris in quis commodo non est. Ea non aliquip adipisicing consectetur. Laboris deserunt esse ullamco enim id aute velit et sint excepteur.</p>
+            </div>
+            <div class="tab-pane fade" id="menu-creditos-conteudo" role="tabpanel" aria-labelledby="menu-creditos-tab">
+                <p>Magna culpa officia ea elit sint voluptate laboris duis ut in velit occaecat dolore excepteur. Aliqua dolore eu aliqua consequat occaecat est ea cillum nisi aliqua. Cillum culpa incididunt officia cupidatat commodo. Reprehenderit Lorem consequat exercitation eiusmod sint veniam deserunt non magna qui reprehenderit ex eiusmod velit.</p>
+            </div>
+            <div class="tab-pane fade" id="menu-a11y-conteudo" role="tabpanel" aria-labelledby="menu-a11y-tab">
+                {{ partial "menu-a11y.html" }}
+            </div>
+            <div class="tab-pane fade" id="menu-privacidade-conteudo" role="tabpanel" aria-labelledby="menu-privacidade-tab">
+                {{ partial "menu-privacidade.html" }}
+            </div>
+        </div>
+    </div>
+</div>

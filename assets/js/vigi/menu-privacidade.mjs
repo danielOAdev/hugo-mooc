@@ -1,7 +1,7 @@
 import GA from './preferencias/privacidade/ga.mjs';
 
-const tab = document.getElementById('main-menu-privacidade-tab');
-const form = document.getElementById('main-menu-privacidade-form');
+const tab = document.getElementById('menu-privacidade-tab');
+const form = document.getElementById('menu-privacidade-form');
 const botaoGA = form.querySelector('#botao-ga');
 
 tab.addEventListener('show.bs.tab', event => {

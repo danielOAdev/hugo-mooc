@@ -1,5 +1,5 @@
 import GA from './preferencias/privacidade/ga.mjs';
-import { showMainMenu } from './main-menu.mjs';
+import { showMainMenu } from './menu.mjs';
 
 const cookieBanner = document.getElementById('cookie-banner');
 

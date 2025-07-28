@@ -2,8 +2,8 @@ import Tema from './preferencias/a11y/tema.mjs';
 import TamanhoDoTexto from './preferencias/a11y/tamanho-do-texto.mjs';
 import AutoExibir from './preferencias/a11y/auto-exibir.mjs';
 
-const tab = document.getElementById('main-menu-a11y-tab');
-const form = document.getElementById('main-menu-a11y-form');
+const tab = document.getElementById('menu-a11y-tab');
+const form = document.getElementById('menu-a11y-form');
 
 // Atualiza valores do menu
 tab.addEventListener('show.bs.tab', event => {
