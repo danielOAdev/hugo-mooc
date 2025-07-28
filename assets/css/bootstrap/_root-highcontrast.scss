@@ -38,17 +38,6 @@
   --#{$prefix}form-invalid-color: #{$form-invalid-color-highcontrast};
   --#{$prefix}form-invalid-border-color: #{$form-invalid-border-color-highcontrast};
 
-  :focus-visible {
-    outline-color: $white !important;
-    outline-offset: .25rem !important;
-    outline-width: .125rem !important;
-    outline-style: dashed !important;
-  }
-
-  .btn {
-    --#{$prefix}btn-focus-box-shadow: none;
-  }
-
   @each $color, $value in $theme-colors {
     --#{$prefix}#{$color}-rgb: #{to-rgb($highcontrast-primary)};
     --#{$prefix}#{$color}-text: #{$highcontrast-primary};

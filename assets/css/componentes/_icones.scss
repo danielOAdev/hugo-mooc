@@ -1,0 +1,8 @@
+@use "bootstrap" as *;
+
+:where(svg.icone) {
+    height: 1em;
+    width: 1em;
+    vertical-align: -0.15em !important;
+    font-size: 1em
+}

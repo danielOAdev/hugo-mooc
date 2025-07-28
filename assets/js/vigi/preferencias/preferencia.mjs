@@ -15,6 +15,9 @@ export default class Preferencia {
 
     /**
      * Carrega o valor salvo no cookie pela primeira vez.
+     * 
+     * Também adiciona a preferência como um parametro de evento no Google Analytics.
+     * 
      * Deve ser executado logo após a definição da classe.
      */
     static inicializar() {
