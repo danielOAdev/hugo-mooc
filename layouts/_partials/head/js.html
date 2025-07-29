@@ -1,67 +1,43 @@
-{{/*  {{- with resources.Get "js/init.js" -}}
+{{- with resources.Get "js/init.js" -}}
 <script src="{{ .RelPermalink }}"></script>
-{{- end -}}  */}}
-
-{{/* Google Analytics - dataLayer e função gtag */}}
-{{ if not site.Config.Privacy.GoogleAnalytics.Disable }}
-  {{- with site.Config.Services.GoogleAnalytics.ID }}
-    <script>Object.defineProperty(globalThis, 'gTagID', {value: "{{ . }}",writable: false});</script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-    </script>
-  {{- end }}
 {{- end -}}
 
-{{/* Import map */}}
+{{- /* Google Analytics - dataLayer e função gtag */}}
+{{- if not site.Config.Privacy.GoogleAnalytics.Disable }}
+    {{- with site.Config.Services.GoogleAnalytics.ID }}
+        <script>Object.defineProperty(globalThis, 'gTagID', {value: "{{ . }}",writable: false});</script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+        </script>
+    {{- end }}
+{{- end -}}
+
+{{/* Import map para popperjs */}}
 <script type="importmap">
-  {
-    "imports": {
-    {{ with resources.Get "js/popperjs/core/dist/esm/popper.js" }}
-      "@popperjs/core":"{{ partial "RelURLToCurPage.html" (dict "Page" $ "url" .RelPermalink) }}"
-    {{ end }}
+    {
+        "imports": {
+        {{ with resources.Get "js/popperjs/core/dist/esm/popper.js" }}
+            "@popperjs/core":"{{ partial "funcao/linkRelativo.html" (dict "Page" $ "url" .RelPermalink) }}"
+        {{ end }}
+        }
     }
-  }
 </script>
 
-{{/*
-Como não estamos usando "js.Build", temos que publicar manualmente módulos importados.
-*/}}
+{{/*  Como não estamos usando "js.Build", temos que publicar manualmente módulos importados.  */}}
 {{- range resources.Match "js/**" -}}
-  {{- .Publish -}}
+    {{- .Publish -}}
 {{- end -}}
 
-{{/*
-Vigi Barrel module
-*/}}
+{{/*  Barrel module  */}}
 {{- with resources.Get "js/index.mjs" -}}
-  <script type="module" src="{{ .RelPermalink }}"></script>
-  {{- if eq hugo.Environment "development" -}}
-    {{/* Adiciona exportações ao escopo global */}}
-    {{ $link := partial "RelURLToCurPage.html" (dict "Page" $ "url" .RelPermalink) }}
-    <script async>import('{{ $link }}').then(modulos => { Object.assign(globalThis, modulos) });</script>
-  {{- end -}}
-{{- end -}}
-
-{{/* Google Analytics - gtag.js */}}
-<script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
-
-{{- define "_partials/RelURLToCurPage.html" -}}
-  {{- $url := .url -}}
-  {{- $currenturl := .Page.RelPermalink -}}
-  {{- $currentpath := trim (path.Dir $currenturl) "/" -}}
-  {{- $segments := split $currentpath "/" -}}
-  {{- $backtrack := "" -}}
-  {{- $result := $url -}}
-
-  {{- if gt (len $currentpath) 0 -}}
-    {{- range $k, $v := $segments -}}
-      {{- $backtrack = printf "%s%s" $backtrack "../" -}}
+    <script type="module" src="{{ .RelPermalink }}"></script>
+    {{- if eq hugo.Environment "development" -}}
+        {{/*  Adiciona exportações ao escopo global quando no ambiente de desenvolvimento.  */}}
+        {{ $link := partial "funcao/linkRelativo.html" (dict "Page" $ "url" .RelPermalink) }}
+        <script async>import('{{ $link }}').then(modulos => { Object.assign(globalThis, modulos) });</script>
     {{- end -}}
-    {{- $result = path.Join $backtrack $url -}}
-  {{- else -}}
-    {{- $backtrack = "./" -}}
-    {{- $result = printf "%s%s" $backtrack (strings.TrimLeft "./" $url) -}}
-  {{- end -}}
-  {{- return $result -}}
 {{- end -}}
+
+{{/*  Google Analytics - gtag.js  */}}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>

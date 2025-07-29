@@ -1,15 +1,15 @@
 @use "bootstrap" as *;
 
 .navbar-brand-img {
-  height: 1lh;
+    height: 1lh;
 }
 
 .navbar .dropdown-menu {
-  max-height: 70vh;
+    max-height: 70vh;
 }
 
 @include media-breakpoint-down(sm) {
-  .navbar-brand-text {
-    display: none;
-  }
+    .navbar-brand-text {
+        display: none;
+    }
 }

@@ -1,3 +1,9 @@
+/**
+ * Banner de solicitação de consentimento para o uso de cookies.
+ * @author Daniel de Oliveira Araujo <danieloadev@gmail.com>
+ * @copyright Daniel de Oliveira Araujo 2025
+ */
+
 import GA from './preferencias/privacidade/ga.mjs';
 import { showMainMenu } from './menu.mjs';
 

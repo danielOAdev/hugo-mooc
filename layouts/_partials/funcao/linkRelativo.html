@@ -1,0 +1,22 @@
+{{- /*
+    A configuração de links relativos (relativeURLs) só converte links relativos nos atributos
+    action, href, src, srcset, e url.
+    Essa função deve ser usada quando as condições citadas acima não se aplicarem.
+*/ -}}
+{{- $url := .url -}}
+{{- $currenturl := .Page.RelPermalink -}}
+{{- $currentpath := trim (path.Dir $currenturl) "/" -}}
+{{- $segments := split $currentpath "/" -}}
+{{- $backtrack := "" -}}
+{{- $result := $url -}}
+
+{{- if gt (len $currentpath) 0 -}}
+    {{- range $k, $v := $segments -}}
+        {{- $backtrack = printf "%s%s" $backtrack "../" -}}
+    {{- end -}}
+    {{- $result = path.Join $backtrack $url -}}
+{{- else -}}
+    {{- $backtrack = "./" -}}
+    {{- $result = printf "%s%s" $backtrack (strings.TrimLeft "./" $url) -}}
+{{- end -}}
+{{- return $result -}}

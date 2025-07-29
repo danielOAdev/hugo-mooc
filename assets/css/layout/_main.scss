@@ -1,23 +1,23 @@
 @use "bootstrap" as *;
 
 #content {
-  display: grid;
-  grid-gap: 24px;
-  grid-template-columns: 1fr minmax(0, map-get($grid-breakpoints, "lg")) 1fr;
-  grid-template-rows: 1fr;
+    display: grid;
+    grid-gap: 24px;
+    grid-template-columns: 1fr minmax(0, map-get($grid-breakpoints, "lg")) 1fr;
+    grid-template-rows: 1fr;
 }
 
 @include media-breakpoint-down(md) {
-  #content {
-    display: block;
-  }
+    #content {
+        display: block;
+    }
 }
 
 #content-main {
-  align-self: start;
-  grid-column: 2;
-  grid-row: 1;
-  margin: 24px 0;
-  max-width: 936px;
-  min-width: 0;
+    align-self: start;
+    grid-column: 2;
+    grid-row: 1;
+    margin: 24px 0;
+    max-width: 936px;
+    min-width: 0;
 }

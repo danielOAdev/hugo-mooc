@@ -1,7 +1,10 @@
-// Módulos do site
-export { default as Tema } from './preferencias/a11y/tema.mjs'
-export * as mainMenu from './menu.mjs'
-export * as cookieBanner from './cookie-banner.mjs'
-export { inicializar } from './gtag/gtag-comandos.mjs'
+/**
+ * Barrel file do projeto.
+ * @author Daniel de Oliveira Araujo <danieloadev@gmail.com>
+ * @copyright Daniel de Oliveira Araujo 2025
+ */
 
-document.body.classList.remove('d-none')
+export * as mainMenu from './menu.mjs';
+export * as cookieBanner from './cookie-banner.mjs';
+
+document.body.classList.remove('d-none');
