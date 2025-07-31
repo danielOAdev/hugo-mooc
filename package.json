@@ -23,6 +23,7 @@
     "@fortawesome/fontawesome-free": "^7.0.0",
     "bootstrap": "^5.3.3",
     "hugo-extended": "^0.147.8",
+    "panzoom": "^9.4.3",
     "prettier": "^3.6.2"
   }
 }

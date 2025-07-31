@@ -6,5 +6,6 @@
 
 export * as mainMenu from './menu.mjs';
 export * as cookieBanner from './cookie-banner.mjs';
+export * as lightbox from './lightbox.mjs';
 
 document.body.classList.remove('d-none');

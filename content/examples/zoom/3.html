@@ -1,0 +1,88 @@
+<ul style="position: fixed;background-color: black;z-index: 999999;inset: auto 0;bottom: 0;margin: 0;">
+    <li>offsetLeft: <span id="offsetLeft"></span></li>
+    <li>offsetTop: <span id="offsetTop"></span></li>
+    <li>scroll: <span id="scrollDelta"></span></li>
+    <li>scale: <span id="debugScale"></span></li>
+    <li><button id="btnReset">reset</button></li>
+</ul>
+<div id="container" style="width: 100%;height: 60vh;overflow: hidden;position: relative;background: #333;">
+    <img id="image" draggable="false" src="../image.png" style="position: absolute;top: 0;left: 0;transform-origin: center;will-change: transform;object-fit: contain;height: 100%;width: 100%;border: limegreen solid 1px;">
+</div>
+
+<script>
+const img = document.getElementById('image');
+const container = document.getElementById('container');
+let scale = 1;
+let translateX = 0;
+let translateY = 0;
+
+let grabX = null;
+let grabY = null;
+
+function updateTransform() {
+    img.style.transform = `matrix(${scale}, 0, 0, ${scale}, 0, 0)`;
+    img.style.transformOrigin = `${translateX}px ${translateY}px`;
+}
+
+function updateGrab() {
+    img.style.transform = `matrix(${scale}, 0, 0, ${scale}, ${translateX}, ${translateY})`;
+}
+
+container.addEventListener('wheel', (e) => {
+    e.preventDefault();
+
+    const rect = container.getBoundingClientRect();
+    const offsetX = e.clientX - rect.left;
+    const offsetY = e.clientY - rect.top;
+
+    const delta = e.deltaY < 0 ? .1 : -.1;
+    const newScale = scale + delta;
+
+    scrollDelta.textContent = e.deltaY < 0 ? .1 : -.1;
+    debugScale.textContent = newScale;
+
+    // Adjust translation to keep zoom centered on cursor
+    translateX = offsetX;
+    translateY = offsetY;
+
+    scale = newScale;
+    updateTransform();
+});
+
+container.addEventListener('mousemove', (e) => {
+    const rect = container.getBoundingClientRect();
+    const offsetX = e.clientX - rect.left;
+    const offsetY = e.clientY - rect.top;
+
+    offsetLeft.textContent = offsetX;
+    offsetTop.textContent = offsetY;
+
+    if (event.buttons === 1) {
+        if (grabX === null || grabY === null) {
+            grabX = offsetX;
+            grabY = offsetY;
+        }
+        translateX = offsetX - grabX;
+        translateY = offsetY - grabY;
+        updateGrab();
+        return;
+    } else {
+        grabX = null;
+        grabY = null;
+    }
+}, {passive: false});
+
+
+updateTransform();
+
+btnReset.addEventListener('click', e => {
+    scale = 1;
+    translateX = 0;
+    translateY = 0;
+
+    grabX = null;
+    grabY = null;
+    img.style.transform = 'matrix(1, 0, 0, 1, 0, 0)';
+    img.style.transformOrigin = 'center center';
+});
+</script>

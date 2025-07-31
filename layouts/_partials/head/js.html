@@ -2,6 +2,10 @@
 <script src="{{ .RelPermalink }}"></script>
 {{- end -}}
 
+{{/*  {{- with resources.Get "js/panzoom/dist/panzoom.min.js" -}}
+<script src="{{ .RelPermalink }}"></script>
+{{- end -}}  */}}
+
 {{- /* Google Analytics - dataLayer e função gtag */}}
 {{- if not site.Config.Privacy.GoogleAnalytics.Disable }}
     {{- with site.Config.Services.GoogleAnalytics.ID }}

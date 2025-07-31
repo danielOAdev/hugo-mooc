@@ -33,6 +33,9 @@ disableHugoGeneratorInject = true
   [[module.mounts]]
     source = "node_modules/@popperjs/core/dist/esm"
     target = "assets/js/popperjs/core/dist/esm"
+  [[module.mounts]]
+    source = "node_modules/panzoom/dist/panzoom.min.js"
+    target = "assets/js/panzoom/panzoom.min.js"
 [services]
   [services.googleAnalytics]
     id = 'G-WXPN4ETG2Q'
