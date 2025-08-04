@@ -1,6 +1,26 @@
 import "../panzoom/panzoom.min.js";
-const image = document.getElementById('image');
-image.panZoom = panzoom(image, {
+
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxZoomIn = document.getElementById('lightbox-zoom-in');
+const lightboxZoomOut = document.getElementById('lightbox-zoom-out');
+const lightboxZoomFit = document.getElementById('lightbox-zoom-fit');
+const lightboxClose = document.getElementById('lightbox-close');
+
+const getRect = () => lightboxImg.getBoundingClientRect();
+const getParentRect = () => lightboxImg.parentElement.getBoundingClientRect();
+
+document.querySelectorAll('img.lightbox').forEach(element => {
+    const button = document.createElement('button');
+    button.setAttribute('popovertarget', 'lightbox');
+    button.addEventListener('click', function() {
+        lightboxImg.src = element.src;
+    });
+    element.before(button);
+    button.appendChild(element);
+});
+
+lightboxImg.panZoom = panzoom(lightboxImg, {
     zoomSpeed: 0.045,
     maxZoom: 3,
     minZoom: 1,
@@ -9,38 +29,100 @@ image.panZoom = panzoom(image, {
     zoomDoubleClickSpeed: 1.5
 });
 
-image.addEventListener('dblclick', function(e) {
-    this.panZoom.pause();
-    const offsetX = e.clientX - this.offsetLeft
-    const offsetY = e.clientY - this.offsetTop;
-    const xys = this.panZoom.getTransform();
-    if(xys.scale >= 2) {
-        const fScale = 1 - xys.scale
-        const fixeX = xys.x / fScale
-        const fixeY = xys.y / fScale
-        this.panZoom.smoothZoomAbs(fixeX, fixeY, 0.99)
-    } else {
-        this.panZoom.smoothZoomAbs(offsetX, offsetY, xys.scale * 1.5);
-    }
+document.addEventListener('mousemove', function(e) {
+    updateDebug(e);
 });
 
-image.addEventListener('touchend', function(e) {
-    const xys = this.panZoom.getTransform();
-    if(xys.scale >= 2 && e.touches.length <= 0) {
+lightboxImg.addEventListener('dblclick', function(e) {
+    lightboxImg.panZoom.pause();
+    const xys = lightboxImg.panZoom.getTransform();
+    let offsetX, offsetY, offsetS;
+    if(xys.scale >= 3) {
+        const fScale = (1 - xys.scale);
+        offsetX = xys.x / fScale;
+        offsetY = xys.y / fScale;
+        offsetS = 0.99;
+    } else {
+        offsetX = e.clientX - getParentRect().left;
+        offsetY = e.clientY - getParentRect().top;
+        offsetS = xys.scale + .501;
+    }
+    lightboxImg.panZoom.smoothZoomAbs(offsetX, offsetY, offsetS);
+});
+
+lightboxImg.addEventListener('touchend', function(e) {
+    const xys = lightboxImg.panZoom.getTransform();
+    if(xys.scale >= 3 && e.touches.length <= 0) {
         const lastTouch = this.panZoom.lastTouch;
         this.panZoom.lastTouch = (new Date).getTime();
         if (lastTouch + 300 > (new Date).getTime()) {
-            const fScale = 1 - xys.scale
-            const fixeX = xys.x / fScale
-            const fixeY = xys.y / fScale
+            const fScale = (1 - xys.scale);
+            const offsetX = (xys.x / fScale);
+            const offsetY = (xys.y / fScale);
             this.panZoom.pause();
-            this.panZoom.smoothZoomAbs(fixeX, fixeY, 0.99)
+            this.panZoom.smoothZoomAbs(offsetX, offsetY, 0.99)
         }
     }
 });
 
-image.panZoom.on('transform', function(instance) {
+lightboxImg.panZoom.on('transform', function(instance) {
     if (instance.isPaused()) {
         instance.resume();
     }
+    updateDebug(null);
 });
+
+lightboxZoomFit.addEventListener('click', function(e) {
+    const xys = lightboxImg.panZoom.getTransform();
+    if (xys.scale === 1) {
+        return;
+    }
+    const fScale = (1 - xys.scale);
+    const offsetX = (xys.x / fScale);
+    const offsetY = (xys.y / fScale);
+    lightboxImg.panZoom.smoothZoomAbs(offsetX, offsetY, 0.99);
+});
+
+lightboxZoomIn.addEventListener('click', function(e) {
+    const xys = lightboxImg.panZoom.getTransform();
+    const fScale = xys.scale === 1 ? 1 : 1 - xys.scale;
+    let offsetX, offsetY;
+    if (xys.scale === 1) {
+        offsetX = getParentRect().width / 2;
+        offsetY = getParentRect().height / 2;
+    } else {
+        offsetX = xys.x / fScale;
+        offsetY = xys.y / fScale;
+    }
+    lightboxImg.panZoom.smoothZoomAbs(offsetX, offsetY, xys.scale + .501);
+});
+
+lightboxZoomOut.addEventListener('click', function(e) {
+    const xys = lightboxImg.panZoom.getTransform();
+    const fScale = xys.scale === 1 ? 1 : 1 - xys.scale;
+    let offsetX, offsetY;
+    offsetX = xys.x / fScale;
+    offsetY = xys.y / fScale;
+    lightboxImg.panZoom.smoothZoomAbs(offsetX, offsetY, xys.scale - .501);
+});
+
+lightboxClose.addEventListener('click', function(e) {
+    lightbox.hidePopover();
+});
+
+function updateDebug(e) {
+    if (e) {
+        debugCX.textContent = e.clientX;
+        debugCY.textContent = e.clientY;
+    }
+    debugIX.textContent = lightboxImg.x;
+    debugILeft.textContent = getRect().left;
+    debugIY.textContent = lightboxImg.y;
+    debugITop.textContent = getRect().top;
+    const t = lightboxImg.panZoom.getTransform();
+    debugTX.textContent = t.x;
+    debugTY.textContent = t.y;
+    debugTS.textContent = t.scale;
+    debugUX.textContent = t.x / (1 - t.scale);
+    debugUY.textContent = t.y / (1 - t.scale);
+}
