@@ -1,0 +1,16 @@
+path,slug,title,date,expiryDate,publishDate,draft,permalink,kind,section
+content/bibliografia.html,,Bibliografia,2025-06-25T08:16:39-03:00,0001-01-01T00:00:00Z,2025-06-25T08:16:39-03:00,false,/bibliografia/,page,
+content/creditos.html,,Cr├®ditos,2025-06-25T08:16:39-03:00,0001-01-01T00:00:00Z,2025-06-25T08:16:39-03:00,false,/creditos/,page,
+content/examples/fontawesome.html,,Font Awesome,2025-05-25T15:08:16-03:00,0001-01-01T00:00:00Z,2025-05-25T15:08:16-03:00,false,/examples/fontawesome/,page,examples
+content/examples/bootstrap.html,,Bootstrap,2024-12-08T21:53:15-03:00,0001-01-01T00:00:00Z,2024-12-08T21:53:15-03:00,false,/examples/bootstrap/,page,examples
+content/modulo2/aula1.html,,Aula1,2024-12-08T21:53:05-03:00,0001-01-01T00:00:00Z,2024-12-08T21:53:05-03:00,false,/modulo2/aula1/,page,modulo2
+content/_index.html,,Home,2024-12-08T17:57:49-03:00,0001-01-01T00:00:00Z,2024-12-08T17:57:49-03:00,false,/,home,
+content/modulo2/_index.html,,M├│dulo 2,2024-12-08T17:57:49-03:00,0001-01-01T00:00:00Z,2024-12-08T17:57:49-03:00,false,/modulo2/,section,modulo2
+content/modulo3/_index.html,,M├│dulo 3,2024-12-08T17:57:49-03:00,0001-01-01T00:00:00Z,2024-12-08T17:57:49-03:00,false,/modulo3/,section,modulo3
+content/examples/zoom/_index.html,,Zoom,2024-12-08T17:57:49-03:00,0001-01-01T00:00:00Z,2024-12-08T17:57:49-03:00,false,/examples/zoom/,section,examples
+content/examples/zoom/2.html,,,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/examples/zoom/2/,page,examples
+content/examples/zoom/3.html,,,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/examples/zoom/3/,page,examples
+content/examples/zoom/4.html,,,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/examples/zoom/4/,page,examples
+content/modulo1/aula1/topico1/index.html,,Apresenta├º├úo da Aula,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/modulo1/aula1/topico1/,page,modulo1
+content/modulo1/aula1/_index.html,,Aula 1,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/modulo1/aula1/,section,modulo1
+content/modulo1/_index.html,,Luana,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/modulo1/,section,modulo1
