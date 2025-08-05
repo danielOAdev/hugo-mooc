@@ -1,23 +1,46 @@
 import "../panzoom/panzoom.min.js";
 
 const lightbox = document.getElementById('lightbox');
+const lightboxBounds = document.getElementById('lightbox-bounds');
 const lightboxImg = document.getElementById('lightbox-img');
 const lightboxZoomIn = document.getElementById('lightbox-zoom-in');
 const lightboxZoomOut = document.getElementById('lightbox-zoom-out');
 const lightboxZoomFit = document.getElementById('lightbox-zoom-fit');
 const lightboxClose = document.getElementById('lightbox-close');
 
-const getRect = () => lightboxImg.getBoundingClientRect();
-const getParentRect = () => lightboxImg.parentElement.getBoundingClientRect();
+const getParentRect = () => lightboxBounds.getBoundingClientRect();
 
-document.querySelectorAll('img.lightbox').forEach(element => {
+document.querySelectorAll('img.lightbox').forEach(instance => {
     const button = document.createElement('button');
     button.setAttribute('popovertarget', 'lightbox');
     button.addEventListener('click', function() {
-        lightboxImg.src = element.src;
+        lightboxImg.src = instance.src;
     });
-    element.before(button);
-    button.appendChild(element);
+    instance.before(button);
+    button.appendChild(instance);
+});
+
+lightbox.addEventListener('focusout', (e) => {
+    if (!e.relatedTarget || lightbox.contains(e.relatedTarget)) {
+        return;
+    }
+    lightbox.hidePopover();
+});
+
+lightbox.addEventListener('toggle', function(e) {
+    if (e.newState === 'open') {
+        document.querySelectorAll('button[popovertarget="lightbox"]').forEach((instance) => {
+            instance.classList.add('pe-none');
+        });
+        lightboxBounds.focus();
+        lightboxImg.panZoom.zoomAbs(0, 0, 1);
+        // BUG: Imagem não fica centralizada. Executar duas vezes resolve.
+        lightboxImg.panZoom.zoomAbs(0, 0, 1);
+    } else {
+        document.querySelectorAll('button[popovertarget="lightbox"]').forEach((instance) => {
+            instance.classList.remove('pe-none');
+        });
+    }
 });
 
 lightboxImg.panZoom = panzoom(lightboxImg, {
@@ -27,10 +50,6 @@ lightboxImg.panZoom = panzoom(lightboxImg, {
     bounds: true,
     boundsPadding: 1,
     zoomDoubleClickSpeed: 1.5
-});
-
-document.addEventListener('mousemove', function(e) {
-    updateDebug(e);
 });
 
 lightboxImg.addEventListener('dblclick', function(e) {
@@ -69,7 +88,6 @@ lightboxImg.panZoom.on('transform', function(instance) {
     if (instance.isPaused()) {
         instance.resume();
     }
-    updateDebug(null);
 });
 
 lightboxZoomFit.addEventListener('click', function(e) {
@@ -109,20 +127,3 @@ lightboxZoomOut.addEventListener('click', function(e) {
 lightboxClose.addEventListener('click', function(e) {
     lightbox.hidePopover();
 });
-
-function updateDebug(e) {
-    if (e) {
-        debugCX.textContent = e.clientX;
-        debugCY.textContent = e.clientY;
-    }
-    debugIX.textContent = lightboxImg.x;
-    debugILeft.textContent = getRect().left;
-    debugIY.textContent = lightboxImg.y;
-    debugITop.textContent = getRect().top;
-    const t = lightboxImg.panZoom.getTransform();
-    debugTX.textContent = t.x;
-    debugTY.textContent = t.y;
-    debugTS.textContent = t.scale;
-    debugUX.textContent = t.x / (1 - t.scale);
-    debugUY.textContent = t.y / (1 - t.scale);
-}

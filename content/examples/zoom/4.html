@@ -59,35 +59,21 @@
   #lightbox-bounds:focus-visible + #lightbox-tools > #lightbox-keys {
     display: flex;
   }
+
+  button:has(.lightbox) {
+    -webkit-appearance: none;
+    border-radius: 0;
+    text-align: inherit;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+    cursor: pointer;
+    border: none;
+    color: inherit;
+    font: inherit;
+  }
 </style>
-<button popovertarget="lightbox">lightbox</button>
 <div style="max-width: 700px; margin: 1rem auto;">
   <img id="image" src="../image.png" style="width: 100%;" class="lightbox">
   <img id="image" src="../Luana.svg" style="width: 100%;" class="lightbox">
-</div>
-<div popover id="lightbox">
-  <ul style="display:none;position:fixed;bottom:0;left:0;z-index:1;">
-    <li>Client X: <span id="debugCX">-</span></li>
-    <li>Client Y: <span id="debugCY">-</span></li>
-    <li>Img X: <span id="debugIX">-</span></li>
-    <li>Img Left: <span id="debugILeft">-</span></li>
-    <li>Img Y: <span id="debugIY">-</span></li>
-    <li>Img Top: <span id="debugITop">-</span></li>
-    <li>Transform X: <span id="debugTX">-</span></li>
-    <li>Transform Y: <span id="debugTY">-</span></li>
-    <li>Transform S: <span id="debugTS">-</span></li>
-    <li>Undo X: <span id="debugUX">-</span></li>
-    <li>Undo Y: <span id="debugUY">-</span></li>
-  </ul>
-  <div id="lightbox-bounds">
-    <img src="" alt="" id="lightbox-img">
-  </div>
-  <div id="lightbox-tools" class="py-3">
-    <div id="lightbox-keys" class="small text-center hstack gap-3 w-100"><span>Mover: <kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd> <kbd>←</kbd></span><span>Zoom: <kbd>+</kbd> <kbd>-</kbd></span><span>Sair: <kbd>ESC</kbd></span></div>
-    <button id="lightbox-zoom-out" class="btn btn-secondary btn-icone rounded-circle">{{< fa/solid minus >}}</button>
-    <button id="lightbox-zoom-in" class="btn btn-secondary btn-icone rounded-circle">{{< fa/solid plus >}}</button>
-    <button id="lightbox-zoom-fit" class="btn btn-secondary btn-icone rounded-circle">{{< fa/solid compress >}}</button>
-    <div class="vr"></div>
-    <button id="lightbox-close" class="btn btn-danger btn-icone rounded-circle">{{< fa/solid xmark >}}</button>
-  </div>
 </div>
