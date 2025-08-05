@@ -11,33 +11,38 @@ const lightboxClose = document.getElementById('lightbox-close');
 const getParentRect = () => lightboxBounds.getBoundingClientRect();
 
 document.querySelectorAll('img.lightbox').forEach(instance => {
-    const button = document.createElement('button');
-    button.setAttribute('popovertarget', 'lightbox');
-    button.addEventListener('click', function() {
-        lightboxImg.src = instance.src;
+    instance.tabIndex = 0;
+    instance.alt += ' Selecione para expandir a imagem.';
+    instance.addEventListener('click', select);
+    instance.addEventListener('keydown', function(e) {
+        if (e.key === " " || e.key === "Enter" || e.key === "Spacebar") {
+            select();
+        }
     });
-    instance.before(button);
-    button.appendChild(instance);
+    function select() {
+        lightboxImg.src = instance.src;
+        lightbox.showModal();
+    };
 });
 
 lightbox.addEventListener('focusout', (e) => {
     if (!e.relatedTarget || lightbox.contains(e.relatedTarget)) {
         return;
     }
-    lightbox.hidePopover();
+    lightbox.close();
+    lightboxImg.src = '';
 });
 
 lightbox.addEventListener('toggle', function(e) {
     if (e.newState === 'open') {
-        document.querySelectorAll('button[popovertarget="lightbox"]').forEach((instance) => {
+        document.querySelectorAll('img.lightbox').forEach((instance) => {
             instance.classList.add('pe-none');
         });
-        lightboxBounds.focus();
         lightboxImg.panZoom.zoomAbs(0, 0, 1);
         // BUG: Imagem não fica centralizada. Executar duas vezes resolve.
         lightboxImg.panZoom.zoomAbs(0, 0, 1);
     } else {
-        document.querySelectorAll('button[popovertarget="lightbox"]').forEach((instance) => {
+        document.querySelectorAll('img.lightbox').forEach((instance) => {
             instance.classList.remove('pe-none');
         });
     }
@@ -125,5 +130,5 @@ lightboxZoomOut.addEventListener('click', function(e) {
 });
 
 lightboxClose.addEventListener('click', function(e) {
-    lightbox.hidePopover();
+    lightbox.close();
 });

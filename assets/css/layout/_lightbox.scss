@@ -1,0 +1,62 @@
+@use "bootstrap" as *;
+@use "utilidades/mixins";
+
+#lightbox {
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    overflow: visible;
+    margin: auto;
+    
+    &::backdrop {
+        backdrop-filter: blur(2px) brightness(0.5);
+    }
+}
+
+#lightbox:has(#lightbox-bounds:focus-visible)::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    @include mixins.focus-visible-outline;
+    outline-offset: -.25rem !important;
+}
+
+#lightbox-bounds {
+    &:focus-visible {
+        outline: none !important;
+
+        & + #lightbox-tools > #lightbox-keys {
+            @media (pointer: fine) {
+                display: flex;
+            }
+        }
+    }
+}
+
+#lightbox-img {
+    position: relative;
+    width: 100%;
+    max-width: 90vw;
+    max-height: 70vh;
+}
+
+#lightbox-tools {
+    position: fixed;
+    inset: auto 0 0 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    z-index: 1;
+    filter: drop-shadow(0px 0px 5px rgba(0 0 0 / 0.5));
+}
+
+#lightbox-keys {
+    display: none;
+    justify-content: center;
+}
+
+.lightbox {
+    cursor: pointer;
+}

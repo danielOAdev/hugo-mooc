@@ -1,13 +1,19 @@
-<div popover id="lightbox">
+<dialog closedby="any" id="lightbox" aria-label="Imagem expandida">
   <div id="lightbox-bounds">
     <img src="" alt="" id="lightbox-img">
   </div>
   <div id="lightbox-tools" class="py-3">
-    <div id="lightbox-keys" class="small text-center hstack gap-3 w-100"><span>Mover: <kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd> <kbd>←</kbd></span><span>Zoom: <kbd>+</kbd> <kbd>-</kbd></span><span>Sair: <kbd>ESC</kbd></span></div>
-    <button id="lightbox-zoom-out" class="btn btn-secondary btn-icone rounded-circle">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "minus") }}</button>
-    <button id="lightbox-zoom-in" class="btn btn-secondary btn-icone rounded-circle">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "plus") }}</button>
-    <button id="lightbox-zoom-fit" class="btn btn-secondary btn-icone rounded-circle">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "compress") }}</button>
+    <div id="lightbox-keys" class="small text-center w-100">
+        <span class="bg-secondary gap-3 hstack p-1 rounded">
+            <span>Mover: <kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd> <kbd>←</kbd></span>
+            <span>Zoom: <kbd>+</kbd> <kbd>-</kbd></span>
+            <span>Sair: <kbd>ESC</kbd></span>
+        </span>
+    </div>
+    <button id="lightbox-zoom-out" class="btn btn-secondary btn-icone rounded-circle" title="Diminuir imagem">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "minus") }}</button>
+    <button id="lightbox-zoom-in" class="btn btn-secondary btn-icone rounded-circle" title="Expandir imagem">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "plus") }}</button>
+    <button id="lightbox-zoom-fit" class="btn btn-secondary btn-icone rounded-circle" title="Ajustar imagem à tela">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "compress") }}</button>
     <div class="vr"></div>
-    <button id="lightbox-close" class="btn btn-danger btn-icone rounded-circle">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "xmark") }}</button>
+    <button id="lightbox-close" class="btn btn-danger btn-icone rounded-circle" title="Fechar imagem expandida">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "xmark") }}</button>
   </div>
 </div>

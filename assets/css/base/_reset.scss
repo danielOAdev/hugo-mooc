@@ -1,9 +1,6 @@
 @use "bootstrap" as *;
+@use "utilidades/mixins";
 
 :focus-visible {
-    box-shadow: none !important;
-    outline-color: $white !important;
-    outline-offset: .25rem !important;
-    outline-width: .125rem !important;
-    outline-style: dashed !important;
+    @include mixins.focus-visible-outline;
 }
