@@ -1,5 +1,5 @@
 filename,title,weight
-luana/_index.html,Luana,0
+luana/_index.html,Luana,1
 luana/aula1/_index.html,Aula 1,1
 luana/aula1/topico1/index.html,Apresentação da Aula,1
 luana/aula1/topico2/index.html,Introdução,2
@@ -16,7 +16,7 @@ luana/aula2/topico4/index.html,Epidemiologia da Hipertensão,4
 luana/aula2/topico5/index.html,Diabetes Mellitus,5
 luana/aula2/topico6/index.html,Neoplasias,6
 luana/aula2/topico7/index.html,Doenças Respiratórias Crônicas,7
-thiago/_index.html,Thiago,0
+thiago/_index.html,Thiago,1
 thiago/aula1/_index.html,Aula 1,1
 thiago/aula1/topico1/index.html,Apresentação da Aula,1
 thiago/aula1/topico2/index.html,Introdução,2
@@ -40,7 +40,7 @@ thiago/aula3/topico4/index.html,O campo da PS e a intersetorialidade: iniciando 
 thiago/aula3/topico5/index.html,Cinco faces da intersetorialidade nas políticas públicas!,5
 thiago/aula3/topico6/index.html,"Ambiente, espaço e território!",6
 thiago/aula3/topico7/index.html,Territorialização e Promoção da Saúde em contextos de vulnerabilidade,7
-mariana/_index.html,Mariana,0
+mariana/_index.html,Mariana,1
 mariana/aula1/_index.html,Aula 1,1
 mariana/aula1/topico1/index.html,Apresentação da Aula,1
 mariana/aula1/topico2/index.html,Introdução,2
@@ -52,4 +52,4 @@ mariana/aula2/topico1/index.html,Apresentação da Aula,1
 mariana/aula2/topico2/index.html,Introdução,2
 mariana/aula2/topico3/index.html,"Papel da APS na promoção, prevenção, acompanhamento, tratamento e reabilitação de pessoas com DCNT",3
 mariana/aula2/topico4/index.html,Equipe multiprofissional e eMulti no acompanhamento das DCNT,4
-pedro/_index.html,Pedro,0
+pedro/_index.html,Pedro,1

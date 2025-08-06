@@ -2,7 +2,7 @@
   {
     "filename": "luana/_index.html",
     "title": "Luana",
-    "weight": 0
+    "weight": 1
   },
   {
     "filename": "luana/aula1/_index.html",
@@ -87,7 +87,7 @@
   {
     "filename": "thiago/_index.html",
     "title": "Thiago",
-    "weight": 0
+    "weight": 1
   },
   {
     "filename": "thiago/aula1/_index.html",
@@ -207,7 +207,7 @@
   {
     "filename": "mariana/_index.html",
     "title": "Mariana",
-    "weight": 0
+    "weight": 1
   },
   {
     "filename": "mariana/aula1/_index.html",
@@ -267,6 +267,6 @@
   {
     "filename": "pedro/_index.html",
     "title": "Pedro",
-    "weight": 0
+    "weight": 1
   }
 ]
