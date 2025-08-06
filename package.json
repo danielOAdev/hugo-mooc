@@ -6,7 +6,8 @@
     "server": "hugo server --cleanDestinationDir",
     "build": "hugo build --cleanDestinationDir",
     "prettier": "prettier ./public/*.html ./public/**/*.html --write --ignore-path ''",
-    "build + prettier": "npm run build && npm run prettier"
+    "build + prettier": "npm run build && npm run prettier",
+    "update-content-frontmatter": "node ./node_scripts/update-content-frontmatter/index.mjs"
   },
   "repository": {
     "type": "git",
@@ -25,5 +26,8 @@
     "hugo-extended": "^0.147.8",
     "panzoom": "^9.4.3",
     "prettier": "^3.6.2"
+  },
+  "devDependencies": {
+    "handlebars": "^4.7.8"
   }
 }

@@ -1,0 +1,23 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    {{ range .Ancestors.Reverse }}
+        <li>
+            <a href="{{ .RelPermalink }}">
+                {{ if .IsHome }}
+                    {{ partial "fontawesome.html" (dict "style" "solid" "icon" "house" "classes" "align-baseline icone icone-2xs") }}
+                {{ end }}
+                {{ .LinkTitle }}
+            </a>
+            {{ partial "fontawesome.html" (dict "style" "solid" "icon" "chevron-right" "classes" "icone-width-auto ") }}
+        </li>
+    {{ end }}
+    <li class="active">
+      <a aria-current="page" href="{{ .RelPermalink }}">
+        {{ if .IsHome }}
+            {{ partial "fontawesome.html" (dict "style" "solid" "icon" "house" "classes" "align-baseline icone icone-xs") }}
+        {{ end }}
+        {{ .LinkTitle }}
+      </a>
+    </li>
+  </ol>
+</nav>

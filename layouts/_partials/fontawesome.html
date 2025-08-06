@@ -1,7 +1,7 @@
 {{- $path := print "svg/" .style "/" .icon ".svg" -}}
 {{- with resources.Get $path -}}
   {{- $svg := .Content -}}
-  {{- $svg = replace $svg " 512\"><!--" (print " 512\" class=\"icone " $.classes "\"><!--") -}}
+  {{- $svg = replace $svg " 512\"><!--" (print " 512\" class=\"" (cond $.classes (print "icone " $.classes) "icone") "\"><!--") -}}
   {{- $svg = replaceRE "<!--[^>]*-->" "" $svg -}}
   {{- $svg = replace $svg "<path" (print "<path fill=\"currentColor\"") -}}
   {{- $svg | safeHTML -}}

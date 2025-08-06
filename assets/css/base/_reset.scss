@@ -4,3 +4,7 @@
 :focus-visible {
     @include mixins.focus-visible-outline;
 }
+
+a {
+    text-decoration: none;
+}

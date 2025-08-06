@@ -2,8 +2,12 @@
 
 :where(svg.icone) {
     height: 1em;
-    width: 1em;
-    font-size: 1em
+    width: var(--icone-width, 1em);
+    font-size: 1em;
+}
+
+.icone-width-auto {
+    width: auto;
 }
 
 .icone-1x {
