@@ -1,0 +1,42 @@
+@use "bootstrap" as *;
+
+#main {
+    display: contents;
+}
+
+#conteudo, .conteudo {
+    --gap: clamp(1rem, 6vw, 3rem);
+    --conteudo-cheia: minmax(var(--gap), 1fr);
+    --conteudo-padrao: min(80ch, 100% - var(--gap) * 2);
+    --conteudo-realce: minmax(0, 2rem);
+    --conteudo-destaque: minmax(0, 5rem);
+    
+    display: grid;
+    grid-template-columns:
+    [conteudo-cheio-start] var(--conteudo-cheia)
+    [conteudo-destaque-start] var(--conteudo-destaque)
+    [conteudo-realce-start] var(--conteudo-realce)
+    [conteudo-padrao-start] var(--conteudo-padrao) [conteudo-padrao-end]
+    var(--conteudo-realce) [conteudo-realce-end]
+    var(--conteudo-destaque) [conteudo-destaque-end]
+    var(--conteudo-cheia) [conteudo-cheio-end];
+    gap: 1rem;
+}
+
+
+.conteudo-padrao, :where(#conteudo > *, #main > *, .conteudo) {
+    grid-column: conteudo-padrao;
+}
+
+.conteudo-realce {
+    grid-column: conteudo-realce;
+}
+
+.conteudo-destaque {
+    grid-column: conteudo-destaque;
+}
+
+.conteudo-cheio {
+    grid-column: conteudo-cheio;
+}
+

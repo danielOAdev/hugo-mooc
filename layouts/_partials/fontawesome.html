@@ -1,11 +1,11 @@
 {{- $path := print "svg/" .style "/" .icon ".svg" -}}
 {{- with resources.Get $path -}}
-  {{- $svg := .Content -}}
-  {{- $svg = replace $svg " 512\"><!--" (print " 512\" class=\"" (cond $.classes (print "icone " $.classes) "icone") "\"><!--") -}}
-  {{- $svg = replaceRE "<!--[^>]*-->" "" $svg -}}
-  {{- $svg = replace $svg "<path" (print "<path fill=\"currentColor\"") -}}
-  {{- $svg | safeHTML -}}
+    {{- $svg := .Content -}}
+    {{- $svg = replace $svg " 512\"><!--" (print " 512\" class=\"" (cond $.classes (print "icone " $.classes) "icone") "\"><!--") -}}
+    {{- $svg = replaceRE "<!--[^>]*-->" "" $svg -}}
+    {{- $svg = replace $svg "<path" (print "<path fill=\"currentColor\"") -}}
+    {{- $svg | safeHTML -}}
 {{- else -}}
-  <span class="sc-fontawesome-missing" title="svg/{{.style}}/{{.icon}}.svg">&#xFFFD;</span>
-  {{- warnf "Could not find \"%s\" icon with \"%s\" style." .icon .style -}}
+    <span class="sc-fontawesome-missing" title="svg/{{.style}}/{{.icon}}.svg">&#xFFFD;</span>
+    {{- warnf "Could not find \"%s\" icon with \"%s\" style." .icon .style -}}
 {{- end -}}

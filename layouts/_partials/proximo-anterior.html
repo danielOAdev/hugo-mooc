@@ -1,0 +1,23 @@
+{{ $pages := .CurrentSection.Pages.ByWeight.Reverse }}
+
+<nav id="proximo-anterior">
+    {{ with $pages.Prev . }}
+    <a href="{{ .RelPermalink }}" class="btn btn-secondary anterior">
+        {{ partial "fontawesome.html" (dict "style" "solid" "icon" "chevron-left")}}
+        <span class="texto">
+            <span class="direcao">Tópico anterior</span>
+            <span class="titulo">{{.LinkTitle}}</span>
+        </span>
+    </a>
+    {{ end }}
+
+    {{ with $pages.Next . }}
+    <a href="{{ .RelPermalink }}" class="btn btn-secondary proximo">
+        <span class="texto">
+            <span class="direcao">Próximo tópico</span>
+            <span class="titulo">{{.LinkTitle}}</span>
+        </span>
+        {{ partial "fontawesome.html" (dict "style" "solid" "icon" "chevron-right")}}
+    </a>
+    {{ end }}
+</nav>

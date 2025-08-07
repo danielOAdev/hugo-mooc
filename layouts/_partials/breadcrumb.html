@@ -1,23 +1,19 @@
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    {{ range .Ancestors.Reverse }}
-        <li>
-            <a href="{{ .RelPermalink }}">
-                {{ if .IsHome }}
-                    {{ partial "fontawesome.html" (dict "style" "solid" "icon" "house" "classes" "align-baseline icone icone-2xs") }}
-                {{ end }}
-                {{ .LinkTitle }}
-            </a>
-            {{ partial "fontawesome.html" (dict "style" "solid" "icon" "chevron-right" "classes" "icone-width-auto ") }}
-        </li>
-    {{ end }}
-    <li class="active">
-      <a aria-current="page" href="{{ .RelPermalink }}">
-        {{ if .IsHome }}
-            {{ partial "fontawesome.html" (dict "style" "solid" "icon" "house" "classes" "align-baseline icone icone-xs") }}
+<nav class="breadcrumb conteudo conteudo-cheio" aria-label="breadcrumb">
+    <span class="breadcrumb-trilha conteudo-destaque">
+        {{ range .Ancestors.Reverse }}
+        <a href="{{ .RelPermalink }}">
+            {{ if .IsHome }}
+            {{ partial "fontawesome.html" (dict "style" "solid" "icon" "house" "classes" "align-baseline icone icone-2xs") }}
+            {{ end }}
+            {{ .LinkTitle }}
+        </a>
+        {{ partial "fontawesome.html" (dict "style" "solid" "icon" "chevron-right") }}
         {{ end }}
-        {{ .LinkTitle }}
-      </a>
-    </li>
-  </ol>
+        <a aria-current="page" href="{{ .RelPermalink }}">
+            {{ if .IsHome }}
+            {{ partial "fontawesome.html" (dict "style" "solid" "icon" "house" "classes" "align-baseline icone icone-2xs") }}
+            {{ end }}
+            {{ .LinkTitle }}
+        </a>
+    </span>
 </nav>

@@ -1,9 +1,0 @@
-{{ $pages := .CurrentSection.Pages.ByWeight.Reverse }}
-
-{{ with $pages.Prev . }}
-  <a href="{{ .RelPermalink }}">Anterior</a>
-{{ end }}
-
-{{ with $pages.Next . }}
-  <a href="{{ .RelPermalink }}">Próximo</a>
-{{ end }}

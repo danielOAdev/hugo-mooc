@@ -1,7 +1,6 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
-
-  {{ .Content }}
-  {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
-  {{ partial "next-prev.html" . }}
+    <h1>{{ .Title }}</h1>
+    {{ .Content }}
+    {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+    {{ partial "proximo-anterior.html" . }}
 {{ end }}

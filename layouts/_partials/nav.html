@@ -11,57 +11,57 @@ Renders a menu for the given menu ID.
 {{- $menuID := .menuID }}
 
 {{- with index site.Menus $menuID }}
-  <ul  class="navbar-nav">
-    {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
-    <li class="nav-item">
-      <button type="button" class="nav-link" popovertarget="popover-a11y">Acessibilidade {{ partial "fontawesome.html" (dict "style" "solid" "icon" "chevron-right") }}</button>
-      {{- partial "popover-a11y.html" }}
-    </li>
-  </ul>
+    <ul  class="navbar-nav">
+      {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
+      <li class="nav-item">
+            <button type="button" class="nav-link" popovertarget="popover-a11y">Acessibilidade {{ partial "fontawesome.html" (dict "style" "solid" "icon" "chevron-right") }}</button>
+            {{- partial "popover-a11y.html" }}
+      </li>
+    </ul>
 {{- end }}
 
 {{- define "partials/inline/menu/walk.html" }}
-  {{- $page := .page }}
-  {{- $isChild := or .isChild false }}
-  {{- range .menuEntries }}
-    {{- $attrs := dict "href" (or .URL '#') }}
-    {{- $class := slice "nav-link" }}
-    {{- if $isChild }}
-        {{- $class = slice "dropdown-item" }}
-    {{- end }}
-    {{- if $page.IsMenuCurrent .Menu . }}
-      {{- $class = append "active" $class }}
-      {{- $attrs = merge $attrs (dict "aria-current" "page") }}
-    {{- else if $page.HasMenuCurrent .Menu .}}
-      {{- $class = append "ancestor" $class }}
-      {{- $attrs = merge $attrs (dict "aria-current" "true") }}
-    {{- end }}
-    {{ $liclass := slice "nav-item" }}
-    {{- with .Children }}
-        {{- $liclass = append "dropdown" $liclass }}
-        {{- $class = append "dropdown-toggle" $class }}
-        {{- $attrs = merge $attrs (dict "role" "button" "data-bs-toggle" "dropdown" "aria-expanded" "false") }}
-    {{- end }}
-    {{- $name := .Name }}
-    {{- with .Identifier }}
-      {{- with T . }}
-        {{- $name = . }}
-      {{- end }}
-    {{- end }}
-    {{- $attrs = merge $attrs (dict "class" (delimit $class " ")) }}
-    <li {{ cond $isChild "" (printf "class=%q" (delimit $liclass " ")) | safeHTMLAttr }} >
-      <a
-      {{- range $k, $v := $attrs }}
-        {{- with $v }}
-          {{- printf " %s=%q" $k $v | safeHTMLAttr }}
+    {{- $page := .page }}
+    {{- $isChild := or .isChild false }}
+    {{- range .menuEntries }}
+        {{- $attrs := dict "href" (or .URL '#') }}
+        {{- $class := slice "nav-link" }}
+        {{- if $isChild }}
+            {{- $class = slice "dropdown-item" }}
         {{- end }}
-      {{- end -}}
-      >{{ $name }}</a>
-      {{- with .Children }}
-        <ul class="dropdown-menu">
-          {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" . "isChild" true) }}
-        </ul>
-      {{- end }}
-    </li>
-  {{- end }}
+        {{- if $page.IsMenuCurrent .Menu . }}
+            {{- $class = append "active" $class }}
+            {{- $attrs = merge $attrs (dict "aria-current" "page") }}
+        {{- else if $page.HasMenuCurrent .Menu .}}
+            {{- $class = append "ancestor" $class }}
+            {{- $attrs = merge $attrs (dict "aria-current" "true") }}
+        {{- end }}
+        {{ $liclass := slice "nav-item" }}
+        {{- with .Children }}
+            {{- $liclass = append "dropdown" $liclass }}
+            {{- $class = append "dropdown-toggle" $class }}
+            {{- $attrs = merge $attrs (dict "role" "button" "data-bs-toggle" "dropdown" "aria-expanded" "false") }}
+        {{- end }}
+        {{- $name := .Name }}
+        {{- with .Identifier }}
+            {{- with T . }}
+                {{- $name = . }}
+            {{- end }}
+        {{- end }}
+        {{- $attrs = merge $attrs (dict "class" (delimit $class " ")) }}
+        <li {{ cond $isChild "" (printf "class=%q" (delimit $liclass " ")) | safeHTMLAttr }} >
+            <a
+            {{- range $k, $v := $attrs }}
+                {{- with $v }}
+                    {{- printf " %s=%q" $k $v | safeHTMLAttr }}
+                {{- end }}
+            {{- end -}}
+            >{{ $name }}</a>
+            {{- with .Children }}
+                <ul class="dropdown-menu">
+                    {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" . "isChild" true) }}
+                </ul>
+            {{- end }}
+        </li>
+    {{- end }}
 {{- end }}
