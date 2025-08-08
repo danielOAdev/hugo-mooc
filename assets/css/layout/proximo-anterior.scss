@@ -81,10 +81,10 @@
     gap: .5rem;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "anterior proximo";
+    padding: 2rem 0;
     @include media-breakpoint-down(sm) {
         grid-template-columns: 1fr;
     }
-    padding: 2rem 0;
 
     .btn.anterior {
         grid-area: anterior;

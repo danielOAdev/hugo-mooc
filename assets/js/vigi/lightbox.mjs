@@ -49,7 +49,7 @@ lightbox.addEventListener('toggle', function(e) {
 });
 
 lightboxImg.panZoom = panzoom(lightboxImg, {
-    zoomSpeed: 0.045,
+    zoomSpeed: 0.1,
     maxZoom: 3,
     minZoom: 1,
     bounds: true,

@@ -5,24 +5,39 @@
 }
 
 #conteudo, .conteudo {
-    --gap: clamp(1rem, 6vw, 3rem);
-    --conteudo-cheia: minmax(var(--gap), 1fr);
-    --conteudo-padrao: min(80ch, 100% - var(--gap) * 2);
-    --conteudo-realce: minmax(0, 2rem);
-    --conteudo-destaque: minmax(0, 5rem);
-    
-    display: grid;
-    grid-template-columns:
-    [conteudo-cheio-start] var(--conteudo-cheia)
-    [conteudo-destaque-start] var(--conteudo-destaque)
-    [conteudo-realce-start] var(--conteudo-realce)
-    [conteudo-padrao-start] var(--conteudo-padrao) [conteudo-padrao-end]
-    var(--conteudo-realce) [conteudo-realce-end]
-    var(--conteudo-destaque) [conteudo-destaque-end]
-    var(--conteudo-cheia) [conteudo-cheio-end];
-    gap: 1rem;
-}
+    --minimum-content-padding: 1rem;
 
+    /** TRACK WIDTHS **/
+    --conteudo-padrao-max-width: 70ch;
+    --conteudo-realce-max-width: 90ch;
+    --conteudo-destaque-max-width: 110ch;
+    --conteudo-cheio-max-width: 1fr;
+
+    /** TRACK SIZES **/
+    --conteudo-cheio: minmax( var(--minimum-content-padding), 1fr );
+    --conteudo-destaque: minmax( 0, calc( ( var(--conteudo-destaque-max-width) - var(--conteudo-realce-max-width)) * 0.5 ) );
+    --conteudo-realce: minmax( 0, calc( ( var(--conteudo-realce-max-width) - var(--conteudo-padrao-max-width)) * 0.5 ) );
+    --conteudo-padrao: min( var(--conteudo-padrao-max-width), 100% - var(--minimum-content-padding) * 2 );
+
+    display: grid;
+    grid-template-columns: 
+        [conteudo-cheio-start]
+        var(--conteudo-cheio)
+            [conteudo-destaque-start]
+            var(--conteudo-destaque)
+                [conteudo-realce-start]
+                var(--conteudo-realce)
+                    [conteudo-padrao-start]
+                    var(--conteudo-padrao)
+                    [conteudo-padrao-end]
+                var(--conteudo-realce)
+                [conteudo-realce-end]
+            var(--conteudo-destaque)
+            [conteudo-destaque-end]
+        var(--conteudo-cheio)
+        [conteudo-cheio-end];
+    row-gap: 1rem;
+}
 
 .conteudo-padrao, :where(#conteudo > *, #main > *, .conteudo) {
     grid-column: conteudo-padrao;
