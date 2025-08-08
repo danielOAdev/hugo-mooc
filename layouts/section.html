@@ -1,7 +1,23 @@
 {{ define "main" }}
   <h1>{{ .Title }}</h1>
   {{ .Content }}
-  {{ range .Pages.ByWeight }}
-    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+
+  {{ $pagestype := ""}}
+  {{ range .Pages}}
+    {{ $pagestype = strings.FirstUpper (strings.TrimRight "0123456789" (path.BaseName .Path)) }}
   {{ end }}
+  <h1>{{ $pagestype }}</h1>
+  {{ range .Pages.ByWeight }}
+    <h3><a href="{{ .RelPermalink }}">{{ .Weight }}: {{ .LinkTitle }}</a></h3>
+  {{ end }}
+
+  {{ range .Site.MainSections }}
+  <p>{{.}}</p>
+  {{end}}
+
+  <ul>
+    {{ range where .Site.Sections "Section" "in" .Site.MainSections }}
+      <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+    {{ end }}
+  </ul>
 {{ end }}

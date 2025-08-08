@@ -1,13 +1,11 @@
 import fs from 'fs';
 import { fileURLToPath } from 'url';
 import path from 'node:path';
-import handlebars from 'handlebars';
+import json2toml from 'json2toml';
 
 // Load template
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const templateSource = fs.readFileSync(path.join(__dirname, 'frontmatter.hbs'), 'utf8');
-const template = handlebars.compile(templateSource);
 
 // Load data
 const data = JSON.parse(fs.readFileSync(path.join(__dirname, 'data.json'), 'utf8'));
@@ -15,22 +13,32 @@ const data = JSON.parse(fs.readFileSync(path.join(__dirname, 'data.json'), 'utf8
 // Regex to find content between +++
 const regex = /\+\+\+[\s\S]*?\+\+\+/;
 
+let count = 0;
+
 data.forEach(entry => {
+    const tomlString = json2toml(entry, {
+        indent: 4,
+        newlineAfterSection: true
+    });
     const outputPath = path.join(process.env.INIT_CWD, 'content', entry.filename);
-    const newContent = template(entry);
     
     if (fs.existsSync(outputPath)) {
         let existingContent = fs.readFileSync(outputPath, 'utf8');
-        const replacement = `+++\n${newContent}\n+++`;
+        const replacement = `+++\n${tomlString}\n+++`;
         
         if (regex.test(existingContent)) {
+            if (regex.exec(existingContent)[0] === replacement) {
+                return;
+            }
             existingContent = existingContent.replace(regex, replacement);
+            console.log(`Atualizado FM de ${outputPath}`);
         } else {
-            existingContent += `\n${replacement}`;
+            existingContent = `${replacement}\n${existingContent}`;
+            console.log(`Adicionado FM de ${outputPath}`);
         }
-        
+
         fs.writeFileSync(outputPath, existingContent);
-        console.log(`Updated ${outputPath}`);
+        count++;
     } else {
         // Create the directory recursively if it doesn't exist
         try {
@@ -41,7 +49,10 @@ data.forEach(entry => {
             // Handle the error appropriately, e.g., exit or throw
             process.exit(1);
         }
-        fs.writeFileSync(outputPath, `+++\n${newContent}\n+++`);
+        fs.writeFileSync(outputPath, `+++\n${tomlString}\n+++`);
         console.log(`Created ${outputPath}`);
+        count++;
     }
 });
+
+console.log(`------\nFinalizado com ${count} mudanças.`);

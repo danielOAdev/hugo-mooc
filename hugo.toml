@@ -6,6 +6,7 @@ relativeURLs = true
 pluralizeListTitles = false
 enableRobotsTXT = true
 disableHugoGeneratorInject = true
+mainSections = ['luana', 'thiago', 'mariana', 'pedro']
 [params.meta]
   msColor = "#ffffff"
 [menus]

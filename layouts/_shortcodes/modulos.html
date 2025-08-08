@@ -1,0 +1,57 @@
+{{/*  <div class="grid">
+    <div class="modulo">
+        <div class="char">
+            <img src="../assets/images/personagens/Luana_torso.svg">
+        </div>
+        <div class="content">
+            <span class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, enim.</span>
+            <a class="btn btn-primary text-center" href="">Aula 1</a>
+            <a class="btn btn-primary text-center" href="">Aula 2</a>
+        </div>
+    </div>
+    <div class="modulo">
+        <div class="char">
+            <img src="../assets/images/personagens/Luana_torso.svg">
+        </div>
+        <div class="content">
+            <span class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, enim.</span>
+            <a class="btn btn-primary text-center" href="">Aula 1</a>
+            <a class="btn btn-primary text-center" href="">Aula 2</a>
+            <a class="btn btn-primary text-center" href="">Aula 3</a>
+        </div>
+    </div>
+    <div class="modulo">
+        <div class="char mariana">
+            <img src="../assets/images/personagens/Mariana_torso.svg">
+        </div>
+        <div class="content">
+            <span class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, enim.</span>
+            <a class="btn btn-primary text-center" href="">Aula 1</a>
+            <a class="btn btn-primary text-center" href="">Aula 2</a>
+        </div>
+    </div>
+    <div class="modulo">
+        <div class="char pedro">
+            <img src="../assets/images/personagens/Pedro_torso.svg">
+        </div>
+        <div class="content">
+            <span class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, enim.</span>
+            <a class="btn btn-primary text-center" href="">Aula 1</a>
+            <a class="btn btn-primary text-center" href="">Aula 2</a>
+        </div>
+    </div>
+</div>  */}}
+
+<nav id="nav-modulos">
+{{ range (where .Site.Sections "Section" "in" .Site.MainSections).ByWeight }}
+    <li>
+        {{ .LinkTitle }}
+        <ul>
+            {{ range .Pages }}
+                <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+            {{ end }}
+        </ul>
+    </li>
+    {{ end }}
+</ul>
+</nav>

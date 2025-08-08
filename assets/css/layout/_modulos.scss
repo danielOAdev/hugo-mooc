@@ -1,0 +1,43 @@
+#nav-modulos {
+    display: grid;
+    grid-template: 1fr 1fr / 1fr 1fr;
+    gap: 1rem;
+
+    .modulo {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: stretch;
+        border: white solid 1px;
+        padding: 1rem;
+        border-radius: .5rem;
+        row-gap: 1rem;
+    }
+
+    .char {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 0 1 8rem;
+
+        > img {
+            height: 100%;
+            transform: scale(calc(1.25));
+            pointer-events: none;
+        }
+    }
+
+    .content {
+        display: flex;
+        flex: 1 1 60%;
+        row-gap: .25rem;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .mariana, .pedro {
+        transform: scaleX(-1);
+    }
+}
