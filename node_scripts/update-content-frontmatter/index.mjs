@@ -1,6 +1,7 @@
 import fs from 'fs';
 import { fileURLToPath } from 'url';
 import path from 'node:path';
+import csvtojson from 'csvtojson';
 import json2toml from 'json2toml';
 
 // Load template
@@ -8,23 +9,25 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Load data
-const data = JSON.parse(fs.readFileSync(path.join(__dirname, 'data.json'), 'utf8'));
+const jsonArray=await csvtojson({
+    ignoreEmpty: true,
+    checkType: true
+}).fromFile(path.join(__dirname, 'data.csv'));
 
 // Regex to find content between +++
 const regex = /\+\+\+[\s\S]*?\+\+\+/;
 
 let count = 0;
 
-data.forEach(entry => {
+jsonArray.forEach(entry => {
     const tomlString = json2toml(entry, {
-        indent: 4,
-        newlineAfterSection: true
+        indent: 4
     });
     const outputPath = path.join(process.env.INIT_CWD, 'content', entry.filename);
     
     if (fs.existsSync(outputPath)) {
         let existingContent = fs.readFileSync(outputPath, 'utf8');
-        const replacement = `+++\n${tomlString}\n+++`;
+        const replacement = `+++\n${tomlString}+++`;
         
         if (regex.test(existingContent)) {
             if (regex.exec(existingContent)[0] === replacement) {
