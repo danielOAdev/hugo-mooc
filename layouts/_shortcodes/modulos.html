@@ -42,16 +42,21 @@
     </div>
 </div>  */}}
 
-<nav id="nav-modulos">
+<nav id="nav-seletor-modulos" class="conteudo-largo">
 {{ range (where .Site.Sections "Section" "in" .Site.MainSections).ByWeight }}
-    <li>
-        {{ .LinkTitle }}
-        <ul>
+    {{ $section := .Section}}
+    <div class="seletor-modulos__modulo">
+        {{- with resources.Get (print "/images/personagens/" $section "_torso.svg") -}}
+            <div class="seletor-modulos__personagem {{ $section }}">
+                <img src="{{ .RelPermalink }}">
+            </div>
+        {{ end }}
+        <div class="seletor-modulos__conteudo">
+            <span class="text-white">{{ .LinkTitle }}</span>
             {{ range .Pages }}
-                <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+                <a class="btn btn-primary text-center" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
             {{ end }}
-        </ul>
-    </li>
-    {{ end }}
-</ul>
+        </div>
+    </div>
+{{ end }}
 </nav>
