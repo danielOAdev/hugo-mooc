@@ -8,32 +8,32 @@
     --minimum-content-padding: 1rem;
 
     /** TRACK WIDTHS **/
-    --conteudo-padrao-max-width: 70ch;
-    --conteudo-realce-max-width: 90ch;
-    --conteudo-destaque-max-width: 110ch;
+    --conteudo-padrao-max-width: 80ch;
+    --conteudo-destaque-max-width: 90ch;
+    --conteudo-largo-max-width: 110ch;
     --conteudo-cheio-max-width: 1fr;
 
     /** TRACK SIZES **/
     --conteudo-cheio: minmax( var(--minimum-content-padding), 1fr );
-    --conteudo-destaque: minmax( 0, calc( ( var(--conteudo-destaque-max-width) - var(--conteudo-realce-max-width)) * 0.5 ) );
-    --conteudo-realce: minmax( 0, calc( ( var(--conteudo-realce-max-width) - var(--conteudo-padrao-max-width)) * 0.5 ) );
+    --conteudo-largo: minmax( 0, calc( ( var(--conteudo-largo-max-width) - var(--conteudo-destaque-max-width)) * 0.5 ) );
+    --conteudo-destaque: minmax( 0, calc( ( var(--conteudo-destaque-max-width) - var(--conteudo-padrao-max-width)) * 0.5 ) );
     --conteudo-padrao: min( var(--conteudo-padrao-max-width), 100% - var(--minimum-content-padding) * 2 );
 
     display: grid;
     grid-template-columns: 
         [conteudo-cheio-start]
         var(--conteudo-cheio)
-            [conteudo-destaque-start]
-            var(--conteudo-destaque)
-                [conteudo-realce-start]
-                var(--conteudo-realce)
+            [conteudo-largo-start]
+            var(--conteudo-largo)
+                [conteudo-destaque-start]
+                var(--conteudo-destaque)
                     [conteudo-padrao-start]
                     var(--conteudo-padrao)
                     [conteudo-padrao-end]
-                var(--conteudo-realce)
-                [conteudo-realce-end]
-            var(--conteudo-destaque)
-            [conteudo-destaque-end]
+                var(--conteudo-destaque)
+                [conteudo-destaque-end]
+            var(--conteudo-largo)
+            [conteudo-largo-end]
         var(--conteudo-cheio)
         [conteudo-cheio-end];
     row-gap: 1rem;
@@ -43,12 +43,12 @@
     grid-column: conteudo-padrao;
 }
 
-.conteudo-realce {
-    grid-column: conteudo-realce;
-}
-
 .conteudo-destaque {
     grid-column: conteudo-destaque;
+}
+
+.conteudo-largo {
+    grid-column: conteudo-largo;
 }
 
 .conteudo-cheio {
