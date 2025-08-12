@@ -1,9 +1,17 @@
-#nav-seletor-modulos {
+.seletor-modulos {
     display: grid;
     grid-template: 1fr 1fr / 1fr 1fr;
     gap: 1rem;
 
-    .seletor-modulos__modulo {
+    :has(> &) {
+        container-type: inline-size;
+    }
+
+    @container (width < 500px) {
+        grid-template: 1fr / 1fr;
+    }
+
+    &__modulo {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -15,7 +23,7 @@
         row-gap: 1rem;
     }
 
-    .seletor-modulos__personagem {
+    &__personagem {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -28,11 +36,12 @@
         }
     }
 
-    .seletor-modulos__conteudo {
+    &__conteudo {
         display: flex;
         flex: 1 1 60%;
         row-gap: .25rem;
         flex-direction: column;
+        justify-content: center;
         text-align: center;
     }
 

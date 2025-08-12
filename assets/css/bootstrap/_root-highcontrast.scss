@@ -39,54 +39,81 @@
   --#{$prefix}form-invalid-border-color: #{$form-invalid-border-color-highcontrast};
 
   @each $color, $value in $theme-colors {
-    --#{$prefix}#{$color}-rgb: #{to-rgb($highcontrast-primary)};
-    --#{$prefix}#{$color}-text: #{$highcontrast-primary};
-    --#{$prefix}#{$color}-text-emphasis: #{$highcontrast-primary};
-    --#{$prefix}#{$color}-bg-subtle: #{$highcontrast-secondary};
-    --#{$prefix}#{$color}-border-subtle: #{$highcontrast-primary};
+    --#{$prefix}#{$color}-rgb: #{to-rgb($primary-highcontrast)};
+    --#{$prefix}#{$color}-text: #{$primary-highcontrast};
+    --#{$prefix}#{$color}-text-emphasis: #{$primary-highcontrast};
+    --#{$prefix}#{$color}-bg-subtle: #{$secondary-highcontrast};
+    --#{$prefix}#{$color}-border-subtle: #{$primary-highcontrast};
 
     .btn-#{$color} {
       @include button-variant(
-        $highcontrast-primary,
-        $highcontrast-secondary,
-        $hover-background: tint-color($highcontrast-primary, $btn-hover-bg-tint-amount),
-        $hover-border: tint-color($highcontrast-primary, $btn-hover-border-tint-amount),
-        $active-background: tint-color($highcontrast-primary, $btn-active-bg-tint-amount),
-        $active-border: tint-color($highcontrast-primary, $btn-active-border-tint-amount)
+        $primary-highcontrast,
+        $secondary-highcontrast,
+        $hover-background: tint-color($primary-highcontrast, $btn-hover-bg-tint-amount),
+        $hover-border: tint-color($primary-highcontrast, $btn-hover-border-tint-amount),
+        $active-background: tint-color($primary-highcontrast, $btn-active-bg-tint-amount),
+        $active-border: tint-color($primary-highcontrast, $btn-active-border-tint-amount)
       );
     }
 
     .btn-outline-#{$color} {
-      @include button-outline-variant($highcontrast-primary);
+      @include button-outline-variant($primary-highcontrast);
     }
 
     .text-bg-#{$color} {
-      color: color-contrast($highcontrast-primary) if($enable-important-utilities, !important, null);
+      color: color-contrast($primary-highcontrast) if($enable-important-utilities, !important, null);
     }
   }
 
   .badge {
-    --#{$prefix}badge-color: #{$highcontrast-secondary};
+    --#{$prefix}badge-color: #{$secondary-highcontrast};
   }
 
   .nav-pills {
-    --#{$prefix}nav-pills-link-active-color: #{$highcontrast-secondary};
-    --#{$prefix}nav-pills-link-active-bg: #{$highcontrast-primary};
+    --#{$prefix}nav-pills-link-active-color: #{$secondary-highcontrast};
+    --#{$prefix}nav-pills-link-active-bg: #{$primary-highcontrast};
   }
 
   .pagination {
-    --#{$prefix}pagination-active-color: #{$highcontrast-secondary};
-    --#{$prefix}pagination-active-bg: #{$highcontrast-primary};
-    --#{$prefix}pagination-active-border-color: #{$highcontrast-primary};
+    --#{$prefix}pagination-active-color: #{$secondary-highcontrast};
+    --#{$prefix}pagination-active-bg: #{$primary-highcontrast};
+    --#{$prefix}pagination-active-border-color: #{$primary-highcontrast};
   }
 
   .text-bg-dark, .bg-dark {
-    color: #{$highcontrast-primary} if($enable-important-utilities, !important, null);
-    background-color: RGBA(#{to-rgb($highcontrast-secondary)}, var(--#{$prefix}bg-opacity, 1)) if($enable-important-utilities, !important, null);
+    color: #{$primary-highcontrast} if($enable-important-utilities, !important, null);
+    background-color: RGBA(#{to-rgb($secondary-highcontrast)}, var(--#{$prefix}bg-opacity, 1)) if($enable-important-utilities, !important, null);
   }
 
   .form-switch .form-check-input:not(:checked):not(:focus) {
     --#{$prefix}form-switch-bg: #{escape-svg($form-switch-bg-image-highcontrast)};
   }
 
+  --#{$prefix}dropdown-link-active-bg: #{$primary-highcontrast};
+  --#{$prefix}list-group-active-bg: #{$primary-highcontrast};
+  --#{$prefix}nav-pills-link-active-bg: #{$primary-highcontrast};
+  --#{$prefix}pagination-active-bg: #{$primary-highcontrast};
+  --#{$prefix}pagination-active-border-color: #{$primary-highcontrast};
+
+  .form-control:focus {
+      border-color: $primary-highcontrast;
+  }
+
+  .form-check-input {
+    &:checked {
+      background-color: $primary-highcontrast;
+    }
+    &[type="checkbox"]:indeterminate {
+      background-color: $primary-highcontrast;
+    }
+  }
+
+  .form-range {
+    &::-webkit-slider-thumb {
+      @include gradient-bg($primary-highcontrast);
+      &:active {
+        @include gradient-bg($primary-highcontrast);
+      }
+    }
+  }
 }

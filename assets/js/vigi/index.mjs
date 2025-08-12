@@ -4,6 +4,7 @@
  * @copyright Daniel de Oliveira Araujo 2025
  */
 
-export * as mainMenu from './menu.mjs';
+export * as menu from './menu.mjs';
 export * as cookieBanner from './cookie-banner.mjs';
 export * as lightbox from './lightbox.mjs';
+export * from './gtag/gtag-inicial.mjs';

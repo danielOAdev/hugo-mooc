@@ -5,6 +5,7 @@
 @import "../../node_modules/bootstrap/scss/variables";
 @import "../../node_modules/bootstrap/scss/variables-dark";
 @import "./variables-highcontrast";
+@import "./variables-dark";
 
 @import "../../node_modules/bootstrap/scss/maps";
 @import "./maps-highcontrast";
@@ -14,6 +15,7 @@
 // Layout & components
 @import "../../node_modules/bootstrap/scss/root";
 @import "./root-highcontrast";
+@import "./root-dark";
 @import "../../node_modules/bootstrap/scss/reboot";
 @import "../../node_modules/bootstrap/scss/type";
 @import "../../node_modules/bootstrap/scss/images";

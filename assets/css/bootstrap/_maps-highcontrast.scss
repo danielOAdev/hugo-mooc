@@ -1,17 +1,17 @@
 // Add highcontrast color to light and dark theme maps
 // Light mode
-$highcontrast-text: ("highcontrast": $highcontrast-primary);
-$highcontrast-bg-subtle: ("highcontrast": $highcontrast-secondary);
-$highcontrast-border-subtle: ("highcontrast": $highcontrast-primary);
+$highcontrast-text: ("highcontrast": $primary-highcontrast);
+$highcontrast-bg-subtle: ("highcontrast": $secondary-highcontrast);
+$highcontrast-border-subtle: ("highcontrast": $primary-highcontrast);
 
 $theme-colors-text: map-merge($theme-colors-text, $highcontrast-text);
 $theme-colors-bg-subtle: map-merge($theme-colors-bg-subtle, $highcontrast-bg-subtle);
 $theme-colors-border-subtle: map-merge($theme-colors-border-subtle, $highcontrast-border-subtle);
 
 // Dark mode
-$highcontrast-text-dark: ("highcontrast": $highcontrast-primary);
-$highcontrast-bg-subtle-dark: ("highcontrast": $highcontrast-secondary);
-$highcontrast-border-subtle-dark: ("highcontrast": $highcontrast-primary);
+$highcontrast-text-dark: ("highcontrast": $primary-highcontrast);
+$highcontrast-bg-subtle-dark: ("highcontrast": $secondary-highcontrast);
+$highcontrast-border-subtle-dark: ("highcontrast": $primary-highcontrast);
 
 $theme-colors-text-dark: map-merge($theme-colors-text-dark, $highcontrast-text-dark);
 $theme-colors-bg-subtle-dark: map-merge($theme-colors-bg-subtle-dark, $highcontrast-bg-subtle-dark);

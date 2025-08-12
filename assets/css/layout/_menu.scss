@@ -17,7 +17,7 @@
     grid-template-rows: auto 1fr;
     max-height: 80vh;
     width: auto;
-    max-width: Min(80vw, map-get($grid-breakpoints, "md"));
+    max-width: Min(80vw, 110ch);
     padding: 0;
     background-color: var(--vigi-tertiary-bg);
     overflow: hidden;

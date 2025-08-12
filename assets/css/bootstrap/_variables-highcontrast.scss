@@ -3,52 +3,52 @@
 // Custom variables for the `[data-bs-theme="highcontrast"]` theme.
 
 // Add a custom color to $theme-colors
-$highcontrast-primary: $yellow-400 !default;
-$highcontrast-secondary : $black !default;
+$primary-highcontrast: $yellow-400 !default;
+$secondary-highcontrast : $black !default;
 $custom-colors: (
-  "highcontrast": $highcontrast-primary
+  "highcontrast": $primary-highcontrast
 );
 $theme-colors: map-merge($theme-colors, $custom-colors);
 
 //
 // Global colors
 //
-$primary-text-emphasis-highcontrast:        $highcontrast-primary !default;
-$secondary-text-emphasis-highcontrast:      $highcontrast-primary !default;
-$success-text-emphasis-highcontrast:        $highcontrast-primary !default;
-$info-text-emphasis-highcontrast:           $highcontrast-primary !default;
-$warning-text-emphasis-highcontrast:        $highcontrast-primary !default;
-$danger-text-emphasis-highcontrast:         $highcontrast-primary !default;
-$light-text-emphasis-highcontrast:          $highcontrast-primary !default;
-$dark-text-emphasis-highcontrast:           $highcontrast-primary !default;
+$primary-text-emphasis-highcontrast:        $primary-highcontrast !default;
+$secondary-text-emphasis-highcontrast:      $primary-highcontrast !default;
+$success-text-emphasis-highcontrast:        $primary-highcontrast !default;
+$info-text-emphasis-highcontrast:           $primary-highcontrast !default;
+$warning-text-emphasis-highcontrast:        $primary-highcontrast !default;
+$danger-text-emphasis-highcontrast:         $primary-highcontrast !default;
+$light-text-emphasis-highcontrast:          $primary-highcontrast !default;
+$dark-text-emphasis-highcontrast:           $primary-highcontrast !default;
 
-$primary-bg-subtle-highcontrast:            $highcontrast-secondary !default;
-$secondary-bg-subtle-highcontrast:          $highcontrast-secondary !default;
-$success-bg-subtle-highcontrast:            $highcontrast-secondary !default;
-$info-bg-subtle-highcontrast:               $highcontrast-secondary !default;
-$warning-bg-subtle-highcontrast:            $highcontrast-secondary !default;
-$danger-bg-subtle-highcontrast:             $highcontrast-secondary !default;
-$light-bg-subtle-highcontrast:              $highcontrast-secondary !default;
-$dark-bg-subtle-highcontrast:               $highcontrast-secondary !default;
+$primary-bg-subtle-highcontrast:            $secondary-highcontrast !default;
+$secondary-bg-subtle-highcontrast:          $secondary-highcontrast !default;
+$success-bg-subtle-highcontrast:            $secondary-highcontrast !default;
+$info-bg-subtle-highcontrast:               $secondary-highcontrast !default;
+$warning-bg-subtle-highcontrast:            $secondary-highcontrast !default;
+$danger-bg-subtle-highcontrast:             $secondary-highcontrast !default;
+$light-bg-subtle-highcontrast:              $secondary-highcontrast !default;
+$dark-bg-subtle-highcontrast:               $secondary-highcontrast !default;
 
-$primary-border-subtle-highcontrast:        $highcontrast-primary !default;
-$secondary-border-subtle-highcontrast:      $highcontrast-primary !default;
-$success-border-subtle-highcontrast:        $highcontrast-primary !default;
-$info-border-subtle-highcontrast:           $highcontrast-primary !default;
-$warning-border-subtle-highcontrast:        $highcontrast-primary !default;
-$danger-border-subtle-highcontrast:         $highcontrast-primary !default;
-$light-border-subtle-highcontrast:          $highcontrast-primary !default;
-$dark-border-subtle-highcontrast:           $highcontrast-primary !default;
+$primary-border-subtle-highcontrast:        $primary-highcontrast !default;
+$secondary-border-subtle-highcontrast:      $primary-highcontrast !default;
+$success-border-subtle-highcontrast:        $primary-highcontrast !default;
+$info-border-subtle-highcontrast:           $primary-highcontrast !default;
+$warning-border-subtle-highcontrast:        $primary-highcontrast !default;
+$danger-border-subtle-highcontrast:         $primary-highcontrast !default;
+$light-border-subtle-highcontrast:          $primary-highcontrast !default;
+$dark-border-subtle-highcontrast:           $primary-highcontrast !default;
 
-$body-color-highcontrast:                   $highcontrast-primary !default;
-$body-bg-highcontrast:                      $highcontrast-secondary !default;
+$body-color-highcontrast:                   $primary-highcontrast !default;
+$body-bg-highcontrast:                      $secondary-highcontrast !default;
 $body-secondary-color-highcontrast:         rgba($body-color-highcontrast, .75) !default;
-$body-secondary-bg-highcontrast:            tint-color($highcontrast-secondary, 5%) !default;
+$body-secondary-bg-highcontrast:            tint-color($body-bg-highcontrast, 10%) !default;
 $body-tertiary-color-highcontrast:          rgba($body-color-highcontrast, .5) !default;
-$body-tertiary-bg-highcontrast:             tint-color($body-secondary-bg-highcontrast, 5%) !default;
+$body-tertiary-bg-highcontrast:             mix($body-secondary-bg-highcontrast, $body-bg-highcontrast) !default;
 $body-emphasis-color-highcontrast:          $white !default;
-$border-color-highcontrast:                 $highcontrast-primary !default;
-$border-color-translucent-highcontrast:     rgba($highcontrast-primary, .15) !default;
+$border-color-highcontrast:                 $primary-highcontrast !default;
+$border-color-translucent-highcontrast:     rgba($primary-highcontrast, .15) !default;
 $headings-color-highcontrast:               inherit !default;
 $link-color-highcontrast:                   $cyan !default;
 $link-hover-color-highcontrast:             shift-color($link-color-highcontrast, -$link-shade-percentage) !default;
@@ -62,7 +62,7 @@ $mark-bg-highcontrast:                      $yellow-800 !default;
 $form-select-indicator-color-highcontrast:  $body-color-highcontrast !default;
 $form-select-indicator-highcontrast:        url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='none' stroke='#{$form-select-indicator-color-highcontrast}' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/></svg>") !default;
 
-$form-switch-color-highcontrast:            $highcontrast-primary !default;
+$form-switch-color-highcontrast:            $primary-highcontrast !default;
 $form-switch-bg-image-highcontrast:         url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-color-highcontrast}'/></svg>") !default;
 
 $form-valid-color-highcontrast:             $green-300 !default;
@@ -70,7 +70,7 @@ $form-valid-border-color-highcontrast:      $green-300 !default;
 $form-invalid-color-highcontrast:           $red-300 !default;
 $form-invalid-border-color-highcontrast:    $red-300 !default;
 
-$form-range-track-bg:                       $highcontrast-primary !default;
+$form-range-track-bg:                       $primary-highcontrast !default;
 
 //
 // Accordion

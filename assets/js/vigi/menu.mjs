@@ -17,6 +17,12 @@ mainMenu.addEventListener("beforetoggle", (event) => {
     }
 });
 
+mainMenu.addEventListener("toggle", (event) => {
+    if (event.newState === 'open') {
+        mainMenu.querySelector('#menu-titlebar button').focus()
+    }
+});
+
 navTabs.forEach(tab => {
     tab.addEventListener('show.bs.tab', (event) => {
         navSelect.value = event.target.value;
@@ -26,6 +32,13 @@ navTabs.forEach(tab => {
 
 navSelect.addEventListener('change', (event) => {
     bootstrap.Tab.getOrCreateInstance(document.getElementById(`menu-${event.target.value}-tab`)).show();
+});
+
+document.addEventListener('keydown', function(event) {
+    if (!document.querySelector(':modal, :popover-open') && event.code === 'Escape') {
+        event.preventDefault();
+        mainMenu.togglePopover();
+    }
 });
 
 export function showMainMenu(tabName = "module") {
