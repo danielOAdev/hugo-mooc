@@ -54,3 +54,19 @@ form.querySelector('button[type="reset"]')
         AutoExibir.esquecer();
     }
 )
+
+document.addEventListener('keydown', function(event) {
+    switch(event.key) {
+        case 'i':
+            document.documentElement.setAttribute('data-bs-theme', 'light')
+            break;
+
+        case 'o':
+            document.documentElement.setAttribute('data-bs-theme', 'dark')
+            break;
+
+        case 'p':
+            document.documentElement.setAttribute('data-bs-theme', 'highcontrast')
+            break;
+    }
+});
