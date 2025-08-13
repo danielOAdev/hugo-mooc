@@ -85,6 +85,55 @@
     background-color: RGBA(#{to-rgb($secondary-highcontrast)}, var(--#{$prefix}bg-opacity, 1)) if($enable-important-utilities, !important, null);
   }
 
+  .form-check-input {
+    &:checked {
+      &[type="checkbox"] {
+        @if $enable-gradients {
+          --#{$prefix}form-check-bg-image: #{escape-svg($form-check-input-checked-bg-image-highcontrast)}, var(--#{$prefix}gradient);
+        } @else {
+          --#{$prefix}form-check-bg-image: #{escape-svg($form-check-input-checked-bg-image-highcontrast)};
+        }
+      }
+
+      &[type="radio"] {
+        @if $enable-gradients {
+          --#{$prefix}form-check-bg-image: #{escape-svg($form-check-radio-checked-bg-image-highcontrast)}, var(--#{$prefix}gradient);
+        } @else {
+          --#{$prefix}form-check-bg-image: #{escape-svg($form-check-radio-checked-bg-image-highcontrast)};
+        }
+      }
+    }
+
+    &[type="checkbox"]:indeterminate {
+      @if $enable-gradients {
+        --#{$prefix}form-check-bg-image: #{escape-svg($form-check-input-indeterminate-bg-image-highcontrast)}, var(--#{$prefix}gradient);
+      } @else {
+        --#{$prefix}form-check-bg-image: #{escape-svg($form-check-input-indeterminate-bg-image-highcontrast)};
+      }
+    }
+  }
+
+  .form-select {
+    --#{$prefix}form-select-bg-img: #{escape-svg($form-select-indicator-highcontrast)};
+  }
+
+  .form-switch {
+    .form-check-input {
+      &:focus {
+        --#{$prefix}form-switch-bg: #{escape-svg($form-switch-focus-bg-image-highcontrast)};
+      }
+      &:checked {
+        background-position: $form-switch-checked-bg-position;
+
+        @if $enable-gradients {
+          --#{$prefix}form-switch-bg: #{escape-svg($form-switch-checked-bg-image-highcontrast)}, var(--#{$prefix}gradient);
+        } @else {
+          --#{$prefix}form-switch-bg: #{escape-svg($form-switch-checked-bg-image-highcontrast)};
+        }
+      }
+    }
+  }
+
   .form-switch .form-check-input:not(:checked):not(:focus) {
     --#{$prefix}form-switch-bg: #{escape-svg($form-switch-bg-image-highcontrast)};
   }
@@ -109,10 +158,19 @@
   }
 
   .form-range {
-    &::-webkit-slider-thumb {
+    &::-webkit-slider-thumb, &::-moz-range-thumb {
       @include gradient-bg($primary-highcontrast);
       &:active {
         @include gradient-bg($primary-highcontrast);
+      }
+    }
+
+    &:disabled {
+      &::-webkit-slider-thumb {
+        background-color: shade-color($primary-highcontrast, 50%);
+      }
+      &::-moz-range-thumb { 
+        background-color: shade-color($primary-highcontrast, 50%);
       }
     }
   }

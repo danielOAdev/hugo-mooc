@@ -59,11 +59,24 @@ $mark-bg-highcontrast:                      $yellow-800 !default;
 //
 // Forms
 //
-$form-select-indicator-color-highcontrast:  $body-color-highcontrast !default;
+$form-select-indicator-color-highcontrast:  $primary-highcontrast;
 $form-select-indicator-highcontrast:        url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='none' stroke='#{$form-select-indicator-color-highcontrast}' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/></svg>") !default;
 
-$form-switch-color-highcontrast:            $primary-highcontrast !default;
+$form-check-input-checked-color-highcontrast:            $secondary-highcontrast;
+$form-check-input-checked-bg-image-highcontrast:         url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='none' stroke='#{$form-check-input-checked-color-highcontrast}' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/></svg>") !default;
+$form-check-radio-checked-bg-image-highcontrast:         url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='2' fill='#{$form-check-input-checked-color-highcontrast}'/></svg>") !default;
+
+$form-check-input-indeterminate-color-highcontrast:      $secondary-highcontrast;
+$form-check-input-indeterminate-bg-image-highcontrast:   url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='none' stroke='#{$form-check-input-indeterminate-color-highcontrast}' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10h8'/></svg>") !default;
+
+$form-switch-color-highcontrast:            $primary-highcontrast;
 $form-switch-bg-image-highcontrast:         url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-color-highcontrast}'/></svg>") !default;
+
+$form-switch-focus-color-highcontrast:      $primary-highcontrast;
+$form-switch-focus-bg-image-highcontrast:   url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-focus-color-highcontrast}'/></svg>") !default;
+
+$form-switch-checked-color-highcontrast:    $secondary-highcontrast;
+$form-switch-checked-bg-image-highcontrast: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-checked-color-highcontrast}'/></svg>") !default;
 
 $form-valid-color-highcontrast:             $green-300 !default;
 $form-valid-border-color-highcontrast:      $green-300 !default;

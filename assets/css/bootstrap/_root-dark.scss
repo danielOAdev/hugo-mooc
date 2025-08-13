@@ -95,10 +95,19 @@
     }
 
     .form-range {
-      &::-webkit-slider-thumb {
+      &::-webkit-slider-thumb, &::-moz-range-thumb {
         @include gradient-bg($primary-dark);
         &:active {
           @include gradient-bg($primary-dark);
+        }
+      }
+
+      &:disabled {
+        &::-webkit-slider-thumb {
+          background-color: shade-color($primary-dark, 50%);
+        }
+        &::-moz-range-thumb { 
+          background-color: shade-color($primary-dark, 50%);
         }
       }
     }
