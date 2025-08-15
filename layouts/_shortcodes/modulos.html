@@ -1,3 +1,4 @@
 <section class="conteudo-largo">
+    {{ .Store.Set "suffix" (.Get "suffix") }}
     {{ partial "modulos.html" . }}
 </section>

@@ -15,6 +15,7 @@
 #menu:popover-open {
     display: grid;
     grid-template-rows: auto 1fr;
+    min-height: min(35rem, 80vh);
     max-height: 80vh;
     width: auto;
     max-width: Min(80vw, 110ch);
