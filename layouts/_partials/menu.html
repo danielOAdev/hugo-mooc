@@ -1,7 +1,7 @@
-<div popover="hint" id="menu" class="border rounded">
+<dialog id="menu" class="border rounded">
     <div id="menu-titlebar" class="d-flex justify-content-between bg-body-secondary p-3 border-bottom sticky-top">
         <h3 class="m-0">Menu principal</h3>
-        <button type="button" class="btn btn-icone p-1" popovertarget="menu" aria-label="Fechar">
+        <button type="button" id="menu-fechar" class="btn btn-icone p-1" aria-label="Fechar">
             {{ partial "fontawesome.html" (dict "style" "solid" "icon" "xmark" "classes" "fs-3") }}
         </button>
     </div>
@@ -37,4 +37,4 @@
             </div>
         </div>
     </div>
-</div>
+</dialog>

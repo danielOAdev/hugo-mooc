@@ -5,7 +5,7 @@
  */
 
 import GA from './preferencias/privacidade/ga.mjs';
-import { showMainMenu } from './menu.mjs';
+import * as Menu from './menu.mjs';
 
 const cookieBanner = document.getElementById('cookie-banner');
 
@@ -31,7 +31,7 @@ if (GA.valor !== null) {
         .addEventListener('click', (e) => {
             GA.valor = false;
             removeCookieBanner();
-            showMainMenu('privacidade');
+            Menu.show('privacidade');
         }
     )
 }

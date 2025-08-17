@@ -7,10 +7,6 @@
     background-color: transparent;
     overflow: visible;
     margin: auto;
-    
-    &::backdrop {
-        backdrop-filter: blur(2px) brightness(0.5);
-    }
 }
 
 #lightbox:has(#lightbox-bounds:focus-visible)::after {

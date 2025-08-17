@@ -1,9 +1,14 @@
 
-#modulosCarrossel .carousel-inner {
+.modulos-carrossel .carousel-inner {
     overflow: visible;
 
     &:has(.carousel-item-start, .carousel-item-end) {
         overflow-x: clip;
+    }
+
+    .carousel-item-next, .carousel-item-next {
+        position: sticky;
+        top: 0;
     }
 }
 

@@ -44,7 +44,7 @@
 
 {{$slideCount := 0}}
 
-<div id="modulosCarrossel{{ .Params.suffix }}" class="carousel slide">
+<div id="modulosCarrossel{{ .Params.suffix }}" class="modulos-carrossel carousel slide">
     <div class="carousel-inner">
         <div class="carousel-item active">
             <nav class="seletor-modulos">
@@ -123,10 +123,6 @@
         </div>
     </div>
 </div>
-
-<script>
-    new bootstrap.Carousel('#modulosCarrossel{{ .Params.suffix }}');
-</script>
 
 {{ define "_partials/modulo-inicio.html" }}
   <button class="btn btn-secondary btn-icone rounded-circle" data-bs-target="#modulosCarrossel{{.}}" data-bs-slide-to="0">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "chevron-left")}}</button>

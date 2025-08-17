@@ -1,6 +1,6 @@
 @use "bootstrap" as *;
 
-[popover] {
+dialog {
     font-family: var(--#{$prefix}body-font-family);
     @include font-size(var(--#{$prefix}body-font-size));
     font-weight: var(--#{$prefix}body-font-weight);
@@ -12,7 +12,7 @@
     -webkit-tap-highlight-color: rgba($black, 0); // 4
 }
 
-#menu:popover-open {
+#menu:open {
     display: grid;
     grid-template-rows: auto 1fr;
     min-height: min(35rem, 80vh);

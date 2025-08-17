@@ -2,31 +2,38 @@ import "./menu-a11y.mjs";
 import "./menu-privacidade.mjs";
 import * as bootstrap from "../bootstrap/bootstrap.min.mjs";
 
-const mainMenu = document.getElementById("menu");
+const menu = document.getElementById('menu');
+const botaoFechar = document.getElementById('menu-fechar');
+const navTabs = menu.querySelectorAll('#menu-tabs .nav-link');
+const navSelect = menu.querySelector('#menu-select select');
 
-const navTabs = mainMenu.querySelectorAll('#menu-tabs .nav-link');
-const navSelect = mainMenu.querySelector('#menu-select select');
+menu.addEventListener("beforetoggle", (event) => {
+    if (event.newState === 'open') {
+        const tabName = event.target.currentTab ?? 'modulos';
+        const tab = document.getElementById(`menu-${tabName}-tab`);
+        const tabConteudo = document.getElementById(`menu-${tabName}-conteudo`);
 
-mainMenu.addEventListener("beforetoggle", (event) => {
-    const tabName = event.target.currentTab;
-    if (tabName) {
-        bootstrap.Tab.getOrCreateInstance(document.getElementById(`menu-${tabName}-tab`)).show();
         event.target.currentTab = null;
-    } else {
-        bootstrap.Tab.getOrCreateInstance(document.getElementById("menu-modulos-tab")).show();
+        tabConteudo.classList.remove('fade');
+        bootstrap.Tab.getOrCreateInstance(tab).show();
+        tabConteudo.classList.add('fade');
     }
 });
 
-mainMenu.addEventListener("toggle", (event) => {
+menu.addEventListener('toggle', (event) => {
     if (event.newState === 'open') {
-        mainMenu.querySelector('#menu-titlebar button').focus()
+        menu.querySelector('#menu-titlebar button').focus()
     }
+});
+
+botaoFechar.addEventListener('click', () => {
+    fechar();
 });
 
 navTabs.forEach(tab => {
     tab.addEventListener('show.bs.tab', (event) => {
         navSelect.value = event.target.value;
-        mainMenu.currentTab = event.target.value;
+        menu.currentTab = event.target.value;
     })
 })
 
@@ -35,17 +42,17 @@ navSelect.addEventListener('change', (event) => {
 });
 
 document.addEventListener('keydown', function(event) {
-    if (!document.querySelector(':modal, :popover-open') && event.code === 'Escape') {
+    if (!document.querySelector(':open') && event.code === 'Escape') {
         event.preventDefault();
-        mainMenu.togglePopover();
+        abrir();
     }
 });
 
-export function showMainMenu(tabName = "module") {
-    mainMenu.currentTab = tabName;
-    mainMenu.showPopover();
+export function abrir(tabName = "modulos") {
+    menu.currentTab = tabName;
+    menu.showModal();
 }
 
-export function hideMainMenu() {
-    mainMenu.hidePopover();
+export function fechar() {
+    menu.close();
 }

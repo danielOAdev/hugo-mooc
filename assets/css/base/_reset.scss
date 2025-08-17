@@ -1,8 +1,8 @@
 @use "bootstrap" as *;
 @use "utilidades/mixins";
 
-:focus-visible {
-    @include mixins.focus-visible-outline;
+html {
+    scroll-padding-top: 5.5rem;
 }
 
 a {
@@ -11,4 +11,12 @@ a {
 
 dd {
     margin-bottom: 0;
+}
+
+::backdrop {
+    backdrop-filter: blur(2px) brightness(0.5);
+}
+
+:focus-visible {
+    @include mixins.focus-visible-outline;
 }
