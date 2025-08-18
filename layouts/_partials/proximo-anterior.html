@@ -19,13 +19,15 @@
         </span>
         {{ partial "fontawesome.html" (dict "style" "solid" "icon" "chevron-right")}}
     </a>
-    {{ else }}
-    <button class="btn btn-secondary proximo" onclick="menu.showModal()">
-        <span class="texto text-center">
-            <span class="direcao">Escolher outro módulo</span>
-        </span>
-    </button>
     {{ end }}
 </nav>
+
+{{ with not ($pages.Next .) }}
+<section class="vstack gap-3">
+    <h3 class="text-center">Você concluiu este módulo!</h3>
+    <button class="btn btn-secondary align-self-center" onclick="menu.showModal()">Escolher outro módulo</button>
+</section>
+{{ end }}
+
 
 <pre>{{debug.Dump (.FirstSection.Pages.ByWeight.Reverse.Next .Parent)}}</pre>
