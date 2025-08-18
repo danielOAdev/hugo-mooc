@@ -1,50 +1,6 @@
-{{/*  <div class="grid">
-    <div class="modulo">
-        <div class="char">
-            <img src="../assets/images/personagens/Luana_torso.svg">
-        </div>
-        <div class="content">
-            <span class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, enim.</span>
-            <a class="btn btn-primary text-center" href="">Aula 1</a>
-            <a class="btn btn-primary text-center" href="">Aula 2</a>
-        </div>
-    </div>
-    <div class="modulo">
-        <div class="char">
-            <img src="../assets/images/personagens/Luana_torso.svg">
-        </div>
-        <div class="content">
-            <span class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, enim.</span>
-            <a class="btn btn-primary text-center" href="">Aula 1</a>
-            <a class="btn btn-primary text-center" href="">Aula 2</a>
-            <a class="btn btn-primary text-center" href="">Aula 3</a>
-        </div>
-    </div>
-    <div class="modulo">
-        <div class="char mariana">
-            <img src="../assets/images/personagens/Mariana_torso.svg">
-        </div>
-        <div class="content">
-            <span class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, enim.</span>
-            <a class="btn btn-primary text-center" href="">Aula 1</a>
-            <a class="btn btn-primary text-center" href="">Aula 2</a>
-        </div>
-    </div>
-    <div class="modulo">
-        <div class="char pedro">
-            <img src="../assets/images/personagens/Pedro_torso.svg">
-        </div>
-        <div class="content">
-            <span class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, enim.</span>
-            <a class="btn btn-primary text-center" href="">Aula 1</a>
-            <a class="btn btn-primary text-center" href="">Aula 2</a>
-        </div>
-    </div>
-</div>  */}}
-
 {{$slideCount := 0}}
 
-<div id="modulosCarrossel{{ .Params.suffix }}" class="modulos-carrossel carousel slide">
+<div id="modulosCarrossel{{ .Params.suffix }}" class="modulos-carrossel carousel slide" data-bs-wrap="false">
     <div class="carousel-inner">
         <div class="carousel-item active">
             <nav class="seletor-modulos">
@@ -59,7 +15,7 @@
                         <div class="seletor-modulos__conteudo">
                             <span class="text-white h1">{{ .LinkTitle }}</span>
                             {{ range .Pages }}
-                            {{ $slideCount = add $slideCount 1 }}
+                                {{ $slideCount = add $slideCount 1 }}
                                 <button class="btn btn-primary text-center" href="{{ .RelPermalink }}" data-bs-target="#modulosCarrossel{{$.Params.suffix}}" data-bs-slide-to="{{$slideCount}}">{{ .LinkTitle }}</button>
                             {{ end }}
                         </div>
@@ -67,63 +23,38 @@
                 {{ end }}
             </nav>
         </div>
-        <div class="carousel-item">
-            <span class="h3 hstack gap-2">
-                {{ partial "modulo-inicio.html" .Params.suffix }}
-                Luana - Aula 1
-            </span>
-        </div>
-        <div class="carousel-item">
-            <span class="h3 hstack gap-2">
-                {{ partial "modulo-inicio.html" .Params.suffix }}
-                Luana - Aula 2
-            </span>
-        </div>
-        <div class="carousel-item">
-            <span class="h3 hstack gap-2">
-                {{ partial "modulo-inicio.html" .Params.suffix }}
-                Thiago - Aula 1
-            </span>
-        </div>
-        <div class="carousel-item">
-            <span class="h3 hstack gap-2">
-                {{ partial "modulo-inicio.html" .Params.suffix }}
-                Thiago - Aula 2
-            </span>
-        </div>
-        <div class="carousel-item">
-            <span class="h3 hstack gap-2">
-                {{ partial "modulo-inicio.html" .Params.suffix }}
-                Thiago - Aula 3
-            </span>
-        </div>
-        <div class="carousel-item">
-            <span class="h3 hstack gap-2">
-                {{ partial "modulo-inicio.html" .Params.suffix }}
-                Mariana - Aula 1
-            </span>
-        </div>
-        <div class="carousel-item">
-            <span class="h3 hstack gap-2">
-                {{ partial "modulo-inicio.html" .Params.suffix }}
-                Mariana - Aula 2
-            </span>
-        </div>
-        <div class="carousel-item">
-            <span class="h3 hstack gap-2">
-                {{ partial "modulo-inicio.html" .Params.suffix }}
-                Pedro - Aula 1
-            </span>
-        </div>
-        <div class="carousel-item">
-            <span class="h3 hstack gap-2">
-                {{ partial "modulo-inicio.html" .Params.suffix }}
-                Pedro - Aula 2
-            </span>
-        </div>
+        {{ range (where .Site.Sections "Section" "in" .Site.MainSections).ByWeight }}
+            {{ range (where .Sections "Title" "like" `(?i)^aula`).ByWeight }}
+                {{ partial "slide-aula.html" (dict "Page" . "suffix" $.Params.suffix) }}
+            {{ end }}
+        {{ end }}
     </div>
 </div>
 
-{{ define "_partials/modulo-inicio.html" }}
-  <button class="btn btn-secondary btn-icone rounded-circle" data-bs-target="#modulosCarrossel{{.}}" data-bs-slide-to="0">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "chevron-left")}}</button>
+{{ define "_partials/slide-aula.html" }}
+<div class="carousel-item">
+    <span class="h3 hstack gap-2 mb-3">
+        <button class="btn btn-secondary btn-icone rounded-circle" data-bs-target="#modulosCarrossel{{.suffix}}" data-bs-slide-to="0">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "chevron-left")}}</button>
+        {{ strings.FirstUpper .Page.Section }}: {{ .Page.Title }}
+    </span>
+    <ul class="list-group list-group-flush">
+    {{ range .Page.Pages.ByWeight }}
+        <li class="list-group-item bg-transparent"><a href="{{ .RelPermalink }}">{{.Weight}}: {{ .Title }}</a></li>
+    {{ end }}
+    </ul>
+    <pre>{{ debug.Dump (cond .Page.IsSection .Page.File.ContentBaseName .Page.Section) }}</pre>
+    <pre>{{ debug.Dump .Page.Section }}</pre>
+    {{ with .Page.Parent}}
+        <div class="d-flex grid d-sm-grid text-center flex-wrap" style="--vigi-columns: 2; --vigi-gap: .5rem">
+        {{ $prev := (index (where .Pages "Weight" (math.Sub $.Page.Weight 1)) 0) }}
+        {{ $next := (index (where .Pages "Weight" (math.Sum $.Page.Weight 1)) 0) }}
+        {{ if $prev }}
+            <button class="btn btn-secondary g-start-1 w-100" type="button" data-bs-target="#modulosCarrossel{{$.suffix}}" data-bs-slide="prev">{{ $prev.Title }}</button>
+        {{ end }}
+        {{ if $next }}
+            <button class="btn btn-secondary g-start-2 w-100" type="button" data-bs-target="#modulosCarrossel{{$.suffix}}" data-bs-slide="next">{{ $next.Title }}</button>
+        {{ end }}
+        </div>
+    {{ end }}
+</div>
 {{ end }}

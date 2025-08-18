@@ -1,4 +1,4 @@
-{{ $pages := .CurrentSection.Pages.ByWeight.Reverse }}
+{{ $pages := .FirstSection.RegularPagesRecursive.ByWeight.Reverse }}
 
 <nav id="proximo-anterior">
     {{ with $pages.Prev . }}
@@ -19,5 +19,13 @@
         </span>
         {{ partial "fontawesome.html" (dict "style" "solid" "icon" "chevron-right")}}
     </a>
+    {{ else }}
+    <button class="btn btn-secondary proximo" onclick="menu.showModal()">
+        <span class="texto text-center">
+            <span class="direcao">Escolher outro módulo</span>
+        </span>
+    </button>
     {{ end }}
 </nav>
+
+<pre>{{debug.Dump (.FirstSection.Pages.ByWeight.Reverse.Next .Parent)}}</pre>
