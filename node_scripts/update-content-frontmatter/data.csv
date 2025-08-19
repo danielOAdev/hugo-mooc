@@ -1,65 +1,66 @@
-filename,title,weight,url,build.render
-luana/_index.html,Luana,1,luana/aula1/topico1/,link
-luana/aula1/_index.html,Aula 1,1,luana/aula1/topico1/,link
-luana/aula1/topico1/index.html,Apresentação da Aula,1,,
-luana/aula1/topico2/index.html,Introdução,2,,
-luana/aula1/topico3/index.html,O grupo das doenças crônicas não transmissíveis,3,,
-luana/aula1/topico4/index.html,As DCNT: um lugar de destaque no panorama epidemiológico atual,4,,
-luana/aula1/topico5/index.html,Fatores Socioeconômicos e Vulnerabilidades Regionais nas DCNT,5,,
-luana/aula1/topico6/index.html,A indústria e os fatores de risco: o exemplo do tabaco,6,,
-luana/aula1/topico7/index.html,Ultraprocessados e obesidade: estratégias comerciais que interferem na saúde pública!,7,,
-luana/aula2/_index.html,Aula 2,2,luana/aula2/topico1,link
-luana/aula2/topico1/index.html,Apresentação da Aula,8,,
-luana/aula2/topico2/index.html,Introdução ao panorana das DCNT,9,,
-luana/aula2/topico3/index.html,As Doenças Cardiovasculares,10,,
-luana/aula2/topico4/index.html,Epidemiologia da Hipertensão,11,,
-luana/aula2/topico5/index.html,Diabetes Mellitus,12,,
-luana/aula2/topico6/index.html,Neoplasias,13,,
-luana/aula2/topico7/index.html,Doenças Respiratórias Crônicas,14,,
-thiago/_index.html,Thiago,2,thiago/aula1/topico1/,link
-thiago/aula1/_index.html,Aula 1,1,thiago/aula1/topico1/,link
-thiago/aula1/topico1/index.html,Apresentação da Aula,1,,
-thiago/aula1/topico2/index.html,Introdução,2,,
-thiago/aula1/topico3/index.html,(SEM TÍTULO),3,,
-thiago/aula1/topico4/index.html,Cenário atual e riscos relacionados à má alimentação e falta de atividade física,4,,
-thiago/aula1/topico5/index.html,Orientações para adoção de hábitos alimentares saudáveis,5,,
-thiago/aula1/topico6/index.html,(SEM TÍTULO),6,,
-thiago/aula1/topico7/index.html,Guia Alimentar para a População Brasileira,7,,
-thiago/aula1/topico8/index.html,(SEM TÍTULO),8,,
-thiago/aula2/_index.html,Aula 2,2,thiago/aula2/topico1/,link
-thiago/aula2/topico1/index.html,Apresentação da Aula,1,,
-thiago/aula2/topico2/index.html,Introdução,2,,
-thiago/aula2/topico3/index.html,Álcool e tabagismo: Comportamentos e fatores de risco modificáveis para as DCNT,3,,
-thiago/aula2/topico4/index.html,O Tabaco,4,,
-thiago/aula2/topico5/index.html,Regiões fronteiriças: um desafio adicional,5,,
-thiago/aula3/_index.html,Aula 3,3,thiago/aula3/topico1/,link
-thiago/aula3/topico1/index.html,Apresentação da Aula,1,,
-thiago/aula3/topico2/index.html,Introdução,2,,
-thiago/aula3/topico3/index.html,"Café, conversa e cuidado: um convite à construção coletiva da saúde",3,,
-thiago/aula3/topico4/index.html,O campo da PS e a intersetorialidade: iniciando a conversa,4,,
-thiago/aula3/topico5/index.html,Cinco faces da intersetorialidade nas políticas públicas!,5,,
-thiago/aula3/topico6/index.html,"Ambiente, espaço e território!",6,,
-thiago/aula3/topico7/index.html,Territorialização e Promoção da Saúde em contextos de vulnerabilidade,7,,
-mariana/_index.html,Mariana,3,mariana/aula1/topico1,link
-mariana/aula1/_index.html,Aula 1,1,mariana/aula1/topico1,link
-mariana/aula1/topico1/index.html,Apresentação da Aula,1,,
-mariana/aula1/topico2/index.html,Introdução,2,,
-mariana/aula1/topico3/index.html,Rede de Atenção à Saúde para DCNT,3,,
-mariana/aula1/topico4/index.html,Linhas de cuidado para DNCT,4,,
-mariana/aula1/topico5/index.html,Organização da atenção à saúde em regiões fronteiriças,5,,
-mariana/aula2/_index.html,Aula 2,2,mariana/aula2/topico1,link
-mariana/aula2/topico1/index.html,Apresentação da Aula,1,,
-mariana/aula2/topico2/index.html,Introdução,2,,
-mariana/aula2/topico3/index.html,"Papel da APS na promoção, prevenção, acompanhamento, tratamento e reabilitação de pessoas com DCNT",3,,
-mariana/aula2/topico4/index.html,Equipe multiprofissional e eMulti no acompanhamento das DCNT,4,,
-pedro/_index.html,Pedro,4,pedro/aula1/topico1,link
-pedro/aula1/_index.html,Aula 1,1,pedro/aula1/topico1,link
-pedro/aula1/topico1/index.html,Apresentação da Aula,1,,
-pedro/aula1/topico2/index.html,Vigilância em Saúde das Doenças Crônicas Não Transmissíveis (DCNT),2,,
-pedro/aula1/topico3/index.html,A Política Nacional de Vigilância em Saúde (PNVS),3,,
-pedro/aula1/topico4/index.html,(SEM TÍTULO),4,,
-pedro/aula2/_index.html,Aula 2,2,pedro/aula2/topico1,link
-pedro/aula2/topico1/index.html,Apresentação da Aula,1,,
-pedro/aula2/topico2/index.html,Fontes de Informação e Qualidade da Informação,2,,
-pedro/aula2/topico3/index.html,Principais fontes de informação utilizadas na vigilância em saúde das DCNT,3,,
-pedro/aula2/topico4/index.html,Os desafios da produção de informações sobre DCNT em regiões fronteiriças,4,,
+filename,title,type,weight,url,build.render
+_index.html,Início,inicio,1,,
+luana/_index.html,Luana,modulo,1,luana/aula1/topico1/,link
+thiago/_index.html,Thiago,modulo,2,thiago/aula1/topico1/,link
+mariana/_index.html,Mariana,modulo,3,mariana/aula1/topico1,link
+pedro/_index.html,Pedro,modulo,4,pedro/aula1/topico1,link
+luana/aula1/_index.html,Aula 1,aula,1,luana/aula1/topico1/,link
+luana/aula2/_index.html,Aula 2,aula,2,luana/aula2/topico1,link
+thiago/aula1/_index.html,Aula 1,aula,1,thiago/aula1/topico1/,link
+thiago/aula2/_index.html,Aula 2,aula,2,thiago/aula2/topico1/,link
+thiago/aula3/_index.html,Aula 3,aula,3,thiago/aula3/topico1/,link
+mariana/aula1/_index.html,Aula 1,aula,1,mariana/aula1/topico1,link
+mariana/aula2/_index.html,Aula 2,aula,2,mariana/aula2/topico1,link
+pedro/aula1/_index.html,Aula 1,aula,1,pedro/aula1/topico1,link
+pedro/aula2/_index.html,Aula 2,aula,2,pedro/aula2/topico1,link
+luana/aula1/topico1/index.html,Apresentação da Aula,topico,1,,
+luana/aula1/topico2/index.html,Introdução,topico,2,,
+luana/aula1/topico3/index.html,O grupo das doenças crônicas não transmissíveis,topico,3,,
+luana/aula1/topico4/index.html,As DCNT: um lugar de destaque no panorama epidemiológico atual,topico,4,,
+luana/aula1/topico5/index.html,Fatores Socioeconômicos e Vulnerabilidades Regionais nas DCNT,topico,5,,
+luana/aula1/topico6/index.html,A indústria e os fatores de risco: o exemplo do tabaco,topico,6,,
+luana/aula1/topico7/index.html,Ultraprocessados e obesidade: estratégias comerciais que interferem na saúde pública!,topico,7,,
+luana/aula2/topico1/index.html,Apresentação da Aula,topico,8,,
+luana/aula2/topico2/index.html,Introdução ao panorana das DCNT,topico,9,,
+luana/aula2/topico3/index.html,As Doenças Cardiovasculares,topico,10,,
+luana/aula2/topico4/index.html,Epidemiologia da Hipertensão,topico,11,,
+luana/aula2/topico5/index.html,Diabetes Mellitus,topico,12,,
+luana/aula2/topico6/index.html,Neoplasias,topico,13,,
+luana/aula2/topico7/index.html,Doenças Respiratórias Crônicas,topico,14,,
+thiago/aula1/topico1/index.html,Apresentação da Aula,topico,1,,
+thiago/aula1/topico2/index.html,Introdução,topico,2,,
+thiago/aula1/topico3/index.html,(SEM TÍTULO),topico,3,,
+thiago/aula1/topico4/index.html,Cenário atual e riscos relacionados à má alimentação e falta de atividade física,topico,4,,
+thiago/aula1/topico5/index.html,Orientações para adoção de hábitos alimentares saudáveis,topico,5,,
+thiago/aula1/topico6/index.html,(SEM TÍTULO),topico,6,,
+thiago/aula1/topico7/index.html,Guia Alimentar para a População Brasileira,topico,7,,
+thiago/aula1/topico8/index.html,(SEM TÍTULO),topico,8,,
+thiago/aula2/topico1/index.html,Apresentação da Aula,topico,9,,
+thiago/aula2/topico2/index.html,Introdução,topico,10,,
+thiago/aula2/topico3/index.html,Álcool e tabagismo: Comportamentos e fatores de risco modificáveis para as DCNT,topico,11,,
+thiago/aula2/topico4/index.html,O Tabaco,topico,12,,
+thiago/aula2/topico5/index.html,Regiões fronteiriças: um desafio adicional,topico,13,,
+thiago/aula3/topico1/index.html,Apresentação da Aula,topico,14,,
+thiago/aula3/topico2/index.html,Introdução,topico,15,,
+thiago/aula3/topico3/index.html,"Café, conversa e cuidado: um convite à construção coletiva da saúde",topico,16,,
+thiago/aula3/topico4/index.html,O campo da PS e a intersetorialidade: iniciando a conversa,topico,17,,
+thiago/aula3/topico5/index.html,Cinco faces da intersetorialidade nas políticas públicas!,topico,18,,
+thiago/aula3/topico6/index.html,"Ambiente, espaço e território!",topico,19,,
+thiago/aula3/topico7/index.html,Territorialização e Promoção da Saúde em contextos de vulnerabilidade,topico,20,,
+mariana/aula1/topico1/index.html,Apresentação da Aula,topico,1,,
+mariana/aula1/topico2/index.html,Introdução,topico,2,,
+mariana/aula1/topico3/index.html,Rede de Atenção à Saúde para DCNT,topico,3,,
+mariana/aula1/topico4/index.html,Linhas de cuidado para DNCT,topico,4,,
+mariana/aula1/topico5/index.html,Organização da atenção à saúde em regiões fronteiriças,topico,5,,
+mariana/aula2/topico1/index.html,Apresentação da Aula,topico,6,,
+mariana/aula2/topico2/index.html,Introdução,topico,7,,
+mariana/aula2/topico3/index.html,"Papel da APS na promoção, prevenção, acompanhamento, tratamento e reabilitação de pessoas com DCNT",topico,8,,
+mariana/aula2/topico4/index.html,Equipe multiprofissional e eMulti no acompanhamento das DCNT,topico,9,,
+pedro/aula1/topico1/index.html,Apresentação da Aula,topico,1,,
+pedro/aula1/topico2/index.html,Vigilância em Saúde das Doenças Crônicas Não Transmissíveis (DCNT),topico,2,,
+pedro/aula1/topico3/index.html,A Política Nacional de Vigilância em Saúde (PNVS),topico,3,,
+pedro/aula1/topico4/index.html,(SEM TÍTULO),topico,4,,
+pedro/aula2/topico1/index.html,Apresentação da Aula,topico,5,,
+pedro/aula2/topico2/index.html,Fontes de Informação e Qualidade da Informação,topico,6,,
+pedro/aula2/topico3/index.html,Principais fontes de informação utilizadas na vigilância em saúde das DCNT,topico,7,,
+pedro/aula2/topico4/index.html,Os desafios da produção de informações sobre DCNT em regiões fronteiriças,topico,8,,

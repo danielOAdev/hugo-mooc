@@ -3,7 +3,7 @@
     overflow: visible;
 
     &:has(.carousel-item-start, .carousel-item-end) {
-        overflow-x: clip;
+        overflow: clip;
     }
 
     .carousel-item-next, .carousel-item-next {

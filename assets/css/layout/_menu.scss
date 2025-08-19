@@ -48,6 +48,7 @@ dialog {
     grid-area: content;
     overflow: auto;
     padding: 1rem;
+    scrollbar-gutter: stable;
 }
 
 #menu-tabs {

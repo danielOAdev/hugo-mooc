@@ -1,0 +1,8 @@
+{{ $result := false }}
+{{ range $k, $v := .Parent.Pages.ByWeight }}
+    {{ if eq $v.Path $.Path }}
+        {{ $result = math.Sum $k 1 }}
+        {{ break }}
+    {{ end }}
+{{ end }}
+{{ return int $result }}

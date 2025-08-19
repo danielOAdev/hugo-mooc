@@ -1,5 +1,7 @@
 {{ define "main" }}
-    <h1>{{ .Weight }}: {{ .LinkTitle }}</h1>
+    <div class="cabecalho conteudo conteudo-cheio bg-dark p-5">
+        <h2 class="conteudo-padrao mt-auto">{{ .LinkTitle }}</h2>
+    </div>
     {{ .Content }}
     {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
     {{ partial "proximo-anterior.html" . }}

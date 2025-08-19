@@ -1,0 +1,14 @@
+@use "bootstrap" as *;
+
+.cabecalho {
+    min-height: 30rem;
+    margin-top: -1rem;
+    background-image:
+        linear-gradient(to top, rgba(var(--vigi-body-bg-rgb), .75), rgba(var(--vigi-body-bg-rgb), .25)),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 100' width='150' height='100'%3E%3Crect width='150' height='100' fill='%23212529'%3E%3C/rect%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='monospace' font-size='26px' fill='%23454545'%3EIMAGEM%3C/text%3E%3C/svg%3E"),
+    ;
+    background-position: center;
+    h2 {
+        @include font-size(4rem);
+    }
+}

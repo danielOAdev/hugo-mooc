@@ -33,13 +33,18 @@
 
 {{ define "_partials/slide-aula.html" }}
 <div class="carousel-item">
-    <span class="h3 hstack gap-2 mb-3">
-        <button class="btn btn-secondary btn-icone rounded-circle" data-bs-target="#modulosCarrossel{{.suffix}}" data-bs-slide-to="0">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "chevron-left")}}</button>
-        {{ strings.FirstUpper .Page.Section }}: {{ .Page.Title }}
-    </span>
+    <h3 class="mb-3">
+        <div class="hstack gap-2">
+            <button class="btn btn-secondary btn-icone rounded-circle" data-bs-target="#modulosCarrossel{{.suffix}}" data-bs-slide-to="0">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "chevron-left")}}</button>
+            {{ strings.FirstUpper .Page.Section }}
+        </div>
+        <div>
+            {{ .Page.Title }}
+        </div>
+    </h3>
     <ul class="list-group list-group-flush">
     {{ range .Page.Pages.ByWeight }}
-        <li class="list-group-item bg-transparent"><a href="{{ .RelPermalink }}">{{.Weight}}: {{ .Title }}</a></li>
+        <li class="list-group-item bg-transparent"><a href="{{ .RelPermalink }}">{{ partial "funcao/indexOf.html" . }}: {{ .Title }}</a></li>
     {{ end }}
     </ul>
     <pre>{{ debug.Dump (cond .Page.IsSection .Page.File.ContentBaseName .Page.Section) }}</pre>

@@ -1,0 +1,6 @@
+{{ $result := . }}
+{{ $map := dict "inicio" "Início" "modulo" "Módulo" "aula" "Aula" "topico" "Tópico" }}
+{{ with index $map . }}
+    {{ $result = . }}
+{{ end }}
+{{ return $result}}
