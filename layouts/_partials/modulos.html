@@ -6,14 +6,14 @@
             <nav class="seletor-modulos">
                 {{ range (where .Site.Sections "Section" "in" .Site.MainSections).ByWeight }}
                     {{ $section := .Section}}
-                    <div class="seletor-modulos__modulo">
+                    <div class="seletor-modulos__modulo border">
                         {{- with resources.Get (print "/images/personagens/" $section "_torso.svg") -}}
                             <div class="seletor-modulos__personagem {{ $section }}">
                                 <img src="{{ .RelPermalink }}">
                             </div>
                         {{ end }}
                         <div class="seletor-modulos__conteudo">
-                            <span class="text-white h1">{{ .LinkTitle }}</span>
+                            <span class="h1">{{ .LinkTitle }}</span>
                             {{ range .Pages }}
                                 {{ $slideCount = add $slideCount 1 }}
                                 <button class="btn btn-primary text-center" href="{{ .RelPermalink }}" data-bs-target="#modulosCarrossel{{$.Params.suffix}}" data-bs-slide-to="{{$slideCount}}">{{ .LinkTitle }}</button>

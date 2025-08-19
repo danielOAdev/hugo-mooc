@@ -2,7 +2,7 @@
 
 @mixin focus-visible-outline {
     box-shadow: none !important;
-    outline-color: $white !important;
+    outline-color: var(--vigi-emphasis-color) !important;
     outline-offset: .25rem !important;
     outline-width: .125rem !important;
     outline-style: dashed !important;

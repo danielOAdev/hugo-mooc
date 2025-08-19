@@ -1,4 +1,4 @@
-
+@use "bootstrap" as *;
 .modulos-carrossel .carousel-inner {
     overflow: visible;
 
@@ -31,7 +31,6 @@
         flex-wrap: wrap;
         justify-content: center;
         align-items: stretch;
-        border: white solid 1px;
         padding: 1rem;
         border-radius: .5rem;
         row-gap: 1rem;
