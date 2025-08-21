@@ -31,7 +31,7 @@ if (GA.valor !== null) {
         .addEventListener('click', (e) => {
             GA.valor = false;
             removeCookieBanner();
-            Menu.show('privacidade');
+            Menu.abrir('privacidade');
         }
     )
 }

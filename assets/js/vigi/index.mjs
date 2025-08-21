@@ -4,7 +4,6 @@
  * @copyright Daniel de Oliveira Araujo 2025
  */
 
-export * as header from './header.mjs';
 export * as menu from './menu.mjs';
 export * as modulos from './modulos.mjs';
 export * as cookieBanner from './cookie-banner.mjs';

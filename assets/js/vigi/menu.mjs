@@ -1,6 +1,7 @@
+import "./menu-modulos.mjs";
 import "./menu-a11y.mjs";
 import "./menu-privacidade.mjs";
-import * as bootstrap from "../bootstrap/bootstrap.min.mjs";
+import { Tab } from "../bootstrap/bootstrap.min.mjs";
 
 const menu = document.getElementById('menu');
 const botaoFechar = document.getElementById('menu-fechar');
@@ -15,7 +16,7 @@ menu.addEventListener("beforetoggle", (event) => {
 
         event.target.currentTab = null;
         tabConteudo.classList.remove('fade');
-        bootstrap.Tab.getOrCreateInstance(tab).show();
+        Tab.getOrCreateInstance(tab).show();
         tabConteudo.classList.add('fade');
     }
 });
@@ -38,13 +39,22 @@ navTabs.forEach(tab => {
 })
 
 navSelect.addEventListener('change', (event) => {
-    bootstrap.Tab.getOrCreateInstance(document.getElementById(`menu-${event.target.value}-tab`)).show();
+    Tab.getOrCreateInstance(document.getElementById(`menu-${event.target.value}-tab`)).show();
 });
 
 document.addEventListener('keydown', function(event) {
     if (!document.querySelector(':open') && event.code === 'Escape') {
         event.preventDefault();
         abrir();
+    }
+});
+
+document.addEventListener('click', function(event) {
+    const btnMenu = event.target.closest('button[data-vigi-menu]');
+
+    if (btnMenu) {
+        const tabName = btnMenu.getAttribute('data-vigi-menu') || undefined;
+        abrir(tabName);
     }
 });
 

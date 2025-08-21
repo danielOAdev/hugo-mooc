@@ -2,7 +2,7 @@
     <span class="breadcrumb-trilha conteudo-largo">
         {{ range .Ancestors.Reverse }}
             {{ if in (slice "modulo" "aula") .Type }}
-                {{ printf "<button type=\"button\" class=\"btn btn-link p-0 text-decoration-none\" data-menu-%s=\"%d\">%s</button>" .Type (partial "funcao/indexOf.html" .) (partial "bcstep.html" .) | safeHTML }}
+                {{ printf "<button type=\"button\" class=\"btn btn-link p-0 text-decoration-none\" data-vigi-menu-%s=\"%d\">%s</button>" .Type (partial "funcao/indexOf.html" .) (partial "bcstep.html" .) | safeHTML }}
             {{ else }}
                 {{ printf "<a href=\"%s\">%s</a>" .RelPermalink (partial "bcstep.html" .) | safeHTML }}
             {{ end }}
