@@ -1,7 +1,6 @@
 {{ define "main" }}
   {{ .Content }}
-  {{ range site.Sections }}
-    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-    {{ .Summary }}
-  {{ end }}
+  <div class="conteudo-largo">
+    {{ partial "modulos.html" (dict "context" . "suffix" "Home") }}
+  </div>
 {{ end }}

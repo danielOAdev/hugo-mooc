@@ -1,4 +1,3 @@
 <section class="conteudo-largo">
-    {{ .Store.Set "suffix" (.Get "suffix") }}
-    {{ partial "modulos.html" . }}
+    {{ partial "modulos.html" (dict "context" .Page "suffix" "Page") }}
 </section>

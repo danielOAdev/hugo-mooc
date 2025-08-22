@@ -1,7 +1,7 @@
 import { abrir } from "./menu.mjs"
 import { Carousel } from "../bootstrap/bootstrap.min.mjs";
 
-const carousel = new Carousel('#modulosCarrossel');
+const carousel = new Carousel('#modulosCarrosselMenu');
 
 document.addEventListener('click', function(event) {
     const btnMenuModulo = event.target.closest('button[data-vigi-menu-modulo]');

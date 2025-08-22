@@ -1,10 +1,10 @@
 {{$slideCount := 0}}
 
-<div id="modulosCarrossel{{ .Params.suffix }}" class="modulos-carrossel carousel slide" data-bs-wrap="false">
+<div id="modulosCarrossel{{ .suffix }}" class="modulos-carrossel carousel slide" data-bs-wrap="false">
     <div class="carousel-inner">
         <div class="carousel-item active">
             <nav class="seletor-modulos">
-                {{ range (where .Site.Sections "Section" "in" .Site.MainSections).ByWeight }}
+                {{ range (where .context.Site.Sections "Section" "in" .context.Site.MainSections).ByWeight }}
                     {{ $section := .Section}}
                     <div class="seletor-modulos__modulo border">
                         {{- with resources.Get (print "/images/personagens/" $section "_torso.svg") -}}
@@ -16,16 +16,16 @@
                             <span class="h1">{{ .LinkTitle }}</span>
                             {{ range .Pages }}
                                 {{ $slideCount = add $slideCount 1 }}
-                                <button class="btn btn-primary text-center" href="{{ .RelPermalink }}" data-bs-target="#modulosCarrossel{{$.Params.suffix}}" data-bs-slide-to="{{$slideCount}}">{{ .LinkTitle }}</button>
+                                <button class="btn btn-primary text-center" href="{{ .RelPermalink }}" data-bs-target="#modulosCarrossel{{$.suffix}}" data-bs-slide-to="{{$slideCount}}">{{ .LinkTitle }}</button>
                             {{ end }}
                         </div>
                     </div>
                 {{ end }}
             </nav>
         </div>
-        {{ range (where .Site.Sections "Section" "in" .Site.MainSections).ByWeight }}
+        {{ range (where .context.Site.Sections "Section" "in" .context.Site.MainSections).ByWeight }}
             {{ range (where .Sections "Title" "like" `(?i)^aula`).ByWeight }}
-                {{ partial "slide-aula.html" (dict "Page" . "suffix" $.Params.suffix) }}
+                {{ partial "slide-aula.html" (dict "Page" . "suffix" $.suffix) }}
             {{ end }}
         {{ end }}
     </div>
@@ -47,8 +47,6 @@
         <li class="list-group-item bg-transparent"><a href="{{ .RelPermalink }}">{{ partial "funcao/indexOf.html" . }}: {{ .Title }}</a></li>
     {{ end }}
     </ul>
-    <pre>{{ debug.Dump (cond .Page.IsSection .Page.File.ContentBaseName .Page.Section) }}</pre>
-    <pre>{{ debug.Dump .Page.Section }}</pre>
     {{ with .Page.Parent}}
         <div class="d-flex grid d-sm-grid text-center flex-wrap" style="--vigi-columns: 2; --vigi-gap: .5rem">
         {{ $prev := (index (where .Pages "Weight" (math.Sub $.Page.Weight 1)) 0) }}
