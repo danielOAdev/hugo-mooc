@@ -20,10 +20,13 @@
                             {{ end }}
                         </div>
                     </div>  */}}
-                    <button class="border {{ $section }}" type="button" data-vigi-menu-aula="{{ partial "funcao/indexOf.html" . }}">
+                    <button class="border rounded {{ $section }}" type="button" data-vigi-menu-aula="{{ partial "funcao/indexOf.html" . }}">
                         <span class="h1">{{ .LinkTitle }}</span>
                         {{- with resources.Get (print "/images/personagens/" $section "_torso.svg") -}}
-                            <img src="{{ .RelPermalink }}">
+                            <img src="{{ .RelPermalink }}" alt="" aria-hidden="true">
+                        {{ end }}
+                        {{- with resources.Get (print "/images/personagens/" $section ".svg") -}}
+                            <img src="{{ .RelPermalink }}" alt="" aria-hidden="true">
                         {{ end }}
                     </button>
                 {{ end }}

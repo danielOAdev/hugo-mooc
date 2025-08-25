@@ -88,3 +88,34 @@
         }
     }
 }
+
+.seletor-modulos button img:nth-of-type(1) {
+    width: 4rem;
+    scale: 1;
+    translate: 0 0;
+}
+
+.seletor-modulos button img:nth-of-type(2) {
+    width: 0;
+    scale: 1;
+    translate: 0 0;
+}
+
+.seletor-modulos button:hover img:nth-of-type(1) {
+    width: 0;
+    scale: 1.12;
+    translate: -6% -6%;
+    transform: scaleX(-1);
+}
+
+.seletor-modulos button:hover img:nth-of-type(2) {
+
+    width: 4rem;
+    scale: 1.12;
+    translate: -6% -6%;
+    transform: scaleX(-1);
+}
+
+.seletor-modulos button img {
+    transition: scale 0.3s ease, translate .3s ease;
+}
