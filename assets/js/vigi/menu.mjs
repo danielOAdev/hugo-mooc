@@ -3,7 +3,7 @@ import "./menu-a11y.mjs";
 import "./menu-privacidade.mjs";
 import { Tab } from "../bootstrap/bootstrap.min.mjs";
 
-const menu = document.getElementById('menu');
+export const menu = document.getElementById('menu');
 const botaoFechar = document.getElementById('menu-fechar');
 const navTabs = menu.querySelectorAll('#menu-tabs .nav-link');
 const navSelect = menu.querySelector('#menu-select select');

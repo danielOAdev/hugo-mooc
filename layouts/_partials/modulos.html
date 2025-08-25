@@ -6,7 +6,7 @@
             <nav class="seletor-modulos">
                 {{ range (where .context.Site.Sections "Section" "in" .context.Site.MainSections).ByWeight }}
                     {{ $section := .Section}}
-                    <div class="seletor-modulos__modulo border">
+                    {{/*  <div class="seletor-modulos__modulo border">
                         {{- with resources.Get (print "/images/personagens/" $section "_torso.svg") -}}
                             <div class="seletor-modulos__personagem {{ $section }}">
                                 <img src="{{ .RelPermalink }}">
@@ -19,45 +19,37 @@
                                 <button class="btn btn-primary text-center" href="{{ .RelPermalink }}" data-bs-target="#modulosCarrossel{{$.suffix}}" data-bs-slide-to="{{$slideCount}}">{{ .LinkTitle }}</button>
                             {{ end }}
                         </div>
-                    </div>
+                    </div>  */}}
+                    <button class="border {{ $section }}" type="button" data-vigi-menu-aula="{{ partial "funcao/indexOf.html" . }}">
+                        <span class="h1">{{ .LinkTitle }}</span>
+                        {{- with resources.Get (print "/images/personagens/" $section "_torso.svg") -}}
+                            <img src="{{ .RelPermalink }}">
+                        {{ end }}
+                    </button>
                 {{ end }}
             </nav>
         </div>
         {{ range (where .context.Site.Sections "Section" "in" .context.Site.MainSections).ByWeight }}
-            {{ range (where .Sections "Title" "like" `(?i)^aula`).ByWeight }}
+            <div class="carousel-item">
+                <div class="hstack gap-2 mb-3">
+                    <button class="btn btn-secondary btn-icone rounded-circle" data-bs-target="#modulosCarrossel{{$.suffix}}" data-bs-slide-to="0">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "chevron-left")}}</button>
+                    <h3>{{ strings.FirstUpper .Page.Section }}</h3>
+                </div>
+            {{ range (where .Sections "Type" "eq" "aula").ByWeight }}
                 {{ partial "slide-aula.html" (dict "Page" . "suffix" $.suffix) }}
             {{ end }}
+            </div>
         {{ end }}
     </div>
 </div>
 
 {{ define "_partials/slide-aula.html" }}
-<div class="carousel-item">
-    <h3 class="mb-3">
-        <div class="hstack gap-2">
-            <button class="btn btn-secondary btn-icone rounded-circle" data-bs-target="#modulosCarrossel{{.suffix}}" data-bs-slide-to="0">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "chevron-left")}}</button>
-            {{ strings.FirstUpper .Page.Section }}
-        </div>
-        <div>
-            {{ .Page.Title }}
-        </div>
-    </h3>
-    <ul class="list-group list-group-flush">
+<div class="aula">
+    <h4>{{ .Page.Title }}</h4>
+    <ul class="list-group list-group-flush mb-4">
     {{ range .Page.Pages.ByWeight }}
         <li class="list-group-item bg-transparent"><a href="{{ .RelPermalink }}">{{ partial "funcao/indexOf.html" . }}: {{ .Title }}</a></li>
     {{ end }}
     </ul>
-    {{ with .Page.Parent}}
-        <div class="d-flex grid d-sm-grid text-center flex-wrap" style="--vigi-columns: 2; --vigi-gap: .5rem">
-        {{ $prev := (index (where .Pages "Weight" (math.Sub $.Page.Weight 1)) 0) }}
-        {{ $next := (index (where .Pages "Weight" (math.Sum $.Page.Weight 1)) 0) }}
-        {{ if $prev }}
-            <button class="btn btn-secondary g-start-1 w-100" type="button" data-bs-target="#modulosCarrossel{{$.suffix}}" data-bs-slide="prev">{{ $prev.Title }}</button>
-        {{ end }}
-        {{ if $next }}
-            <button class="btn btn-secondary g-start-2 w-100" type="button" data-bs-target="#modulosCarrossel{{$.suffix}}" data-bs-slide="next">{{ $next.Title }}</button>
-        {{ end }}
-        </div>
-    {{ end }}
 </div>
 {{ end }}

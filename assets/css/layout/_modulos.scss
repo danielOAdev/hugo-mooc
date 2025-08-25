@@ -57,8 +57,34 @@
         justify-content: center;
         text-align: center;
     }
+}
 
-    .mariana, .pedro {
-        transform: scaleX(-1);
+
+
+// v2
+
+.seletor-modulos {
+    button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        background-color: transparent;
+        &:hover, &:focus {
+            background-color: green;
+        }
+
+        span {
+            width: 7ch;
+        }
+
+        img {
+            width: 4rem;
+            height: 6rem;
+            object-fit: cover;
+            object-position: bottom;
+            overflow: visible;
+            scale: 1.15;
+        }
     }
 }

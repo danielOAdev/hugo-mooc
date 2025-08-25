@@ -1,3 +1,6 @@
+import { abrir } from "./menu.mjs";
+import { Carousel } from "../bootstrap/bootstrap.min.mjs";
+
 const modulosCarrossel = document.querySelectorAll('.modulos-carrossel');
 
 modulosCarrossel.forEach(moduloCarrossel => {
@@ -16,3 +19,9 @@ modulosCarrossel.forEach(moduloCarrossel => {
         }
     })
 });
+
+export function exibirSlide(elemCarrossel, index) {
+    const carrossel = Carousel.getOrCreateInstance(elemCarrossel);
+    carrossel.to(index);
+    abrir();
+}
