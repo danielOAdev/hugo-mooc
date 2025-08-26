@@ -7,7 +7,7 @@
                 {{ range (where .context.Site.Sections "Section" "in" .context.Site.MainSections).ByWeight }}
                     {{ $section := .Section}}
                     {{/*  <div class="seletor-modulos__modulo border">
-                        {{- with resources.Get (print "/images/personagens/" $section "_torso.svg") -}}
+                        {{- with resources.Get (print "/imagens/personagens/" $section "_torso.svg") -}}
                             <div class="seletor-modulos__personagem {{ $section }}">
                                 <img src="{{ .RelPermalink }}">
                             </div>
@@ -22,11 +22,11 @@
                     </div>  */}}
                     <button class="border rounded {{ $section }}" type="button" data-vigi-menu-aula="{{ partial "funcao/indexOf.html" . }}">
                         <span class="h1">{{ .LinkTitle }}</span>
-                        {{- with resources.Get (print "/images/personagens/" $section "_torso.svg") -}}
-                            <img src="{{ .RelPermalink }}" alt="" aria-hidden="true">
+                        {{- with resources.Get (print "/imagens/modulos/" $section "-off.png") -}}
+                            <img src="{{ .RelPermalink }}" alt="" aria-hidden="true" draggable="false">
                         {{ end }}
-                        {{- with resources.Get (print "/images/personagens/" $section ".svg") -}}
-                            <img src="{{ .RelPermalink }}" alt="" aria-hidden="true">
+                        {{- with resources.Get (print "/imagens/modulos/" $section "-on.png") -}}
+                            <img src="{{ .RelPermalink }}" alt="" aria-hidden="true" draggable="false">
                         {{ end }}
                     </button>
                 {{ end }}
