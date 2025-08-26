@@ -6,22 +6,11 @@
             <nav class="seletor-modulos">
                 {{ range (where .context.Site.Sections "Section" "in" .context.Site.MainSections).ByWeight }}
                     {{ $section := .Section}}
-                    {{/*  <div class="seletor-modulos__modulo border">
-                        {{- with resources.Get (print "/imagens/personagens/" $section "_torso.svg") -}}
-                            <div class="seletor-modulos__personagem {{ $section }}">
-                                <img src="{{ .RelPermalink }}">
-                            </div>
-                        {{ end }}
-                        <div class="seletor-modulos__conteudo">
-                            <span class="h1">{{ .LinkTitle }}</span>
-                            {{ range .Pages }}
-                                {{ $slideCount = add $slideCount 1 }}
-                                <button class="btn btn-primary text-center" href="{{ .RelPermalink }}" data-bs-target="#modulosCarrossel{{$.suffix}}" data-bs-slide-to="{{$slideCount}}">{{ .LinkTitle }}</button>
-                            {{ end }}
-                        </div>
-                    </div>  */}}
                     <button class="border rounded {{ $section }}" style="background-image: url({{ partial "funcao/linkRelativo.html" (dict "Page" $.context "url" (print "/imagens/modulos/" $section "-bg.jpg")) }})" type="button" data-vigi-menu-aula="{{ partial "funcao/indexOf.html" . }}">
-                        <span class="h1">{{ .LinkTitle }}</span>
+                        <span class="visually-hidden">{{ .LinkTitle }}</span>
+                        {{- with resources.Get (print "/imagens/modulos/" $section "-assinatura.svg") -}}
+                            {{ .Content | safeHTML }}
+                        {{ end }}
                         {{- with resources.Get (print "/imagens/modulos/" $section "-off.png") -}}
                             <img src="{{ .RelPermalink }}" alt="" aria-hidden="true" draggable="false">
                         {{ end }}
