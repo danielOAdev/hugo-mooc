@@ -8,7 +8,7 @@
     <div id="menu-grid">
         <div id="menu-tabs">
             <div class="nav nav-pills vstack" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                <button class="nav-link text-start active" value="modulos" id="menu-modulos-tab" data-bs-toggle="pill" data-bs-target="#menu-modulos-conteudo" type="button" role="tab" aria-controls="menu-modulos-conteudo" aria-selected="true">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "cubes") }} Módulos</button>
+                <button class="nav-link text-start active" value="modulos" id="menu-modulos-tab" data-bs-toggle="pill" data-bs-target="#menu-modulos-conteudo" type="button" role="tab" aria-controls="menu-modulos-conteudo" aria-selected="true">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "people-group") }} Módulos</button>
                 <button class="nav-link text-start" value="a11y" id="menu-a11y-tab" data-bs-toggle="pill" data-bs-target="#menu-a11y-conteudo" type="button" role="tab" aria-controls="menu-a11y-conteudo" aria-selected="false">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "universal-access") }} Acessibilidade</button>
                 <button class="nav-link text-start" value="privacidade" id="menu-privacidade-tab" data-bs-toggle="pill" data-bs-target="#menu-privacidade-conteudo" type="button" role="tab" aria-controls="menu-privacidade-conteudo" aria-selected="false">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "shield-halved") }} Privacidade</button>
                 <button class="nav-link text-start" value="creditos" id="menu-creditos-tab" data-bs-toggle="pill" data-bs-target="#menu-creditos-conteudo" type="button" role="tab" aria-controls="menu-creditos-conteudo" aria-selected="false">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "signature") }} Créditos</button>
@@ -33,7 +33,9 @@
                 {{ partial "menu-privacidade.html" }}
             </div>
             <div class="tab-pane fade" id="menu-creditos-conteudo" role="tabpanel" aria-labelledby="menu-creditos-tab">
-                {{ partial "creditos.html" }}
+                {{ with .context.GetPage "creditos" }}
+                    {{ .Content }}
+                {{ end }}
             </div>
         </div>
     </div>

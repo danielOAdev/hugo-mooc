@@ -25,12 +25,14 @@
         {{ with .Parent }}
             de {{ .Pages.Len }}
         {{ end }}
-    {{ else }}
+    {{ else if eq .Type "topico" }}
         {{ $index := partial "funcao/indexOf.html" . }}
         {{ $total := 0 }}
         {{- with .Parent -}}
             {{- $total = .Pages.Len -}}
         {{- end -}}
         {{ print .LinkTitle " (" (partial "funcao/prettyType.html" .Type) " " $index " de " $total ")" }}
+    {{ else }}
+        {{ .LinkTitle }}
     {{ end }}
 {{ end }}

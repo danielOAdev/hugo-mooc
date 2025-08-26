@@ -1,4 +1,4 @@
 {{ $opts := dict "transpiler" "dartsass" "targetPath" "css/style.css" "silenceDeprecations" (slice "import" "global-builtin" "color-functions") }}
-{{ with resources.Get "css/vigi.scss" | toCSS $opts | minify }}
+{{ with resources.Get "css/vigi.scss" | toCSS $opts | postCSS | minify }}
     <link rel="stylesheet" href="{{ .RelPermalink }}">
 {{ end }}

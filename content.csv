@@ -1,62 +1,72 @@
 path,slug,title,date,expiryDate,publishDate,draft,permalink,kind,section
+content/_index.html,,Início,2025-06-25T08:16:39-03:00,0001-01-01T00:00:00Z,2025-06-25T08:16:39-03:00,false,/,home,
 content/luana/aula1/topico1/index.html,,Apresentação da Aula,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/luana/aula1/topico1/,page,luana
-content/luana/aula2/topico1/index.html,,Apresentação da Aula,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/luana/aula2/topico1/,page,luana
 content/mariana/aula1/topico1/index.html,,Apresentação da Aula,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/mariana/aula1/topico1/,page,mariana
-content/mariana/aula2/topico1/index.html,,Apresentação da Aula,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/mariana/aula2/topico1/,page,mariana
+content/pedro/aula1/topico1/index.html,,Apresentação da Aula,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/pedro/aula1/topico1/,page,pedro
 content/thiago/aula1/topico1/index.html,,Apresentação da Aula,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/thiago/aula1/topico1/,page,thiago
-content/thiago/aula2/topico1/index.html,,Apresentação da Aula,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/thiago/aula2/topico1/,page,thiago
-content/thiago/aula3/topico1/index.html,,Apresentação da Aula,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/thiago/aula3/topico1/,page,thiago
-content/luana/aula1/_index.html,,Aula 1,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/luana/aula1/,section,luana
-content/mariana/aula1/_index.html,,Aula 1,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/mariana/aula1/,section,mariana
-content/thiago/aula1/_index.html,,Aula 1,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/thiago/aula1/,section,thiago
-content/luana/_index.html,,Luana,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/luana/,section,luana
-content/mariana/_index.html,,Mariana,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/mariana/,section,mariana
-content/pedro/_index.html,,Pedro,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/pedro/,section,pedro
-content/thiago/_index.html,,Thiago,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/thiago/,section,thiago
-content/luana/aula2/_index.html,,Aula 2,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/luana/aula2/,section,luana
-content/mariana/aula2/_index.html,,Aula 2,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/mariana/aula2/,section,mariana
-content/thiago/aula2/_index.html,,Aula 2,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/thiago/aula2/,section,thiago
+content/luana/aula1/_index.html,,Aula 1,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/luana/aula1/topico1/,section,luana
+content/mariana/aula1/_index.html,,Aula 1,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/mariana/aula1/topico1/,section,mariana
+content/pedro/aula1/_index.html,,Aula 1,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/pedro/aula1/topico1/,section,pedro
+content/thiago/aula1/_index.html,,Aula 1,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/thiago/aula1/topico1/,section,thiago
+content/luana/_index.html,,Luana,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/luana/aula1/topico1/,section,luana
+content/luana/aula2/_index.html,,Aula 2,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/luana/aula2/topico1/,section,luana
+content/mariana/aula2/_index.html,,Aula 2,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/mariana/aula2/topico1/,section,mariana
+content/pedro/aula2/_index.html,,Aula 2,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/pedro/aula2/topico1/,section,pedro
+content/thiago/aula2/_index.html,,Aula 2,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/thiago/aula2/topico1/,section,thiago
 content/luana/aula1/topico2/index.html,,Introdução,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/luana/aula1/topico2/,page,luana
 content/mariana/aula1/topico2/index.html,,Introdução,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/mariana/aula1/topico2/,page,mariana
-content/mariana/aula2/topico2/index.html,,Introdução,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/mariana/aula2/topico2/,page,mariana
 content/thiago/aula1/topico2/index.html,,Introdução,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/thiago/aula1/topico2/,page,thiago
-content/thiago/aula2/topico2/index.html,,Introdução,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/thiago/aula2/topico2/,page,thiago
-content/thiago/aula3/topico2/index.html,,Introdução,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/thiago/aula3/topico2/,page,thiago
-content/luana/aula2/topico2/index.html,,Introdução ao panorana das DCNT,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/luana/aula2/topico2/,page,luana
+content/thiago/_index.html,,Thiago,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/thiago/aula1/topico1/,section,thiago
+content/pedro/aula1/topico2/index.html,,Vigilância em Saúde das Doenças Crônicas Não Transmissíveis (DCNT),0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/pedro/aula1/topico2/,page,pedro
 content/thiago/aula1/topico3/index.html,,(SEM TÍTULO),0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/thiago/aula1/topico3/,page,thiago
-content/thiago/aula2/topico3/index.html,,Álcool e tabagismo: Comportamentos e fatores de risco modificáveis para as DCNT,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/thiago/aula2/topico3/,page,thiago
-content/luana/aula2/topico3/index.html,,As Doenças Cardiovasculares,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/luana/aula2/topico3/,page,luana
-content/thiago/aula3/_index.html,,Aula 3,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/thiago/aula3/,section,thiago
-content/thiago/aula3/topico3/index.html,,"Café, conversa e cuidado: um convite à construção coletiva da saúde",0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/thiago/aula3/topico3/,page,thiago
+content/pedro/aula1/topico3/index.html,,A Política Nacional de Vigilância em Saúde (PNVS),0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/pedro/aula1/topico3/,page,pedro
+content/thiago/aula3/_index.html,,Aula 3,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/thiago/aula3/topico1/,section,thiago
+content/mariana/_index.html,,Mariana,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/mariana/aula1/topico1/,section,mariana
 content/luana/aula1/topico3/index.html,,O grupo das doenças crônicas não transmissíveis,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/luana/aula1/topico3/,page,luana
-content/mariana/aula2/topico3/index.html,,"Papel da APS na promoção, prevenção, acompanhamento, tratamento e reabilitação de pessoas com DCNT",0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/mariana/aula2/topico3/,page,mariana
 content/mariana/aula1/topico3/index.html,,Rede de Atenção à Saúde para DCNT,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/mariana/aula1/topico3/,page,mariana
+content/pedro/aula1/topico4/index.html,,(SEM TÍTULO),0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/pedro/aula1/topico4/,page,pedro
 content/luana/aula1/topico4/index.html,,As DCNT: um lugar de destaque no panorama epidemiológico atual,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/luana/aula1/topico4/,page,luana
 content/thiago/aula1/topico4/index.html,,Cenário atual e riscos relacionados à má alimentação e falta de atividade física,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/thiago/aula1/topico4/,page,thiago
-content/luana/aula2/topico4/index.html,,Epidemiologia da Hipertensão,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/luana/aula2/topico4/,page,luana
-content/mariana/aula2/topico4/index.html,,Equipe multiprofissional e eMulti no acompanhamento das DCNT,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/mariana/aula2/topico4/,page,mariana
 content/mariana/aula1/topico4/index.html,,Linhas de cuidado para DNCT,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/mariana/aula1/topico4/,page,mariana
-content/thiago/aula3/topico4/index.html,,O campo da PS e a intersetorialidade: iniciando a conversa,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/thiago/aula3/topico4/,page,thiago
-content/thiago/aula2/topico4/index.html,,O Tabaco,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/thiago/aula2/topico4/,page,thiago
-content/thiago/aula3/topico5/index.html,,Cinco faces da intersetorialidade nas políticas públicas!,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/thiago/aula3/topico5/,page,thiago
-content/luana/aula2/topico5/index.html,,Diabetes Mellitus,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/luana/aula2/topico5/,page,luana
+content/pedro/_index.html,,Pedro,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/pedro/aula1/topico1/,section,pedro
+content/pedro/aula2/topico1/index.html,,Apresentação da Aula,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/pedro/aula2/topico1/,page,pedro
 content/luana/aula1/topico5/index.html,,Fatores Socioeconômicos e Vulnerabilidades Regionais nas DCNT,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/luana/aula1/topico5/,page,luana
 content/mariana/aula1/topico5/index.html,,Organização da atenção à saúde em regiões fronteiriças,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/mariana/aula1/topico5/,page,mariana
 content/thiago/aula1/topico5/index.html,,Orientações para adoção de hábitos alimentares saudáveis,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/thiago/aula1/topico5/,page,thiago
-content/thiago/aula2/topico5/index.html,,Regiões fronteiriças: um desafio adicional,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/thiago/aula2/topico5/,page,thiago
 content/thiago/aula1/topico6/index.html,,(SEM TÍTULO),0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/thiago/aula1/topico6/,page,thiago
 content/luana/aula1/topico6/index.html,,A indústria e os fatores de risco: o exemplo do tabaco,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/luana/aula1/topico6/,page,luana
-content/thiago/aula3/topico6/index.html,,"Ambiente, espaço e território!",0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/thiago/aula3/topico6/,page,thiago
-content/luana/aula2/topico6/index.html,,Neoplasias,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/luana/aula2/topico6/,page,luana
-content/luana/aula2/topico7/index.html,,Doenças Respiratórias Crônicas,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/luana/aula2/topico7/,page,luana
+content/mariana/aula2/topico1/index.html,,Apresentação da Aula,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/mariana/aula2/topico1/,page,mariana
+content/pedro/aula2/topico2/index.html,,Fontes de Informação e Qualidade da Informação,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/pedro/aula2/topico2/,page,pedro
 content/thiago/aula1/topico7/index.html,,Guia Alimentar para a População Brasileira,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/thiago/aula1/topico7/,page,thiago
-content/thiago/aula3/topico7/index.html,,Territorialização e Promoção da Saúde em contextos de vulnerabilidade,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/thiago/aula3/topico7/,page,thiago
+content/mariana/aula2/topico2/index.html,,Introdução,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/mariana/aula2/topico2/,page,mariana
+content/pedro/aula2/topico3/index.html,,Principais fontes de informação utilizadas na vigilância em saúde das DCNT,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/pedro/aula2/topico3/,page,pedro
 content/luana/aula1/topico7/index.html,,Ultraprocessados e obesidade: estratégias comerciais que interferem na saúde pública!,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/luana/aula1/topico7/,page,luana
 content/thiago/aula1/topico8/index.html,,(SEM TÍTULO),0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/thiago/aula1/topico8/,page,thiago
+content/luana/aula2/topico1/index.html,,Apresentação da Aula,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/luana/aula2/topico1/,page,luana
+content/pedro/aula2/topico4/index.html,,Os desafios da produção de informações sobre DCNT em regiões fronteiriças,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/pedro/aula2/topico4/,page,pedro
+content/mariana/aula2/topico3/index.html,,"Papel da APS na promoção, prevenção, acompanhamento, tratamento e reabilitação de pessoas com DCNT",0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/mariana/aula2/topico3/,page,mariana
+content/thiago/aula2/topico1/index.html,,Apresentação da Aula,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/thiago/aula2/topico1/,page,thiago
+content/mariana/aula2/topico4/index.html,,Equipe multiprofissional e eMulti no acompanhamento das DCNT,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/mariana/aula2/topico4/,page,mariana
+content/luana/aula2/topico2/index.html,,Introdução ao panorana das DCNT,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/luana/aula2/topico2/,page,luana
+content/luana/aula2/topico3/index.html,,As Doenças Cardiovasculares,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/luana/aula2/topico3/,page,luana
+content/thiago/aula2/topico2/index.html,,Introdução,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/thiago/aula2/topico2/,page,thiago
+content/thiago/aula2/topico3/index.html,,Álcool e tabagismo: Comportamentos e fatores de risco modificáveis para as DCNT,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/thiago/aula2/topico3/,page,thiago
+content/luana/aula2/topico4/index.html,,Epidemiologia da Hipertensão,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/luana/aula2/topico4/,page,luana
+content/luana/aula2/topico5/index.html,,Diabetes Mellitus,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/luana/aula2/topico5/,page,luana
+content/thiago/aula2/topico4/index.html,,O Tabaco,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/thiago/aula2/topico4/,page,thiago
+content/luana/aula2/topico6/index.html,,Neoplasias,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/luana/aula2/topico6/,page,luana
+content/thiago/aula2/topico5/index.html,,Regiões fronteiriças: um desafio adicional,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/thiago/aula2/topico5/,page,thiago
+content/thiago/aula3/topico1/index.html,,Apresentação da Aula,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/thiago/aula3/topico1/,page,thiago
+content/luana/aula2/topico7/index.html,,Doenças Respiratórias Crônicas,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/luana/aula2/topico7/,page,luana
+content/thiago/aula3/topico2/index.html,,Introdução,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/thiago/aula3/topico2/,page,thiago
+content/thiago/aula3/topico3/index.html,,"Café, conversa e cuidado: um convite à construção coletiva da saúde",0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/thiago/aula3/topico3/,page,thiago
+content/thiago/aula3/topico4/index.html,,O campo da PS e a intersetorialidade: iniciando a conversa,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/thiago/aula3/topico4/,page,thiago
+content/thiago/aula3/topico5/index.html,,Cinco faces da intersetorialidade nas políticas públicas!,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/thiago/aula3/topico5/,page,thiago
+content/thiago/aula3/topico6/index.html,,"Ambiente, espaço e território!",0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/thiago/aula3/topico6/,page,thiago
+content/thiago/aula3/topico7/index.html,,Territorialização e Promoção da Saúde em contextos de vulnerabilidade,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/thiago/aula3/topico7/,page,thiago
 content/bibliografia.html,,Bibliografia,2025-06-25T08:16:39-03:00,0001-01-01T00:00:00Z,2025-06-25T08:16:39-03:00,false,/bibliografia/,page,
-content/creditos.html,,Créditos,2025-06-25T08:16:39-03:00,0001-01-01T00:00:00Z,2025-06-25T08:16:39-03:00,false,/creditos/,page,
-content/_index.html,,Início,2025-06-25T08:16:39-03:00,0001-01-01T00:00:00Z,2025-06-25T08:16:39-03:00,false,/,home,
-content/examples/_index.html,,Exemplos,2025-05-25T15:08:16-03:00,0001-01-01T00:00:00Z,2025-05-25T15:08:16-03:00,false,/examples/,section,examples
-content/examples/fontawesome.html,,Font Awesome,2025-05-25T15:08:16-03:00,0001-01-01T00:00:00Z,2025-05-25T15:08:16-03:00,false,/examples/fontawesome/,page,examples
 content/examples/bootstrap.html,,Bootstrap,2024-12-08T21:53:15-03:00,0001-01-01T00:00:00Z,2024-12-08T21:53:15-03:00,false,/examples/bootstrap/,page,examples
-content/examples/zoom/_index.html,,Lightbox,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/examples/zoom/,section,examples
+content/creditos.html,,Créditos,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/creditos/,page,
+content/examples/fontawesome.html,,Font Awesome,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/examples/fontawesome/,page,examples
+content/examples/zoom/index.html,,Lightbox,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/examples/zoom/,page,examples
+content/examples/modulos.html,,Módulos,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,0001-01-01T00:00:00Z,false,/examples/modulos/,page,examples

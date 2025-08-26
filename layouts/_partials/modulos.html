@@ -1,8 +1,8 @@
 {{$slideCount := 0}}
-
 <div id="modulosCarrossel{{ .suffix }}" class="modulos-carrossel carousel slide" data-bs-wrap="false">
     <div class="carousel-inner">
         <div class="carousel-item active">
+            <div class="h3 mb-2 text-center">Escolha um personagem:</div>
             <nav class="seletor-modulos">
                 {{ range (where .context.Site.Sections "Section" "in" .context.Site.MainSections).ByWeight }}
                     {{ $section := .Section}}
@@ -20,7 +20,7 @@
                             {{ end }}
                         </div>
                     </div>  */}}
-                    <button class="border rounded {{ $section }}" type="button" data-vigi-menu-aula="{{ partial "funcao/indexOf.html" . }}">
+                    <button class="border rounded {{ $section }}" style="background-image: url({{ partial "funcao/linkRelativo.html" (dict "Page" $.context "url" (print "/imagens/modulos/" $section "-bg.jpg")) }})" type="button" data-vigi-menu-aula="{{ partial "funcao/indexOf.html" . }}">
                         <span class="h1">{{ .LinkTitle }}</span>
                         {{- with resources.Get (print "/imagens/modulos/" $section "-off.png") -}}
                             <img src="{{ .RelPermalink }}" alt="" aria-hidden="true" draggable="false">
