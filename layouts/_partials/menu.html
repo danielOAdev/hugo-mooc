@@ -12,6 +12,8 @@
                 <button class="nav-link text-start" value="a11y" id="menu-a11y-tab" data-bs-toggle="pill" data-bs-target="#menu-a11y-conteudo" type="button" role="tab" aria-controls="menu-a11y-conteudo" aria-selected="false">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "universal-access") }} Acessibilidade</button>
                 <button class="nav-link text-start" value="privacidade" id="menu-privacidade-tab" data-bs-toggle="pill" data-bs-target="#menu-privacidade-conteudo" type="button" role="tab" aria-controls="menu-privacidade-conteudo" aria-selected="false">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "shield-halved") }} Privacidade</button>
                 <button class="nav-link text-start" value="creditos" id="menu-creditos-tab" data-bs-toggle="pill" data-bs-target="#menu-creditos-conteudo" type="button" role="tab" aria-controls="menu-creditos-conteudo" aria-selected="false">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "signature") }} Créditos</button>
+                <button class="nav-link text-start" value="atalhos" id="menu-atalhos-tab" data-bs-toggle="pill" data-bs-target="#menu-atalhos-conteudo" type="button" role="tab" aria-controls="menu-atalhos-conteudo" aria-selected="false">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "keyboard") }} Atalhos</button>
+                <button class="nav-link text-start" value="ajuda" id="menu-ajuda-tab" data-bs-toggle="pill" data-bs-target="#menu-ajuda-conteudo" type="button" role="tab" aria-controls="menu-ajuda-conteudo" aria-selected="false">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "question-circle") }} Ajuda</button>
             </div>
         </div>
         <div id="menu-select" class="sticky-top">
@@ -20,6 +22,8 @@
                 <option value="a11y">Acessibilidade</option>
                 <option value="privacidade">Privacidade</option>
                 <option value="creditos">Créditos</option>
+                <option value="atalhos">Atalhos</option>
+                <option value="ajuda">Ajuda</option>
             </select>
         </div>
         <div id="menu-conteudo" class="tab-content">
@@ -33,10 +37,23 @@
                 {{ partial "menu-privacidade.html" }}
             </div>
             <div class="tab-pane fade" id="menu-creditos-conteudo" role="tabpanel" aria-labelledby="menu-creditos-tab">
-                {{ with .context.GetPage "creditos" }}
+                {{ with .context.GetPage "_menu/creditos" }}
                     {{ .Content }}
                 {{ end }}
             </div>
+            <div class="tab-pane fade" id="menu-atalhos-conteudo" role="tabpanel" aria-labelledby="menu-atalhos-tab">
+                {{ with .context.GetPage "_menu/atalhos" }}
+                    {{ .Content }}
+                {{ end }}
+            </div>
+            <div class="tab-pane fade" id="menu-ajuda-conteudo" role="tabpanel" aria-labelledby="menu-ajuda-tab">
+                {{ with .context.GetPage "_menu/ajuda" }}
+                    {{ .Content }}
+                {{ end }}
+            </div>
+        </div>
+        <div id="menu-socials">
+            {{ partial "socials.html" }}
         </div>
     </div>
 </dialog>

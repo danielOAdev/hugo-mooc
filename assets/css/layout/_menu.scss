@@ -33,13 +33,16 @@ dialog {
 
 #menu-grid {
     display: grid;
-    grid-template: "tabs content" 1fr / auto 1fr;
+    grid-template:
+        "tabs content" 1fr
+        "socials content" / min-content 1fr;
     gap: 1rem;
     overflow: hidden;
     @include media-breakpoint-down(md) {
         grid-template:
-        "tabs" auto
-        "content" 1fr / 1fr;
+        "tabs"
+        "content" 1fr
+        "socials" / 1fr;
         gap: 0;
     }
 }
@@ -57,6 +60,15 @@ dialog {
     padding-right: 1rem;
     overflow-x: hidden;
     overflow-y: auto;
+    white-space: nowrap;
+    @include media-breakpoint-down(md) {
+        display: none;
+    }
+}
+
+#menu-socials {
+    grid-area: socials;
+    padding: 1rem;
     @include media-breakpoint-down(md) {
         display: none;
     }
