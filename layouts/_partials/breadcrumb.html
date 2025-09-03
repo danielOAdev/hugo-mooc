@@ -1,5 +1,5 @@
-<nav class="breadcrumb conteudo conteudo-cheio sticky-top" aria-label="breadcrumb">
-    <span class="breadcrumb-trilha conteudo-largo">
+<nav class="breadcrumb vigi-grid vigi-coluna-cheia sticky-top" aria-label="breadcrumb">
+    <span class="breadcrumb-trilha vigi-coluna-larga">
         {{ range .Ancestors.Reverse }}
             {{ if in (slice "modulo" "aula") .Type }}
                 {{ printf "<button type=\"button\" class=\"btn btn-link p-0 text-decoration-none\" data-vigi-menu-%s=\"%d\">%s</button>" .Type (partial "funcao/indexOf.html" .) (partial "bcstep.html" .) | safeHTML }}

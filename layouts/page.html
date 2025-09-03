@@ -1,6 +1,6 @@
 {{ define "main" }}
-    <div class="cabecalho conteudo conteudo-cheio bg-dark p-5">
-        <h2 class="conteudo-padrao mt-auto">{{ .LinkTitle }}</h2>
+    <div class="cabecalho vigi-grid vigi-coluna-cheia bg-dark p-5">
+        <h1 class="vigi-coluna-padrao mt-auto">{{ .LinkTitle }}</h1>
     </div>
     {{ .Content }}
     {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}

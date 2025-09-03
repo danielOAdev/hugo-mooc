@@ -9,9 +9,10 @@
         <div id="menu-tabs">
             <div class="nav nav-pills vstack" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                 <button class="nav-link text-start active" value="modulos" id="menu-modulos-tab" data-bs-toggle="pill" data-bs-target="#menu-modulos-conteudo" type="button" role="tab" aria-controls="menu-modulos-conteudo" aria-selected="true">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "people-group") }} Módulos</button>
+                <button class="nav-link text-start" value="creditos" id="menu-creditos-tab" data-bs-toggle="pill" data-bs-target="#menu-creditos-conteudo" type="button" role="tab" aria-controls="menu-creditos-conteudo" aria-selected="false">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "signature") }} Créditos</button>
+                <hr>
                 <button class="nav-link text-start" value="a11y" id="menu-a11y-tab" data-bs-toggle="pill" data-bs-target="#menu-a11y-conteudo" type="button" role="tab" aria-controls="menu-a11y-conteudo" aria-selected="false">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "universal-access") }} Acessibilidade</button>
                 <button class="nav-link text-start" value="privacidade" id="menu-privacidade-tab" data-bs-toggle="pill" data-bs-target="#menu-privacidade-conteudo" type="button" role="tab" aria-controls="menu-privacidade-conteudo" aria-selected="false">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "shield-halved") }} Privacidade</button>
-                <button class="nav-link text-start" value="creditos" id="menu-creditos-tab" data-bs-toggle="pill" data-bs-target="#menu-creditos-conteudo" type="button" role="tab" aria-controls="menu-creditos-conteudo" aria-selected="false">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "signature") }} Créditos</button>
                 <button class="nav-link text-start" value="atalhos" id="menu-atalhos-tab" data-bs-toggle="pill" data-bs-target="#menu-atalhos-conteudo" type="button" role="tab" aria-controls="menu-atalhos-conteudo" aria-selected="false">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "keyboard") }} Atalhos</button>
                 <button class="nav-link text-start" value="ajuda" id="menu-ajuda-tab" data-bs-toggle="pill" data-bs-target="#menu-ajuda-conteudo" type="button" role="tab" aria-controls="menu-ajuda-conteudo" aria-selected="false">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "question-circle") }} Ajuda</button>
             </div>
@@ -19,9 +20,10 @@
         <div id="menu-select" class="sticky-top">
             <select name="menu-select" class="form-select">
                 <option value="modulos">Módulos</option>
+                <option value="creditos">Créditos</option>
+                <hr>
                 <option value="a11y">Acessibilidade</option>
                 <option value="privacidade">Privacidade</option>
-                <option value="creditos">Créditos</option>
                 <option value="atalhos">Atalhos</option>
                 <option value="ajuda">Ajuda</option>
             </select>

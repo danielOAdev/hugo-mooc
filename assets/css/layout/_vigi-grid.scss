@@ -1,0 +1,65 @@
+@use "bootstrap" as *;
+@use "sass:map";
+
+main, .vigi-grid {
+    --minimum-content-padding: 1rem;
+
+    /** TRACK WIDTHS **/
+    --vigi-coluna-padrao-max-width: 80ch;
+    --vigi-coluna-destaque-max-width: 90ch;
+    --vigi-coluna-larga-max-width: 110ch;
+    --vigi-coluna-cheia-max-width: 1fr;
+
+    /** TRACK SIZES **/
+    --vigi-coluna-cheia: minmax( var(--minimum-content-padding), 1fr );
+    --vigi-coluna-larga: minmax( 0, calc( ( var(--vigi-coluna-larga-max-width) - var(--vigi-coluna-destaque-max-width)) * 0.5 ) );
+    --vigi-coluna-destaque: minmax( 0, calc( ( var(--vigi-coluna-destaque-max-width) - var(--vigi-coluna-padrao-max-width)) * 0.5 ) );
+    --vigi-coluna-padrao: min( var(--vigi-coluna-padrao-max-width), 100% - var(--minimum-content-padding) * 2 );
+
+    display: grid;
+    grid-template-columns: 
+        [vigi-coluna-cheia-start]
+        var(--vigi-coluna-cheia)
+            [vigi-coluna-larga-start]
+            var(--vigi-coluna-larga)
+                [vigi-coluna-destaque-start]
+                var(--vigi-coluna-destaque)
+                    [vigi-coluna-padrao-start]
+                    var(--vigi-coluna-padrao)
+                    [vigi-coluna-padrao-end]
+                var(--vigi-coluna-destaque)
+                [vigi-coluna-destaque-end]
+            var(--vigi-coluna-larga)
+            [vigi-coluna-larga-end]
+        var(--vigi-coluna-cheia)
+        [vigi-coluna-cheia-end];
+
+    > * {
+        margin-block: map.get($spacers, 0);
+        + {
+            h1, h2, h3, h4, h5, h6 {
+                margin-block-start: map.get($spacers, 5);
+            }
+        }
+        + * {
+            margin-block-start: map.get($spacers, 3);
+        }
+    }
+}
+
+.vigi-coluna-padrao, :where(main > *, .vigi-grid) {
+    grid-column: vigi-coluna-padrao;
+}
+
+.vigi-coluna-destaque {
+    grid-column: vigi-coluna-destaque;
+}
+
+.vigi-coluna-larga {
+    grid-column: vigi-coluna-larga;
+}
+
+.vigi-coluna-cheia {
+    grid-column: vigi-coluna-cheia;
+}
+

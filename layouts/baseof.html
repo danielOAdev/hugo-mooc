@@ -4,14 +4,15 @@
         {{ partial "head.html" . }}
     </head>
     <body>
-        <header class="sticky-top conteudo bg-body-tertiary">
+        <header class="sticky-top vigi-grid bg-body-tertiary">
             {{ partial "header.html" . }}
+            {{ if not .IsHome }}
+                {{ partial "breadcrumb.html" . }}
+            {{ end }}
         </header>
-        <section id="conteudo">
-            {{ partial "breadcrumb.html" . }}
-            <main id="main">
-                {{ block "main" . }}{{ end }}
-            </main>
+        <main>
+            {{ block "main" . }}{{ end }}
+        </main>
         <footer>
             {{ partial "footer.html" . }}
         </footer>
