@@ -4,6 +4,19 @@ $enable-cssgrid: true;
 $primary: #26225b;
 $secondary: #b9cce2;
 $body-bg: #FBFBFB;
+$body-color: #26225b;
 
 $navbar-brand-margin-end: 0;
+
+$font-family-base: Lora, serif;
+
 $headings-margin-bottom: 0;
+$headings-font-family: InterDisplay, sans-serif;
+$headings-font-weight: 600 !default;
+
+$display-font-family: null default;
+
+$input-btn-font-family: var(--#{$prefix}font-sans-serif);
+$btn-font-family:             $input-btn-font-family;
+$input-font-family:                     $input-btn-font-family;
+$form-select-font-family:           $input-font-family;

@@ -1,14 +1,14 @@
-<nav class="breadcrumb vigi-grid vigi-coluna-cheia sticky-top" aria-label="breadcrumb">
+<nav class="breadcrumb vigi-grid vigi-coluna-cheia" aria-label="breadcrumb">
     <span class="breadcrumb-trilha vigi-coluna-larga">
         {{ range .Ancestors.Reverse }}
             {{ if in (slice "modulo" "aula") .Type }}
                 {{ printf "<button type=\"button\" class=\"btn btn-link p-0 text-decoration-none\" data-vigi-menu-%s=\"%d\">%s</button>" .Type (partial "funcao/indexOf.html" .) (partial "bcstep.html" .) | safeHTML }}
             {{ else }}
-                {{ printf "<a href=\"%s\">%s</a>" .RelPermalink (partial "bcstep.html" .) | safeHTML }}
+                {{ printf "<a href=\"%s\" class=\"btn btn-link p-0 text-decoration-none\">%s</a>" .RelPermalink (partial "bcstep.html" .) | safeHTML }}
             {{ end }}
             {{ partial "fontawesome.html" (dict "style" "solid" "icon" "chevron-right") }}
         {{ end }}
-        <a aria-current="page" href="{{ .RelPermalink }}">
+        <a class="btn btn-link p-0 text-decoration-none" aria-current="page" href="{{ .RelPermalink }}">
             {{ partial "bcstep.html" . }}
         </a>
     </span>
