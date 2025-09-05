@@ -1,6 +1,9 @@
+@use "base/cores";
 
-$primary-dark: #00b9ff;
-$secondary-dark: #26225b;
+$primary-dark:    #877bd1;
+$secondary-dark:  #3f3d54;
+$body-color-dark: #eeecf8;
+$body-bg-dark:    #080713;
 
 $custom-colors: (
   "primary": $primary-dark,
@@ -15,8 +18,6 @@ $secondary-bg-subtle-dark:          shade-color($secondary-dark, 80%);
 $primary-border-subtle-dark:        shade-color($primary-dark, 40%);
 $secondary-border-subtle-dark:      shade-color($secondary-dark, 40%);
 
-$body-color-dark:                   #ebebf0;
-$body-bg-dark:                      #050323;
 $body-secondary-color-dark:         rgba($body-color-dark, .75);
 $body-secondary-bg-dark:            tint-color($body-bg-dark, 10%);
 $body-tertiary-color-dark:          rgba($body-color-dark, .5);

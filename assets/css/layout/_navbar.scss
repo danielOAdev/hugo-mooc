@@ -1,11 +1,11 @@
 @use "bootstrap" as *;
 
-.navbar-brand-img {
-    height: 1lh;
+.navbar {
+
 }
 
-.navbar .dropdown-menu {
-    max-height: 70vh;
+.navbar-brand-img {
+    height: 1lh;
 }
 
 @include media-breakpoint-down(sm) {

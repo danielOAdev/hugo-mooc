@@ -5,12 +5,12 @@
     </head>
     <body>
         <header class="sticky-top vigi-grid">
-            {{ partial "header.html" . }}
+            {{ partial "navbar.html" . }}
             {{ if not .IsHome }}
                 {{ partial "breadcrumb.html" . }}
             {{ end }}
         </header>
-        <main>
+        <main id="conteudo-principal">
             {{ block "main" . }}{{ end }}
         </main>
         <footer>
