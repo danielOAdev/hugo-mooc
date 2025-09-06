@@ -6,4 +6,8 @@
     outline-offset: .25rem !important;
     outline-width: .125rem !important;
     outline-style: dashed !important;
+
+    header &, &:where(dialog) {
+        outline-color: $white !important;
+    }
 }

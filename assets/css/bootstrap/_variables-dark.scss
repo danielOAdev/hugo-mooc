@@ -1,9 +1,10 @@
 @use "base/cores";
+@use "sass:color";
 
-$primary-dark:    #877bd1;
-$secondary-dark:  #3f3d54;
-$body-color-dark: #eeecf8;
-$body-bg-dark:    #080713;
+$primary-dark:    cores.$vigi-azul-logo-dark-3x;
+$secondary-dark:  cores.$vigi-cinza-azulado;
+$body-color-dark: cores.$vigi-branco-azulado;
+$body-bg-dark:    cores.$vigi-preto-azulado;
 
 $custom-colors: (
   "primary": $primary-dark,
@@ -26,7 +27,7 @@ $body-emphasis-color-dark:          $white;
 $border-color-dark:                 tint-color($secondary-dark, 40%);
 $border-color-translucent-dark:     rgba($white, .15);
 $headings-color-dark:               inherit;
-$link-color-dark:                   tint-color($primary-dark, 40%);
+$link-color-dark:                   cores.$vigi-azul-bebe;
 $link-shade-percentage:             20% !default;
 $link-hover-color-dark:             shift-color($link-color-dark, -$link-shade-percentage);
 $code-color: $pink;

@@ -1,18 +1,21 @@
+@use "base/cores";
+
 $prefix: "vigi-";
 $enable-cssgrid: true;
 
-$primary: #26225b;
-$secondary: #b9cce2;
-$body-bg: #FBFBFB;
-$body-color: #26225b;
+$primary:    cores.$vigi-azul-logo-dark-3x;
+$secondary:  cores.$vigi-cinza-azulado-claro;
+$body-bg:    cores.$vigi-branco-azulado;
+$body-color: cores.$vigi-preto-azulado;
 
 $navbar-brand-margin-end: 0;
 
-$font-family-base: Lora, serif;
+// $font-family-base: Lora, serif;
 
 $headings-margin-bottom: 0;
 $headings-font-family: InterDisplay, sans-serif;
 $headings-font-weight: 600 !default;
+$headings-color: cores.$vigi-preto-azulado-2x;
 
 $display-font-family: null default;
 

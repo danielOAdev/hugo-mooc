@@ -1,7 +1,11 @@
+@use "base/cores";
 @use "bootstrap" as *;
 
 .navbar {
-
+    background-color: cores.$vigi-azul-logo-dark-3x;
+    [data-bs-theme="highcontrast"] & {
+        background-color: $gray-800;
+    }
 }
 
 .navbar-brand-img {

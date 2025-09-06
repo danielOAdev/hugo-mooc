@@ -1,54 +1,22 @@
-$vigi-azul-extralight: #80d8c9;
-$vigi-azul-light:      #43bac2;
-$vigi-azul-regular:    #0397ce;
-$vigi-azul-dark:       #1f62aa;
-$vigi-azul-extradark:  #392e85;
+$vigi-azul-logo-light-3x: #80d8c9;
+$vigi-azul-logo-light-2x: #43bac2;
+$vigi-azul-logo-light:    #0397ce;
+$vigi-azul-logo-dark:     #1f62aa;
+$vigi-azul-logo-dark-2x:  #392e85;
+$vigi-azul-logo-dark-3x:  #26235c;
 
-$vigi-roxo-50:  #f3f3fb;
-$vigi-roxo-100: #e8e7f7;
-$vigi-roxo-200: #cecbee;
-$vigi-roxo-300: #b7b4e6;
-$vigi-roxo-400: #a19cde;
-$vigi-roxo-500: #8c84d6;
-$vigi-roxo-600: #746acb;
-$vigi-roxo-700: #6054bf;
-$vigi-roxo-800: #4c3ead;
-$vigi-roxo-900: #392e85; // primaria-escuro
-$vigi-roxo-950: #201950;
+// $vigi-cinza-900: #3f3d54;
+// $vigi-rosa-500: #bf5687;
 
-$vigi-cinza-50:  #f3f3f5;
-$vigi-cinza-100: #e8e8ec;
-$vigi-cinza-200: #d1d1da;
-$vigi-cinza-300: #bbbac8;
-$vigi-cinza-400: #a3a1b4;
-$vigi-cinza-500: #8e8ca2;
-$vigi-cinza-600: #797791;
-$vigi-cinza-700: #65637f;
-$vigi-cinza-800: #524f6c;
-$vigi-cinza-900: #3f3d54; // secundaria-escuro
-$vigi-cinza-950: #21202e;
+// Tema claro
+$vigi-cinza-azulado-claro:  hsl(245.2, 15.9%, 65%);
 
-// Use em tertiary
-$vigi-rosa-50:  #f9eef2;
-$vigi-rosa-100: #f3dde5;
-$vigi-rosa-200: #e7bacc;
-$vigi-rosa-300: #de9ab6;
-$vigi-rosa-400: #d5749f;
-$vigi-rosa-500: #bf5687; // realce-escuro
-$vigi-rosa-600: #99436b;
-$vigi-rosa-700: #753251;
-$vigi-rosa-800: #502036;
-$vigi-rosa-900: #30101f;
-$vigi-rosa-950: #200914;
+// Tema escuro
+$vigi-cinza-azulado:     hsl(245.2, 15.9%, 28.4%);
+$vigi-branco-azulado:    hsl(250, 46.2%, 94.9%);
+$vigi-preto-azulado:     hsl(245, 46.2%, 5.1%);
+$vigi-preto-azulado-2x:  hsl(245, 46.2%, 18%);
+$vigi-azul-bebe:         hsl(197, 100%, 75%);
 
-$v-b-50:  hsl(248, 5%,  35%);
-$v-b-100: hsl(248, 10%, 35%);
-$v-b-200: hsl(248, 20%, 35%);
-$v-b-300: hsl(248, 30%, 35%);
-$v-b-400: hsl(248, 40%, 35%);
-$v-b-500: hsl(248, 49%, 35%);
-$v-b-600: hsl(248, 60%, 35%);
-$v-b-700: hsl(248, 70%, 35%);
-$v-b-800: hsl(248, 80%, 35%);
-$v-b-900: hsl(248, 90%, 35%);
-$v-b-950: hsl(248, 95%, 35%);
+// Tema elto contraste
+
