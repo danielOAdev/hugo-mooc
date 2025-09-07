@@ -1,31 +1,13 @@
-import "./menu-modulos.mjs";
+import { carousel } from "./menu-modulos.mjs";
 import "./menu-a11y.mjs";
 import "./menu-privacidade.mjs";
+import { exibirSlide } from "./modulos.mjs"
 import { Tab } from "../bootstrap/bootstrap.min.mjs";
 
 export const menu = document.getElementById('menu');
 const botaoFechar = document.getElementById('menu-fechar');
 const navTabs = menu.querySelectorAll('#menu-tabs .nav-link');
 const navSelect = menu.querySelector('#menu-select select');
-
-menu.addEventListener("beforetoggle", (event) => {
-    if (event.newState === 'open') {
-        const tabName = event.target.currentTab ?? 'modulos';
-        const tab = document.getElementById(`menu-${tabName}-tab`);
-        const tabConteudo = document.getElementById(`menu-${tabName}-conteudo`);
-
-        event.target.currentTab = null;
-        tabConteudo.classList.remove('fade');
-        Tab.getOrCreateInstance(tab).show();
-        tabConteudo.classList.add('fade');
-    }
-});
-
-menu.addEventListener('toggle', (event) => {
-    if (event.newState === 'open') {
-        menu.querySelector('#menu-titlebar button').focus()
-    }
-});
 
 botaoFechar.addEventListener('click', () => {
     fechar();
@@ -53,16 +35,36 @@ document.addEventListener('click', function(event) {
     const btnMenu = event.target.closest('button[data-vigi-menu]');
 
     if (btnMenu) {
-        const tabName = btnMenu.getAttribute('data-vigi-menu') || undefined;
+        const tabName = btnMenu.getAttribute('data-vigi-menu') || null;
         abrir(tabName);
     }
 });
 
-export function abrir(tabName = "modulos") {
-    menu.currentTab = tabName;
+/**
+ * Abre o menu
+ * 
+ * @param {null|string} nomeAba Nome da aba na qual o menu deve exibir ao abrir.
+ * Ou deixe nulo para abrir menu na aba padrão.
+ */
+export function abrir(nomeAba = null) {
+    if (nomeAba) {
+        exibirAba(nomeAba);
+    } else {
+        exibirAba('modulos');
+        exibirSlide(carousel, 0);
+    }
     menu.showModal();
 }
 
 export function fechar() {
     menu.close();
+}
+
+function exibirAba(nomeAba) {
+    const tab = document.getElementById(`menu-${nomeAba}-tab`);
+    const tabConteudo = document.getElementById(`menu-${nomeAba}-conteudo`);
+
+    tabConteudo.classList.remove('fade');
+    Tab.getOrCreateInstance(tab).show();
+    tabConteudo.classList.add('fade');
 }

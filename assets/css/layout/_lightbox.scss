@@ -14,8 +14,8 @@
     position: fixed;
     inset: 0;
     pointer-events: none;
-    @include mixins.focus-visible-outline;
     outline-offset: -.25rem !important;
+    @include mixins.focus-visible-outline;
 }
 
 #lightbox-bounds {

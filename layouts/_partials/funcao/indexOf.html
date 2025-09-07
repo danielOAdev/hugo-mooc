@@ -1,3 +1,6 @@
+{{/*
+    Retorna o indice (começa com 1) relativo ao pai.
+*/}}
 {{ $result := false }}
 {{ range $k, $v := .Parent.Pages.ByWeight }}
     {{ if eq $v.Path $.Path }}

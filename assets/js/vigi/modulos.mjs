@@ -1,4 +1,3 @@
-import { abrir } from "./menu.mjs";
 import { Carousel } from "../bootstrap/bootstrap.min.mjs";
 
 const modulosCarrossel = document.querySelectorAll('.modulos-carrossel');
@@ -21,7 +20,13 @@ modulosCarrossel.forEach(moduloCarrossel => {
 });
 
 export function exibirSlide(elemCarrossel, index) {
+    const hidden = !elemCarrossel.checkVisibility();
     const carrossel = Carousel.getOrCreateInstance(elemCarrossel);
+    if (hidden) {
+        elemCarrossel.classList.remove('slide'); // Remover classe "slide" remove animação de transição
+    }
     carrossel.to(index);
-    abrir();
+    if (hidden) {
+        elemCarrossel.classList.add('slide');
+    }
 }

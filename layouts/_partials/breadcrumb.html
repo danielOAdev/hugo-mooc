@@ -1,37 +1,37 @@
 <nav class="breadcrumb vigi-grid vigi-coluna-cheia" aria-label="breadcrumb">
     <span class="breadcrumb-trilha vigi-coluna-larga">
-        {{ range .Ancestors.Reverse }}
-            {{ if in (slice "modulo" "aula") .Type }}
-                {{ printf "<button type=\"button\" class=\"btn btn-sm btn-outline-light p-0 px-2 text-decoration-none icon-link\" data-vigi-menu-%s=\"%d\">%s%s</button>" .Type (partial "funcao/indexOf.html" .) (partial "fontawesome.html" (dict "style" "solid" "icon" "bars" "classes" "icone-2xs")) (partial "bcstep.html" .) | safeHTML }}
-            {{ else }}
-                {{ printf "<a href=\"%s\" class=\"d-inline btn btn-link p-0\">%s</a>" .RelPermalink (partial "bcstep.html" .) | safeHTML }}
-            {{ end }}
+        {{- range .Ancestors.Reverse }}
+            {{ partial "bcstep.html" . }}
             {{ partial "fontawesome.html" (dict "style" "solid" "icon" "chevron-right") }}
-        {{ end }}
-        <a class="d-inline btn btn-link p-0" aria-current="page" href="{{ .RelPermalink }}">
-            {{- partial "bcstep.html" . -}}
-        </a>
+        {{ end -}}
+        {{- partial "bcstep.html" . -}}
     </span>
 </nav>
 
 {{- define "_partials/bcstep.html" -}}
     {{- if .IsHome -}}
+        <a href="{{ .RelPermalink }}">
         {{- partial "fontawesome.html" (dict "style" "solid" "icon" "house" "classes" "align-baseline icone-2xs me-1") -}}
         {{- .LinkTitle -}}
+        </a>
     {{- else if eq .Type "modulo" -}}
-        {{- .LinkTitle -}}
+        <button type="button" class="btn btn-sm btn-outline-light p-0 px-2 icon-link" data-vigi-menu-modulo="{{ partial "funcao/indexOf.html" . }}">
+            {{- .LinkTitle -}}
+        </button>
     {{- else if eq .Type "aula" -}}
-        {{- .LinkTitle -}}
-        {{- with .Parent -}}
-            {{- print " de " .Pages.Len -}}
-        {{- end -}}
+        <button type="button" class="btn btn-sm btn-outline-light p-0 px-2 icon-link" data-vigi-menu-modulo="{{ partial "funcao/indexOf.html" .Parent }}" data-vigi-menu-aula="{{ partial "funcao/indexOf.html" . }}">
+            {{- .LinkTitle -}}
+            {{- with .Parent -}}
+                {{- print " de " .Pages.Len -}}
+            {{- end -}}
+        </button>
     {{- else if eq .Type "topico" -}}
         {{- $index := partial "funcao/indexOf.html" . -}}
         {{- $total := 0 -}}
         {{- with .Parent -}}
             {{- $total = .Pages.Len -}}
         {{- end -}}
-        {{- print .LinkTitle " (" (partial "funcao/prettyType.html" .Type) " " $index " de " $total ")" -}}
+        <a href="{{ .RelPermalink }}">{{ .LinkTitle }} ({{ partial "funcao/prettyType.html" .Type }} {{ $index }} de {{ $total }})</a>
     {{- else -}}
         {{- .LinkTitle -}}
     {{- end -}}
