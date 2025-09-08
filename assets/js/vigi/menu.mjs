@@ -2,12 +2,14 @@ import { carousel } from "./menu-modulos.mjs";
 import "./menu-a11y.mjs";
 import "./menu-privacidade.mjs";
 import { exibirSlide } from "./modulos.mjs"
-import { Tab } from "../bootstrap/bootstrap.min.mjs";
+import { Tab, Collapse } from "../bootstrap/bootstrap.min.mjs";
 
 export const menu = document.getElementById('menu');
 const botaoFechar = document.getElementById('menu-fechar');
 const navTabs = menu.querySelectorAll('#menu-tabs .nav-link');
 const navSelect = menu.querySelector('#menu-select select');
+
+dynamicAnchor();
 
 botaoFechar.addEventListener('click', () => {
     fechar();
@@ -67,4 +69,41 @@ function exibirAba(nomeAba) {
     tabConteudo.classList.remove('fade');
     Tab.getOrCreateInstance(tab).show();
     tabConteudo.classList.add('fade');
+}
+
+function dynamicAnchor() {
+    const anchor = (window.location.hash).substring(1);
+    const array = anchor.split('/');
+
+    array.forEach(id => {
+        const element = document.querySelector('#'+id);
+
+        if (element) {
+
+            // Se for um modal: abra-o
+            if (element.tagName === 'DIALOG') {
+                element.showModal();
+                return;
+            }
+
+            // Se for um botão ou link: clique-o
+            if (['BUTTON', 'A'].includes(element.tagName)) {
+                const clickEvent = new MouseEvent('click');
+                element.dispatchEvent(clickEvent);
+
+                const component = element.getAttribute('data-bs-toggle');
+
+                if (component && element.getAttribute('data-bs-target')) {
+                    const target = document.querySelector(element.getAttribute('data-bs-target'));
+                    if (target) {
+                        element.addEventListener(`shown.bs.${component}`, function() {
+                            target.scrollIntoView();
+                        }, { once: true });
+                    }
+                }
+
+                return;
+            }
+        }
+    });
 }
