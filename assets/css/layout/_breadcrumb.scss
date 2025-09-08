@@ -11,8 +11,13 @@
         color: $gray-100;
 
         a {
-            --vigi-btn-color: #{cores.$vigi-azul-bebe};
-            --vigi-btn-hover-color: #{cores.$vigi-azul-bebe};
+            color: cores.$vigi-azul-bebe;
+            text-decoration-color: cores.$vigi-azul-bebe;
+
+            &:hover, &:focus {
+                color: shade-color(cores.$vigi-azul-bebe, $link-shade-percentage);
+                text-decoration-color: shade-color(cores.$vigi-azul-bebe, $link-shade-percentage);
+            }
         }
     }
 

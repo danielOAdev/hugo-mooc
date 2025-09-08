@@ -57,15 +57,15 @@ form.querySelector('button[type="reset"]')
 
 document.addEventListener('keydown', function(event) {
     switch(event.key) {
-        case 'i':
+        case 'u':
             document.documentElement.setAttribute('data-bs-theme', 'light')
             break;
 
-        case 'o':
+        case 'i':
             document.documentElement.setAttribute('data-bs-theme', 'dark')
             break;
 
-        case 'p':
+        case 'o':
             document.documentElement.setAttribute('data-bs-theme', 'highcontrast')
             break;
     }
