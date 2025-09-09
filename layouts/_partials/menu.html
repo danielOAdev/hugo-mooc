@@ -9,6 +9,7 @@
         <div id="menu-tabs">
             <div class="nav nav-pills vstack" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                 <button class="btn nav-link text-start active" value="modulos" id="menu-modulos-tab" data-bs-toggle="pill" data-bs-target="#menu-modulos-conteudo" type="button" role="tab" aria-controls="menu-modulos-conteudo" aria-selected="true">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "people-group") }} Módulos</button>
+                <button class="btn nav-link text-start" value="glossario" id="menu-glossario-tab" data-bs-toggle="pill" data-bs-target="#menu-glossario-conteudo" type="button" role="tab" aria-controls="menu-glossario-conteudo" aria-selected="false">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "book") }} Glossário</button>
                 <button class="btn nav-link text-start" value="ajuda" id="menu-ajuda-tab" data-bs-toggle="pill" data-bs-target="#menu-ajuda-conteudo" type="button" role="tab" aria-controls="menu-ajuda-conteudo" aria-selected="false">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "question-circle") }} Ajuda</button>
                 <button class="btn nav-link text-start" value="atalhos" id="menu-atalhos-tab" data-bs-toggle="pill" data-bs-target="#menu-atalhos-conteudo" type="button" role="tab" aria-controls="menu-atalhos-conteudo" aria-selected="false">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "keyboard") }} Atalhos</button>
                 <button class="btn nav-link text-start" value="contato" id="menu-contato-tab" data-bs-toggle="pill" data-bs-target="#menu-contato-conteudo" type="button" role="tab" aria-controls="menu-contato-conteudo" aria-selected="false">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "phone") }} Contato</button>
@@ -23,6 +24,7 @@
         <div id="menu-select" class="sticky-top">
             <select name="menu-select" class="form-select">
                 <option value="modulos">Módulos</option>
+                <option value="glossario">Glossário</option>
                 <option value="ajuda">Ajuda</option>
                 <option value="atalhos">Atalhos</option>
                 <option value="contato">Contato</option>
@@ -33,42 +35,49 @@
             </select>
         </div>
         <div id="menu-conteudo" class="tab-content">
-            <div class="tab-pane fade show active" id="menu-modulos-conteudo" role="tabpanel" aria-labelledby="menu-modulos-tab">
-                {{ partial "modulos.html" . }}
+            <div class="vigi-grid tab-pane fade show active" id="menu-modulos-conteudo" role="tabpanel" aria-labelledby="menu-modulos-tab">
+                <section class="vigi-coluna-cheia">{{ partial "modulos.html" . }}</section>
             </div>
-            <div class="tab-pane fade" id="menu-ajuda-conteudo" role="tabpanel" aria-labelledby="menu-ajuda-tab">
+            <div class="vigi-grid tab-pane fade" id="menu-glossario-conteudo" role="tabpanel" aria-labelledby="menu-glossario-tab">
+                {{ with .context.GetPage "glossario" }}
+                    {{ .Content }}
+                {{ end }}
+            </div>
+            <div class="vigi-grid tab-pane fade" id="menu-ajuda-conteudo" role="tabpanel" aria-labelledby="menu-ajuda-tab">
                 {{ with .context.GetPage "ajuda" }}
                     {{ .Content }}
                 {{ end }}
             </div>
-                <div class="tab-pane fade" id="menu-atalhos-conteudo" role="tabpanel" aria-labelledby="menu-atalhos-tab">
+                <div class="vigi-grid tab-pane fade" id="menu-atalhos-conteudo" role="tabpanel" aria-labelledby="menu-atalhos-tab">
                 {{ with .context.GetPage "atalhos" }}
                     {{ .Content }}
                 {{ end }}
             </div>
-            <div class="tab-pane fade" id="menu-contato-conteudo" role="tabpanel" aria-labelledby="menu-contato-tab">
+            <div class="vigi-grid tab-pane fade" id="menu-contato-conteudo" role="tabpanel" aria-labelledby="menu-contato-tab">
                 {{ with .context.GetPage "contato" }}
                     {{ .Content }}
                 {{ end }}
             </div>
-            <div class="tab-pane fade" id="menu-creditos-conteudo" role="tabpanel" aria-labelledby="menu-creditos-tab">
+            <div class="vigi-grid tab-pane fade" id="menu-creditos-conteudo" role="tabpanel" aria-labelledby="menu-creditos-tab">
                 {{ with .context.GetPage "creditos" }}
                     {{ .Content }}
                 {{ end }}
             </div>
 
-            <div class="tab-pane fade" id="menu-a11y-conteudo" role="tabpanel" aria-labelledby="menu-a11y-tab">
+            <div class="vigi-grid tab-pane fade" id="menu-a11y-conteudo" role="tabpanel" aria-labelledby="menu-a11y-tab">
                 {{ partial "menu-a11y.html" }}
             </div>
-            <div class="tab-pane fade" id="menu-privacidade-conteudo" role="tabpanel" aria-labelledby="menu-privacidade-tab">
+            <div class="vigi-grid tab-pane fade" id="menu-privacidade-conteudo" role="tabpanel" aria-labelledby="menu-privacidade-tab">
                 {{ partial "menu-privacidade.html" }}
             </div>
-            <div class="tab-pane fade" id="menu-hidden-conteudo" role="tabpanel" aria-labelledby="menu-hidden-tab">
-                {{ range where .context.Site.Home.Pages "Section" "not in" .context.Site.MainSections}}
-                    <li>
-                        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-                    </li>
-                {{ end }}
+            <div class="vigi-grid tab-pane fade" id="menu-hidden-conteudo" role="tabpanel" aria-labelledby="menu-hidden-tab">
+                <ul>
+                    {{ range where .context.Site.Home.Pages "Section" "not in" .context.Site.MainSections}}
+                        <li>
+                            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                        </li>
+                    {{ end }}
+                </ul>
             </div>
         </div>
         <div id="menu-socials">

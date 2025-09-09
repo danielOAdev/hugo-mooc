@@ -47,7 +47,7 @@ main, .vigi-grid {
     }
 }
 
-.vigi-coluna-padrao, :where(main > *, .vigi-grid) {
+.vigi-coluna-padrao, :where(main > *, .vigi-grid  > *) {
     grid-column: vigi-coluna-padrao;
 }
 

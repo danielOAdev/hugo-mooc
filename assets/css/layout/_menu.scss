@@ -52,6 +52,10 @@ dialog {
     overflow: auto;
     padding: 1rem;
     scrollbar-gutter: stable;
+
+    & > .vigi-grid.active {
+        display: grid;
+    }
 }
 
 #menu-tabs {

@@ -6,7 +6,7 @@
             <nav class="seletor-modulos">
                 {{ range (where .context.Site.Sections "Section" "in" .context.Site.MainSections).ByWeight }}
                     {{ $section := .Section}}
-                    <button class="border rounded {{ $section }}" style="background-image: url({{ partial "funcao/linkRelativo.html" (dict "Page" $.context "url" (print "/imagens/modulos/" $section "-bg.jpg")) }})" type="button" data-bs-target="#modulosCarrossel{{$.suffix}}" data-bs-slide-to="{{ partial "funcao/indexOf.html" . }}">
+                    <button class="border rounded {{ $section }}" type="button" data-bs-target="#modulosCarrossel{{$.suffix}}" data-bs-slide-to="{{ partial "funcao/indexOf.html" . }}">
                         <span class="visually-hidden">{{ .LinkTitle }}</span>
                         {{- with resources.Get (print "/imagens/modulos/" $section "-assinatura.svg") -}}
                             {{ .Content | safeHTML }}

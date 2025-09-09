@@ -2,14 +2,16 @@ import { carousel } from "./menu-modulos.mjs";
 import "./menu-a11y.mjs";
 import "./menu-privacidade.mjs";
 import { exibirSlide } from "./modulos.mjs"
-import { Tab, Collapse } from "../bootstrap/bootstrap.min.mjs";
+import { Tab } from "../bootstrap/bootstrap.min.mjs";
 
 export const menu = document.getElementById('menu');
 const botaoFechar = document.getElementById('menu-fechar');
 const navTabs = menu.querySelectorAll('#menu-tabs .nav-link');
 const navSelect = menu.querySelector('#menu-select select');
 
-dynamicAnchor();
+if (!document.querySelector(':target')?.checkVisibility()) {
+    dynamicTarget(window.location);
+}
 
 botaoFechar.addEventListener('click', () => {
     fechar();
@@ -40,7 +42,37 @@ document.addEventListener('click', function(event) {
         const tabName = btnMenu.getAttribute('data-vigi-menu') || null;
         abrir(tabName);
     }
+
+    dynamicTarget(event.target.href);
 });
+
+/**
+ * 
+ * @param {string} url
+ * @returns
+ */
+function dynamicTarget(url) {
+    if (!url instanceof URL) {
+        if (!url) return;
+
+        url = new URL(urlString);
+    }
+    if (!url?.hash) return;
+
+    const target = menu.querySelector(url.hash);
+    if (!menu.contains(target)) return;
+
+    const conteudo = target.closest('[role="tabpanel"]');
+    if (!conteudo) return;
+
+    const nome = conteudo.id.split('menu-')[1].split('-conteudo')[0];
+    const tabElem = menu.querySelector('#menu-' + nome + '-tab');
+    if (!tabElem) return;
+
+    abrir(nome);
+    target.scrollIntoView();
+    target.focus();
+}
 
 /**
  * Abre o menu
@@ -69,57 +101,4 @@ function exibirAba(nomeAba) {
     tabConteudo.classList.remove('fade');
     Tab.getOrCreateInstance(tab).show();
     tabConteudo.classList.add('fade');
-}
-
-function dynamicAnchor() {
-    const anchor = (window.location.hash).substring(1);
-    const array = anchor.split('/');
-
-    array.forEach(id => {
-        if (!id) {
-            return;
-        }
-        let element;
-        try {
-            element = document.querySelector('#'+id);
-        } catch (error) {
-            return;
-        }
-        if (element) {
-            // Se for um componente Bootstrap de alternância: ...
-            switch (element.getAttribute('data-bs-toggle')) {
-                case 'pill': {
-                    Tab.getOrCreateInstance(element).show();
-                    return;
-                }
-
-                case 'collapse': {
-                    const targetid = element.getAttribute('data-bs-target');
-                    if (targetid) {
-                        const target = document.querySelector(targetid);
-                        if (target) {
-                            Collapse.getOrCreateInstance(target).show();
-                            target.addEventListener('shown.bs.collapse', function() {
-                                target.scrollIntoView();
-                            }, { once: true });
-                        }
-                    }
-                    return;
-                }
-            }
-
-            // Se for um modal: abra-o
-            if (element.tagName === 'DIALOG') {
-                element.showModal();
-                return;
-            }
-
-            // Se for um botão ou link: clique-o
-            if (element.tagName === 'BUTTON') {
-                const clickEvent = new MouseEvent('click');
-                element.dispatchEvent(clickEvent);
-                return;
-            }
-        }
-    });
 }
