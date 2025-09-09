@@ -33,6 +33,6 @@
         {{- end -}}
         <a href="{{ .RelPermalink }}">{{ .LinkTitle }} ({{ partial "funcao/prettyType.html" .Type }} {{ $index }} de {{ $total }})</a>
     {{- else -}}
-        {{- .LinkTitle -}}
+        <a href="{{ .RelPermalink }}">{{- .LinkTitle -}}</a>
     {{- end -}}
 {{- end -}}

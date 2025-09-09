@@ -76,9 +76,37 @@ function dynamicAnchor() {
     const array = anchor.split('/');
 
     array.forEach(id => {
-        const element = document.querySelector('#'+id);
-
+        if (!id) {
+            return;
+        }
+        let element;
+        try {
+            element = document.querySelector('#'+id);
+        } catch (error) {
+            return;
+        }
         if (element) {
+            // Se for um componente Bootstrap de alternância: ...
+            switch (element.getAttribute('data-bs-toggle')) {
+                case 'pill': {
+                    Tab.getOrCreateInstance(element).show();
+                    return;
+                }
+
+                case 'collapse': {
+                    const targetid = element.getAttribute('data-bs-target');
+                    if (targetid) {
+                        const target = document.querySelector(targetid);
+                        if (target) {
+                            Collapse.getOrCreateInstance(target).show();
+                            target.addEventListener('shown.bs.collapse', function() {
+                                target.scrollIntoView();
+                            }, { once: true });
+                        }
+                    }
+                    return;
+                }
+            }
 
             // Se for um modal: abra-o
             if (element.tagName === 'DIALOG') {
@@ -87,21 +115,9 @@ function dynamicAnchor() {
             }
 
             // Se for um botão ou link: clique-o
-            if (['BUTTON', 'A'].includes(element.tagName)) {
+            if (element.tagName === 'BUTTON') {
                 const clickEvent = new MouseEvent('click');
                 element.dispatchEvent(clickEvent);
-
-                const component = element.getAttribute('data-bs-toggle');
-
-                if (component && element.getAttribute('data-bs-target')) {
-                    const target = document.querySelector(element.getAttribute('data-bs-target'));
-                    if (target) {
-                        element.addEventListener(`shown.bs.${component}`, function() {
-                            target.scrollIntoView();
-                        }, { once: true });
-                    }
-                }
-
                 return;
             }
         }

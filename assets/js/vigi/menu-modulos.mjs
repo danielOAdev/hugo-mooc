@@ -4,10 +4,11 @@ import { exibirSlide } from "./modulos.mjs"
 export const carousel = document.getElementById('modulosCarrosselMenu');
 
 document.addEventListener('click', function(event) {
-    const btnMenuModulo = event.target.closest('button[data-vigi-menu-modulo]');
-    const btnMenuAula = event.target.closest('button[data-vigi-menu-aula]');
+    const btnMenuModulo = event.target.closest(':is(a,button)[data-vigi-menu-modulo]');
+    const btnMenuAula = event.target.closest(':is(a,button)[data-vigi-menu-aula]');
 
     if (btnMenuModulo) {
+        event.preventDefault();
         const moduloIndex = btnMenuModulo.getAttribute('data-vigi-menu-modulo') || null;
         if (btnMenuAula) {
             const aulaIndex = btnMenuAula.getAttribute('data-vigi-menu-aula') || 0;
