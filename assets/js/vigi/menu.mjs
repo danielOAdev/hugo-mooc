@@ -68,7 +68,7 @@ function dynamicTarget(url) {
 
     let target;
     target = document.querySelector(url.hash);
-    if (target.checkVisibility()) return;
+    if (target && target.checkVisibility()) return;
 
     if (url.hash.startsWith('#menu-')) {
         target = menu.querySelector(url.hash + '-tab');
