@@ -8,10 +8,15 @@ export const menu = document.getElementById('menu');
 const botaoFechar = document.getElementById('menu-fechar');
 const navTabs = menu.querySelectorAll('#menu-tabs .nav-link');
 const navSelect = menu.querySelector('#menu-select select');
+const tituloOriginal = document.title;
 
 if (!document.querySelector(':target')?.checkVisibility()) {
     dynamicTarget(window.location);
 }
+
+menu.addEventListener('close', (event) => {
+    document.title = tituloOriginal;
+});
 
 botaoFechar.addEventListener('click', () => {
     fechar();
@@ -20,7 +25,8 @@ botaoFechar.addEventListener('click', () => {
 navTabs.forEach(tab => {
     tab.addEventListener('show.bs.tab', (event) => {
         navSelect.value = event.target.value;
-        menu.currentTab = event.target.value;
+        history.replaceState({}, document.title, `${document.location.pathname}#menu-${event.target.value}`);
+        document.title = `${event.target.textContent.trim()} | ${tituloOriginal}`
     })
 })
 
@@ -47,8 +53,9 @@ document.addEventListener('click', function(event) {
 });
 
 /**
+ * Foca e rola para objetos não visíveis na página.
  * 
- * @param {string} url
+ * @param {string} url link com hash (#id-do-elemento)
  * @returns
  */
 function dynamicTarget(url) {
@@ -59,7 +66,18 @@ function dynamicTarget(url) {
     }
     if (!url?.hash) return;
 
-    const target = menu.querySelector(url.hash);
+    let target;
+    target = document.querySelector(url.hash);
+    if (target.checkVisibility()) return;
+
+    if (url.hash.startsWith('#menu-')) {
+        target = menu.querySelector(url.hash + '-tab');
+        if (target) {
+            abrir(target.id.split('menu-')[1].split('-tab')[0]);
+        }
+    }
+
+    target = menu.querySelector(url.hash);
     if (!menu.contains(target)) return;
 
     const conteudo = target.closest('[role="tabpanel"]');
@@ -74,8 +92,12 @@ function dynamicTarget(url) {
     target.focus();
 }
 
+document.addEventListener('hashchange', () => {
+    dynamicTarget(location);
+})
+
 /**
- * Abre o menu
+ * Abre o menu.
  * 
  * @param {null|string} nomeAba Nome da aba na qual o menu deve exibir ao abrir.
  * Ou deixe nulo para abrir menu na aba padrão.
@@ -83,22 +105,30 @@ function dynamicTarget(url) {
 export function abrir(nomeAba = null) {
     if (nomeAba) {
         exibirAba(nomeAba);
-    } else {
+    } else if (!menu.open) {
         exibirAba('modulos');
         exibirSlide(carousel, 0);
     }
+
     menu.showModal();
 }
 
+/**
+ * Fecha o menu.
+ */
 export function fechar() {
     menu.close();
 }
 
 function exibirAba(nomeAba) {
     const tab = document.getElementById(`menu-${nomeAba}-tab`);
+    if (!tab) return false;
+
     const tabConteudo = document.getElementById(`menu-${nomeAba}-conteudo`);
 
-    tabConteudo.classList.remove('fade');
+    menu.open || tabConteudo.classList.remove('fade');
     Tab.getOrCreateInstance(tab).show();
-    tabConteudo.classList.add('fade');
+    menu.open || tabConteudo.classList.add('fade');
+    document.title = `${tab.textContent.trim()} | ${tituloOriginal}`
+    return true;
 }

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>{{ .Page.Title }} | {{ site.Title }}</title>
+    <script>
+        if (document.referrer) {
+            const referrer = new URL(document.referrer);
+            referrer.hash = '{{ .Param "redirectHash" }}';
+            document.location = referrer;
+        }
+    </script>
+    <link rel="canonical" href="{{ default "/" (print "/" (.Param "redirectHash")) }}">
+    <meta charset="utf-8">
+    <meta http-equiv="refresh" content="0; url={{ default "/" (print "/" (.Param "redirectHash")) }}">
+  </head>
+</html>
