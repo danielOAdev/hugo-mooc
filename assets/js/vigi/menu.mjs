@@ -54,6 +54,7 @@ document.addEventListener('click', function(event) {
 
 /**
  * Foca e rola para objetos não visíveis na página.
+ * Também aceita hashs customizados para os itens do menu.
  * 
  * @param {string} url link com hash (#id-do-elemento)
  * @returns
