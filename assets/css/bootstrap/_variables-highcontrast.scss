@@ -54,7 +54,7 @@ $link-color-highcontrast:                   $cyan !default;
 $link-hover-color-highcontrast:             shift-color($link-color-highcontrast, -$link-shade-percentage) !default;
 $code-color-highcontrast:                   $code-color !default;
 $mark-color-highcontrast:                   $body-color-highcontrast !default;
-$mark-bg-highcontrast:                      $yellow-800 !default;
+$mark-bg-highcontrast:                      #00f !default;
 
 //
 // Forms

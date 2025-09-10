@@ -52,10 +52,10 @@ document.addEventListener('click', function(event) {
  * @returns
  */
 function dynamicTarget(url) {
-    if (!url instanceof URL) {
+    if (!(url instanceof URL)) {
         if (!url) return;
 
-        url = new URL(urlString);
+        url = new URL(url);
     }
     if (!url?.hash) return;
 
