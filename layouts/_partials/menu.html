@@ -17,8 +17,10 @@
                 <hr class="my-1">
                 <button class="btn nav-link text-start" value="a11y" id="menu-a11y-tab" data-bs-toggle="pill" data-bs-target="#menu-a11y-conteudo" type="button" role="tab" aria-controls="menu-a11y-conteudo" aria-selected="false">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "universal-access") }} Acessibilidade</button>
                 <button class="btn nav-link text-start" value="privacidade" id="menu-privacidade-tab" data-bs-toggle="pill" data-bs-target="#menu-privacidade-conteudo" type="button" role="tab" aria-controls="menu-privacidade-conteudo" aria-selected="false">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "shield-halved") }} Privacidade</button>
-                <hr class="my-1">
-                <button class="btn nav-link text-start" value="hidden" id="menu-hidden-tab" data-bs-toggle="pill" data-bs-target="#menu-hidden-conteudo" type="button" role="tab" aria-controls="menu-hidden-conteudo" aria-selected="false">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "ghost") }} Ocultos</button>
+                {{- if eq hugo.Environment "development" -}}
+                    <hr class="my-1">
+                    <button class="btn nav-link text-start" value="hidden" id="menu-hidden-tab" data-bs-toggle="pill" data-bs-target="#menu-hidden-conteudo" type="button" role="tab" aria-controls="menu-hidden-conteudo" aria-selected="false">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "ghost") }} Ocultos</button>
+                {{- end -}}
             </div>
         </div>
         <div id="menu-select" class="sticky-top">
@@ -63,22 +65,23 @@
                     {{ .Content }}
                 {{ end }}
             </div>
-
             <div class="vigi-grid tab-pane fade" id="menu-a11y-conteudo" role="tabpanel" aria-labelledby="menu-a11y-tab">
                 {{ partial "menu-a11y.html" }}
             </div>
             <div class="vigi-grid tab-pane fade" id="menu-privacidade-conteudo" role="tabpanel" aria-labelledby="menu-privacidade-tab">
                 {{ partial "menu-privacidade.html" }}
             </div>
-            <div class="vigi-grid tab-pane fade" id="menu-hidden-conteudo" role="tabpanel" aria-labelledby="menu-hidden-tab">
-                <ul>
-                    {{ range where .context.Site.Home.Pages "Section" "not in" .context.Site.MainSections}}
-                        <li>
-                            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-                        </li>
-                    {{ end }}
-                </ul>
-            </div>
+            {{- if eq hugo.Environment "development" -}}
+                <div class="vigi-grid tab-pane fade" id="menu-hidden-conteudo" role="tabpanel" aria-labelledby="menu-hidden-tab">
+                    <ul>
+                        {{ range where .context.Site.Home.Pages "Section" "not in" .context.Site.MainSections}}
+                            <li>
+                                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                            </li>
+                        {{ end }}
+                    </ul>
+                </div>
+            {{- end -}}
         </div>
         <div id="menu-socials">
             {{ partial "socials.html" }}

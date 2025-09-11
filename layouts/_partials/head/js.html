@@ -1,4 +1,4 @@
-{{- with resources.Get "js/init.js" -}}
+{{- with resources.Get "recursos/js/init.js" -}}
 <script src="{{ .RelPermalink }}"></script>
 {{- end -}}
 
@@ -17,7 +17,7 @@
 <script type="importmap">
     {
         "imports": {
-        {{ with resources.Get "js/popperjs/core/dist/esm/popper.js" }}
+        {{ with resources.Get "recursos/js/popperjs/core/dist/esm/popper.js" }}
             "@popperjs/core":"{{ partial "funcao/linkRelativo.html" (dict "Page" $ "url" .RelPermalink) }}"
         {{ end }}
         }
@@ -25,12 +25,12 @@
 </script>
 
 {{/*  Como não estamos usando "js.Build", temos que publicar manualmente módulos importados.  */}}
-{{- range resources.Match "js/**" -}}
+{{- range resources.Match "recursos/js/**" -}}
     {{- .Publish -}}
 {{- end -}}
 
 {{/*  Barrel module  */}}
-{{- with resources.Get "js/index.mjs" -}}
+{{- with resources.Get "recursos/js/index.mjs" -}}
     <script type="module" src="{{ .RelPermalink }}"></script>
     {{- if eq hugo.Environment "development" -}}
         {{/*  Adiciona exportações ao escopo global quando no ambiente de desenvolvimento.  */}}

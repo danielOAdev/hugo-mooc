@@ -5,7 +5,7 @@
   "scripts": {
     "server": "hugo server --cleanDestinationDir",
     "build": "hugo build --cleanDestinationDir",
-    "prettier": "prettier ./public/*.html ./public/**/*.html --write --ignore-path ''",
+    "prettier": "prettier './public/*.html' './public/**/*.html' --write --ignore-path ''",
     "build + prettier": "npm run build && npm run prettier",
     "update-content-frontmatter": "node ./node_scripts/update-content-frontmatter/index.mjs",
     "list": "hugo list all > content.csv && code content.csv"

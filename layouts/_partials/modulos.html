@@ -8,13 +8,13 @@
                     {{ $section := .Section}}
                     <button class="border rounded {{ $section }}" type="button" data-bs-target="#modulosCarrossel{{$.suffix}}" data-bs-slide-to="{{ partial "funcao/indexOf.html" . }}">
                         <span class="visually-hidden">{{ .LinkTitle }}</span>
-                        {{- with resources.Get (print "/imagens/modulos/" $section "-assinatura.svg") -}}
+                        {{- with resources.Get (print "/recursos/imagens/modulos/" $section "-assinatura.svg") -}}
                             {{ .Content | safeHTML }}
                         {{ end }}
-                        {{- with resources.Get (print "/imagens/modulos/" $section "-off.png") -}}
+                        {{- with resources.Get (print "/recursos/imagens/modulos/" $section "-off.png") -}}
                             <img src="{{ .RelPermalink }}" alt="" aria-hidden="true" draggable="false">
                         {{ end }}
-                        {{- with resources.Get (print "/imagens/modulos/" $section "-on.png") -}}
+                        {{- with resources.Get (print "/recursos/imagens/modulos/" $section "-on.png") -}}
                             <img src="{{ .RelPermalink }}" alt="" aria-hidden="true" draggable="false">
                         {{ end }}
                     </button>

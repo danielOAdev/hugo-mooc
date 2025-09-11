@@ -54,7 +54,7 @@ document.addEventListener('click', function(event) {
 
 /**
  * Foca e rola para objetos não visíveis na página.
- * Também aceita hashs customizados para os itens do menu.
+ * Também aceita hashs dinâmicos para os itens do menu.
  * 
  * @param {string} url link com hash (#id-do-elemento)
  * @returns
@@ -69,12 +69,18 @@ function dynamicTarget(url) {
 
     let target;
     target = document.querySelector(url.hash);
+
+    // Se o alvo já está visivel na tela, paramos aqui e deixamos o navegador assumir o controle.
     if (target && target.checkVisibility()) return;
 
+    // Hashs dinâmicos para os itens do menu.
+    // Dinâmicos pois não existe um elemento com esse ID no DOM.
+    // Essas hashs tem o formato "#menu-{nome-do-menu}".
     if (url.hash.startsWith('#menu-')) {
         target = menu.querySelector(url.hash + '-tab');
         if (target) {
             abrir(target.id.split('menu-')[1].split('-tab')[0]);
+            return;
         }
     }
 

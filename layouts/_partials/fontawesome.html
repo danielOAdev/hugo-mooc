@@ -1,4 +1,4 @@
-{{- $path := print "svg/" .style "/" .icon ".svg" -}}
+{{- $path := print "recursos/svg/" .style "/" .icon ".svg" -}}
 {{- with resources.Get $path -}}
     {{- $svg := .Content -}}
     {{- $svg = replace $svg " 512\"><!--" (print " 512\" class=\"" (cond $.classes (print "icone " $.classes) "icone") "\"><!--") -}}

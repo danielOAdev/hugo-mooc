@@ -6,19 +6,10 @@ relativeURLs = true
 pluralizeListTitles = false
 enableRobotsTXT = true
 disableHugoGeneratorInject = true
+disableKinds = ["taxonomy"]
 mainSections = ['luana', 'thiago', 'mariana', 'pedro']
 [params.meta]
   msColor = "#ffffff"
-[menus]
-  [[menus.main]]
-    name = 'Módulos'
-    weight = 10
-  [[menus.main]]
-    name = 'Bibliografia'
-    weight = 90
-  [[menus.main]]
-    name = 'Créditos'
-    weight = 90
 [module]
   [[module.mounts]]
     disableWatch = false
@@ -26,17 +17,20 @@ mainSections = ['luana', 'thiago', 'mariana', 'pedro']
     source = 'assets'
     target = 'assets'
   [[module.mounts]]
+    source = "node_modules/bootstrap/scss"
+    target = "assets/recursos/css/bootstrap/source"
+  [[module.mounts]]
     source = "node_modules/@fortawesome/fontawesome-free/svgs"
-    target = "assets/svg"
+    target = "assets/recursos/svg"
   [[module.mounts]]
     source = "node_modules/bootstrap/dist/js/bootstrap.esm.min.js"
-    target = "assets/js/bootstrap/bootstrap.min.mjs"
+    target = "assets/recursos/js/bootstrap/bootstrap.min.mjs"
   [[module.mounts]]
     source = "node_modules/@popperjs/core/dist/esm"
-    target = "assets/js/popperjs/core/dist/esm"
+    target = "assets/recursos/js/popperjs/core/dist/esm"
   [[module.mounts]]
     source = "node_modules/panzoom/dist/panzoom.min.js"
-    target = "assets/js/panzoom/panzoom.min.js"
+    target = "assets/recursos/js/panzoom/panzoom.min.js"
 [services]
   [services.googleAnalytics]
     id = 'G-WXPN4ETG2Q'
