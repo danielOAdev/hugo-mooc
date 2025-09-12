@@ -1,0 +1,8 @@
+{{- $level := or (.Get "level") "2" }}
+{{- $title := (.Get "title")}}
+
+{{ $id := urlize $title }}
+
+<h{{ $level }} id="{{ $id }}">
+    <a href="#{{ $id }}" class="heading-anchor">{{ $title }}</a>
+</h{{ $level }}>

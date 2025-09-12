@@ -3,6 +3,7 @@ defaultContentLanguage = 'pt-br'
 title = 'Lorem ipsum laboris'
 summary = 'Curso Doenças Crônicas não Transmissíveis(DCNT) e o Desafio da Vigilância em Saúde nas Regiões Fronteiriças'
 relativeURLs = true
+removePathAccents = true
 pluralizeListTitles = false
 enableRobotsTXT = true
 disableHugoGeneratorInject = true

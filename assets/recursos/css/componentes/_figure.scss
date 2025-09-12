@@ -1,0 +1,18 @@
+figure {
+    inline-size: fit-content;
+    margin-inline: auto;
+}
+
+figcaption {
+    contain: inline-size;
+
+    .figfonte {
+        text-align: center;
+    }
+}
+
+.collapse-nothidden.collapse:not(.show) {
+    height: 0;
+    overflow: hidden;
+    display: revert;
+}

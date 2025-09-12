@@ -10,16 +10,15 @@ main, .vigi-grid {
     --vigi-coluna-larga-max-width: 110ch;
     --vigi-coluna-cheia-max-width: 1fr;
 
+    --vigi-coluna-destaque-auto: calc((var(--vigi-grid-width) - var(--vigi-coluna-padrao-max-width)) / 2);
+
+    --vigi-grid-width: calc(100% - (var(--minimum-content-padding) * 2));
+
     /** TRACK SIZES **/
     --vigi-coluna-cheia: minmax( var(--minimum-content-padding), var(--vigi-coluna-cheia-max-width) );
     --vigi-coluna-larga: minmax( 0, calc( ( var(--vigi-coluna-larga-max-width) - var(--vigi-coluna-destaque-max-width)) * 0.5 ) );
-    --vigi-coluna-destaque: minmax( 0, calc( ( var(--vigi-coluna-destaque-max-width) - var(--vigi-coluna-padrao-max-width)) * 0.5 ) );
-    --vigi-coluna-padrao: min( var(--vigi-coluna-padrao-max-width), 100% - var(--minimum-content-padding) * 2 );
-
-    /* TODO
-    @media (min-width: 90ch) {
-        --vigi-coluna-destaque: minmax( 0, calc( ( var(--vigi-coluna-destaque-max-width) - var(--vigi-coluna-padrao-max-width)) * 0.5 ) );
-    } */
+    --vigi-coluna-destaque: min(calc(var(--vigi-grid-width) - var(--vigi-coluna-destaque-auto) - var(--vigi-coluna-padrao-max-width)), 10ch);
+    --vigi-coluna-padrao: min( var(--vigi-coluna-padrao-max-width), var(--vigi-grid-width) );
 
     display: grid;
     grid-template-columns: 

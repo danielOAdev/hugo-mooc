@@ -9,6 +9,9 @@ const botaoFechar = document.getElementById('menu-fechar');
 const navTabs = menu.querySelectorAll('#menu-tabs .nav-link');
 const navSelect = menu.querySelector('#menu-select select');
 const tituloOriginal = document.title;
+const hrefOriginal = (document.location.hash.startsWith('#menu-') && menu.querySelector(document.location.hash + '-tab')) ? 
+    document.location.origin + document.location.pathname :
+    document.location.href;
 
 if (!document.querySelector(':target')?.checkVisibility()) {
     dynamicTarget(window.location);
@@ -16,6 +19,7 @@ if (!document.querySelector(':target')?.checkVisibility()) {
 
 menu.addEventListener('close', (event) => {
     document.title = tituloOriginal;
+    history.replaceState(null, '', hrefOriginal);
 });
 
 botaoFechar.addEventListener('click', () => {
@@ -47,6 +51,7 @@ document.addEventListener('click', function(event) {
     if (btnMenu) {
         const tabName = btnMenu.getAttribute('data-vigi-menu') || null;
         abrir(tabName);
+        return;
     }
 
     dynamicTarget(event.target.href);
