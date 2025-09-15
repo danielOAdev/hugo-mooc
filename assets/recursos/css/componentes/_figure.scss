@@ -1,12 +1,32 @@
+@use "bootstrap" as *;
+
 figure {
     inline-size: fit-content;
     margin-inline: auto;
+}
+
+.figlegenda {
+    contain: inline-size;
+    grid-area: 1 / 1;
+    overflow: auto;
+    font-size: 1rem;
+    line-height: $line-height-base;
+    backdrop-filter: blur(3px) brightness(0.2);
+    border-radius: 27px;
+    max-height: 50vh;
+    padding: 0 1rem;
+
+    p {
+        margin-bottom: .5rem;
+    }
 }
 
 figcaption {
     contain: inline-size;
 
     .figfonte {
+        font-size: 1rem;
+        line-height: $line-height-base;
         text-align: center;
     }
 }

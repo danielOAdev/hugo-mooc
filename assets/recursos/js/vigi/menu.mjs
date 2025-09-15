@@ -13,13 +13,36 @@ const hrefOriginal = (document.location.hash.startsWith('#menu-') && menu.queryS
     document.location.origin + document.location.pathname :
     document.location.href;
 
+let anchorNodeOriginal;
+let anchorOffsetOriginal;
+let focusNodeOriginal;
+let focusOffsetOriginal;
+
 if (!document.querySelector(':target')?.checkVisibility()) {
     dynamicTarget(window.location);
 }
 
+menu.addEventListener('beforetoggle', (event) => {
+    if (event.newState !== 'open') return;
+    anchorNodeOriginal = window.getSelection().anchorNode;
+    anchorOffsetOriginal = window.getSelection().anchorOffset;
+    focusNodeOriginal = window.getSelection().focusNode;
+    focusOffsetOriginal = window.getSelection().focusOffset;
+});
+
 menu.addEventListener('close', (event) => {
     document.title = tituloOriginal;
     history.replaceState(null, '', hrefOriginal);
+
+    if (anchorNodeOriginal || focusNodeOriginal) {
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        const range = document.createRange();
+        range.setStart(anchorNodeOriginal, anchorOffsetOriginal);
+        selection.addRange(range);
+        selection.extend(focusNodeOriginal, focusOffsetOriginal);
+        anchorNodeOriginal.parentElement.scrollIntoViewIfNeeded()
+    }
 });
 
 botaoFechar.addEventListener('click', () => {
@@ -29,6 +52,7 @@ botaoFechar.addEventListener('click', () => {
 navTabs.forEach(tab => {
     tab.addEventListener('show.bs.tab', (event) => {
         navSelect.value = event.target.value;
+        document.location.hash = `#menu-${event.target.value}`; // Necessário para limpar seletor css ":target".
         history.replaceState({}, document.title, `${document.location.pathname}#menu-${event.target.value}`);
         document.title = `${event.target.textContent.trim()} | ${tituloOriginal}`
     })
