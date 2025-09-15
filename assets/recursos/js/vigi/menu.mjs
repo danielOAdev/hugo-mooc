@@ -9,7 +9,7 @@ const botaoFechar = document.getElementById('menu-fechar');
 const navTabs = menu.querySelectorAll('#menu-tabs .nav-link');
 const navSelect = menu.querySelector('#menu-select select');
 const tituloOriginal = document.title;
-const hrefOriginal = (document.location.hash.startsWith('#menu-') && menu.querySelector(document.location.hash + '-tab')) ? 
+const hrefOriginal = document.location.hash && (menu.querySelector(document.location.hash) || menu.querySelector(document.location.hash + '-tab')) ?
     document.location.origin + document.location.pathname :
     document.location.href;
 
@@ -18,22 +18,26 @@ let anchorOffsetOriginal;
 let focusNodeOriginal;
 let focusOffsetOriginal;
 
-if (!document.querySelector(':target')?.checkVisibility()) {
+// Se "target" está oculto, é possivel que ele esteja dentro do menu principal.
+if (window.location.hash && menu.querySelector(window.location.hash)) {
     dynamicTarget(window.location);
 }
 
 menu.addEventListener('beforetoggle', (event) => {
     if (event.newState !== 'open') return;
-    anchorNodeOriginal = window.getSelection().anchorNode;
-    anchorOffsetOriginal = window.getSelection().anchorOffset;
-    focusNodeOriginal = window.getSelection().focusNode;
-    focusOffsetOriginal = window.getSelection().focusOffset;
+
+    //Salva seleção antes de abrir o menu.
+    saveSelection();
 });
 
 menu.addEventListener('close', (event) => {
+    // Restaura titulo da página.
     document.title = tituloOriginal;
+
+    // Restaura URL.
     history.replaceState(null, '', hrefOriginal);
 
+    // Restaura posição do cursor/seleção.
     if (anchorNodeOriginal || focusNodeOriginal) {
         const selection = window.getSelection();
         selection.removeAllRanges();
@@ -51,10 +55,7 @@ botaoFechar.addEventListener('click', () => {
 
 navTabs.forEach(tab => {
     tab.addEventListener('show.bs.tab', (event) => {
-        navSelect.value = event.target.value;
-        document.location.hash = `#menu-${event.target.value}`; // Necessário para limpar seletor css ":target".
-        history.replaceState({}, document.title, `${document.location.pathname}#menu-${event.target.value}`);
-        document.title = `${event.target.textContent.trim()} | ${tituloOriginal}`
+        atualizarLocationAba(event.target.value);
     })
 })
 
@@ -78,7 +79,14 @@ document.addEventListener('click', function(event) {
         return;
     }
 
-    dynamicTarget(event.target.href);
+    // Garante que ao clicar em um link/botão que abre o menu
+    const anchor = event.target.closest('a');
+    if (anchor) {
+        if (!window.getSelection().containsNode(anchor, true)) {
+            window.getSelection().setPosition(anchor);
+        }
+        dynamicTarget(anchor.href);
+    }
 });
 
 /**
@@ -97,7 +105,7 @@ function dynamicTarget(url) {
     if (!url?.hash) return;
 
     let target;
-    target = document.querySelector(url.hash);
+    target = menu.querySelector(url.hash);
 
     // Se o alvo já está visivel na tela, paramos aqui e deixamos o navegador assumir o controle.
     if (target && target.checkVisibility()) return;
@@ -157,14 +165,34 @@ export function fechar() {
 }
 
 function exibirAba(nomeAba) {
-    const tab = document.getElementById(`menu-${nomeAba}-tab`);
+    const tab = menu.querySelector(`#menu-${nomeAba}-tab`);
     if (!tab) return false;
 
-    const tabConteudo = document.getElementById(`menu-${nomeAba}-conteudo`);
+    const tabConteudo = menu.querySelector(`#menu-${nomeAba}-conteudo`);
 
     menu.open || tabConteudo.classList.remove('fade');
     Tab.getOrCreateInstance(tab).show();
     menu.open || tabConteudo.classList.add('fade');
-    document.title = `${tab.textContent.trim()} | ${tituloOriginal}`
+    atualizarLocationAba(nomeAba);
     return true;
+}
+
+/**
+ * Salva seleção.
+ */
+function saveSelection() {
+    anchorNodeOriginal = window.getSelection().anchorNode;
+    anchorOffsetOriginal = window.getSelection().anchorOffset;
+    focusNodeOriginal = window.getSelection().focusNode;
+    focusOffsetOriginal = window.getSelection().focusOffset;
+}
+
+
+function atualizarLocationAba(nomeAba) {
+    const tab = menu.querySelector(`#menu-${nomeAba}-tab`);
+    if (!tab) return;
+
+    document.title = `${tab.textContent} | ${tituloOriginal}`;
+    document.location.hash = `#menu-${nomeAba}`; // Necessário para limpar seletor css ":target".
+    history.replaceState({}, document.title, `${document.location.pathname}#menu-${nomeAba}`);
 }

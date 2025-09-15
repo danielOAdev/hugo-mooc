@@ -1,14 +1,14 @@
 @use "bootstrap" as *;
 
-[id^="inicial-"] {
+[id^="glossario-inicial--"] {
     border-bottom: var(--#{$prefix}border-width) var(--#{$prefix}border-style) var(--#{$prefix}border-color);
 }
 
-[id^="glossario-"]:target {
+[id^="glossario--"]:target {
     background-color: var(--vigi-highlight-bg);
 }
 
-[href^="#glossario-"] {
+:not(dt) > [href^="#glossario--"] {
     cursor: help;
 
     &::after {

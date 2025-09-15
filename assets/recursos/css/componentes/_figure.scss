@@ -5,19 +5,78 @@ figure {
     margin-inline: auto;
 }
 
+.figcontent {
+    position: relative;
+    display: grid;
+    height: 50vh;
+    inline-size: fit-content;
+    margin-inline: auto;
+
+    > * {
+        grid-area: 1 / 1;
+    }
+
+    > img {
+        border-radius: 27px;
+    }
+
+    &__btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        opacity: .5;
+        border-radius: 10px 50px 10px 10px;
+
+        &:hover {
+            opacity: 1;
+        }
+
+        .figcontent:has(.figlegenda.show, .figlegenda.collapsing, .figlegenda:focus, .figlegenda:focus-visible) & {
+            display: none;
+        }
+    }
+}
+
+
 .figlegenda {
     contain: inline-size;
-    grid-area: 1 / 1;
     overflow: auto;
     font-size: 1rem;
     line-height: $line-height-base;
-    backdrop-filter: blur(3px) brightness(0.2);
+    backdrop-filter: blur(5px);
+    background-color: rgba(var(--#{$prefix}body-bg-rgb), .8),;
     border-radius: 27px;
     max-height: 50vh;
     padding: 0 1rem;
+    transition: none;
+    transition: opacity .15s ease !important;
+    pointer-events: none;
+    opacity: 0;
+
+    [data-bs-theme="highcontrast"] & {
+        background-color: rgba(var(--#{$prefix}body-bg-rgb), 1);
+        border: var(--#{$prefix}border-width) var(--#{$prefix}border-style) var(--#{$prefix}border-color);
+    }
+
+    & > *:nth-child(2) {
+        margin-top: 1rem;
+    }
+
+    &__btn {
+        position: sticky;
+        top: 10px;
+        float: right;
+    }
 
     p {
         margin-bottom: .5rem;
+    }
+
+    &.show, &:focus, &:focus-visible {
+        opacity: 1;
+        height: auto !important;
+        overflow: auto !important;
+        pointer-events: all;
     }
 }
 
@@ -25,6 +84,7 @@ figcaption {
     contain: inline-size;
 
     .figfonte {
+        margin-top: .5rem;
         font-size: 1rem;
         line-height: $line-height-base;
         text-align: center;

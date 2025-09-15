@@ -7,7 +7,7 @@
                 {{ range (where .context.Site.Sections "Section" "in" .context.Site.MainSections).ByWeight }}
                     {{ $section := .Section}}
                     <button class="border rounded {{ $section }}" type="button" data-bs-target="#modulosCarrossel{{$.suffix}}" data-bs-slide-to="{{ partial "funcao/indexOf.html" . }}">
-                        <span class="visually-hidden">{{ .LinkTitle }}</span>
+                        <h2 class="visually-hidden">{{ .LinkTitle }}</h2>
                         {{- with resources.Get (print "/recursos/imagens/modulos/" $section "-assinatura.svg") -}}
                             {{ .Content | safeHTML }}
                         {{ end }}
@@ -23,10 +23,8 @@
         </div>
         {{ range (where .context.Site.Sections "Section" "in" .context.Site.MainSections).ByWeight }}
             <div class="carousel-item slide-{{ .Section }}">
-                <div class="hstack gap-2 mb-3">
-                    <button class="btn btn-secondary btn-icone rounded-circle" data-bs-target="#modulosCarrossel{{$.suffix}}" data-bs-slide-to="0">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "chevron-left")}}</button>
-                    <h3>{{ strings.FirstUpper .Page.Section }}</h3>
-                </div>
+                <button class="btn btn-secondary mb-3 icon-link" data-bs-target="#modulosCarrossel{{$.suffix}}" data-bs-slide-to="0">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "chevron-left")}}<h2 class="fs-body lh-base fw-normal m-0">Escolher personagem</button></h2></button>
+                <p class="h2">{{ strings.FirstUpper .Page.Section }}</p>
             {{ range (where .Sections "Type" "eq" "aula").ByWeight }}
                 {{ partial "slide-aula.html" (dict "Page" . "suffix" $.suffix) }}
             {{ end }}
@@ -37,7 +35,7 @@
 
 {{ define "_partials/slide-aula.html" }}
 <div class="aula-{{ .Page.Weight }}">
-    <h4>{{ .Page.Title }}</h4>
+    <h2 class="h3">{{ .Page.Title }}</h2>
     <ul class="list-group list-group-flush mb-4">
     {{ range .Page.Pages.ByWeight }}
         <li class="list-group-item bg-transparent"><a href="{{ .RelPermalink }}">{{ partial "funcao/indexOf.html" . }}: {{ .Title }}</a></li>

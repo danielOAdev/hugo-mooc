@@ -67,3 +67,7 @@ main {
     font-size: 1.25rem;
     line-height: 2rem;
 }
+
+.fs-body {
+    @include font-size(var(--#{$prefix}body-font-size));
+}

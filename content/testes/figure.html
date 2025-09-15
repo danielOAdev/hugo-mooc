@@ -3,12 +3,15 @@ title = "Figure"
 +++
 
 <figure>
-    <div style="display: grid;
-    height: 50vh;
-    inline-size: fit-content;
-    margin-inline: auto;">
-        <img class="img-fluid lightbox" src="../recursos/modulo-02-aula-02-grafico-03.png" style="grid-area: 1 / 1;" alt="O infográfico é dividido em três seções, representadas por copos de vidro cheios de líquidos coloridos.">
-        <div class="collapse collapse-nothidden figlegenda" id="collapseExample" data-bs-animation="false">
+    <div class="figcontent">
+        <img class="img-fluid lightbox" src="../recursos/modulo-02-aula-02-grafico-03.png" style="grid-area: 1 / 1;" alt="Infográfico dividido em três seções, representadas por copos de vidro cheios de líquidos coloridos.">
+        <button class="figcontent__btn btn btn-secondary btn-sm mx-auto collapsed" type="button" data-bs-animation="false" data-bs-toggle="collapse" data-bs-target="#collapseExample" role="paragraph" tabindex="-1">
+            <span aria-hidden="true">Legenda</span>
+        </button>
+        <div class="figlegenda collapse collapse-nothidden fade" id="collapseExample" data-bs-animation="false" tabindex="0">
+            <button class="figlegenda__btn btn btn-secondary btn-icone btn-sm collapsed" type="button" data-bs-animation="false" data-bs-toggle="collapse" data-bs-target="#collapseExample" role="paragraph" tabindex="-1">
+                {{< fa/solid xmark >}}
+            </button>
             <p>Infográfico que ilustra os efeitos do consumo do álcool de acordo com a quantidade ingerida.</p>
             <p>O infográfico é dividido em três seções, representadas por copos de vidro cheios de líquidos coloridos:</p>
             <ul>
@@ -41,7 +44,7 @@ title = "Figure"
                     </ul>
                 </li>
                 <li>
-                    <p><b>Depois:</b> Um copo com cor amarelo-alaranjado. Os efeitos listados são:</p>
+                    <p><b>Da 4ª dose em diante:</b> Um copo com cor amarelo-alaranjado. Os efeitos listados são:</p>
                     <ul>
                         <li>
                             <p>Fala pastosa</p>
@@ -58,9 +61,6 @@ title = "Figure"
         </div>
     </div>
     <figcaption>
-        <button class="btn btn-secondary btn-sm d-block mx-auto mt-2 collapsed" type="button" data-bs-animation="false" data-bs-toggle="collapse" data-bs-target="#collapseExample" role="paragraph">
-            <span aria-hidden="true">Ver legenda</span>
-        </button>
         <p class="figfonte">Fonte: Fiocruz</p>
     </figcaption>
 </figure>
