@@ -19,7 +19,7 @@ let focusNodeOriginal;
 let focusOffsetOriginal;
 
 // Se "target" está oculto, é possivel que ele esteja dentro do menu principal.
-if (window.location.hash && menu.querySelector(window.location.hash)) {
+if (window.location.hash && (menu.querySelector(window.location.hash)) || menu.querySelector(document.location.hash + '-tab')) {
     dynamicTarget(window.location);
 }
 
