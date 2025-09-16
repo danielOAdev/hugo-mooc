@@ -10,7 +10,13 @@
             <img class="navbar-brand-img" src="{{ "recursos/logo.png" | relURL }}" alt="">
             <span class="navbar-brand-text text-light h3 m-0">{{ site.Title }}</span>
         </a>
-        <button class="btn btn-outline-light icon-link" type="button" id="menu-opener" data-vigi-menu title="Abrir menu principal">
+        {{ $modulo := "" }}
+        {{ $aula := "" }}
+        {{ if and .Parent .Parent.Parent }}
+            {{ $modulo = partial "funcao/indexOf.html" .Parent.Parent }}
+            {{ $aula = partial "funcao/indexOf.html" .Parent }}
+        {{ end }}
+        <button class="btn btn-outline-light icon-link" type="button" id="menu-opener" data-vigi-menu-modulo="{{ $modulo }}" data-vigi-menu-aula="{{ $aula }}" title="Abrir menu principal">
             {{ partial "fontawesome.html" (dict "style" "solid" "icon" "bars" "classes" "bi") }}
             Menu
         </button>
