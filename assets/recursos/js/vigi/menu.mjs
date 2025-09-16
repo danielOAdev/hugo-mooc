@@ -6,6 +6,7 @@ import { Tab } from "../bootstrap/bootstrap.min.mjs";
 
 export const menu = document.getElementById('menu');
 const botaoFechar = document.getElementById('menu-fechar');
+const menuConteudo = document.getElementById('menu-conteudo');
 const navTabs = menu.querySelectorAll('#menu-tabs .nav-link');
 const navSelect = menu.querySelector('#menu-select select');
 const tituloOriginal = document.title;
@@ -54,6 +55,7 @@ botaoFechar.addEventListener('click', () => {
 navTabs.forEach(tab => {
     tab.addEventListener('show.bs.tab', (event) => {
         atualizarLocationAba(event.target.value);
+        menuConteudo.scrollTop = 0;
     })
 })
 
