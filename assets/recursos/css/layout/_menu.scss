@@ -15,15 +15,15 @@ dialog {
 #menu:open {
     display: grid;
     grid-template-rows: auto 1fr;
-    min-height: min(35rem, 80vh);
-    max-height: 80vh;
+    min-height: min(35rem, 80dvh);
+    max-height: 80dvh;
     width: auto;
     max-width: Min(80vw, 110ch);
     padding: 0;
     background-color: var(--vigi-tertiary-bg);
     overflow: hidden;
     bottom: auto;
-    top: 10vh;
+    top: 10dvh;
 
     @include media-breakpoint-down(md) {
         width: auto;

@@ -25,9 +25,7 @@ if (window.location.hash && (menu.querySelector(window.location.hash)) || menu.q
 
 menu.addEventListener('beforetoggle', (event) => {
     if (event.newState !== 'open') return;
-
-    //Salva seleção antes de abrir o menu.
-    saveSelection();
+    // Nada por enquanto.
 });
 
 menu.addEventListener('close', (event) => {
@@ -64,9 +62,16 @@ navSelect.addEventListener('change', (event) => {
 });
 
 document.addEventListener('keydown', function(event) {
+    if (event.shiftKey || event.ctrlKey || event.altKey || event.metaKey) return;
+
     if (!document.querySelector(':open') && event.code === 'Escape') {
         event.preventDefault();
-        abrir();
+        const modulo = document.documentElement.dataset.vigiModulo;
+        const aulaIndex = document.documentElement.dataset.vigiPageIndex;
+        if (modulo && aulaIndex) {
+            exibirSlide(carousel, aulaIndex);
+        }
+        abrir('modulos');
     }
 });
 
@@ -131,7 +136,10 @@ function dynamicTarget(url) {
     const tabElem = menu.querySelector('#menu-' + nome + '-tab');
     if (!tabElem) return;
 
+    //Salva seleção antes de abrir o menu.
+    saveSelection();
     abrir(nome);
+    document.location.hash = url.hash;
     target.scrollIntoView();
     target.focus();
 }
@@ -165,7 +173,7 @@ export function fechar() {
 }
 
 function exibirAba(nomeAba) {
-    const tab = menu.querySelector(`#menu-${nomeAba}-tab`);
+    const tab = menu.querySelector(`#menu-${nomeAba}-tab[data-bs-target]`);
     if (!tab) return false;
 
     const tabConteudo = menu.querySelector(`#menu-${nomeAba}-conteudo`);
@@ -173,7 +181,10 @@ function exibirAba(nomeAba) {
     menu.open || tabConteudo.classList.remove('fade');
     Tab.getOrCreateInstance(tab).show();
     menu.open || tabConteudo.classList.add('fade');
-    atualizarLocationAba(nomeAba);
+
+    if (!document.location.hash || !menu.querySelector(document.location.hash)) {
+        atualizarLocationAba(nomeAba);
+    }
     return true;
 }
 

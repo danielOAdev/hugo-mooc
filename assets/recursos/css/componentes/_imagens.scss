@@ -1,4 +1,4 @@
 .img-fluid {
     display: block;
-    max-height: 50dvh;
+    max-height: max(50svh, 33vw);
 }

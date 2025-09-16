@@ -1,6 +1,9 @@
 import { abrir } from "./menu.mjs"
 import { exibirSlide } from "./modulos.mjs"
 
+// Usada para saber se temos um slide especifico para ser exibido.
+let exibindoAula = null;
+
 export const carousel = document.getElementById('modulosCarrosselMenu');
 
 document.addEventListener('click', function(event) {
@@ -21,13 +24,19 @@ document.addEventListener('click', function(event) {
 
 const aba = document.querySelector('#menu-modulos-tab');
 aba.addEventListener('show.bs.tab', event => {
-    exibirSlide(carousel, 0);
+    if (exibindoAula === null) {
+        exibirSlide(carousel, 0);
+    }
+})
+aba.addEventListener('shown.bs.tab', event => {
+    exibindoAula = null;
 })
 aba.addEventListener('click', event => {
     exibirSlide(carousel, 0);
 })
 
 function exibirModulo(moduloIndex) {
+    exibindoAula = null;
     exibirSlide(carousel, 0);
     abrir('modulos');
     if (moduloIndex) {
@@ -36,6 +45,7 @@ function exibirModulo(moduloIndex) {
 }
 
 function exibirAula(moduloIndex, aulaIndex = null) {
+    exibindoAula = moduloIndex;
     exibirSlide(carousel, moduloIndex);
     abrir('modulos');
     if (aulaIndex) {

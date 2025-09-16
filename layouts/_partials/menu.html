@@ -19,7 +19,7 @@
                 <button class="btn nav-link text-start icon-link" value="privacidade" id="menu-privacidade-tab" data-bs-toggle="pill" data-bs-target="#menu-privacidade-conteudo" type="button" role="tab" aria-controls="menu-privacidade-conteudo" aria-selected="false">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "shield-halved") }}<h1 class="fs-body fw-normal m-0 lh-base">Privacidade</h1></button>
                 {{- if eq hugo.Environment "development" -}}
                     <hr class="my-1">
-                    <button class="btn nav-link text-start icon-link" value="hidden" id="menu-hidden-tab" data-bs-toggle="pill" data-bs-target="#menu-hidden-conteudo" type="button" role="tab" aria-controls="menu-hidden-conteudo" aria-selected="false">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "ghost") }}<h1 class="fs-body fw-normal m-0 lh-base">Ocultos</h1></button>
+                    <a href="{{ (.context.GetPage "dev").RelPermalink }}" class="btn btn-link px-3 py-2 text-decoration-none text-start icon-link" value="dev" id="menu-dev-tab">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "code") }}<h1 class="fs-body fw-normal m-0 lh-base">Dev</h1></a>
                 {{- end -}}
             </div>
         </div>
@@ -71,17 +71,6 @@
             <div class="vigi-grid tab-pane fade" id="menu-privacidade-conteudo" role="tabpanel" aria-labelledby="menu-privacidade-tab" tabindex="0">
                 {{ partial "menu-privacidade.html" }}
             </div>
-            {{- if eq hugo.Environment "development" -}}
-                <div class="vigi-grid tab-pane fade" id="menu-hidden-conteudo" role="tabpanel" aria-labelledby="menu-hidden-tab" tabindex="0">
-                    <ul>
-                        {{ range where .context.Site.Home.Pages "Section" "not in" .context.Site.MainSections}}
-                            <li>
-                                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-                            </li>
-                        {{ end }}
-                    </ul>
-                </div>
-            {{- end -}}
         </div>
         <div id="menu-socials">
             {{ partial "socials.html" }}

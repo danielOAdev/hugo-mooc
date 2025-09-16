@@ -1,5 +1,15 @@
 <!DOCTYPE html>
-<html class="{{ with .Type }}type-{{ . }}{{ end }} {{ with .Section }}section-{{ . }}{{ end }}" lang="{{ site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}" data-bs-theme="light">
+<html lang="{{ site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}" data-bs-theme="light"
+{{ with (partial "funcao/indexOf.html" .) }}
+    data-vigi-page-index="{{ . }}"
+{{ end }}
+{{ with .Type }}
+    data-vigi-type="{{ . }}"
+{{ end }}
+{{ if in .Site.MainSections .Section }}
+    data-vigi-modulo="{{ .Section }}"
+{{ end }}
+>
     <head>
         {{ partial "head.html" . }}
     </head>
@@ -13,7 +23,7 @@
         <main id="conteudo-principal">
             {{ block "main" . }}{{ end }}
         </main>
-        <footer>
+        <footer class="vigi-grid vigi-coluna-cheia bg-body-secondary">
             {{ partial "footer.html" . }}
         </footer>
         {{ partial "endofbody.html" . }}

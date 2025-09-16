@@ -2,10 +2,12 @@
     Retorna o indice (começa com 1) relativo ao pai.
 */}}
 {{ $result := false }}
-{{ range $k, $v := .Parent.Pages.ByWeight }}
-    {{ if eq $v.Path $.Path }}
-        {{ $result = math.Sum $k 1 }}
-        {{ break }}
+{{ with .Parent }}
+    {{ range $k, $v := .Pages.ByWeight }}
+        {{ if eq $v.Path $.Path }}
+            {{ $result = math.Sum $k 1 }}
+            {{ break }}
+        {{ end }}
     {{ end }}
 {{ end }}
 {{ return int $result }}

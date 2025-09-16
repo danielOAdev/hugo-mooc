@@ -8,7 +8,6 @@ figure {
 .figcontent {
     position: relative;
     display: grid;
-    height: 50vh;
     inline-size: fit-content;
     margin-inline: auto;
 
@@ -39,14 +38,14 @@ figure {
 
 
 .figlegenda {
-    contain: inline-size;
-    overflow: auto;
+    position: absolute;
+    inset: 0;
     font-size: 1rem;
     line-height: $line-height-base;
     backdrop-filter: blur(5px);
     background-color: rgba(var(--#{$prefix}body-bg-rgb), .8),;
     border-radius: 27px;
-    max-height: 50vh;
+    max-height: max(50svh, 33vw);
     padding: 0 1rem;
     transition: none;
     transition: opacity .15s ease !important;
