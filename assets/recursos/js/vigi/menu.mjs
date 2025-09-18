@@ -53,10 +53,14 @@ botaoFechar.addEventListener('click', () => {
 });
 
 navTabs.forEach(tab => {
-    tab.addEventListener('show.bs.tab', (event) => {
-        atualizarLocationAba(event.target.value);
+
+    const abaReset = function() {
+        atualizarLocationAba(this.value);
         menuConteudo.scrollTop = 0;
-    })
+    }
+
+    tab.addEventListener('show.bs.tab', abaReset);
+    tab.addEventListener('click', abaReset);
 })
 
 navSelect.addEventListener('change', (event) => {
@@ -156,14 +160,7 @@ document.addEventListener('hashchange', () => {
  * @param {null|string} nomeAba Nome da aba na qual o menu deve exibir ao abrir.
  * Ou deixe nulo para abrir menu na aba padrão.
  */
-export function abrir(nomeAba = null) {
-    if (nomeAba) {
-        exibirAba(nomeAba);
-    } else if (!menu.open) {
-        exibirAba('modulos');
-        exibirSlide(carousel, 0);
-    }
-
+export function abrir() {
     menu.showModal();
 }
 
@@ -174,7 +171,7 @@ export function fechar() {
     menu.close();
 }
 
-function exibirAba(nomeAba) {
+export function exibirAba(nomeAba) {
     const tab = menu.querySelector(`#menu-${nomeAba}-tab[data-bs-target]`);
     if (!tab) return false;
 
