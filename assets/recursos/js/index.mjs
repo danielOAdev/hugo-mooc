@@ -1,7 +1,5 @@
 /**
  * Barrel file do site.
- * @author Daniel de Oliveira Araujo <danieloadev@gmail.com>
- * @copyright Daniel de Oliveira Araujo 2025
  */
 
 // Bootstrap

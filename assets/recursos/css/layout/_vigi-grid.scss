@@ -5,9 +5,9 @@ main, .vigi-grid {
     --minimum-content-padding: 1rem;
 
     /** TRACK WIDTHS **/
-    --vigi-coluna-padrao-max-width: 80ch;
-    --vigi-coluna-destaque-max-width: 90ch;
-    --vigi-coluna-larga-max-width: 110ch;
+    --vigi-coluna-padrao-max-width: 50rem;
+    --vigi-coluna-destaque-max-width: 55rem;
+    --vigi-coluna-larga-max-width: 65rem;
     --vigi-coluna-cheia-max-width: 1fr;
 
     --vigi-coluna-destaque-auto: calc((var(--vigi-grid-width) - var(--vigi-coluna-padrao-max-width)) / 2);

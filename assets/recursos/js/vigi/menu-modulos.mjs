@@ -1,4 +1,4 @@
-import { abrir } from "./menu.mjs"
+import { abrir, exibirAba } from "./menu.mjs"
 import { exibirSlide } from "./modulos.mjs"
 
 // Usada para saber se temos um slide especifico para ser exibido.
@@ -28,26 +28,25 @@ aba.addEventListener('show.bs.tab', event => {
         exibirSlide(carousel, 0);
     }
 })
-aba.addEventListener('shown.bs.tab', event => {
-    exibindoAula = null;
-})
 aba.addEventListener('click', event => {
     exibirSlide(carousel, 0);
 })
 
 function exibirModulo(moduloIndex) {
-    exibindoAula = null;
     exibirSlide(carousel, 0);
-    abrir('modulos');
+    exibirAba('modulos');
+    abrir();
     if (moduloIndex) {
         carousel.querySelector(`.seletor-modulos > button:nth-child(${moduloIndex})`)?.focus({focusVisible: true});
     }
 }
 
 function exibirAula(moduloIndex, aulaIndex = null) {
-    exibindoAula = moduloIndex;
+    exibindoAula = true;
     exibirSlide(carousel, moduloIndex);
-    abrir('modulos');
+    exibirAba('modulos');
+    abrir();
+    exibindoAula = null;
     if (aulaIndex) {
         carousel.querySelector(`.carousel-item:nth-child(${1 + +moduloIndex}) .aula-${aulaIndex} a`)?.focus({focusVisible: true});
     }

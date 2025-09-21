@@ -1,7 +1,5 @@
 /**
  * Banner de solicitação de consentimento para o uso de cookies.
- * @author Daniel de Oliveira Araujo <danieloadev@gmail.com>
- * @copyright Daniel de Oliveira Araujo 2025
  */
 
 import GA from './preferencias/privacidade/ga.mjs';
@@ -31,7 +29,8 @@ if (GA.valor !== null) {
         .addEventListener('click', (e) => {
             GA.valor = false;
             removeCookieBanner();
-            Menu.abrir('privacidade');
+            Menu.exibirAba('privacidade');
+            Menu.abrir();
         }
     )
 }

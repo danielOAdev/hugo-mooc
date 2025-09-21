@@ -1,7 +1,5 @@
 /**
  * Coleção de funções para manipulação de cookies.
- * @author Daniel de Oliveira Araujo <danieloadev@gmail.com>
- * @copyright Daniel de Oliveira Araujo 2025
  */
 
 export function getValorDoCookie(nome) {

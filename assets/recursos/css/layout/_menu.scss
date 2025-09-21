@@ -68,10 +68,6 @@ dialog {
     @include media-breakpoint-down(md) {
         display: none;
     }
-
-    h1 {
-        color: inherit;
-    }
 }
 
 #menu-socials {

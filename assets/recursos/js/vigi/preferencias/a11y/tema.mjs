@@ -1,4 +1,5 @@
 import Preferencia from "../preferencia.mjs";
+import { gTagConfig } from '../../gtag/gtag-config.mjs';
 
 export default class Tema extends Preferencia {
     static get nome()   { return 'tema' }
@@ -26,6 +27,11 @@ export default class Tema extends Preferencia {
         } else {
             return this.valor;
         }
+    }
+
+    static inicializar() {
+        this.aoMudar(this.valor, this.padrao);
+        gTagConfig['preferencia' + this.nome.charAt(0).toUpperCase() + this.nome.slice(1)] = this.getNomeDoTema();
     }
 }
 

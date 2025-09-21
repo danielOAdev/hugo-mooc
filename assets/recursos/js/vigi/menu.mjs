@@ -76,8 +76,11 @@ document.addEventListener('keydown', function(event) {
         const aulaIndex = document.documentElement.dataset.vigiPageIndex;
         if (modulo && aulaIndex) {
             exibirSlide(carousel, aulaIndex);
+            exibirAba('modulos');
+        } else {
+            exibirAba('modulos');
         }
-        abrir('modulos');
+        abrir();
     }
 });
 
@@ -86,7 +89,10 @@ document.addEventListener('click', function(event) {
 
     if (btnMenu) {
         const tabName = btnMenu.getAttribute('data-vigi-menu') || null;
-        abrir(tabName);
+        if (tabName) {
+            exibirAba(tabName);
+        }
+        abrir();
         return;
     }
 
@@ -118,7 +124,7 @@ function dynamicTarget(url) {
     let target;
     target = menu.querySelector(url.hash);
 
-    // Se o alvo já está visivel na tela, paramos aqui e deixamos o navegador assumir o controle.
+    // Se o alvo já está visível na tela, paramos aqui e deixamos o navegador assumir o controle.
     if (target && target.checkVisibility()) return;
 
     // Hashs dinâmicos para os itens do menu.
@@ -127,7 +133,8 @@ function dynamicTarget(url) {
     if (url.hash.startsWith('#menu-')) {
         target = menu.querySelector(url.hash + '-tab');
         if (target) {
-            abrir(target.id.split('menu-')[1].split('-tab')[0]);
+            exibirAba(target.id.split('menu-')[1].split('-tab')[0]);
+            abrir();
             return;
         }
     }
@@ -143,8 +150,9 @@ function dynamicTarget(url) {
     if (!tabElem) return;
 
     //Salva seleção antes de abrir o menu.
-    saveSelection();
-    abrir(nome);
+    salvarSelecao();
+    exibirAba(nome);
+    abrir();
     document.location.hash = url.hash;
     target.scrollIntoView();
     target.focus();
@@ -187,10 +195,7 @@ export function exibirAba(nomeAba) {
     return true;
 }
 
-/**
- * Salva seleção.
- */
-function saveSelection() {
+function salvarSelecao() {
     anchorNodeOriginal = window.getSelection().anchorNode;
     anchorOffsetOriginal = window.getSelection().anchorOffset;
     focusNodeOriginal = window.getSelection().focusNode;

@@ -1,7 +1,9 @@
 baseURL = '/'
 defaultContentLanguage = 'pt-br'
-title = 'Lorem ipsum laboris'
-summary = 'Curso Doenças Crônicas não Transmissíveis(DCNT) e o Desafio da Vigilância em Saúde nas Regiões Fronteiriças'
+title = 'Doenças Crônicas não Transmissíveis'
+[params]
+  subtitle = 'e o Desafio da Vigilância em Saúde nas Regiões Fronteiriças'
+summary = 'Curso Doenças Crônicas não Transmissíveis (DCNT) e o Desafio da Vigilância em Saúde nas Regiões Fronteiriças'
 relativeURLs = true
 removePathAccents = true
 pluralizeListTitles = false

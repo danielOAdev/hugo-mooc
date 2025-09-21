@@ -1,7 +1,5 @@
 /**
  * Barrel file do projeto.
- * @author Daniel de Oliveira Araujo <danieloadev@gmail.com>
- * @copyright Daniel de Oliveira Araujo 2025
  */
 
 export * as menu from './menu.mjs';

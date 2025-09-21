@@ -8,8 +8,25 @@
     }
 }
 
+.navbar-brand, .navbar-brand-text {
+    min-width: 0
+}
+
 .navbar-brand-img {
     height: 1lh;
+}
+
+.navbar-brand-text {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    margin: calc(var(--vigi-navbar-padding-y) * -1) auto;
+    line-height: 1;
+
+    span {
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
 }
 
 @include media-breakpoint-down(sm) {
@@ -17,3 +34,4 @@
         display: none;
     }
 }
+

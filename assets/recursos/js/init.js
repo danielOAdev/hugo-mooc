@@ -1,7 +1,5 @@
 /**
  * Algumas coisas que precisamos definir antes de começar.
- * @author Daniel de Oliveira Araujo <danieloadev@gmail.com>
- * @copyright Daniel de Oliveira Araujo 2025
  */
 
 /**
