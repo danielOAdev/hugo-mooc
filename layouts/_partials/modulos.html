@@ -23,8 +23,10 @@
         </div>
         {{ range (where .context.Site.Sections "Section" "in" .context.Site.MainSections).ByWeight }}
             <div class="carousel-item slide-{{ .Section }}">
-                <button class="btn btn-secondary mb-3 icon-link" data-bs-target="#modulosCarrossel{{$.suffix}}" data-bs-slide-to="0">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "chevron-left")}}<h2 class="fs-body lh-base fw-normal m-0">Escolher personagem</button></h2></button>
-                <p class="h2">{{ strings.FirstUpper .Page.Section }}</p>
+                <div class="modulos-carrosel-titulo {{ .Section }}">
+                    <button class="btn btn-secondary mb-3 icon-link" data-bs-target="#modulosCarrossel{{$.suffix}}" data-bs-slide-to="0">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "chevron-left")}}<h2 class="fs-body lh-base fw-normal m-0">Escolher personagem</button></h2></button>
+                    <p class="h2">{{ strings.FirstUpper .Page.Section }}</p>
+                </div>
             {{ range (where .Sections "Type" "eq" "aula").ByWeight }}
                 {{ partial "slide-aula.html" (dict "Page" . "suffix" $.suffix) }}
             {{ end }}
