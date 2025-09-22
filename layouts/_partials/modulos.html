@@ -2,7 +2,7 @@
 <div id="modulosCarrossel{{ .suffix }}" class="modulos-carrossel carousel slide" data-bs-wrap="false">
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <div class="h3 mb-2 text-center">Escolha um personagem:</div>
+            <div class="h3 mb-2 text-center">Escolha um módulo:</div>
             <nav class="seletor-modulos">
                 {{ range (where .context.Site.Sections "Section" "in" .context.Site.MainSections).ByWeight }}
                     {{ $section := .Section}}

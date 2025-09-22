@@ -1,18 +1,18 @@
 baseURL = '/'
 defaultContentLanguage = 'pt-br'
 title = 'Doenças Crônicas não Transmissíveis'
-[params]
-  subtitle = 'e o Desafio da Vigilância em Saúde nas Regiões Fronteiriças'
 summary = 'Curso Doenças Crônicas não Transmissíveis (DCNT) e o Desafio da Vigilância em Saúde nas Regiões Fronteiriças'
 relativeURLs = true
 removePathAccents = true
 pluralizeListTitles = false
 enableRobotsTXT = true
 disableHugoGeneratorInject = true
-disableKinds = ["taxonomy"]
+disableKinds = ['taxonomy']
 mainSections = ['luana', 'thiago', 'mariana', 'pedro']
-[params.meta]
-  msColor = "#ffffff"
+[params]
+  subtitle = 'e o Desafio da Vigilância em Saúde nas Regiões Fronteiriças'
+  [params.meta]
+    msColor = '#ffffff'
 [module]
   [[module.mounts]]
     disableWatch = false
