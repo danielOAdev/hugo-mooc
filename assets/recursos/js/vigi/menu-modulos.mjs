@@ -48,7 +48,9 @@ function exibirAula(moduloIndex, aulaIndex = null) {
     abrir();
     exibindoAula = null;
     if (aulaIndex) {
-        carousel.querySelector(`.carousel-item:nth-child(${1 + +moduloIndex}) .aula-${aulaIndex} a`)?.focus({focusVisible: true});
+        const primeiroTopico = carousel.querySelector(`.carousel-item:nth-child(${1 + +moduloIndex}) .aula-${aulaIndex} a`);
+        primeiroTopico?.focus({focusVisible: true});
+        primeiroTopico?.scrollIntoView();
     }
 }
 

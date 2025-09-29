@@ -51,6 +51,12 @@
                 background-image: url(../imagens/modulos/pedro-bg.jpg);
             }
 
+            h2 {
+                color: $white;
+                width: 11rem;
+                direction: rtl;
+            }
+
             svg {
                 color: $white;
             }
@@ -60,10 +66,11 @@
             }
 
             img {
-                width: auto;
+                width: 4.5rem;
                 height: 6rem;
                 object-fit: cover;
-                object-position: bottom left;
+                overflow: visible;
+                object-position: bottom center;
                 user-select: none;
                 align-self: flex-end;
                 transition: scale 0.3s ease, translate .3s ease;
@@ -95,13 +102,35 @@
                     }
 
                     img:nth-of-type(2) {
-                        width: auto;
+                        width: 4.5rem;
                         height: 6rem;
                         scale: 1.12;
                         translate: -6% -6%;
                     }
                 }
             }
+        }
+    }
+
+    .modulos-carrosel-titulo {
+        background-color: var(--vigi-tertiary-bg);
+        padding: 1rem;
+        background-position-y: center;
+        background-size: cover;
+        min-height: min(8rem, 20dvh);
+        filter: saturate(1.5);
+
+        &.luana {
+            background-image: url(../imagens/modulos/luana-bg.jpg);
+        }
+        &.thiago {
+            background-image: url(../imagens/modulos/thiago-bg.jpg);
+        }
+        &.mariana {
+            background-image: url(../imagens/modulos/mariana-bg.jpg);
+        }
+        &.pedro {
+            background-image: url(../imagens/modulos/pedro-bg.jpg);
         }
     }
 }

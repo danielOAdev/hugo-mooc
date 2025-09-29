@@ -7,10 +7,7 @@
                 {{ range (where .context.Site.Sections "Section" "in" .context.Site.MainSections).ByWeight }}
                     {{ $section := .Section}}
                     <button class="border rounded {{ $section }}" type="button" data-bs-target="#modulosCarrossel{{$.suffix}}" data-bs-slide-to="{{ partial "funcao/indexOf.html" . }}">
-                        <h2 class="visually-hidden">{{ .LinkTitle }}</h2>
-                        {{- with resources.Get (print "/recursos/imagens/modulos/" $section "-assinatura.svg") -}}
-                            {{ .Content | safeHTML }}
-                        {{ end }}
+                        <h2 class="display-5 fw-bold m-0">{{ .LinkTitle }}</h2>
                         {{- with resources.Get (print "/recursos/imagens/modulos/" $section "-off.png") -}}
                             <img src="{{ .RelPermalink }}" alt="" aria-hidden="true" draggable="false">
                         {{ end }}
@@ -23,9 +20,9 @@
         </div>
         {{ range (where .context.Site.Sections "Section" "in" .context.Site.MainSections).ByWeight }}
             <div class="carousel-item slide-{{ .Section }}">
-                <div class="modulos-carrosel-titulo {{ .Section }}">
-                    <button class="btn btn-secondary mb-3 icon-link" data-bs-target="#modulosCarrossel{{$.suffix}}" data-bs-slide-to="0">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "chevron-left")}}<h2 class="fs-body lh-base fw-normal m-0">Escolher personagem</button></h2></button>
-                    <p class="h2">{{ strings.FirstUpper .Page.Section }}</p>
+                <div class="modulos-carrosel-titulo {{ .Section }} rounded">
+                    <button class="btn btn-outline-light mb-3 icon-link fw-medium" data-bs-target="#modulosCarrossel{{$.suffix}}" data-bs-slide-to="0">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "chevron-left")}}Escolher personagem</button>
+                    <p class="display-1 fw-bold text-light">{{ strings.FirstUpper .Page.Section }}</p>
                 </div>
             {{ range (where .Sections "Type" "eq" "aula").ByWeight }}
                 {{ partial "slide-aula.html" (dict "Page" . "suffix" $.suffix) }}
@@ -36,12 +33,15 @@
 </div>
 
 {{ define "_partials/slide-aula.html" }}
-<div class="aula-{{ .Page.Weight }}">
-    <h2 class="h3">{{ .Page.Title }}</h2>
-    <ul class="list-group list-group-flush mb-4">
+{{ $id := print .Page.Section "--aula-" ( partial "funcao/indexOf.html" .Page ) }}
+<div class="aula-{{ .Page.Weight }} mt-3">
+    <h2 id="{{ $id }}" class="h3">
+        <a href="#{{ $id }}" class="heading-anchor">{{ .Page.Title }}</a>
+    </h2>
+    <ol class="vstack gap-1 list-unstyled">
     {{ range .Page.Pages.ByWeight }}
-        <li class="list-group-item bg-transparent"><a href="{{ .RelPermalink }}">{{ partial "funcao/indexOf.html" . }}: {{ .Title }}</a></li>
+        <li class=""><a href="{{ .RelPermalink }}" class="btn btn-secondary text-start d-block">{{ partial "funcao/indexOf.html" . }}: {{ .Title }}</a></li>
     {{ end }}
-    </ul>
+    </ol>
 </div>
 {{ end }}
