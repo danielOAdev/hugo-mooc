@@ -1,19 +1,15 @@
 @use "bootstrap" as *;
 
 .topico-titulo {
-    min-height: min(30vh, 30rem);
+    min-height: min(50vh, 480px);
     margin-top: -1rem;
     background-image:
-        linear-gradient(to top, rgba(var(--vigi-body-bg-rgb), .75), rgba(var(--vigi-body-bg-rgb), .25)),
-        url(../imagens/titulo-bg.png),
+    linear-gradient(to top, rgba(var(--vigi-body-bg-rgb), .75), rgba(var(--vigi-body-bg-rgb), .25)),
+    url(../imagens/titulo-bg.png),
     ;
-    background-position: center;
+    background-position-x: 60%;
     background-repeat: repeat-x, no-repeat;
-    background-size: auto, auto;
-
-    @media (width <= 1920px) {
-        background-size: auto, cover , auto;
-    }
+    background-size: auto, auto 100%;
 
     h1 {
         @include font-size(4rem);
