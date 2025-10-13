@@ -1,0 +1,10 @@
+{{- $path := print "recursos/svg/vigi-icones/" .icone ".svg" -}}
+{{- with resources.Get $path -}}
+    {{- $svg := .Content -}}
+    {{- $svg = replaceRE "<!--.*-->" "" $svg -}}
+    {{- $svg = replace $svg "<svg" (print "<svg class=\"icone " $.classes "\"") -}}
+    {{- $svg | safeHTML -}}
+{{- else -}}
+    <span class="sc-vigiicone-missing" title="svg/vigi-icones/{{.icone}}.svg">&#xFFFD;</span>
+    {{- warnf "Could not find \"%s\" icon." . -}}
+{{- end -}}

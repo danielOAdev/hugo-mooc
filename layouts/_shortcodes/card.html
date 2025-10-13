@@ -1,0 +1,17 @@
+
+{{- $vigiicone := (.Get "vigiicone") -}}
+{{- $header := (.Get "header") -}}
+
+<div class="vigi-card">
+    {{- with $vigiicone -}}
+        <div class="btn_icon">
+            {{ partial "vigiicone.html" (dict "icone" . "classes" "icone-4x" ) }}
+            <span class="display-6">Atenção</span>
+        </div>
+    {{- else with $header -}}
+        <h3 class="vigi-card-header">{{ . }}</h3>
+    {{- end -}}
+    <div class="vigi-card-body">
+        {{ .Inner }}
+    </div>
+</div>

@@ -16,7 +16,8 @@ $headings-font-family: InterDisplay, sans-serif;
 $headings-font-weight: 600 !default;
 $headings-color: cores.$vigi-preto-azulado-2x;
 
-$display-font-family: null default;
+$display-font-family: $headings-font-family !default;
+$display-font-weight: $headings-font-weight !default;
 
 $input-btn-font-family: var(--#{$prefix}font-sans-serif);
 $btn-font-family:             $input-btn-font-family;
