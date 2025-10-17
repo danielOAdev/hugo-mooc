@@ -4,12 +4,16 @@
 
 <div class="vigi-card">
     {{- with $vigiicone -}}
-        <div class="btn_icon">
+        <div class="vigi-card-header btn_icon">
             {{ partial "vigiicone.html" (dict "icone" . "classes" "icone-4x" ) }}
-            <span class="display-6">Atenção</span>
+            {{ with $header -}}
+                <span class="vigi-card-title display-6">{{ . }}</span>
+            {{- end -}}
         </div>
     {{- else with $header -}}
-        <h3 class="vigi-card-header">{{ . }}</h3>
+        <div class="vigi-card-header btn_icon">
+            <span class="vigi-card-title display-6">{{ . }}</span>
+        </div>
     {{- end -}}
     <div class="vigi-card-body">
         {{ .Inner }}

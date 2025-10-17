@@ -1,7 +1,15 @@
+@use "base/cores";
+@use "sass:color";
 @use "bootstrap" as *;
 
-footer {
+body > footer {
     margin-top: auto;
+    color: $body-color-dark;
+    background-color: shade-color(cores.$vigi-azul-logo-dark-3x, 50%);
+    [data-bs-theme="highcontrast"] & {
+        color: $body-color-highcontrast;
+        background-color: $gray-900;
+    }
 }
 
 .regua-logos {

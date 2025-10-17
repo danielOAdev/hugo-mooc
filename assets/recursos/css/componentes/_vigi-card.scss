@@ -1,0 +1,27 @@
+@use "base/cores";
+@use "sass:color";
+@use "bootstrap" as *;
+
+.vigi-card {
+    position: relative;
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        top: 2rem;
+        border-radius: $border-radius;
+        background-color: color.change(cores.$vigi-branco-azulado, $alpha: 10%);
+        [data-bs-theme="light"] & {
+            background-color: color.change(cores.$vigi-preto-azulado, $alpha: 10%);
+        }
+    }
+}
+
+.vigi-card-header {
+    translate: -.5rem;
+}
+
+.vigi-card-body {
+    padding: 2rem;
+    padding-top: 1rem;
+}
