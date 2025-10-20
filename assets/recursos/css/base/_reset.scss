@@ -12,11 +12,6 @@ dialog::backdrop {
     @include mixins.focus-visible-outline;
 }
 
-audio {
-    display: block;
-    width: 100%;
-}
-
 blockquote {
     font-style: italic;
     footer {

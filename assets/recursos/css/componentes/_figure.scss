@@ -1,8 +1,12 @@
 @use "bootstrap" as *;
 
 figure {
-    inline-size: fit-content;
-    margin-inline: auto;
+    /* inline-size: fit-content;
+    margin-inline: auto; */
+    > video, > audio {
+        display: block;
+        width: 100%;
+    }
 }
 
 .figcontent {

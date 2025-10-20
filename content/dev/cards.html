@@ -16,7 +16,13 @@ aliases = ['/cards']
     vigiicone="audio"
     header="Para ouvir"
 >}}
-<audio src="../recursos/ostropeiros.mp3" controls></audio>
+<figure>
+    <audio src="../recursos/ostropeiros.mp3" controls>
+        <track label="Português (Brasil)" kind="subtitles" srclang="pt-BR" src="../recursos/ostropeiros.vtt" default>
+    </audio>
+    <div class="legenda"></div>
+    <figcaption>Fonte: <a href="https://archive.org">archive.org</a></figcaption>
+</figure>
 {{< /card >}}
 
 {{< card
@@ -62,7 +68,8 @@ aliases = ['/cards']
     vigiicone="video"
     header="Vídeo"
 >}}
-<div class="bg-body-secondary text-center align-content-center" style="aspect-ratio: 16 / 9;">
-    {{< fa/solid play icone-5x >}}
-</div>
+<figure>
+    <video src="../../recursos/videos/placeholder-144p.mp4" playsinline controls poster=""></video>
+    <figcaption>Fonte: Vigisaude</figcaption>
+</figure>
 {{< /card >}}

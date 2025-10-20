@@ -1,20 +1,27 @@
-const audio = document.querySelector('audio');
-const track = document.querySelector('audio > track');
-const textTrack = audio.textTracks[0];
-track.addEventListener('load', function() {
-    // Add event listeners to existing cues in the track
-    for (let j = 0; j < textTrack.cues.length; j++) {
-        const cue = textTrack.cues[j];
-        addCueListeners(cue);
-    }
+const audios = document.querySelectorAll('audio');
+audios.forEach(audio => {
+    const legenda = audio.nextElementSibling.matches('.legenda') ? audio.nextElementSibling : null;
+    const textTracks = audio.textTracks ?? null;
+
+    if (!legenda || !textTracks) return;
+
+    textTracks.addEventListener('change', (event) => {
+        let legendaDesativada = false;
+        Array.from(textTracks).forEach(textTrack => {
+            if (textTrack.mode !== 'showing') {
+                legendaDesativada = true;
+            }
+        });
+        legenda.hidden = legendaDesativada;
+    });
+
+    Array.from(textTracks).forEach(textTrack => {
+        textTrack.addEventListener("cuechange", (event) => {
+            if (event.target.activeCues.length) {
+                legenda.innerText = Array.from(event.target.activeCues).map(cue => cue.text).join("\n");
+            } else {
+                legenda.innerText = '';
+            }
+        })
+    });
 });
-
-function addCueListeners(cue) {
-    cue.addEventListener('enter', (event) => {
-        document.getElementById('subtitles').innerText = cue.text;
-    });
-
-    cue.addEventListener('exit', (event) => {
-        document.getElementById('subtitles').innerText = '';
-    });
-}
