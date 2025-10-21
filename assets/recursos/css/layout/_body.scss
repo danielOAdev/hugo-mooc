@@ -1,11 +1,18 @@
+@use "bootstrap" as *;
+
 body {
     display: flex;
     flex-direction: column;
     min-height: 100dvh;
 }
 
+:root {
+    --#{$prefix}main-font-family: #{inspect($font-family-serif)};
+    --#{$prefix}display-font-family: #{inspect($display-font-family)};
+}
+
 main {
-    font-family: Lora, serif;
+    font-family: var(--#{$prefix}main-font-family);
     margin-bottom: 2rem;
 
     p a {

@@ -12,9 +12,11 @@ $body-secondary-bg: shade-color(cores.$vigi-azul-logo-dark-3x, 50%);
 
 $navbar-brand-margin-end: 0;
 
-// $font-family-base: Lora, serif;
+$font-family-serif: Lora, serif;
+$font-family-sans-serif: InterDisplay, sans-serif;
+$font-family-base: $font-family-sans-serif;
 
-$headings-font-family: InterDisplay, sans-serif;
+$headings-font-family: $font-family-sans-serif;
 $headings-font-weight: 600 !default;
 $headings-color: cores.$vigi-preto-azulado-2x;
 

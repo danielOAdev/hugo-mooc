@@ -1,7 +1,33 @@
+@use "bootstrap" as *;
+
 .legenda {
     min-height: 2lh;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-wrap-style: balance;
+    background-color: hsla(0, 0%, 0%, 0.2);
+    margin: 1rem 0;
+    border-radius: $border-radius;
+    font-family: var(--#{$prefix}display-font-family);
+    font-weight: bold;
+    color: white;
+    text-shadow:
+    /* Top-left */
+    -2px -2px 0 black,
+    /* Top */
+    0 -2px 0 black,
+    /* Top-right */
+    2px -2px 0 black,
+    /* Left */
+    -2px 0 0 black,
+    /* Right */
+    2px 0 0 black,
+    /* Bottom-left */
+    -2px 2px 0 black,
+    /* Bottom */
+    0 2px 0 black,
+    /* Bottom-right */
+    2px 2px 0 black;
 }

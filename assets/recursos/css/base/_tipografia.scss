@@ -71,3 +71,11 @@ main {
 .fs-body {
     @include font-size(var(--#{$prefix}body-font-size));
 }
+
+.ff-serif {
+    font-family: var(--#{$prefix}body-font-family) !important;
+}
+
+.ff-sans-serif {
+    font-family: #{inspect($font-family-base)} !important;
+}
