@@ -3,13 +3,80 @@
 .topico-titulo {
     min-height: min(50vh, 480px);
     margin-top: -1rem;
-    background-image:
-    linear-gradient(to top, rgba(var(--vigi-body-bg-rgb), .75), rgba(var(--vigi-body-bg-rgb), .25)),
-    url(../imagens/titulo-bg.png),
-    ;
-    background-position-x: 60%;
-    background-repeat: repeat-x, no-repeat;
-    background-size: auto, auto 100%;
+    position: relative;
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background-image:
+            linear-gradient(to top, rgba(var(--vigi-body-bg-rgb), .75), rgba(var(--vigi-body-bg-rgb), .25)),
+            url(../imagens/banners/comum-banner-1.jpg),
+        ;
+        background-position-x: calc(65% - ((min(2560px, 100vw) / 2560px) * 15%));
+        background-repeat: repeat-x, no-repeat;
+        background-size: auto, auto 100%;
+        mask-image: url(../imagens/banners/banner-mask.jpg);
+        mask-position: calc(65% - ((min(2560px, 100vw) / 2560px) * 15%));
+        mask-repeat: no-repeat;
+        mask-size: auto 100%;
+        mask-mode: luminance;
+
+        html[data-vigi-modulo="luana"][data-vigi-aula="1"] & {
+            background-image:
+                linear-gradient(to top, rgba(var(--vigi-body-bg-rgb), .75), rgba(var(--vigi-body-bg-rgb), .25)),
+                url(../imagens/banners/luana-banner-1.jpg),
+            ;
+        }
+        html[data-vigi-modulo="luana"][data-vigi-aula="2"] & {
+            background-image:
+                linear-gradient(to top, rgba(var(--vigi-body-bg-rgb), .75), rgba(var(--vigi-body-bg-rgb), .25)),
+                url(../imagens/banners/luana-banner-2.jpg),
+            ;
+        }
+        html[data-vigi-modulo="thiago"][data-vigi-aula="1"] & {
+            background-image:
+                linear-gradient(to top, rgba(var(--vigi-body-bg-rgb), .75), rgba(var(--vigi-body-bg-rgb), .25)),
+                url(../imagens/banners/thiago-banner-1.jpg),
+            ;
+        }
+        html[data-vigi-modulo="thiago"][data-vigi-aula="2"] & {
+            background-image:
+                linear-gradient(to top, rgba(var(--vigi-body-bg-rgb), .75), rgba(var(--vigi-body-bg-rgb), .25)),
+                url(../imagens/banners/thiago-banner-2.jpg),
+            ;
+        }
+        html[data-vigi-modulo="thiago"][data-vigi-aula="3"] & {
+            background-image:
+                linear-gradient(to top, rgba(var(--vigi-body-bg-rgb), .75), rgba(var(--vigi-body-bg-rgb), .25)),
+                url(../imagens/banners/thiago-banner-3.jpg),
+            ;
+        }
+        html[data-vigi-modulo="mariana"][data-vigi-aula="1"] & {
+            background-image:
+                linear-gradient(to top, rgba(var(--vigi-body-bg-rgb), .75), rgba(var(--vigi-body-bg-rgb), .25)),
+                url(../imagens/banners/mariana-banner-1.jpg),
+            ;
+        }
+        html[data-vigi-modulo="mariana"][data-vigi-aula="2"] & {
+            background-image:
+                linear-gradient(to top, rgba(var(--vigi-body-bg-rgb), .75), rgba(var(--vigi-body-bg-rgb), .25)),
+                url(../imagens/banners/mariana-banner-2.jpg),
+            ;
+        }
+        html[data-vigi-modulo="pedro"][data-vigi-aula="1"] & {
+            background-image:
+                linear-gradient(to top, rgba(var(--vigi-body-bg-rgb), .75), rgba(var(--vigi-body-bg-rgb), .25)),
+                url(../imagens/banners/pedro-banner-1.jpg),
+            ;
+        }
+        html[data-vigi-modulo="pedro"][data-vigi-aula="2"] & {
+            background-image:
+                linear-gradient(to top, rgba(var(--vigi-body-bg-rgb), .75), rgba(var(--vigi-body-bg-rgb), .25)),
+                url(../imagens/banners/pedro-banner-2.jpg),
+            ;
+        }
+    }
 
     h1 {
         @include font-size(4rem);

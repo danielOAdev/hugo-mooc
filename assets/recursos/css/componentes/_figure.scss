@@ -20,7 +20,7 @@ figure {
     }
 
     > img {
-        border-radius: 27px;
+        border-radius: $border-radius;
     }
 
     &__btn {

@@ -6,6 +6,8 @@ $secondary-dark:  cores.$vigi-cinza-azulado;
 $body-color-dark: cores.$vigi-branco-azulado;
 $body-bg-dark:    cores.$vigi-preto-azulado;
 
+$body-secondary-bg-dark: shade-color(cores.$vigi-azul-logo-dark-3x, 50%);
+
 $custom-colors: (
   "primary": $primary-dark,
   "secondary": $secondary-dark

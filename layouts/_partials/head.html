@@ -8,4 +8,8 @@
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
 {{- partialCached "head/css.html" . -}}
 {{- partial "head/js.html" . -}}
+{{ range resources.Match "recursos/imagens/modulos/*.*" }}
+    {{ .Publish }}
+    <link rel="preload" href="{{.}}" as="image" />
+{{- end -}}
 <link rel="icon" type="image/png" href="/favicon.png" />
