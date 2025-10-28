@@ -1,6 +1,7 @@
 @use "bootstrap" as *;
 
 .legenda {
+    padding: 0 max(calc((100% - 45ch) * .5), 1rem);
     min-height: 2lh;
     text-align: center;
     display: flex;
