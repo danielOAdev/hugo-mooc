@@ -1,3 +1,63 @@
+@use "bootstrap" as *;
+
 .vigi-quiz {
-    
+    label.opcao {
+        text-align: start;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        align-self: stretch;
+        gap: 1rem;
+
+        & > svg {
+            flex-shrink: 0;
+
+            &.square, &.circle {
+                &:has(~ input:checked) {
+                    display: none;
+                }
+                &:has(~ input:not(:checked)) {
+                    display: inline;
+                }
+            }
+            &.square-check, &.circle-check {
+                &:has(~ input:checked) {
+                    display: inline;
+                }
+                &:has(~ input:not(:checked)) {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    input {
+        display: none;
+    }
+
+    &:not(:has(input:checked)) {
+        button.enviar {
+            opacity: 50%;
+            pointer-events: none;
+        }
+    }
+
+    &[data-resposta-certa] {
+        button.enviar {
+                display: none;
+        }
+
+        button, label {
+            pointer-events: none;
+        }
+    }
+
+    .feedback {
+        display: none;
+    }
+
+    &[data-resposta-certa="true"] .feedback-positivo,
+    &[data-resposta-certa="false"] .feedback-negativo {
+        display: block;
+    }
 }

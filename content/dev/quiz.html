@@ -1,14 +1,58 @@
 +++
 title = 'Quiz'
-aliases = ['/Quiz']
+aliases = ['/quiz']
 +++
 
 <fieldset class="vigi-quiz vstack gap-1">
     <legend>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt aut obcaecati nisi corrupti sint repudiandae iure error unde, minima ad?</legend>
-    <label class="btn btn-secondary"><input type="radio" name="q1" class="d-none">Quis in ipsum aliquip ea reprehenderit aute deserunt labore elit velit occaecat consequat sunt laboris.</label>
-    <label class="btn btn-secondary"><input type="radio" name="q1" class="d-none">Laborum culpa nisi voluptate sit incididunt Lorem ullamco id labore sunt proident aliqua velit.</label>
-    <label class="btn btn-secondary"><input type="radio" name="q1" class="d-none">Adipisicing quis nostrud velit enim amet in minim ut.</label>
-    <label class="btn btn-secondary"><input type="radio" name="q1" class="d-none">Tempor deserunt ad nisi labore pariatur dolore.</label>
-    <div class="feedback feedback-positivo"></div>
-    <div class="feedback feedback-negativo"></div>
+    <label class="opcao btn btn-secondary correto">
+        {{< fa/regular circle "icone icone-lg circle" >}}
+        {{< fa/regular circle-check "icone icone-lg circle-check" >}}
+        <input type="radio" name="q1">Quis in ipsum aliquip ea reprehenderit aute deserunt labore elit velit occaecat consequat sunt laboris.
+    </label>
+    <label class="opcao btn btn-secondary">
+        {{< fa/regular circle "icone icone-lg circle" >}}
+        {{< fa/regular circle-check "icone icone-lg circle-check" >}}
+        <input type="radio" name="q1">Laborum culpa nisi voluptate sit incididunt Lorem ullamco id labore sunt proident aliqua velit.
+    </label>
+    <label class="opcao btn btn-secondary">
+        {{< fa/regular circle "icone icone-lg circle" >}}
+        {{< fa/regular circle-check "icone icone-lg circle-check" >}}
+        <input type="radio" name="q1">Adipisicing quis nostrud velit enim amet in minim ut.
+    </label>
+    <label class="opcao btn btn-secondary">
+        {{< fa/regular circle "icone icone-lg circle" >}}
+        {{< fa/regular circle-check "icone icone-lg circle-check" >}}
+        <input type="radio" name="q1">Tempor deserunt ad nisi labore pariatur dolore.
+    </label>
+    <button type="buton" class="enviar btn btn-primary">Mostrar resposta</button>
+    <div class="alert alert-success feedback feedback-positivo">[Feedback positivo]</div>
+    <div class="alert alert-danger feedback feedback-negativo">[Feedback negativo]</div>
+</fieldset>
+
+<fieldset class="vigi-quiz vstack gap-1" data-multi>
+    <legend>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt aut obcaecati nisi corrupti sint repudiandae iure error unde, minima ad?</legend>
+    <label class="opcao btn btn-secondary correto">
+        {{< fa/regular square "icone icone-lg square" >}}
+        {{< fa/regular square-check "icone icone-lg square-check" >}}
+        <input type="checkbox" name="q2">Quis in ipsum aliquip ea reprehenderit aute deserunt labore elit velit occaecat consequat sunt laboris.
+    </label>
+    <label class="opcao btn btn-secondary">
+        {{< fa/regular square "icone icone-lg square" >}}
+        {{< fa/regular square-check "icone icone-lg square-check" >}}
+        <input type="checkbox" name="q2">Laborum culpa nisi voluptate sit incididunt Lorem ullamco id labore sunt proident aliqua velit.
+    </label>
+    <label class="opcao btn btn-secondary">
+        {{< fa/regular square "icone icone-lg square" >}}
+        {{< fa/regular square-check "icone icone-lg square-check" >}}
+        <input type="checkbox" name="q2">Adipisicing quis nostrud velit enim amet in minim ut.
+    </label>
+    <label class="opcao btn btn-secondary correto">
+        {{< fa/regular square "icone icone-lg square" >}}
+        {{< fa/regular square-check "icone icone-lg square-check" >}}
+        <input type="checkbox" name="q2">Tempor deserunt ad nisi labore pariatur dolore.
+    </label>
+    <button type="buton" class="enviar btn btn-primary">Mostrar resposta</button>
+    <div class="alert alert-success feedback feedback-positivo">[Feedback positivo]</div>
+    <div class="alert alert-danger feedback feedback-negativo">[Feedback negativo]</div>
 </fieldset>
