@@ -4,63 +4,46 @@ aliases = ['/quiz']
 +++
 
 {{< quiz
-    nome = "q3"
-    pergunta = "Lorem ipsum?"
-    opções = `Lorem ipsum
-    Lorem ipsum
-    Lorem ipsum`
+    pergunta = `<p class="d-inline-block">Os dados oficiais mostravam uma melhora nos indicadores de mortalidade por DCNT. Mas os relatos do território contavam outra história: jovens hipertensos, diagnósticos tardios, desigualdades invisibilizadas.</p>
+    <p>Agora que você e Luana coletaram todas as pistas, é hora de entender quem está distorcendo esse espelho.</p>
+    <p>Algumas afirmações abaixo revelam as estratégias utilizadas por grandes corporações para influenciar decisões, bloquear políticas públicas e manter seus lucros. Outras servem apenas para nos confundir.</p>
+    <p><span class="fw-bold">Sua missão</span>: escolher as 5 afirmações verdadeiras. O futuro da investigação depende disso.</p>`
+    multi = true
+    opcao0 = "Contribuir com altos valores para campanhas eleitorais de parlamentares e governantes."
+    opcao10 = "Contratar empresas especializadas em lobby para influenciar decisões políticas."
+    opcao20 = "Direcionar ações de marketing para públicos vulneráveis, como jovens."
+    opcao30 = "Negar ou minimizar evidências científicas que associam seus produtos a riscos à saúde."
+    opcao40 = "Utilizar estratégias inspiradas na indústria do cigarro para manter seus lucros acima da saúde pública."
+    opcao50 = "Focar exclusivamente em políticas públicas de saúde sem interferência econômica."
+    opcao60 = "Reduzir voluntariamente o açúcar e o sal dos alimentos para evitar regulação externa."
+    opcao70 = "Oferecer acesso gratuito à pesquisa científica sem conflitos de interesse."
+    opcao80 = "Assumir compromisso formal com os objetivos da saúde pública global."
+    opcao90 = "Investir em educação nutricional independente como principal forma de prevenção."
+    corretos = "0,10,20,30,40"
+    feedbackpositivo = `<p>Parabéns! Você montou o mosaico completo.</p>
+<p>Agora Luana tem as provas necessárias para mostrar por que os dados oficiais não revelam o que de fato acontece nas regiões de fronteira.</p>
+<p>O problema das DCNT vai muito além dos hábitos individuais: ele envolve interesses poderosos, estratégias dissimuladas e estruturas que precisam ser enfrentadas com políticas públicas firmes.</p>
+<blockquote class="blockquote">— Obrigada por estar comigo até aqui. Agora, precisamos seguir. Na próxima aula, vou precisar ainda mais de você. As pistas estão ficando mais difíceis de encontrar… e mais urgentes de decifrar.</blockquote>`
+    feedbacknegativo = `<p>Hmm… algumas peças não se encaixaram.</p>
+<p>A investigação ainda não está completa. Pode ser que algumas informações tenham te confundido — e isso é comum em casos como este.</p>
+<blockquote class="blockquote">— Volte às pistas, releia os relatórios, pense no que vimos sobre influência econômica, desigualdades e marketing. Você está perto. E eu sigo contando com você.</blockquote>`
 >}}
 
-<fieldset class="vigi-quiz vstack gap-1">
-    <legend>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt aut obcaecati nisi corrupti sint repudiandae iure error unde, minima ad?</legend>
-    <label class="opcao btn btn-secondary correto">
-        {{< fa/regular circle "icone icone-lg circle" >}}
-        {{< fa/regular circle-check "icone icone-lg circle-check" >}}
-        <input type="radio" name="q1">Quis in ipsum aliquip ea reprehenderit aute deserunt labore elit velit occaecat consequat sunt laboris.
-    </label>
-    <label class="opcao btn btn-secondary">
-        {{< fa/regular circle "icone icone-lg circle" >}}
-        {{< fa/regular circle-check "icone icone-lg circle-check" >}}
-        <input type="radio" name="q1">Laborum culpa nisi voluptate sit incididunt Lorem ullamco id labore sunt proident aliqua velit.
-    </label>
-    <label class="opcao btn btn-secondary">
-        {{< fa/regular circle "icone icone-lg circle" >}}
-        {{< fa/regular circle-check "icone icone-lg circle-check" >}}
-        <input type="radio" name="q1">Adipisicing quis nostrud velit enim amet in minim ut.
-    </label>
-    <label class="opcao btn btn-secondary">
-        {{< fa/regular circle "icone icone-lg circle" >}}
-        {{< fa/regular circle-check "icone icone-lg circle-check" >}}
-        <input type="radio" name="q1">Tempor deserunt ad nisi labore pariatur dolore.
-    </label>
-    <button type="buton" class="enviar btn btn-primary">Mostrar resposta</button>
-    <div class="alert alert-success feedback feedback-positivo">[Feedback positivo]</div>
-    <div class="alert alert-danger feedback feedback-negativo">[Feedback negativo]</div>
-</fieldset>
 
-<fieldset class="vigi-quiz vstack gap-1" data-multi>
-    <legend>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt aut obcaecati nisi corrupti sint repudiandae iure error unde, minima ad?</legend>
-    <label class="opcao btn btn-secondary correto">
-        {{< fa/regular square "icone icone-lg square" >}}
-        {{< fa/regular square-check "icone icone-lg square-check" >}}
-        <input type="checkbox" name="q2">Quis in ipsum aliquip ea reprehenderit aute deserunt labore elit velit occaecat consequat sunt laboris.
-    </label>
-    <label class="opcao btn btn-secondary">
-        {{< fa/regular square "icone icone-lg square" >}}
-        {{< fa/regular square-check "icone icone-lg square-check" >}}
-        <input type="checkbox" name="q2">Laborum culpa nisi voluptate sit incididunt Lorem ullamco id labore sunt proident aliqua velit.
-    </label>
-    <label class="opcao btn btn-secondary">
-        {{< fa/regular square "icone icone-lg square" >}}
-        {{< fa/regular square-check "icone icone-lg square-check" >}}
-        <input type="checkbox" name="q2">Adipisicing quis nostrud velit enim amet in minim ut.
-    </label>
-    <label class="opcao btn btn-secondary correto">
-        {{< fa/regular square "icone icone-lg square" >}}
-        {{< fa/regular square-check "icone icone-lg square-check" >}}
-        <input type="checkbox" name="q2">Tempor deserunt ad nisi labore pariatur dolore.
-    </label>
-    <button type="buton" class="enviar btn btn-primary">Mostrar resposta</button>
-    <div class="alert alert-success feedback feedback-positivo">[Feedback positivo]</div>
-    <div class="alert alert-danger feedback feedback-negativo">[Feedback negativo]</div>
-</fieldset>
+{{< quiz
+    pergunta = `Escolha a opção verdadeira:`
+    multi = false
+    opcao1  = "Falsa"
+    opcao2  = "Falsa"
+    opcao3  = "Verdadeira"
+    opcao4  = "Falsa"
+    opcao5  = "Falsa"
+    corretos = "3"
+    feedbackpositivo = `<p>Parabéns! Você montou o mosaico completo.</p>
+<p>Agora Luana tem as provas necessárias para mostrar por que os dados oficiais não revelam o que de fato acontece nas regiões de fronteira.</p>
+<p>O problema das DCNT vai muito além dos hábitos individuais: ele envolve interesses poderosos, estratégias dissimuladas e estruturas que precisam ser enfrentadas com políticas públicas firmes.</p>
+<blockquote class="blockquote">— Obrigada por estar comigo até aqui. Agora, precisamos seguir. Na próxima aula, vou precisar ainda mais de você. As pistas estão ficando mais difíceis de encontrar… e mais urgentes de decifrar.</blockquote>`
+    feedbacknegativo = `<p>Hmm… algumas peças não se encaixaram.</p>
+<p>A investigação ainda não está completa. Pode ser que algumas informações tenham te confundido — e isso é comum em casos como este.</p>
+<blockquote class="blockquote">— Volte às pistas, releia os relatórios, pense no que vimos sobre influência econômica, desigualdades e marketing. Você está perto. E eu sigo contando com você.</blockquote>`
+>}}

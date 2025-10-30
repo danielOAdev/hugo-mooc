@@ -1,6 +1,12 @@
 @use "bootstrap" as *;
 
 .vigi-quiz {
+    margin-top: 3rem;
+
+    legend > p:last-of-type {
+        margin-bottom: 0;
+    }
+
     label.opcao {
         text-align: start;
         display: flex;
@@ -36,19 +42,39 @@
     }
 
     &:not(:has(input:checked)) {
-        button.enviar {
+        .confirmar {
             opacity: 50%;
             pointer-events: none;
         }
     }
 
-    &[data-resposta-certa] {
-        button.enviar {
-                display: none;
+    &:not([data-resposta-certa]) {
+        .confirmar {
+            display: inline;
         }
 
-        button, label {
+        .acoesfinais {
+            display: none;
+        }
+    }
+
+    &[data-resposta-certa] {
+        .confirmar {
+            display: none;
+        }
+
+        .acoesfinais {
+            display: inline-flex;
+        }
+
+        label.opcao {
             pointer-events: none;
+        }
+    }
+
+    &:has(.opcao.btn-success, .opcao.btn-danger) {
+        .correcao {
+            display: none;
         }
     }
 
@@ -56,8 +82,8 @@
         display: none;
     }
 
-    &[data-resposta-certa="true"] .feedback-positivo,
-    &[data-resposta-certa="false"] .feedback-negativo {
+    &[data-resposta-certa="1"] .feedback-positivo,
+    &[data-resposta-certa="0"] .feedback-negativo {
         display: block;
     }
 }

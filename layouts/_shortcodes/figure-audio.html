@@ -1,0 +1,23 @@
+
+{{- $src := .Get "src" -}}
+{{- if not $src -}}
+<!-- audiofigure shortcode: required param "src" is missing -->
+{{- else -}}
+  {{- $caption := .Get "caption" | default "" -}}
+  {{- $fonte := .Get "fonte" | default "" -}}
+
+  <figure>
+    <audio type="audio/mp3" src="{{ $src }}.mp3" controls>
+      <track label="Português (Brasil)" kind="subtitles" srclang="pt-BR" src="{{ $src }}.vtt" default>
+      Seu navegador não suporta o elemento <code>audio</code>.
+    </audio>
+
+    <div class="legenda"></div>
+    <div class="figlegenda"></div>
+
+    <figcaption>
+      {{- if $caption -}}<p>{{ $caption }}</p>{{- end -}}
+      {{- if $fonte -}}<p class="figfonte">Fonte: {{ $fonte | safeHTML }}</p>{{- end -}}
+    </figcaption>
+  </figure>
+{{- end -}}

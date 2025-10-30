@@ -7,19 +7,11 @@ aliases = ['/legenda']
     vigiicone="audio"
     header="Para ouvir"
 >}}
-<figure>
-    <audio type="audio/mp3" src="../../recursos/audios/1-narrador.mp3" controls>
-        <track label="Português (Brasil)" kind="subtitles" srclang="pt-BR" src="../../recursos/audios/1-narrador.vtt" default>
-    </audio>
-    <div class="legenda"></div>
-    <div class="figlegenda"></div>
-    <figcaption>
-        <p>1-narrador</p>
-        <p class="figfonte">
-            Fonte: <a href="https://formacaovigisaude.fiocruz.br/node/90">VigiFronteiras-Brasil</a>
-        </p>
-    </figcaption>
-</figure>
+    {{< figure-audio
+        src="../../recursos/audios/1-narrador"
+        caption="1-narrator"
+        fonte=`<a href="https://formacaovigisaude.fiocruz.br/node/90">VigiFronteiras-Brasil</a>`
+    >}}
 {{< /card >}}
 
 {{< card

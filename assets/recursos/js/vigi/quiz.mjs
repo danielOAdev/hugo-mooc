@@ -11,34 +11,57 @@ class Quiz {
         this.fieldset = fieldset;
         this.titulo = fieldset.querySelector("legend") || null;
 
-        this.botaoEnviar = this.fieldset.querySelector("button.enviar") || null;
-        if (!this.botaoEnviar) {
+        this.botaoConfirmar = this.fieldset.querySelector("button.confirmar") || null;
+        if (!this.botaoConfirmar) {
             throw new Error("Botão de envio para Quiz não encontrado.");
         }
 
-        const tipoInput = this.eMulti() ? "checkbox" : "radio";
-        const labelsDeOpcoes = Array.from(fieldset.querySelectorAll(`label.opcao:has(input[type="${tipoInput}"])`));
+        this.botaoTentar = this.fieldset.querySelector("button.tentar") || null;
+        if (!this.botaoTentar) {
+            throw new Error("Botão \"Tentar novamente\" para Quiz não encontrado.");
+        }
 
+        this.botaoCorrecao = this.fieldset.querySelector("button.correcao") || null;
+        if (!this.botaoCorrecao) {
+            throw new Error("Botão \"Mostrar resposta\" para Quiz não encontrado.");
+        }
+
+        const labelsDeOpcoes = Array.from(fieldset.querySelectorAll(`label.opcao:has(input)`));
         this.opcoes = labelsDeOpcoes.map(label => new OpcaoQuiz(label));
 
         if (!this.opcoes) {
             document.console.warn('Quiz não possui opções.');
         }
 
-        this.botaoEnviar.addEventListener("click", () => {
-            this.opcoes.forEach(opcao => {
-                if (this.eMulti()) {
-                    opcao.aplicarFeedback(this.eMulti());
-                } else {
-                    if (opcao.eCorreto() || opcao.eMarcado()) {
-                        opcao.aplicarFeedback();
-                    }
-                }
-            });
+        this.botaoConfirmar.addEventListener("click", () => {
             const todasCorretasMarcadas = this.opcoes.every(opcao =>
                  opcao.eCorreto() === opcao.eMarcado()
             );
-            fieldset.dataset.respostaCerta = todasCorretasMarcadas;
+            if (todasCorretasMarcadas) {
+                this.corrigir();
+                this.botaoTentar.textContent = "Recomeçar"
+            } else {
+                this.botaoTentar.textContent = "Tentar novamente"
+            }
+            fieldset.dataset.respostaCerta = Number(todasCorretasMarcadas);
+        });
+
+        this.botaoCorrecao.addEventListener("click", this.corrigir.bind(this));
+
+        this.botaoTentar.addEventListener("click", () => {
+            this.restaurar(Boolean(Number(this.fieldset.dataset.respostaCerta)));
+        });
+    }
+
+    corrigir() {
+        this.opcoes.forEach(opcao => {
+            if (this.eMulti()) {
+                opcao.aplicarFeedback(this.eMulti());
+            } else {
+                if (opcao.eCorreto() || opcao.eMarcado()) {
+                    opcao.aplicarFeedback();
+                }
+            }
         });
     }
 
@@ -54,10 +77,10 @@ class Quiz {
         return this.fieldset.dataset.hasOwnProperty('multi');
     }
 
-    restaurar() {
+    restaurar(desmarcar = true) {
         delete this.fieldset.dataset.respostaCerta;
         this.opcoes.forEach(opcao => {
-            opcao.reset();
+            opcao.restaurar(desmarcar);
         });
     }
 }
@@ -88,8 +111,10 @@ class OpcaoQuiz {
         return this.input.checked;
     }
 
-    restaurar() {
-        this.input.checked = false;
+    restaurar(desmarcar = true) {
+        if (desmarcar) {
+            this.input.checked = false;
+        }
         this.label.classList.remove("btn-success", "btn-danger");
         this.label.classList.add("btn-secondary");
     }
