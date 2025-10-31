@@ -5,6 +5,11 @@ audios.forEach(audio => {
 
     if (!legenda || !textTracks) return;
 
+    legenda.setAttribute('hidden', '');
+    audio.addEventListener('play', () => {
+        legenda.removeAttribute('hidden', '');
+    });
+
     textTracks.addEventListener('change', (event) => {
         let legendaDesativada = false;
         Array.from(textTracks).forEach(textTrack => {

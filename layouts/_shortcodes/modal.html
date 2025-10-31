@@ -1,0 +1,25 @@
+{{- $titulo := .Get "titulo" -}}
+{{- $id := $titulo | anchorize -}}
+{{- $textoBotao := .Get "textoBotao" -}}
+{{- $classesBotao := .Get "classesBotao" | default "btn-secondary" -}}
+{{- $classesModal := .Get "classesModal" -}}
+
+<button type="button" class="btn {{ $classesBotao }}" data-bs-toggle="modal" data-bs-target="#{{- $id -}}">
+  {{- $textoBotao -}}
+</button>
+<div class="modal fade" id="{{- $id -}}" tabindex="-1" aria-labelledby="{{- $id -}}-RotuloModal" aria-hidden="true">
+  <div class="modal-dialog {{ $classesModal }}">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="{{- $id -}}-RotuloModal">{{- $titulo -}}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        {{ .Inner }}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>

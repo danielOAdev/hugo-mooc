@@ -34,14 +34,14 @@ figure {
             opacity: 1;
         }
 
-        .figcontent:has(.figlegenda.show, .figlegenda.collapsing, .figlegenda:focus, .figlegenda:focus-visible) & {
+        .figcontent:has(.figdescricao.show, .figdescricao.collapsing, .figdescricao:focus, .figdescricao:focus-visible) & {
             display: none;
         }
     }
 }
 
 
-.figlegenda {
+.figdescricao {
     position: absolute;
     inset: 0;
     font-size: 1rem;
@@ -83,7 +83,7 @@ figure {
     }
 }
 
-figcaption {
+figcaption:last-child {
     contain: inline-size;
 
     > * {
@@ -91,11 +91,13 @@ figcaption {
         line-height: $line-height-base;
         text-align: center;
     }
+}
 
-    .figfonte {
-        margin-top: .5rem;
-        text-align: center;
-    }
+.figfonte {
+    margin: 0;
+    font-size: 1rem;
+    line-height: $line-height-base;
+    text-align: center;
 }
 
 .collapse-nothidden.collapse:not(.show) {

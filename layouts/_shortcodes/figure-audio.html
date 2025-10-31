@@ -1,23 +1,22 @@
 
-{{- $src := .Get "src" -}}
-{{- if not $src -}}
-<!-- audiofigure shortcode: required param "src" is missing -->
-{{- else -}}
-  {{- $caption := .Get "caption" | default "" -}}
-  {{- $fonte := .Get "fonte" | default "" -}}
+{{- $arquivo := .Get "arquivo" -}}
+{{- $classes := .Get "classes" | default "" -}}
+{{- $descricao := .Get "descrição" | default "" -}}
+{{- $fonte := .Get "fonte" | default "" -}}
 
-  <figure>
-    <audio type="audio/mp3" src="{{ $src }}.mp3" controls>
-      <track label="Português (Brasil)" kind="subtitles" srclang="pt-BR" src="{{ $src }}.vtt" default>
-      Seu navegador não suporta o elemento <code>audio</code>.
-    </audio>
-
-    <div class="legenda"></div>
-    <div class="figlegenda"></div>
-
+<figure class="{{ with $classes }}{{ . }}{{ end }}">
+    {{- if $descricao -}}
     <figcaption>
-      {{- if $caption -}}<p>{{ $caption }}</p>{{- end -}}
-      {{- if $fonte -}}<p class="figfonte">Fonte: {{ $fonte | safeHTML }}</p>{{- end -}}
+        <p>{{ $descricao }}</p>
     </figcaption>
-  </figure>
-{{- end -}}
+    {{- end -}}
+    <audio class="mb-3" type="audio/mp3" src="{{ $arquivo }}.mp3" controls>
+        <track label="Português (Brasil)" kind="subtitles" srclang="pt-BR" src="{{ $arquivo }}.vtt" default>
+        Seu navegador não suporta o elemento <code>audio</code>.
+    </audio>
+    <div class="legenda" aria-hidden="true" hidden></div>
+    {{- .Inner -}}
+    {{- if not $descricao -}}<figcaption>{{- end -}}
+    {{- if $fonte -}}<p class="figfonte">Fonte: {{ $fonte | safeHTML }}</p>{{- end -}}
+    {{- if not $descricao -}}</figcaption>{{- end -}}
+</figure>
