@@ -54,7 +54,11 @@ jobs:
 
       # Gera o site estático com Hugo
       - name: Gerar site com Hugo
-        run: npx hugo
+        run: npx hugo --cleanDestinationDir --environment staging
+
+      # Executa prettier em arquivos HTML
+      - name: Executa prettier em arquivos HTML
+        run: npm run prettier
 
       # Executa prettier em arquivos HTML
       - name: Executa prettier em arquivos HTML

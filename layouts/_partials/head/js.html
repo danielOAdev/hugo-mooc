@@ -32,7 +32,7 @@
 {{/*  Barrel module  */}}
 {{- with resources.Get "recursos/js/index.mjs" -}}
     <script type="module" src="{{ .RelPermalink }}"></script>
-    {{- if eq hugo.Environment "development" -}}
+    {{- if ne hugo.Environment "production" -}}
         {{/*  Adiciona exportações ao escopo global quando no ambiente de desenvolvimento.  */}}
         {{ $link := partial "funcao/linkRelativo.html" (dict "Page" $ "url" .RelPermalink) }}
         <script async>import('{{ $link }}').then(modulos => { Object.assign(globalThis, modulos) });</script>
