@@ -54,7 +54,11 @@ jobs:
 
       # Gera o site estático com Hugo
       - name: Gerar site com Hugo
-        run: npx hugo --environment development
+        run: npx hugo
+
+      # Executa prettier em arquivos HTML
+      - name: Executa prettier em arquivos HTML
+        run: npx prettier
 
       # Faz upload dos arquivos gerados para o job de deploy
       - name: Enviar artefatos para publicação
