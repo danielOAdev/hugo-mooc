@@ -1,0 +1,32 @@
+
+{{- $id := print "figdescricao-" (.Get "id" | default (partial "funcao/autoincrement.html" .)) -}}
+{{- $arquivo := .Get "arquivo" -}}
+{{- $alt := .Get "alt" -}}
+{{- $classes := .Get "classes" | default "" -}}
+{{- $legenda := .Get "legenda" | default "" -}}
+{{- $fonte := .Get "fonte" | safeHTML | default "" -}}
+
+<figure {{ with $classes }}class="{{ . }}"{{ end }}>
+    <div class="figcontent">
+        <img class="img-fluid lightbox" src="{{ $arquivo }}" style="grid-area: 1 / 1;" alt="{{ $alt }}">
+        {{ with (.Inner | safeHTML) }}
+        <button class="figcontent__btn btn btn-secondary btn-sm mx-auto collapsed" type="button" data-bs-animation="false" data-bs-toggle="collapse" data-bs-target="#{{- $id -}}" role="paragraph" tabindex="-1">
+            <span aria-hidden="true">Legenda</span>
+        </button>
+        <div class="figdescricao collapse collapse-nothidden fade" id="{{ $id }}" data-bs-animation="false" tabindex="0">
+            <button class="figdescricao__btn btn btn-secondary btn-icone btn-sm collapsed" type="button" data-bs-animation="false" data-bs-toggle="collapse" data-bs-target="#{{ $id }}" role="paragraph" tabindex="-1">
+                {{ partial "fontawesome.html" (dict "style" "solid" "icon" "xmark") }}
+            </button>
+            {{ . }}
+        </div>
+        {{ end }}
+    </div>
+    <figcaption>
+        {{ with $legenda }}
+        <p>{{ . }}</p>
+        {{ end }}
+        {{ with $fonte }}
+        <p class="figfonte">Fonte: {{ . }}</p>
+        {{ end }}
+    </figcaption>
+</figure>

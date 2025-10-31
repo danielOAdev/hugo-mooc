@@ -2,9 +2,9 @@
 {{- $arquivo := .Get "arquivo" -}}
 {{- $classes := .Get "classes" | default "" -}}
 {{- $descricao := .Get "descrição" | default "" -}}
-{{- $fonte := .Get "fonte" | default "" -}}
+{{- $fonte := .Get "fonte" | safeHTML | default "" -}}
 
-<figure class="{{ with $classes }}{{ . }}{{ end }}">
+<figure {{ with $classes }}class="{{ . }}"{{ end }}>
     {{- if $descricao -}}
     <figcaption>
         <p>{{ $descricao }}</p>
@@ -15,8 +15,8 @@
         Seu navegador não suporta o elemento <code>audio</code>.
     </audio>
     <div class="legenda" aria-hidden="true" hidden></div>
-    {{- .Inner -}}
+    {{- .Inner | safeHTML -}}
     {{- if not $descricao -}}<figcaption>{{- end -}}
-    {{- if $fonte -}}<p class="figfonte">Fonte: {{ $fonte | safeHTML }}</p>{{- end -}}
+    {{- if $fonte -}}<p class="figfonte">Fonte: {{ $fonte }}</p>{{- end -}}
     {{- if not $descricao -}}</figcaption>{{- end -}}
 </figure>

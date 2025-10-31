@@ -60,10 +60,6 @@ jobs:
       - name: Executa prettier em arquivos HTML
         run: npm run prettier
 
-      # Executa prettier em arquivos HTML
-      - name: Executa prettier em arquivos HTML
-        run: npx prettier
-
       # Faz upload dos arquivos gerados para o job de deploy
       - name: Enviar artefatos para publicação
         uses: actions/upload-pages-artifact@v3
