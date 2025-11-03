@@ -5,6 +5,8 @@
 {{- $corretos := split (.Get "corretos") "," -}}
 {{- if not $multi -}}
   {{- $corretos = slice (index $corretos 0) -}}
+{{- else -}}
+
 {{- end -}}
 {{- $forma := (cond $multi "square" "circle") -}}
 
@@ -15,7 +17,7 @@
     {{- $texto := $.Get $key -}}
     {{- if $texto -}}
       {{- $eCorreto := in $corretos $indexStr -}}
-      {{- $opcao := dict "index" $indexStr "texto" ($texto | safeHTML) "correto" $eCorreto -}}
+      {{- $opcao := dict "index" (cond $multi $indexStr "") "texto" ($texto | safeHTML) "correto" $eCorreto -}}
       {{- $opcoes = $opcoes | append $opcao -}}
     {{- end -}}
   {{- end -}}

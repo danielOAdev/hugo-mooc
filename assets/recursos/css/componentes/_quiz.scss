@@ -3,7 +3,7 @@
 .vigi-quiz {
     margin-top: 3rem;
 
-    legend > p:last-of-type {
+    legend > :last-child {
         margin-bottom: 0;
     }
 
@@ -34,6 +34,11 @@
                     display: none;
                 }
             }
+        }
+
+        & > select {
+            width: min-content;
+            padding: 0 0.438rem;
         }
     }
 
