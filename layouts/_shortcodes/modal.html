@@ -1,19 +1,30 @@
-{{- $titulo := .Get "titulo" -}}
-{{- $id := $titulo | anchorize -}}
-{{- $textoBotao := .Get "textoBotao" -}}
+{{- $titulo := .Get "titulo" | safeHTML -}}
+{{- $id := print "modal" (.Get "titulo" | anchorize | default (partial "funcao/autoincrement.html" .)) -}}
+{{- $iconeBotao := .Get "iconeBotao" -}}
+{{- $iconeAlt := .Get "iconeAlt" -}}
+{{- $textoBotao := .Get "textoBotao" | safeHTML -}}
 {{- $classesBotao := .Get "classesBotao" | default "btn-secondary" -}}
 {{- $classesModal := .Get "classesModal" -}}
 
 <button type="button" class="btn {{ $classesBotao }}" data-bs-toggle="modal" data-bs-target="#{{- $id -}}">
-  {{- $textoBotao -}}
+  {{- with $iconeBotao -}}
+    {{- partial "vigiicone.html" (dict "icone" . "classes" "icone-4x") -}}
+    {{- with $iconeAlt -}}
+      <span class="visually-hidden">{{ . }}</span>
+    {{- end -}}
+  {{- else -}}
+    {{- $textoBotao -}}
+  {{- end -}}
 </button>
 <div class="modal fade" id="{{- $id -}}" tabindex="-1" aria-labelledby="{{- $id -}}-RotuloModal" aria-hidden="true">
   <div class="modal-dialog {{ $classesModal }}">
     <div class="modal-content">
+      {{- with $titulo -}}
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="{{- $id -}}-RotuloModal">{{- $titulo -}}</h1>
+        <h1 class="modal-title fs-5" id="{{- $id -}}-RotuloModal">{{- . -}}</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+      {{- end -}}
       <div class="modal-body">
         {{ .Inner }}
       </div>
