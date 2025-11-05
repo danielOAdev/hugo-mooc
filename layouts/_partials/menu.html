@@ -49,27 +49,27 @@
                 <section class="vigi-coluna-cheia">{{ partial "modulos.html" . }}</section>
             </div>
             <div class="vigi-grid tab-pane fade" id="menu-glossario-conteudo" role="tabpanel" aria-labelledby="menu-glossario-tab" tabindex="0">
-                {{ with .context.GetPage "glossario" }}
+                {{ with .context.GetPage "/glossario" }}
                     {{ .Content }}
                 {{ end }}
             </div>
             <div class="vigi-grid tab-pane fade" id="menu-ajuda-conteudo" role="tabpanel" aria-labelledby="menu-ajuda-tab" tabindex="0">
-                {{ with .context.GetPage "ajuda" }}
+                {{ with .context.GetPage "/ajuda" }}
                     {{ .Content }}
                 {{ end }}
             </div>
                 <div class="vigi-grid tab-pane fade" id="menu-atalhos-conteudo" role="tabpanel" aria-labelledby="menu-atalhos-tab" tabindex="0">
-                {{ with .context.GetPage "atalhos" }}
+                {{ with .context.GetPage "/atalhos" }}
                     {{ .Content }}
                 {{ end }}
             </div>
             <div class="vigi-grid tab-pane fade" id="menu-contato-conteudo" role="tabpanel" aria-labelledby="menu-contato-tab" tabindex="0">
-                {{ with .context.GetPage "contato" }}
+                {{ with .context.GetPage "/contato" }}
                     {{ .Content }}
                 {{ end }}
             </div>
             <div class="vigi-grid tab-pane fade" id="menu-creditos-conteudo" role="tabpanel" aria-labelledby="menu-creditos-tab" tabindex="0">
-                {{ with .context.GetPage "creditos" }}
+                {{ with .context.GetPage "/creditos" }}
                     {{ .Content }}
                 {{ end }}
             </div>
