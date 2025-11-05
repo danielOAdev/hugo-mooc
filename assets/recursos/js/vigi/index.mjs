@@ -10,4 +10,5 @@ export * as lightbox from './lightbox.mjs';
 export * as legenda from './legenda.mjs';
 export * as topico from './topico.mjs';
 export * as quiz from './quiz.mjs';
+export * as pista from './pista.mjs';
 export * from './gtag/gtag-inicial.mjs';

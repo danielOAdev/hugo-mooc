@@ -4,7 +4,7 @@
 
 <div class="vigi-card">
     {{- with $vigiicone -}}
-        <div class="vigi-card-header btn_icon">
+        <div class="vigi-card-header">
             {{ partial "vigiicone.html" (dict "icone" . "classes" "icone-4x" ) }}
             {{ with $header -}}
                 <span class="vigi-card-title display-6">{{ . }}</span>

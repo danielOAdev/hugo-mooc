@@ -5,9 +5,10 @@
 {{- $classes := .Get "classes" | default "" -}}
 {{- $legenda := .Get "legenda" | default "" -}}
 {{- $fonte := .Get "fonte" | safeHTML | default "" -}}
+{{- $pista := .Get "pista" | default false -}}
 
 <figure {{ with $classes }}class="{{ . }}"{{ end }}>
-    <div class="figcontent">
+    <div class="figcontent{{ with $pista }} vigi-pista{{ end }}">
         <img class="img-fluid lightbox" src="{{ $arquivo }}" style="grid-area: 1 / 1;" alt="{{ $alt }}">
         {{ with (.Inner | safeHTML) }}
         <button class="figcontent__btn btn btn-secondary btn-sm mx-auto collapsed" type="button" data-bs-animation="false" data-bs-toggle="collapse" data-bs-target="#{{- $id -}}" role="paragraph" tabindex="-1">

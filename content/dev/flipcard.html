@@ -1,0 +1,22 @@
++++
+title = "Flipcard"
+aliases = ['/flipcard']
++++
+
+<div class="flip-card">
+    <input type="checkbox" id="flipcard1" aria-hidden="true">
+    <div class="flip-card-inner">
+        <!-- FRENTE -->
+        <div class="flip-card-front">
+            {{< card >}}
+            <p>FRENTE</p>
+            <label for="flipcard1" class="btn btn-outline-light" aria-hidden="true"></label>
+            {{< /card >}}
+        </div>
+        <!-- VERSO -->
+        <div class="flip-card-back">
+            <p>VERSO</p>
+            <label for="flipcard1" class="btn btn-outline-light" aria-hidden="true"></label>
+        </div>
+    </div>
+</div>
