@@ -53,8 +53,8 @@ botaoFechar.addEventListener('click', () => {
 });
 
 navTabs.forEach(tab => {
-
     const abaReset = function() {
+        navSelect.value = tab.value;
         atualizarLocationAba(this.value);
         menuConteudo.scrollTop = 0;
     }
@@ -96,7 +96,7 @@ document.addEventListener('click', function(event) {
         return;
     }
 
-    // Garante que ao clicar em um link/botão que abre o menu
+    // Garante que ao clicar em um link/botão que abre o menu a posição é movida para o link.
     const anchor = event.target.closest('a');
     if (anchor) {
         if (!window.getSelection().containsNode(anchor, true)) {
@@ -187,6 +187,7 @@ export function exibirAba(nomeAba) {
 
     menu.open || tabConteudo.classList.remove('fade');
     Tab.getOrCreateInstance(tab).show();
+    navSelect.value = nomeAba;
     menu.open || tabConteudo.classList.add('fade');
 
     if (!document.location.hash || !menu.querySelector(document.location.hash)) {
