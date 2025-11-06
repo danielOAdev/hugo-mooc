@@ -15,6 +15,8 @@ figure {
     display: grid;
     inline-size: fit-content;
     margin-inline: auto;
+    overflow: clip;
+    border-radius: .375rem;
 
     > * {
         grid-area: 1 / 1;
@@ -41,11 +43,18 @@ figure {
     }
 
     &.vigi-pista {
+        & > img {
+            filter: blur(50px);
+        }
+
+        &:not(.show) > .figcontent__btn {
+            display: none;
+        }
+        
         &::after {
             content: '';
             position: absolute;
             inset: 0;
-            backdrop-filter: blur(50px);
             background-image: url(../svgs/vigi-icones/zoom.svg);
             background-repeat: no-repeat;
             background-position: center;
@@ -85,8 +94,11 @@ figure {
         }
 
         .auto-exibir &, &.show {
+            & > img {
+                filter: none;
+            }
             &::after {
-                opacity: 0;
+                content: none;
             }
         }
 
