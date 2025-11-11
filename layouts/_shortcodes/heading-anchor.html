@@ -1,14 +1,15 @@
-{{- $level := default "2" (.Get "level") }}
-{{- $tag := default (print "h" (default 1 $level)) (.Get "tag") }}
-{{- $title := (.Get "title") }}
-{{- $prefix := (.Get "prefix") }}
+{{- $level := .Get "level" | default "2" }}
+{{- $tag := .Get "tag" | default (print "h" $level) }}
+{{- $classes := .Get "classes" -}}
+{{- $title := .Get "title" }}
+{{- $prefix := .Get "prefix" }}
 
-{{ $id := urlize $title }}
+{{ $id := anchorize $title }}
 
 {{ with $prefix}}
     {{ $id = urlize (print $prefix "--" $title) }}
 {{ end }}
 
-{{ printf "<%s id=\"%s\">" $tag $id | safeHTML }}
+{{ print "<" $tag | safeHTML }}{{ with $id }} id="{{ . }}"{{ end }}{{ with $classes }} class="{{ . }}"{{ end }}>
     <a href="#{{ $id }}" class="heading-anchor">{{ $title }}</a>
-{{ printf "</%s>" $tag | safeHTML }}
+{{ print "</" $tag ">" | safeHTML }}

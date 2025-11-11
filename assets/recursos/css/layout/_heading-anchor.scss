@@ -40,7 +40,8 @@ a.heading-anchor {
     }
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
     &:has(> a.heading-anchor) {
         border-bottom: var(--vigi-border-width) var(--vigi-border-style) var(--vigi-border-color);
     }
