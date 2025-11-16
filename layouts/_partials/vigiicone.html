@@ -6,5 +6,5 @@
     {{- $svg | safeHTML -}}
 {{- else -}}
     <span class="sc-vigiicone-missing" title="svg/vigi-icones/{{.icone}}.svg">&#xFFFD;</span>
-    {{- warnf "Could not find \"%s\" icon." . -}}
+    {{- warnf "Could not find \"%s\" icon." .icone -}}
 {{- end -}}
