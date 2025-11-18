@@ -113,7 +113,6 @@ figure {
     line-height: $line-height-base;
     backdrop-filter: blur(5px);
     background-color: rgba(var(--#{$prefix}body-bg-rgb), .8),;
-    border-radius: 27px;
     max-height: max(50svh, 33vw);
     padding: 0 1rem;
     transition: none;
