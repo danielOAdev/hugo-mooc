@@ -109,7 +109,6 @@ figure {
 .figdescricao {
     position: absolute;
     inset: 0;
-    font-size: 1rem;
     line-height: $line-height-base;
     backdrop-filter: blur(5px);
     background-color: rgba(var(--#{$prefix}body-bg-rgb), .8),;

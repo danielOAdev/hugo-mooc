@@ -4,6 +4,7 @@
 
 .vigi-card {
     position: relative;
+    margin-block-start: 4rem;
     &::before {
         content: '';
         position: absolute;
