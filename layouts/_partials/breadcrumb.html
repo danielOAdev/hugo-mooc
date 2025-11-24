@@ -1,16 +1,41 @@
 <nav class="breadcrumb vigi-grid vigi-coluna-cheia" aria-label="breadcrumb">
-    <span class="breadcrumb-trilha vigi-coluna-larga">
-        {{- range .Ancestors.Reverse }}
-            {{ $link := partial "bcstep.html" . }}
-            {{ with $link }}
-                {{- . -}}
-            {{- else -}}
-                {{- continue -}}
+    <div class="d-inline d-lg-inline-flex flex-wrap justify-content-between vigi-coluna-larga">
+        <span class="breadcrumb-trilha">
+            {{- range .Ancestors.Reverse }}
+                {{ $link := partial "bcstep.html" . }}
+                {{ with $link }}
+                    {{- . -}}
+                {{- else -}}
+                    {{- continue -}}
+                {{ end }}
+                {{ partial "fontawesome.html" (dict "style" "solid" "icon" "chevron-right") }}
+            {{ end -}}
+            {{- partial "bcstep.html" . }}
+        </span>
+        <div class="d-inline-block">
+            {{ $pages := .FirstSection.RegularPagesRecursive.ByWeight.Reverse }}
+            {{ with $pages.Prev . }}
+                {{ $direcao := "Tópico anterior" }}
+                {{ if ne $.Parent.LinkTitle .Parent.LinkTitle }}
+                    {{ $direcao = "Aula anterior" }}
+                {{ end }}
+                <a href="{{ .RelPermalink }}" title="{{ .LinkTitle }}" class="me-3">
+                    {{- partial "fontawesome.html" (dict "style" "solid" "icon" "caret-left" "classes" "me-1 align-baseline icone-2xs") -}}
+                    {{ $direcao }}
+                </a>
             {{ end }}
-            {{ partial "fontawesome.html" (dict "style" "solid" "icon" "chevron-right") }}
-        {{ end -}}
-        {{- partial "bcstep.html" . -}}
-    </span>
+            {{ with $pages.Next . }}
+                {{ $direcao := "Próximo tópico" }}
+                {{ if ne $.Parent.LinkTitle .Parent.LinkTitle }}
+                    {{ $direcao = "Próxima aula" }}
+                {{ end }}
+                <a href="{{ .RelPermalink }}" title="{{ .LinkTitle }}">
+                    {{ $direcao }}
+                    {{- partial "fontawesome.html" (dict "style" "solid" "icon" "caret-right" "classes" "ms-1 align-baseline icone-2xs") -}}
+                </a>
+            {{ end }}
+        </div>
+    </div>
 </nav>
 
 {{- define "_partials/bcstep.html" -}}

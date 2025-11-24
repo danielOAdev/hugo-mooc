@@ -41,68 +41,6 @@ figure {
             display: none;
         }
     }
-
-    &.vigi-pista {
-        & > img {
-            filter: blur(50px);
-        }
-
-        &:not(.show) > .figcontent__btn {
-            display: none;
-        }
-        
-        &::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image: url(../svgs/vigi-icones/zoom.svg);
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: min(5rem, 40%);
-            border-radius: $border-radius;
-            transition: background-size ease .3s, opacity ease-out .3s;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-        }
-
-        &:hover::after {
-            content: 'Clique para investigar';
-            font-family: $font-family-sans-serif;
-            text-align: center;
-            color: cores.$vigi-azul-logo-dark-2x;
-            font-weight: 800;
-            text-shadow:
-                /* Top-left */
-                -2px -2px 0 $white,
-                /* Top */
-                0 -2px 0 $white,
-                /* Top-right */
-                2px -2px 0 $white,
-                /* Left */
-                -2px 0 0 $white,
-                /* Right */
-                2px 0 0 $white,
-                /* Bottom-left */
-                -2px 2px 0 $white,
-                /* Bottom */
-                0 2px 0 $white,
-                /* Bottom-right */
-                2px 2px 0 $white;
-            background-size: 0;
-        }
-
-        .auto-exibir &, &.show {
-            & > img {
-                filter: none;
-            }
-            &::after {
-                content: none;
-            }
-        }
-
-    }
 }
 
 

@@ -8,7 +8,7 @@
         {{ end }}
         {{ $subtitulo := print "Tópico " (partial "funcao/indexOf.html" .) " de " .Page.Parent.Pages.Len }}
         <a href="{{ .RelPermalink }}" class="btn btn-secondary anterior">
-            {{ partial "fontawesome.html" (dict "style" "solid" "icon" "chevron-left")}}
+            {{ partial "fontawesome.html" (dict "style" "solid" "icon" "caret-left")}}
             <span class="texto">
                 <span class="direcao">{{ $direcao }}</span>
                 <span class="titulo">{{ .LinkTitle }} ({{ $subtitulo }})</span>
@@ -27,7 +27,7 @@
             <span class="direcao">{{ $direcao }}</span>
             <span class="titulo">{{.LinkTitle}} ({{ $subtitulo }})</span>
         </span>
-        {{ partial "fontawesome.html" (dict "style" "solid" "icon" "chevron-right")}}
+        {{ partial "fontawesome.html" (dict "style" "solid" "icon" "caret-right")}}
     </a>
     {{ end }}
 </nav>
