@@ -8,10 +8,11 @@
 {{- $pista := .Get "pista" | default false -}}
 
 <figure {{ with $classes }}class="{{ . }}"{{ end }}>
-    <div class="figcontent{{ with $pista }} vigi-pista{{ end }}">
+    {{ with $pista }}<label{{ else }}<div{{ end }} class="figcontent">
+        {{ with $pista }}<input type="checkbox" name="pista">{{ end }}
         <img class="img-fluid lightbox" src="{{ $arquivo }}" style="grid-area: 1 / 1;" alt="{{ $alt }}">
         {{ with (.Inner | safeHTML) }}
-        <button class="figcontent__btn btn btn-secondary btn-sm mx-auto collapsed" type="button" data-bs-animation="false" data-bs-toggle="collapse" data-bs-target="#{{- $id -}}" role="paragraph" tabindex="-1">
+        <button {{ with $pista }}hidden data-pista-hidden{{ end }} class="figcontent__btn btn btn-secondary btn-sm mx-auto collapsed" type="button" data-bs-animation="false" data-bs-toggle="collapse" data-bs-target="#{{- $id -}}" role="paragraph" tabindex="-1">
             <span aria-hidden="true">Legenda</span>
         </button>
         <div class="figdescricao collapse collapse-nothidden fade" id="{{ $id }}" data-bs-animation="false" tabindex="0">
@@ -21,7 +22,7 @@
             {{ . }}
         </div>
         {{ end }}
-    </div>
+    {{ with $pista }}</label>{{ else }}</div>{{ end }}
     <figcaption>
         {{ with $legenda }}
         <p>{{ . }}</p>

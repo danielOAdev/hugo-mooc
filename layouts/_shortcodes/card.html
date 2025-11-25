@@ -1,6 +1,7 @@
 
 {{- $vigiicone := (.Get "vigiicone") -}}
 {{- $header := (.Get "header") -}}
+{{- $pista := .Get "pista" | default false -}}
 
 <div class="vigi-card">
     {{- with $vigiicone -}}
@@ -15,7 +16,8 @@
             <span class="vigi-card-title display-6">{{ . }}</span>
         </div>
     {{- end -}}
-    <div class="vigi-card-body">
+    {{ with $pista }}<label{{ else }}<div{{ end }} class="vigi-card-body">
+        {{ with $pista }}<input type="checkbox" name="pista">{{ end }}
         {{ .Inner }}
-    </div>
+    {{ with $pista }}</label>{{ else }}</div>{{ end }}
 </div>

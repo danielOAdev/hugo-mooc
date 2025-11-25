@@ -12,13 +12,13 @@
             position: absolute;
             inset: 0;
 
-            label:has(&) {
+            label:has(> &) {
                 position: relative;
                 display: block;
                 background-color: orange;
             }
 
-            label:has(&:checked) > *:not(&) {
+            label:has(> &:checked) > *:not(&) {
                 filter: blur(1px);
             }
         }
@@ -31,22 +31,42 @@
     </style>
     <script>
         document.addEventListener("change", event => {
-            if (event.target.matches('[name="pista"]:not(:checked)')) {
-                event.target.setAttribute('disabled', '');
-                event.target.parentElement.querySelectorAll('*:not([name="pista"])').forEach(e => {
-                    if (e.dataset.hasOwnProperty('pistaTabindex')) {
-                        e.setAttribute('tabindex', '0');
+            if (event.target.matches('[name="pista"]')) {
+                const pista = event.target;
+                const externa = event.currentTarget.activeElement != pista;
+                const eRevelado = externa ? event.currentTarget.activeElement.checked : !pista.checked;
+
+                if (eRevelado) {
+                    if (!externa) {
+                        pista.classList.add('pista-revelada');
                     }
-                    if (e.dataset.hasOwnProperty('pistaHidden')) {
-                        e.removeAttribute('hidden');
-                    }
-                });
+                    pista.setAttribute('disabled', '');
+                    pista.parentElement.querySelectorAll('*:not([name="pista"])').forEach(e => {
+                        if (e.dataset.hasOwnProperty('pistaTabindex')) {
+                            e.setAttribute('tabindex', e.dataset.pistaTabindex);
+                        }
+                        if (e.dataset.hasOwnProperty('pistaHidden')) {
+                            e.removeAttribute('hidden');
+                        }
+                    });
+                } else {
+                    pista.removeAttribute('disabled');
+                    event.target.parentElement.querySelectorAll('*:not([name="pista"])').forEach(e => {
+                        if (e.dataset.hasOwnProperty('pistaTabindex')) {
+                            e.removeAttribute('tabindex');
+                        }
+                        if (e.dataset.hasOwnProperty('pistaHidden')) {
+                            e.setAttribute('hidden', e.dataset.pistaHidden);
+                        }
+                    });
+                }
+                return;
             }
             if (event.target.matches('[name="all"]')) {
-                document.querySelectorAll('[name="pista"]').forEach(e => {
+                document.querySelectorAll('[name="pista"]:not(.pista-revelada)').forEach(e => {
                     e.checked = !event.target.checked;
-                    const ce = new Event('change', { bubbles: true });
-                    e.dispatchEvent(ce);
+                    const changeEvent = new Event('change', {bubbles: true});
+                    e.dispatchEvent(changeEvent);
                 });
             }
         })
@@ -55,7 +75,7 @@
 <body>
     <label>
         <input type="checkbox" name="pista" checked>
-        <p data-pista-tabindex class="lighbox">Lorem ipsum dolor sit amet.</p>
+        <p data-pista-tabindex="0" class="lighbox">Lorem ipsum dolor sit amet.</p>
         <p hidden data-pista-hidden>Lorem ipsum dolor sit amet.</p>
         <p hidden data-pista-hidden>Lorem ipsum dolor sit amet.</p>
     </label>
