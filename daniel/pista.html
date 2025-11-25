@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        [name="pista"] {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            position: absolute;
+            inset: 0;
+
+            label:has(&) {
+                position: relative;
+                display: block;
+                background-color: orange;
+            }
+
+            label:has(&:checked) > *:not(&) {
+                filter: blur(1px);
+            }
+        }
+        :focus-visible {
+            box-shadow: none !important;
+            outline-offset: .25rem !important;
+            outline-width: .125rem !important;
+            outline-style: dashed !important;
+        }
+    </style>
+    <script>
+        document.addEventListener("change", event => {
+            if (event.target.matches('[name="pista"]:not(:checked)')) {
+                event.target.setAttribute('disabled', '');
+                event.target.parentElement.querySelectorAll('*:not([name="pista"])').forEach(e => {
+                    if (e.dataset.hasOwnProperty('pistaTabindex')) {
+                        e.setAttribute('tabindex', '0');
+                    }
+                    if (e.dataset.hasOwnProperty('pistaHidden')) {
+                        e.removeAttribute('hidden');
+                    }
+                });
+            }
+            if (event.target.matches('[name="all"]')) {
+                document.querySelectorAll('[name="pista"]').forEach(e => {
+                    e.checked = !event.target.checked;
+                    const ce = new Event('change', { bubbles: true });
+                    e.dispatchEvent(ce);
+                });
+            }
+        })
+    </script>
+</head>
+<body>
+    <label>
+        <input type="checkbox" name="pista" checked>
+        <p data-pista-tabindex class="lighbox">Lorem ipsum dolor sit amet.</p>
+        <p hidden data-pista-hidden>Lorem ipsum dolor sit amet.</p>
+        <p hidden data-pista-hidden>Lorem ipsum dolor sit amet.</p>
+    </label>
+    <div disabled tabindex="0">Lorem ipsum dolor sit amet.</div>
+    <div tabindex="0">Lorem ipsum dolor sit amet.</div>
+    <input type="checkbox" name="all">
+</body>
+</html>
