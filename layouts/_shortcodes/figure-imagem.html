@@ -1,5 +1,7 @@
 
-{{- $id := print "figdescricao-" (.Get "id" | default (partial "funcao/autoincrement.html" .)) -}}
+
+{{- $autoincrement := partial "funcao/autoincrement.html" (dict "context" . "name" "figura") -}}
+{{- $descricaoid := print "figdescricao-" (.Get "id" | default $autoincrement) -}}
 {{- $arquivo := .Get "arquivo" -}}
 {{- $alt := .Get "alt" -}}
 {{- $classes := .Get "classes" | default "" -}}
@@ -8,27 +10,26 @@
 {{- $pista := .Get "pista" | default false -}}
 
 <figure {{ with $classes }}class="{{ . }}"{{ end }}>
-    {{ with $pista }}<label{{ else }}<div{{ end }} class="figcontent">
-        {{ with $pista }}<input type="checkbox" name="pista">{{ end }}
+    {{ with $legenda }}
+    <figcaption class="text-center small">
+        <span>{{ . }}</span>
+    </figcaption>
+    {{ end }}
+    <div class="figcontent{{ with $pista }} pista{{ end }}">
         <img class="img-fluid lightbox" src="{{ $arquivo }}" style="grid-area: 1 / 1;" alt="{{ $alt }}" tabindex="0">
         {{ with (.Inner | safeHTML) }}
-        <button {{ with $pista }}hidden data-pista-hidden{{ end }} class="figcontent__btn btn btn-secondary btn-sm mx-auto collapsed" type="button" data-bs-animation="false" data-bs-toggle="collapse" data-bs-target="#{{- $id -}}" role="paragraph" tabindex="-1">
+        <button {{ with $pista }}data-pista-hidden{{ end }} class="figcontent__btn btn btn-secondary btn-sm mx-auto collapsed" type="button" data-bs-animation="false" data-bs-toggle="collapse" data-bs-target="#{{ $descricaoid }}" role="paragraph" tabindex="-1">
             <span aria-hidden="true">Legenda</span>
         </button>
-        <div class="figdescricao collapse collapse-nothidden fade" id="{{ $id }}" data-bs-animation="false" tabindex="0">
-            <button class="figdescricao__btn btn btn-secondary btn-icone btn-sm collapsed" type="button" data-bs-animation="false" data-bs-toggle="collapse" data-bs-target="#{{ $id }}" role="paragraph" tabindex="-1">
+        <div class="figdescricao collapse collapse-nothidden fade" id="{{ $descricaoid }}" data-bs-animation="false" tabindex="0">
+            <button class="figdescricao__btn btn btn-secondary btn-icone btn-sm collapsed" type="button" data-bs-animation="false" data-bs-toggle="collapse" data-bs-target="#{{ $descricaoid }}" role="paragraph" tabindex="-1">
                 {{ partial "fontawesome.html" (dict "style" "solid" "icon" "xmark") }}
             </button>
             {{ . }}
         </div>
         {{ end }}
-    {{ with $pista }}</label>{{ else }}</div>{{ end }}
-    <figcaption>
-        {{ with $legenda }}
-        <p>{{ . }}</p>
-        {{ end }}
-        {{ with $fonte }}
-        <p class="figfonte">Fonte: {{ . }}</p>
-        {{ end }}
-    </figcaption>
+    </div>
+    {{ with $fonte }}
+    <p class="figfonte">Fonte: {{ . }}</p>
+    {{ end }}
 </figure>

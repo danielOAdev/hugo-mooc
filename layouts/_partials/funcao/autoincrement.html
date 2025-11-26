@@ -1,5 +1,6 @@
-{{ $counter := .Page.Store.Get "unique_id_counter" | default 0 }}
+{{ $name := print "unique_id_counter-" .name | default "unique_id_counter" }}
+{{ $counter := .context.Page.Store.Get $name | default 0 }}
 {{ $counter = add $counter 1 }}
-{{ .Page.Store.Set "unique_id_counter" $counter }}
+{{ .context.Page.Store.Set $name $counter }}
 {{/* Output the ID */}}
 {{ return $counter }}

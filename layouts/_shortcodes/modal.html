@@ -1,5 +1,5 @@
 {{- $titulo := .Get "titulo" | safeHTML -}}
-{{- $id := print "modal" (.Get "titulo" | anchorize | default (partial "funcao/autoincrement.html" .)) -}}
+{{- $id := print "modal" (.Get "titulo" | anchorize | default (partial "funcao/autoincrement.html" (dict "context" . "name" "modal"))) -}}
 {{- $iconeBotao := .Get "iconeBotao" -}}
 {{- $iconeAlt := .Get "iconeAlt" -}}
 {{- $textoBotao := .Get "textoBotao" | safeHTML -}}
