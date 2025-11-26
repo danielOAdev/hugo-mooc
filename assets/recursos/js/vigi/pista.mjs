@@ -24,20 +24,38 @@ export const instancias = [];
  * @typedef {Pista}
  */
 export class Pista {
-    constructor(input) {
-        if (!input.matches('label *:first-child')) {
-            throw new Error('O elemento deve ser o primeiro filho de um elemento "label".');
+    
+    /**
+     * Cria uma instância de Pista
+     *
+     * @constructor
+     * @param {HTMLElement} elemento
+     */
+    constructor(elemento) {
+        if (!elemento.matches('.pista')) {
+            throw new Error('O elemento deve possuir a classe "pista".');
         }
 
-        if (!input.matches('input')) {
-            throw new Error('O elemento deve ser um "input".');
+        // Cria um novo elemento do tipo 'label'
+        this.label = document.createElement('label');
+
+        // Copia atributos do elemento antigo
+        for (let attr of elemento.attributes) {
+            this.label.setAttribute(attr.name, attr.value);
         }
 
-        if (!input.matches('[name="pista"]')) {
-            throw new Error('O elemento deve possuir o atributo "name" com valor "pista".');
+        // Move os nós filhos (conteúdo) para o novo elemento
+        while (elemento.firstChild) {
+            this.label.appendChild(elemento.firstChild);
         }
 
-        this.input = input;
+        //Substitui o elemento antigo pelo novo no DOM
+        elemento.parentNode.replaceChild(this.label, elemento);
+
+        this.input = document.createElement('input');
+        this.input.setAttribute('type', 'checkbox');
+        this.input.setAttribute('name', 'pista');
+        this.label.prepend(this.input);
 
         this.#salvaAtributosOriginais();
         this.#atualizaAtributos();
@@ -46,22 +64,18 @@ export class Pista {
             this.#atualizaAtributos();
         });
 
-        this.pai.addEventListener('keydown', event => {
+        this.label.addEventListener('keydown', event => {
             if (event.key === 'Enter' || event.key === ' ') {
                 event.preventDefault();
-                this.pai.click();
+                this.label.click();
             }
         });
 
         instancias.push(this);
     }
 
-    get pai() {
-        return this.input.parentElement;
-    }
-
     get elementos() {
-        return this.pai.querySelectorAll('*:not(input[name="pista"])');
+        return this.label.querySelectorAll('*:not(input[name="pista"])');
     }
 
     #salvaAtributosOriginais() {
@@ -72,26 +86,23 @@ export class Pista {
 
     #atualizaAtributos(externo = false) {
         this.elementos.forEach(elemento => {
-            if (elemento.dataset.hasOwnProperty('tabindexOriginal')) {
-                this.eExibido()
-                    ? elemento.setAttribute('tabindex', elemento.dataset.tabindexOriginal)
-                    : elemento.setAttribute('tabindex', '-1');
+            if (elemento.hasOwnProperty('tabindexOriginal')) {
+                elemento.setAttribute('tabindex', this.eExibido() ? elemento.dataset.tabindexOriginal : '-1');
             } else {
                 elemento.removeAttribute('tabindex');
             }
+
             if (elemento.dataset.hasOwnProperty('pistaHidden')) {
-                this.eExibido()
-                    ? elemento.removeAttribute('hidden')
-                    : elemento.setAttribute('hidden', elemento.dataset.pistaHidden);
+                if (this.eExibido()) elemento.removeAttribute('hidden');
             }
         });
         if (this.eExibido()) {
             if (!externo) this.input.classList.add('pista-exibida');
             this.input.setAttribute('disabled', '');
-            this.pai.removeAttribute('tabindex');
+            this.label.removeAttribute('tabindex');
         } else {
             this.input.removeAttribute('disabled');
-            this.pai.setAttribute('tabindex', this.pai.getAttribute('tabindex') ?? '0');
+            this.label.setAttribute('tabindex', this.label.getAttribute('tabindex') ?? '0');
         }
     };
 
@@ -108,7 +119,7 @@ export class Pista {
     }
 }
 
-document.querySelectorAll('input[name=pista]').forEach(input => {
+document.querySelectorAll('.pista').forEach(input => {
     new Pista(input);
 });
 

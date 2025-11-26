@@ -16,8 +16,7 @@
             <span class="vigi-card-title display-6">{{ . }}</span>
         </div>
     {{- end -}}
-    {{ with $pista }}<label{{ else }}<div{{ end }} class="vigi-card-body">
-        {{ with $pista }}<input type="checkbox" name="pista">{{ end }}
+    <div class="vigi-card-body{{ with $pista }} pista{{ end }}">
         {{ .Inner }}
-    {{ with $pista }}</label>{{ else }}</div>{{ end }}
+    </div>
 </div>

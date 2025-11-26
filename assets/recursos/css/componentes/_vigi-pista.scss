@@ -65,16 +65,16 @@
 /* 2.0 */
 
 input[name=pista]:first-child {
-    label:has(> &) {
+    *.pista:has(> &) {
         position: relative;
         display: block;
     }
 
-    label > & {
+    *.pista > & {
         display: none;
     }
 
-    label:has(> &:not(:checked)) {
+    *.pista:has(> &:not(:checked)) {
         overflow: clip;
 
         &::after {
@@ -120,7 +120,7 @@ input[name=pista]:first-child {
         }
     }
 
-    label > &:not(:checked) {
+    *.pista > &:not(:checked) {
         & ~ * {
             filter: blur(10px);
         }
