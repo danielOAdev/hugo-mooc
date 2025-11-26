@@ -11,7 +11,9 @@ const lightboxClose = document.getElementById('lightbox-close');
 const getParentRect = () => lightboxBounds.getBoundingClientRect();
 
 document.querySelectorAll('img.lightbox').forEach(instance => {
-    instance.tabIndex = 0;
+    if (!instance.hasAttribute('tabindex')) {
+        instance.tabIndex = 0;
+    }
     instance.alt += ' Selecione para expandir a imagem.';
     instance.addEventListener('click', select);
     instance.addEventListener('keydown', function(e) {

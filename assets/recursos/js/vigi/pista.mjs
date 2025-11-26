@@ -66,26 +66,7 @@ export class Pista {
 
     #salvaAtributosOriginais() {
         this.elementos.forEach(elemento => {
-            if (!elemento.dataset.hasOwnProperty('tabindexOriginal')
-                &&  elemento.matches(`
-                    audio,
-                    button,
-                    canvas,
-                    details,
-                    iframe,
-                    input,
-                    select,
-                    summary,
-                    textarea,
-                    video,
-                    [accesskey],
-                    [contenteditable],
-                    [href],
-                    [tabindex]
-                `)
-            ) {
-                elemento.dataset.tabindexOriginal = elemento.getAttribute('tabindex') ?? '0';
-            }
+            elemento.dataset.tabindexOriginal = elemento.tabIndex;
         });
     }
 
@@ -96,9 +77,7 @@ export class Pista {
                     ? elemento.setAttribute('tabindex', elemento.dataset.tabindexOriginal)
                     : elemento.setAttribute('tabindex', '-1');
             } else {
-                this.eExibido()
-                    ? elemento.removeAttribute('tabindex')
-                    : elemento.setAttribute('tabindex', '-1');
+                elemento.removeAttribute('tabindex');
             }
             if (elemento.dataset.hasOwnProperty('pistaHidden')) {
                 this.eExibido()
