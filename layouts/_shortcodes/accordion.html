@@ -13,13 +13,13 @@
                 data-bs-target="#{{ $id }}-collapse{{ add $index 1 }}"
                 aria-expanded="{{ if eq $index 0 }}true{{ else }}false{{ end }}"
                 aria-controls="collapse{{ add $index 1 }}">
-          {{ $header }}
+          <span>{{- strings.TrimSpace $header | safeHTML -}}</span>
         </button>
     </span>
       <div id="{{ $id }}-collapse{{ add $index 1 }}" class="accordion-collapse collapse"
            data-bs-parent="#{{ $id }}">
         <div class="accordion-body">
-          {{ index $contents $index | safeHTML }}
+          {{- index $contents $index | safeHTML -}}
         </div>
       </div>
     </div>
