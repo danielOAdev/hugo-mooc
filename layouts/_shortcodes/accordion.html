@@ -1,0 +1,27 @@
+
+{{- $autoincrement := partial "funcao/autoincrement.html" (dict "context" . "name" "accordion") -}}
+{{- $id := print "accordion-" $autoincrement -}}
+{{- $headers := split (.Get "headers") "---" -}}
+{{- $contents := split .Inner "---" -}}
+
+<div class="accordion" id="{{ $id }}">
+  {{ range $index, $header := $headers }}
+    <div class="accordion-item">
+      <span class="accordion-header h2" id="{{ $id }}-heading{{ add $index 1 }}">
+        <button class="accordion-button collapsed" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#{{ $id }}-collapse{{ add $index 1 }}"
+                aria-expanded="{{ if eq $index 0 }}true{{ else }}false{{ end }}"
+                aria-controls="collapse{{ add $index 1 }}">
+          {{ $header }}
+        </button>
+    </span>
+      <div id="{{ $id }}-collapse{{ add $index 1 }}" class="accordion-collapse collapse"
+           data-bs-parent="#{{ $id }}">
+        <div class="accordion-body">
+          {{ index $contents $index | safeHTML }}
+        </div>
+      </div>
+    </div>
+  {{ end }}
+</div>
