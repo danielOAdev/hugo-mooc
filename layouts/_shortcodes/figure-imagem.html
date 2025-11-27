@@ -5,18 +5,24 @@
 {{- $arquivo := .Get "arquivo" -}}
 {{- $alt := .Get "alt" -}}
 {{- $classes := .Get "classes" | default "" -}}
-{{- $legenda := .Get "legenda" | default "" -}}
+{{- $titulo := .Get "titulo" | default "" -}}
 {{- $fonte := .Get "fonte" | safeHTML | default "" -}}
 {{- $pista := .Get "pista" | default false -}}
+{{- $eVideo := eq (path.Ext $arquivo) ".mp4" -}}
+{{- $atributos := .Get "atributos" | default (cond $eVideo "controls" "") | safeHTMLAttr -}}
 
 <figure {{ with $classes }}class="{{ . }}"{{ end }}>
-    {{ with $legenda }}
+    {{ with $titulo }}
     <figcaption class="text-center small">
         <span>{{ . }}</span>
     </figcaption>
     {{ end }}
     <div class="figcontent{{ with $pista }} pista{{ end }}">
-        <img class="img-fluid lightbox" src="{{ $arquivo }}" style="grid-area: 1 / 1;" alt="{{ $alt }}" tabindex="0">
+        {{ with $eVideo }}
+        <video class="img-fluid" src="{{ $arquivo }}" alt="{{ $alt }}" {{ $atributos }}></video>
+        {{ else }}
+        <img class="img-fluid lightbox" src="{{ $arquivo }}" alt="{{ $alt }}" tabindex="0">
+        {{ end }}
         {{ with (.Inner | safeHTML) }}
         <button {{ with $pista }}data-pista-hidden{{ end }} class="figcontent__btn btn btn-secondary btn-sm mx-auto collapsed" type="button" data-bs-animation="false" data-bs-toggle="collapse" data-bs-target="#{{ $descricaoid }}" role="paragraph" tabindex="-1">
             <span aria-hidden="true">Legenda</span>
