@@ -51,6 +51,7 @@ dialog {
     grid-area: content;
     overflow: auto;
     padding: 1rem;
+    scroll-margin-block-start: 10rem;
     scrollbar-gutter: stable;
 
     & > .vigi-grid.active {

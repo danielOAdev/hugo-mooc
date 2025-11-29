@@ -22,7 +22,7 @@
             <div class="carousel-item slide-{{ .Section }}">
                 <div class="modulos-carrosel-titulo {{ .Section }} rounded">
                     <button class="btn btn-outline-light mb-3 icon-link fw-medium" data-bs-target="#modulosCarrossel{{$.suffix}}" data-bs-slide-to="0">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "chevron-left")}}Escolher personagem</button>
-                    <p class="display-1 fw-bold text-light">{{ strings.FirstUpper .Page.Section }}</p>
+                    <p class="display-5 fw-bold text-light">{{ strings.FirstUpper .Page.Section }}</p>
                 </div>
             {{ range (where .Sections "Type" "eq" "aula").ByWeight }}
                 {{ partial "slide-aula.html" (dict "Page" . "suffix" $.suffix) }}

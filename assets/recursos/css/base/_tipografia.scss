@@ -66,6 +66,10 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
 main {
     font-size: 1.25rem;
     line-height: 2rem;
+
+    > p:first-of-type:first-letter {
+    font-size: 200%; /* Makes the first letter three times the normal font size */
+    }
 }
 
 .fs-body {

@@ -36,21 +36,7 @@ export class Pista {
             throw new Error('O elemento deve possuir a classe "pista".');
         }
 
-        // Cria um novo elemento do tipo 'label'
-        this.label = document.createElement('label');
-
-        // Copia atributos do elemento antigo
-        for (let attr of elemento.attributes) {
-            this.label.setAttribute(attr.name, attr.value);
-        }
-
-        // Move os nós filhos (conteúdo) para o novo elemento
-        while (elemento.firstChild) {
-            this.label.appendChild(elemento.firstChild);
-        }
-
-        //Substitui o elemento antigo pelo novo no DOM
-        elemento.parentNode.replaceChild(this.label, elemento);
+        this.#trocaTagLabel(elemento, 'label');
 
         this.input = document.createElement('input');
         this.input.setAttribute('type', 'checkbox');
@@ -75,7 +61,7 @@ export class Pista {
     }
 
     get elementos() {
-        return this.label.querySelectorAll('*:not(input[name="pista"])');
+        return this.label.querySelectorAll('*:not(input[name="pista"], summary, details)');
     }
 
     #salvaAtributosOriginais() {
@@ -86,8 +72,12 @@ export class Pista {
 
     #atualizaAtributos(externo = false) {
         this.elementos.forEach(elemento => {
-            if (elemento.hasOwnProperty('tabindexOriginal')) {
-                elemento.setAttribute('tabindex', this.eExibido() ? elemento.dataset.tabindexOriginal : '-1');
+            if (elemento.dataset.hasOwnProperty('tabindexOriginal')) {
+                elemento.removeAttribute('tabindex');
+                const tabindexOriginal = this.eExibido() ? elemento.dataset.tabindexOriginal : '-1';
+                if (!this.eExibido() || (this.eExibido() && elemento.tabIndex != tabindexOriginal)) {
+                    elemento.setAttribute('tabindex', tabindexOriginal);
+                }
             } else {
                 elemento.removeAttribute('tabindex');
             }
@@ -100,6 +90,7 @@ export class Pista {
             if (!externo) this.input.classList.add('pista-exibida');
             this.input.setAttribute('disabled', '');
             this.label.removeAttribute('tabindex');
+            this.#trocaTagLabel(this.label, 'div');
         } else {
             this.input.removeAttribute('disabled');
             this.label.setAttribute('tabindex', this.label.getAttribute('tabindex') ?? '0');
@@ -116,6 +107,24 @@ export class Pista {
         }
         this.input.checked = valor;
         this.#atualizaAtributos(true);
+    }
+
+    #trocaTagLabel(elemento, novaTag) {
+        // Cria um novo elemento do tipo escolhido
+        this.label = document.createElement(novaTag);
+
+        // Copia atributos do elemento antigo
+        for (let attr of elemento.attributes) {
+            this.label.setAttribute(attr.name, attr.value);
+        }
+
+        // Move os nós filhos (conteúdo) para o novo elemento
+        while (elemento.firstChild) {
+            this.label.appendChild(elemento.firstChild);
+        }
+
+        //Substitui o elemento antigo pelo novo no DOM
+        elemento.parentNode.replaceChild(this.label, elemento);
     }
 }
 

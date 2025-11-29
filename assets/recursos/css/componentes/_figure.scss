@@ -25,6 +25,34 @@ figure {
         border-radius: $border-radius;
     }
 
+    > details {
+        position: absolute;
+        inset: 0;
+        padding: 1rem;
+        overflow: auto;
+
+        &:not(:open) {
+            pointer-events: none;
+        }
+
+        &:open {
+            border-radius: .375rem;
+            backdrop-filter: blur(5px);
+            background-color: rgba(var(--#{$prefix}body-bg-rgb), .8);
+
+            [data-bs-theme="highcontrast"] & {
+                background-color: rgba(var(--#{$prefix}body-bg-rgb), 1);
+                border: var(--#{$prefix}border-width) var(--#{$prefix}border-style) var(--#{$prefix}border-color);
+            }
+        }
+
+        > summary {
+            float: right;
+            margin-left: .5rem;
+            pointer-events: auto;
+        }
+    }
+
     &__btn {
         position: absolute;
         top: 10px;
@@ -49,7 +77,7 @@ figure {
     line-height: $line-height-base;
     backdrop-filter: blur(5px);
     background-color: rgba(var(--#{$prefix}body-bg-rgb), .8),;
-    padding: 0 1rem;
+    padding: .5rem;
     transition: none;
     transition: opacity .15s ease !important;
     pointer-events: none;
@@ -66,7 +94,7 @@ figure {
 
     &__btn {
         position: sticky;
-        top: 10px;
+        margin-left: .5rem;
         float: right;
     }
 

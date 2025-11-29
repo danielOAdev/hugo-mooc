@@ -9,6 +9,7 @@
 {{- $fonte := .Get "fonte" | safeHTML | default "" -}}
 {{- $pista := .Get "pista" | default false -}}
 {{- $eVideo := eq (path.Ext $arquivo) ".mp4" -}}
+{{- $eWebp := eq (path.Ext $arquivo) ".webp" -}}
 {{- $atributos := .Get "atributos" | default (cond $eVideo "controls" "") | safeHTMLAttr -}}
 
 <figure {{ with $classes }}class="{{ . }}"{{ end }}>
@@ -20,19 +21,28 @@
     <div class="figcontent{{ with $pista }} pista{{ end }}">
         {{ with $eVideo }}
         <video class="img-fluid" src="{{ $arquivo }}" alt="{{ $alt }}" {{ $atributos }}></video>
+        {{ else with $eWebp }}
+        <picture>
+            <source srcset="{{ replaceRE "\\.webp$" ".jpg" $arquivo | safeURL }}" media="(prefers-reduced-motion: reduce)"> 
+            <img class="img-fluid lightbox" src="{{ $arquivo }}" type="image/webp" alt="{{ $alt }}">
+        </picture>
         {{ else }}
         <img class="img-fluid lightbox" src="{{ $arquivo }}" alt="{{ $alt }}" tabindex="0">
         {{ end }}
         {{ with (.Inner | safeHTML) }}
-        <button {{ with $pista }}data-pista-hidden{{ end }} class="figcontent__btn btn btn-secondary btn-sm mx-auto collapsed" type="button" data-bs-animation="false" data-bs-toggle="collapse" data-bs-target="#{{ $descricaoid }}" role="paragraph" tabindex="-1">
+        {{/*  <button {{ with $pista }}data-pista-hidden{{ end }} class="figcontent__btn btn btn-secondary btn-sm mx-auto collapsed" type="button" data-bs-animation="false" data-bs-toggle="collapse" data-bs-target="#{{ $descricaoid }}" role="paragraph" tabindex="-1">
             <span aria-hidden="true">Legenda</span>
         </button>
         <div class="figdescricao collapse collapse-nothidden fade" id="{{ $descricaoid }}" data-bs-animation="false" tabindex="0">
-            <button class="figdescricao__btn btn btn-secondary btn-icone btn-sm collapsed" type="button" data-bs-animation="false" data-bs-toggle="collapse" data-bs-target="#{{ $descricaoid }}" role="paragraph" tabindex="-1">
+            <button class="figdescricao__btn btn btn-secondary btn-icone btn-sm collapsed" type="button" data-bs-animation="false" data-bs-toggle="collapse" data-bs-target="#{{ $descricaoid }}" title="Fechar legenda" tabindex="0">
                 {{ partial "fontawesome.html" (dict "style" "solid" "icon" "xmark") }}
             </button>
             {{ . }}
-        </div>
+        </div>  */}}
+        <details>
+            <summary class="btn btn-secondary btn-sm" type="button">Transcrição</summary>
+            {{ . }}
+        </details>
         {{ end }}
     </div>
     {{ with $fonte }}

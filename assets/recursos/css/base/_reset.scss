@@ -5,6 +5,10 @@ html {
     scroll-padding-top: 10rem;
 }
 
+p:last-child {
+    margin-block-end: 0;
+}
+
 dialog::backdrop {
     backdrop-filter: blur(2px) brightness(0.5);
 }

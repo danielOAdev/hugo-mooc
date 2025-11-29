@@ -4,6 +4,10 @@
 .modulos-carrossel .carousel-inner {
     overflow: visible;
 
+    .carousel-item h2 {
+        scroll-margin-top: 11rem;
+    }
+
     &:has(.carousel-item-start, .carousel-item-end) {
         overflow: clip;
     }
@@ -113,12 +117,17 @@
     }
 
     .modulos-carrosel-titulo {
+        position: sticky;
+        top: 0;
+        z-index: 1;
         background-color: var(--vigi-tertiary-bg);
         padding: 1rem;
         background-position-y: center;
         background-size: cover;
         min-height: min(8rem, 20dvh);
         filter: saturate(1.5);
+
+        box-shadow: 0 0 1rem 1rem var(--vigi-tertiary-bg), 0px -1rem 0px 1rem var(--vigi-tertiary-bg);
 
         &.luana {
             background-image: url(../imagens/modulos/luana-bg.jpg);

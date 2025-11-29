@@ -22,7 +22,7 @@ document.querySelectorAll('img.lightbox').forEach(instance => {
         }
     });
     function select() {
-        lightboxImg.src = instance.src;
+        lightboxImg.src = instance.currentSrc;
         lightbox.showModal();
     };
 });
