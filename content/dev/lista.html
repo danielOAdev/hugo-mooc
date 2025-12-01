@@ -1,0 +1,48 @@
++++
+title = 'Lista com ícones'
+aliases = ['/lista']
++++
+
+
+<!--
+Parametros
+icone: Nome do ícone
+estilo: solid(padrão), regular, brand
+-->
+{{< lista-icone 
+    icone = "puzzle-piece"
+>}}
+<p>
+    ABC
+</p>
+---
+<p>
+    DEF
+</p>
+{{< lista-icone 
+    icone = "spider"
+>}}
+123
+---
+456
+---
+789
+{{< /lista-icone >}}
+---
+<p>
+    GHI
+</p>
+{{< /lista-icone >}}
+
+
+<ul>
+    <li>ABC</li>
+    <li>DEF
+        <ul>
+            <li>123</li>
+            <li>456</li>
+            <li>789</li>
+        </ul>
+    </li>
+    <li>GHI</li>
+</ul>

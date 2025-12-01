@@ -1,0 +1,30 @@
+
+{{- $autoincrement := partial "funcao/autoincrement.html" (dict "context" . "name" "carousel") -}}
+{{- $id := print "carousel-" $autoincrement -}}
+{{- $contents := split .Inner "---" -}}
+
+
+<div id="{{ $id }}" class="carousel slide">
+  <div class="carousel-inner">
+  {{ range $index, $content := $contents }}
+    <div class="carousel-item{{ if eq $index 0 }} active{{ end }}">
+      {{- . | safeHTML -}}
+    </div>
+  {{ end }}
+  </div>
+  <div class="carousel-controls">
+    <button class="btn btn-secondary btn-icone" type="button" data-bs-target="#{{ $id }}" data-bs-slide="prev">
+      {{ partial "fontawesome.html" (dict "style" "solid" "icon" "chevron-left") }}
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="btn btn-secondary btn-icone" type="button" data-bs-target="#{{ $id }}" data-bs-slide="next">
+      {{ partial "fontawesome.html" (dict "style" "solid" "icon" "chevron-right") }}
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <div class="carousel-indicators">
+    {{ range $index, $content := $contents }}
+    <button class="bg-secondary{{ if eq $index 0 }} active{{ end }}" type="button" data-bs-target="#{{ $id }}" data-bs-slide-to="{{ $index }}" aria-current="true" aria-label="Slide {{ add $index 1 }}"></button>
+    {{ end }}
+  </div>
+</div>

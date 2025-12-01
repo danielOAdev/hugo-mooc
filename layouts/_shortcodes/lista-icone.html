@@ -1,0 +1,13 @@
+{{- $estilo := .Get "estilo" | default "solid" -}}
+{{- $icone := .Get "icone" | default "angle-right" -}}
+{{- $conteudos := split .Inner "---" -}}
+<ul class="ps-0" type="none">
+    {{ range $conteudos }}
+    <li>
+        <div style="display: grid; grid-template-columns: 2rem auto;">
+            <span class="d-flex align-items-center" style="height: 1lh;">{{ partial "fontawesome.html" (dict "style" $estilo "icon" $icone) }}</span>
+            <div>{{ . | safeHTML }}</div>
+        </div>
+    </li>
+    {{ end }}
+</ul>

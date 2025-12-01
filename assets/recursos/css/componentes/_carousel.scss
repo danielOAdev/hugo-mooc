@@ -1,0 +1,18 @@
+@use "base/cores";
+@use "bootstrap" as *;
+
+.carousel-controls {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.carousel-inner {
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
+}
+
+.carousel-indicators {
+    position: static;
+}
