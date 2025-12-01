@@ -125,8 +125,6 @@
         background-position-y: center;
         background-size: cover;
         min-height: min(8rem, 20dvh);
-        filter: saturate(1.5);
-
         box-shadow: 0 0 1rem 1rem var(--vigi-tertiary-bg), 0px -1rem 0px 1rem var(--vigi-tertiary-bg);
 
         &.luana {
