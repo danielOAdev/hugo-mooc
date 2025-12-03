@@ -27,32 +27,47 @@ para essa etapa da investigação.</p>
     vigiicone="audio"
     header="Para ouvir"
 >}}
-<figure>
-    <audio src="../../recursos/audios/1-narrador.mp3" controls>
-        <track label="Português (Brasil)" kind="subtitles" srclang="pt-BR" src="../../recursos/audios/1-narrador.vtt" default>
-    </audio>
-    <div class="legenda"></div>
-</figure>
+    {{< figure-audio
+        arquivo = "/luana/aula2/topico6/recursos/audios/3-conversa-de-luana-e-mariana"
+        descrição = "Conversa entre Luana e Mariana."
+        classes = "m-0"
+    >}}
+        {{< modal
+            titulo = "Conversa entre Luana e Mariana"
+            textoBotao = "Ver transcrição"
+            classesBotao = "btn-secondary d-block mx-auto mb-3 btn-sm"
+            classesModal = "modal-lg modal-dialog-scrollable"
+        >}}
+        <p class="text-center">[Som de teclado telefônico]</p>
+        <p class="text-center">[Som de escritório, pessoas trabalhando, telefone tocando ao fundo]</p>
+        <p class="text-center">[Telefone chamando]</p>
+        <p>Luana:  Mariana? Oi, sou eu, Luana. Tudo bem? Sei que sua rotina na unidade de saúde é uma correria, mas estou acompanhando alguns dados preocupantes aqui em Alto do Vale e precisava conversar com alguém que está na linha de frente do cuidado.</p>
+        <p>Dra. Mariana: Oi, Lua! Que bom te ouvir. Claro, pode falar. Imagino que esteja falando dos casos de câncer...</p>
+        <p>Luana: Sim, exatamente. Tem muita coisa nos relatórios que não bate com os relatos das pessoas. A incidência de câncer parece estar crescendo, mas quase sempre o diagnóstico chega tarde demais.</p>
+        <p>Dra. Mariana: Isso tem sido rotina aqui também. A maior parte dos casos chega quando os sintomas já estão muito avançados. E o pior: não é só falta de exames — é falta de escuta, de orientação, de prevenção real. A gente está lidando com uma segunda causa de morte no Brasil, e mesmo assim parece que o tema ainda assusta mais do que mobiliza.</p>
+        <p>Luana: A OMS estima quase 10 milhões de mortes por câncer no mundo em 2022. E o Brasil está na lista dos países com maior incidência, com quase 704 mil novos casos ao ano. Você tem visto isso refletido aí?</p>
+        <p>Dra. Mariana: Com certeza. O câncer de mama ainda lidera entre as mulheres — principalmente acima dos 50 anos, mas tem muito fator evitável por trás disso: sedentarismo, consumo de álcool, obesidade… Entre os homens, a gente tem o câncer de próstata que ainda é o mais comum, e poucos fazem acompanhamento preventivo, né?  E o câncer de intestino, que a gente achava que era mais raro? Está crescendo também — alimentação ruim, falta de rastreio, histórico familiar… nossa, tudo isso pesa.</p>
+        <p>Luana: E quando a gente cruza isso com as desigualdades de acesso, a situação só piora. Já vi aqui mesmo famílias que ficaram anos esperando um exame.</p>
+        <p>Dra. Mariana: É exatamente isso. Diagnóstico tardio, medo, desinformação e muita demora. E olha, muita gente ainda acha que câncer é só genético, mas a verdade é que boa parte dos casos está ligada a fatores de risco modificáveis.  A gente precisava falar mais sobre isso com a população, sabe? Desmistificar. Eu vou te mandar algumas anotações minhas por e-mail. Espero que te ajude.</p>
+        <p>Luana: Perfeito. Obrigada, Mariana. Acho que suas pistas nos ajudam a entender melhor o que está em jogo aqui. Eu vou registrar tudo com meu assistente. E se lembrar de mais alguma coisa, me avisa, ok?</p>
+        <p>Dra. Mariana: Pode deixar. Estou tô por aqui. E obrigada por seguir nessa investigação — a gente precisa mesmo unir os pontos.</p>
+        <p class="text-center">[Som de desligamento]</p>
+        {{< /modal >}}
+    {{< /figure-audio >}}
 {{< /card >}}
 
 {{< figure-imagem
-    id = "relacao-dose-efeito"
+    id = ""
     arquivo = "recursos/imagens/ARTE 14 copy.jpg"
     alt = `Ilustração em estilo cartunesco de uma mulher negra de cabelos crespos. Ela veste camisa social laranja com crachá azul pendurado no pescoço e mantém os braços cruzados à frente do corpo, olhando para frente. Ao fundo, a parede azul exibe um mapa fixado, com gráficos e recortes de mapas menores colados sobre ele. À direita, parte de uma mesa bege com monitor de computador. A personagem fala em um balão branco: "Mais uma peça do quebra-cabeça. Agora sim, começamos a enxergar o todo...". `
 >}}{{< /figure-imagem >}}
 
-
-
-<div class="accordion" id="accordionExample">
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingOne">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+{{< accordion
+    headers=`
        <b>Relatório de Saúde – Neoplasias</b>
-      </button>
-    </h2>
-    <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        <p><i>Assunto: Complemento das informações sobre os casos de câncer </i></p>
+    `
+>}}
+<p><i>Assunto: Complemento das informações sobre os casos de câncer </i></p>
         <p>Oi, Luana.</p>
         <p>Fiquei pensando em nossa conversa e achei importante compartilhar mais alguns dados que podem te ajudar em Alto do Vale. Sei que você está montando um grande quebra-cabeça — e cada detalhe conta.</p>
         <p>O câncer é, basicamente, uma <b>neoplasia maligna</b>, ou seja, o crescimento anormal e descontrolado de células do corpo. Essas células passam a se multiplicar sem parar, formando tumores que invadem os tecidos ao redor. Em muitos casos, conseguem até migrar para outros órgãos, comprometendo o funcionamento do corpo como um todo.</p>
@@ -74,16 +89,14 @@ para essa etapa da investigação.</p>
 
 
            {{< figure-imagem
-            id = "relacao-dose-efeito"
+            id = ""
             arquivo = "recursos/imagens/modulo-01-aula-02-tabela-03.png"
             alt = ``
             >}}{{< /figure-imagem >}}
             <p>Um abraço,</p>
             <p><b>Dra. Mariana</b></p>
-        </div>
-    </div>
-  </div>
-</div>
+
+{{< /accordion >}}
 
 
 <p>Luana leu cada linha com atenção. Estava claro: o câncer não era apenas um 
