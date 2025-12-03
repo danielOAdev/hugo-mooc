@@ -6,7 +6,7 @@ modulosCarrossel.forEach(moduloCarrossel => {
     //const seletor = document.getElementsByClassName('seletor-modulos');
     //const botoesAulas = seletor.querySelectorAll('button');
     const inner = moduloCarrossel.querySelector('.carousel-inner');
-
+    
     moduloCarrossel.addEventListener('slid.bs.carousel', event => {
         //event.relatedTarget
         //event.to

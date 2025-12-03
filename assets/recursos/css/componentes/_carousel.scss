@@ -1,18 +1,36 @@
 @use "base/cores";
+@use "sass:color";
 @use "bootstrap" as *;
 
-.carousel-controls {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    justify-content: space-between;
-}
+:where(:not(.modulos-carrossel)) {
+    &.carousel {
+        --space-y: 3rem;
+        border-radius: $border-radius;
+        box-shadow: var(--vigi-box-shadow);
+        background-color: color.change(cores.$vigi-branco-azulado, $alpha: 10%);
+        padding: 2rem var(--space-y);
+    }
 
-.carousel-inner {
-    padding-right: 2.5rem;
-    padding-left: 2.5rem;
-}
+    .carousel-controls {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        justify-content: space-between;
+        pointer-events: none;
 
-.carousel-indicators {
-    position: static;
+        > button {
+            pointer-events: auto;
+            width: var(--space-y);
+        }
+    }
+
+    .carousel-indicators {
+        position: static;
+        margin-bottom: 0;
+        margin-top: 1rem;
+
+        [data-bs-target] {
+            background-color: var(--vigi-body-color);
+        }
+    }
 }

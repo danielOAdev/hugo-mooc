@@ -33,6 +33,13 @@ figure {
 
         &:not(:open) {
             pointer-events: none;
+
+            .transcricao-abrir {
+                display: inline;
+            }
+            .transcricao-fechar {
+                display: none;
+            }
         }
 
         &:open {
@@ -43,6 +50,13 @@ figure {
             [data-bs-theme="highcontrast"] & {
                 background-color: rgba(var(--#{$prefix}body-bg-rgb), 1);
                 border: var(--#{$prefix}border-width) var(--#{$prefix}border-style) var(--#{$prefix}border-color);
+            }
+
+            .transcricao-abrir {
+                display: none;
+            }
+            .transcricao-fechar {
+                display: inline;
             }
         }
 

@@ -29,18 +29,12 @@
         {{ else }}
         <img class="img-fluid lightbox" src="{{ $arquivo }}" alt="{{ $alt }}" tabindex="0">
         {{ end }}
-        {{ with (.Inner | safeHTML) }}
-        {{/*  <button {{ with $pista }}data-pista-hidden{{ end }} class="figcontent__btn btn btn-secondary btn-sm mx-auto collapsed" type="button" data-bs-animation="false" data-bs-toggle="collapse" data-bs-target="#{{ $descricaoid }}" role="paragraph" tabindex="-1">
-            <span aria-hidden="true">Legenda</span>
-        </button>
-        <div class="figdescricao collapse collapse-nothidden fade" id="{{ $descricaoid }}" data-bs-animation="false" tabindex="0">
-            <button class="figdescricao__btn btn btn-secondary btn-icone btn-sm collapsed" type="button" data-bs-animation="false" data-bs-toggle="collapse" data-bs-target="#{{ $descricaoid }}" title="Fechar legenda" tabindex="0">
-                {{ partial "fontawesome.html" (dict "style" "solid" "icon" "xmark") }}
-            </button>
-            {{ . }}
-        </div>  */}}
+        {{ with (.Inner | strings.TrimSpace | safeHTML) }}
         <details>
-            <summary class="btn btn-secondary btn-sm" type="button">Transcrição</summary>
+            <summary class="btn btn-secondary btn-sm" type="button">
+                <span class="transcricao-abrir">Transcrição</span>
+                <span class="transcricao-fechar" title="Fechar transcrição">Fechar</span>
+            </summary>
             {{ . }}
         </details>
         {{ end }}

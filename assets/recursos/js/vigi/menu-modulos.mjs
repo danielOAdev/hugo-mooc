@@ -22,6 +22,13 @@ document.addEventListener('click', function(event) {
     }
 });
 
+carousel.addEventListener('slide.bs.carousel', event => {
+    const conteudo = carousel.closest('#menu-conteudo');
+    if (conteudo) {
+        conteudo.scrollTop = 0;
+    }
+});
+
 const aba = document.querySelector('#menu-modulos-tab');
 aba.addEventListener('show.bs.tab', event => {
     if (exibindoAula === null) {

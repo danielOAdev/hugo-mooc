@@ -1,6 +1,46 @@
 <h1 class="visually-hidden fs-6">Links do rodapé</h1>
-<p class="small">Este site é regido pela Política de Acesso Aberto ao Conhecimento, que busca garantir à sociedade o acesso gratuito, público e aberto ao conteúdo integral de toda obra intelectual produzida pela Fiocruz.</p>
-<p class="small">O conteúdo deste site pode ser utilizado para todos os fins não comerciais, respeitados e reservados os direitos morais dos autores.</p>
+<div class="container-fluid" style="--vigi-gutter-x: 0">
+  <div class="row" style="--vigi-gutter-y: 1.5rem">
+    <div class="col-12 col-sm-6">
+        <div class="align-items-center d-flex flex-column flex-sm-row gap-3 justify-content-center">
+            <img src="/recursos/logo.png" alt="" style="width: 80px;object-fit: contain;">
+            <div class="text-center text-sm-start">
+                Curso
+                <br>
+                <span class="fw-semibold">{{ site.Title }}</span>
+                <br>
+                {{ site.Params.subtitle }}
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-sm-6">
+      <div class="d-grid text-center text-sm-start column-gap-4" style="grid-template-columns: repeat(auto-fit, minmax(calc((50rem / 2 / 3) - 3rem), 1fr));">
+          <ul class="list-unstyled">
+            <li class="fw-bold">Módulos</li>
+            <li><a href="">Luana</a></li>
+            <li><a href="">Thiago</a></li>
+            <li><a href="">Mariana</a></li>
+            <li><a href="">Pedro</a></li>
+          </ul>
+          <ul class="list-unstyled">
+            <li class="fw-bold">Menu</li>
+            <li><a href="">Glossário</a></li>
+            <li><a href="">Ajuda</a></li>
+            <li><a href="">Atalhos</a></li>
+            <li><a href="">Contato</a></li>
+            <li><a href="">Créditos</a></li>
+          </ul>
+          <ul class="list-unstyled">
+            <li class="fw-bold">Opções</li>
+            <li><a href="">Acessibilidade</a></li>
+            <li><a href="">Privacidade</a></li>
+          </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="small" style="text-align: justify">Este site é regido pela Política de Acesso Aberto ao Conhecimento, que busca garantir à sociedade o acesso gratuito, público e aberto ao conteúdo integral de toda obra intelectual produzida pela Fiocruz.</p>
+<p class="small" style="text-align: justify">O conteúdo deste site pode ser utilizado para todos os fins não comerciais, respeitados e reservados os direitos morais dos autores.</p>
 <div class="vigi-subgrid vigi-coluna-cheia bg-white py-5">
     <div class="regua-logos vigi-coluna-padrao">
         <a title="Campus Virtual Fiocruz" href="https://campusvirtual.fiocruz.br" target="_blank"><img src="{{ "/recursos/imagens/logos/cvf.svg" | relURL }}" alt="Logomarca Campus Virtual Fiocruz" aria-hidden="true" draggable="false"></a>

@@ -13,18 +13,18 @@
   {{ end }}
   </div>
   <div class="carousel-controls">
-    <button class="btn btn-secondary btn-icone" type="button" data-bs-target="#{{ $id }}" data-bs-slide="prev">
-      {{ partial "fontawesome.html" (dict "style" "solid" "icon" "chevron-left") }}
+    <button class="btn p-0" type="button" data-bs-target="#{{ $id }}" data-bs-slide="prev">
+      {{ partial "fontawesome.html" (dict "style" "solid" "icon" "chevron-left" "classes" "btn-icone icone-auto") }}
       <span class="visually-hidden">Previous</span>
     </button>
-    <button class="btn btn-secondary btn-icone" type="button" data-bs-target="#{{ $id }}" data-bs-slide="next">
-      {{ partial "fontawesome.html" (dict "style" "solid" "icon" "chevron-right") }}
+    <button class="btn p-0" type="button" data-bs-target="#{{ $id }}" data-bs-slide="next">
+      {{ partial "fontawesome.html" (dict "style" "solid" "icon" "chevron-right" "classes" "btn-icone icone-auto") }}
       <span class="visually-hidden">Next</span>
     </button>
   </div>
   <div class="carousel-indicators">
     {{ range $index, $content := $contents }}
-    <button class="bg-secondary{{ if eq $index 0 }} active{{ end }}" type="button" data-bs-target="#{{ $id }}" data-bs-slide-to="{{ $index }}" aria-current="true" aria-label="Slide {{ add $index 1 }}"></button>
+    <button {{ if eq $index 0 }}class="active"{{ end }} type="button" data-bs-target="#{{ $id }}" data-bs-slide-to="{{ $index }}" aria-current="true" aria-label="Slide {{ add $index 1 }}"></button>
     {{ end }}
   </div>
 </div>
