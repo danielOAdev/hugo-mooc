@@ -7,6 +7,7 @@ import { Tab } from "../bootstrap/bootstrap.min.mjs";
 export const menu = document.getElementById('menu');
 const botaoFechar = document.getElementById('menu-fechar');
 const menuConteudo = document.getElementById('menu-conteudo');
+const voltarAoTopo = menuConteudo.querySelector('.voltar-ao-topo');
 const navTabs = menu.querySelectorAll('#menu-tabs .nav-link');
 const navSelect = menu.querySelector('#menu-select select');
 const tituloOriginal = document.title;
@@ -67,6 +68,10 @@ navSelect.addEventListener('change', (event) => {
     Tab.getOrCreateInstance(document.getElementById(`menu-${event.target.value}-tab`)).show();
 });
 
+voltarAoTopo.addEventListener('click', (event) => {
+    menuConteudo.scrollTop = 0;
+});
+
 document.addEventListener('keydown', function(event) {
     if (event.shiftKey || event.ctrlKey || event.altKey || event.metaKey) return;
 
@@ -82,6 +87,14 @@ document.addEventListener('keydown', function(event) {
         }
         abrir();
     }
+});
+
+menuConteudo.addEventListener('scroll', function() {
+  if (menuConteudo.scrollTop > menuConteudo.clientHeight * .5) {
+    menuConteudo.classList.add('deslocado');
+  } else {
+    menuConteudo.classList.remove('deslocado')
+  }
 });
 
 document.addEventListener('click', function(event) {

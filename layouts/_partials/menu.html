@@ -45,6 +45,10 @@
             </select>
         </div>
         <div id="menu-conteudo" class="tab-content">
+            <button class="voltar-ao-topo btn btn-primary icon-link justify-content-end" type="button">
+                <span>Voltar ao topo</span>
+                {{ partial "fontawesome.html" (dict "style" "solid" "icon" "arrow-up") }}
+            </button>
             <div class="vigi-grid tab-pane fade show active" id="menu-modulos-conteudo" role="tabpanel" aria-labelledby="menu-modulos-tab" tabindex="0">
                 <section class="vigi-coluna-cheia">{{ partial "modulos.html" . }}</section>
             </div>

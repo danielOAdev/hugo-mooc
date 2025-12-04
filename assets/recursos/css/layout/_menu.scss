@@ -36,7 +36,6 @@ dialog {
     grid-template:
         "tabs content" 1fr
         "socials content" / min-content 1fr;
-    gap: 1rem;
     overflow: hidden;
     @include media-breakpoint-down(md) {
         grid-template:
@@ -53,9 +52,48 @@ dialog {
     padding: 1rem;
     scroll-margin-block-start: 10rem;
     scrollbar-gutter: stable;
+    scroll-behavior: smooth;
+
+    @media (prefers-reduced-motion: reduce) {
+        scroll-behavior: auto;
+    }
 
     & > .vigi-grid.active {
         display: grid;
+    }
+}
+
+.voltar-ao-topo {
+    position: absolute;
+    bottom: -2rem;
+    right: 2rem;
+    z-index: 1;
+    opacity: .8;
+    width: 2.6rem;
+    visibility: hidden;
+    
+    @media (prefers-reduced-motion: no-preference) {
+        transition: bottom ease-out .15s, visibility ease-out .15s, width ease-out .15s;
+    }
+
+    > svg {
+        flex: 0 0 auto;
+    }
+
+    > span {
+        white-space: nowrap;
+        min-width: 0;
+        overflow: clip;
+    }
+
+    &:hover {
+        opacity: 1;
+        width: 15ch;
+    }
+
+    #menu-conteudo.deslocado > & {
+        bottom: 1rem;
+        visibility: visible;
     }
 }
 
