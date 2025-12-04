@@ -86,6 +86,7 @@ document.addEventListener('keydown', function(event) {
             exibirAba('modulos');
         }
         abrir();
+        //document.location.hash = `${modulo}--aula-${aulaIndex}`;
     }
 });
 
@@ -151,6 +152,11 @@ function dynamicTarget(url) {
             return;
         }
     }
+
+    // Hashs dinâmicos para os módulos.
+    //if (url.hash.startsWith('#menu-modulos')) {
+    //    url.hash.split('#menu-modulos-')[1]
+    //}
 
     target = menu.querySelector(url.hash);
     if (!menu.contains(target)) return;
