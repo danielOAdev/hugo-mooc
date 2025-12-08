@@ -24,3 +24,36 @@ aliases = ['/acordeon']
     <p>Conteúdo do terceiro item</p>
     {{< /accordion >}}
 {{< /accordion >}}
+
+{{< accordion
+    headers=`
+        Item 1
+     
+    `
+>}}
+
+    {{< accordion headers="Item 1---Item 2---Item 3" >}}
+    <p>Conteúdo do primeiro item</p>
+    ---
+    <p>Conteúdo do segundo item</p>
+    ---
+    <p>Conteúdo do terceiro item</p>
+    {{< /accordion >}}
+{{< /accordion >}}
+
+
+{{< accordion
+    headers=`
+        Item 1
+        ---
+        Item <b>2</b>
+        
+    `
+>}}
+<p>Conteúdo do primeiro item</p>
+---
+<p>Conteúdo do segundo item</p>
+---
+
+{{< /accordion >}}
+
