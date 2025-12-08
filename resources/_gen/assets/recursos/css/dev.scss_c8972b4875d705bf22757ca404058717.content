@@ -1,0 +1,1 @@
+aside.dev{border:1px dashed #fff;background-color:red;padding:.25rem;font-size:80%;line-height:1;font-weight:700}aside.dev>.comentario::before{content:"Comentário: ";color:cyan}aside.dev>.todo::before{content:"Pendente: ";color:#ff0;text-transform:uppercase}

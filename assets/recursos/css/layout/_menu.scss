@@ -65,12 +65,18 @@ dialog {
 
 .voltar-ao-topo {
     position: absolute;
-    bottom: -2rem;
+    bottom: 1rem;
     right: 2rem;
     z-index: 1;
     opacity: .8;
     width: 2.6rem;
+    scale: 0;
     visibility: hidden;
+
+    #menu-conteudo.deslocado > & {
+        scale: 1;
+        visibility: visible;
+    }
     
     @media (prefers-reduced-motion: no-preference) {
         transition: bottom ease-out .15s, visibility ease-out .15s, width ease-out .15s;
@@ -89,11 +95,6 @@ dialog {
     &:hover {
         opacity: 1;
         width: 15ch;
-    }
-
-    #menu-conteudo.deslocado > & {
-        bottom: 1rem;
-        visibility: visible;
     }
 }
 

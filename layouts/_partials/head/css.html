@@ -2,3 +2,10 @@
 {{ with resources.Get "recursos/css/vigi.scss" | toCSS $opts | postCSS | minify }}
     <link rel="stylesheet" href="{{ .RelPermalink }}">
 {{ end }}
+
+{{ $opts := dict "transpiler" "dartsass" "targetPath" "recursos/css/dev.css" "silenceDeprecations" (slice "import" "global-builtin" "color-functions") }}
+{{- if ne hugo.Environment "production" -}}
+    {{ with resources.Get "recursos/css/dev.scss" | toCSS $opts | postCSS | minify }}
+        <link rel="stylesheet" href="{{ .RelPermalink }}">
+    {{ end }}
+{{- end -}}

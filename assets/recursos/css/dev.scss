@@ -1,0 +1,23 @@
+aside.dev {
+    border: 1px dashed white;
+    background-color: red;
+    padding: .25rem;
+    font-size: 80%;
+    line-height: 1;
+    font-weight: bold;
+
+    > .comentario {
+        &::before {
+            content: "Comentário: ";
+            color: cyan;
+        }
+    }
+
+    > .todo {
+        &::before {
+            content: "Pendente: ";
+            color: yellow;
+            text-transform: uppercase;
+        }
+    }
+}

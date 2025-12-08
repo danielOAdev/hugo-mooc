@@ -33,11 +33,11 @@
 </div>
 
 {{ define "_partials/slide-aula.html" }}
-{{ $id := print .Page.Section "--aula-" ( partial "funcao/indexOf.html" .Page ) }}
+{{ $id := print "modulos-" .Page.Section "--aula-" ( partial "funcao/indexOf.html" .Page ) }}
 <div class="aula-{{ .Page.Weight }} mt-3">
-    <h2 id="{{ $id }}" class="h3">
+    <div id="{{ $id }}" class="h3">
         <a href="#{{ $id }}" class="heading-anchor">{{ .Page.Title }}</a>
-    </h2>
+    </div>
     <ol class="vstack gap-1 list-unstyled">
     {{ range .Page.Pages.ByWeight }}
         <li class=""><a href="{{ .RelPermalink }}" class="btn btn-secondary text-start d-block">{{ partial "funcao/indexOf.html" . }}: {{ .Title }}</a></li>

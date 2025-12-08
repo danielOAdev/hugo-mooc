@@ -2,6 +2,7 @@ import { carousel } from "./menu-modulos.mjs";
 import "./menu-a11y.mjs";
 import "./menu-privacidade.mjs";
 import { exibirSlide } from "./modulos.mjs"
+import { getIndexPorNome, exibirModulo, exibirAula } from "./menu-modulos.mjs"
 import { Tab } from "../bootstrap/bootstrap.min.mjs";
 
 export const menu = document.getElementById('menu');
@@ -11,19 +12,14 @@ const voltarAoTopo = menuConteudo.querySelector('.voltar-ao-topo');
 const navTabs = menu.querySelectorAll('#menu-tabs .nav-link');
 const navSelect = menu.querySelector('#menu-select select');
 const tituloOriginal = document.title;
-const hrefOriginal = document.location.hash && (menu.querySelector(document.location.hash) || menu.querySelector(document.location.hash + '-tab')) ?
-    document.location.origin + document.location.pathname :
-    document.location.href;
+const hrefOriginal = window.location.origin + window.location.pathname + window.location.search;
 
 let anchorNodeOriginal;
 let anchorOffsetOriginal;
 let focusNodeOriginal;
 let focusOffsetOriginal;
 
-// Se "target" está oculto, é possivel que ele esteja dentro do menu principal.
-if (window.location.hash && (menu.querySelector(window.location.hash)) || menu.querySelector(document.location.hash + '-tab')) {
-    dynamicTarget(window.location);
-}
+dynamicTarget(window.location);
 
 menu.addEventListener('beforetoggle', (event) => {
     if (event.newState !== 'open') return;
@@ -86,7 +82,6 @@ document.addEventListener('keydown', function(event) {
             exibirAba('modulos');
         }
         abrir();
-        //document.location.hash = `${modulo}--aula-${aulaIndex}`;
     }
 });
 
@@ -124,7 +119,7 @@ document.addEventListener('click', function(event) {
  * Foca e rola para objetos não visíveis na página.
  * Também aceita hashs dinâmicos para os itens do menu.
  * 
- * @param {string} url link com hash (#id-do-elemento)
+ * @param {URL|Location|string} url link com hash (#id-do-elemento)
  * @returns
  */
 function dynamicTarget(url) {
@@ -133,7 +128,10 @@ function dynamicTarget(url) {
 
         url = new URL(url);
     }
-    if (!url?.hash) return;
+    if (!eIDQueryValida(url.hash)) {
+        fechar();
+        return;
+    }
 
     let target;
     target = menu.querySelector(url.hash);
@@ -154,12 +152,21 @@ function dynamicTarget(url) {
     }
 
     // Hashs dinâmicos para os módulos.
-    //if (url.hash.startsWith('#menu-modulos')) {
-    //    url.hash.split('#menu-modulos-')[1]
-    //}
+    const re = /^#modulos-(?<modulo>.+?)(?:--aula-(?<aula>\d+))?$/i;
+    const match = re.exec(url.hash);
+    if (match) {
+        const { modulo, aula } = match.groups;
+        if (modulo) {
+            if (aula) {
+                exibirAula(getIndexPorNome(modulo), aula);
+            } else {
+                exibirModulo(getIndexPorNome(modulo));
+            }
+        }
+    };
 
     target = menu.querySelector(url.hash);
-    if (!menu.contains(target)) return;
+    if (!target) return;
 
     const conteudo = target.closest('[role="tabpanel"]');
     if (!conteudo) return;
@@ -172,13 +179,13 @@ function dynamicTarget(url) {
     salvarSelecao();
     exibirAba(nome);
     abrir();
-    document.location.hash = url.hash;
+    window.location.hash = url.hash;
     target.scrollIntoView();
     target.focus();
 }
 
-document.addEventListener('hashchange', () => {
-    dynamicTarget(location);
+window.addEventListener('hashchange', () => {
+    dynamicTarget(window.location);
 })
 
 /**
@@ -209,7 +216,7 @@ export function exibirAba(nomeAba) {
     navSelect.value = nomeAba;
     menu.open || tabConteudo.classList.add('fade');
 
-    if (!document.location.hash || !menu.querySelector(document.location.hash)) {
+    if (!eIDQueryValida(window.location.hash) || !menu.querySelector(window.location.hash)) {
         atualizarLocationAba(nomeAba);
     }
     return true;
@@ -228,6 +235,11 @@ function atualizarLocationAba(nomeAba) {
     if (!tab) return;
 
     document.title = `${tab.textContent} | ${tituloOriginal}`;
-    document.location.hash = `#menu-${nomeAba}`; // Necessário para limpar seletor css ":target".
-    history.replaceState({}, document.title, `${document.location.pathname}#menu-${nomeAba}`);
+    window.location.hash = `#menu-${nomeAba}`; // Necessário para limpar seletor css ":target".
+    history.replaceState({}, document.title, `${window.location.pathname}#menu-${nomeAba}`);
+}
+
+function eIDQueryValida(id) {
+    const regex = /^#?[a-zA-Z_][a-zA-Z0-9_-]*$/;
+    return regex.test(id);
 }

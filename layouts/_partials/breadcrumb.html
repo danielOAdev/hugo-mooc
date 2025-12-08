@@ -46,16 +46,13 @@
             {{- .LinkTitle -}}
             </a>
         {{- else if eq .Type "modulo" -}}
-            <button type="button" class="btn btn-sm btn-outline-light p-0 px-2 icon-link" data-vigi-menu-modulo="{{ partial "funcao/indexOf.html" . }}">
-                {{- .LinkTitle -}}
-            </button>
+            <a href="#modulos-{{ .Section }}">
+            {{- .LinkTitle -}}
+            </a>
         {{- else if eq .Type "aula" -}}
-            <button type="button" class="btn btn-sm btn-outline-light p-0 px-2 icon-link" data-vigi-menu-modulo="{{ partial "funcao/indexOf.html" .Parent }}" data-vigi-menu-aula="{{ partial "funcao/indexOf.html" . }}">
-                {{- .LinkTitle -}}
-                {{- with .Parent -}}
-                    {{- print " de " .Pages.Len -}}
-                {{- end -}}
-            </button>
+            <a href="#modulos-{{ .Section }}--aula-{{ partial "funcao/indexOf.html" . }}">
+            {{- .LinkTitle -}}
+            </a>
         {{- else if eq .Type "topico" -}}
             {{- $index := partial "funcao/indexOf.html" . -}}
             {{- $total := 0 -}}

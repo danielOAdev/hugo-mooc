@@ -39,7 +39,7 @@ aba.addEventListener('click', event => {
     exibirSlide(carousel, 0);
 })
 
-function exibirModulo(moduloIndex) {
+export function exibirModulo(moduloIndex) {
     exibirSlide(carousel, 0);
     exibirAba('modulos');
     abrir();
@@ -48,7 +48,7 @@ function exibirModulo(moduloIndex) {
     }
 }
 
-function exibirAula(moduloIndex, aulaIndex = null) {
+export function exibirAula(moduloIndex, aulaIndex = null) {
     exibindoAula = true;
     exibirSlide(carousel, moduloIndex);
     exibirAba('modulos');
@@ -61,7 +61,7 @@ function exibirAula(moduloIndex, aulaIndex = null) {
     }
 }
 
-function getIndexPorNome(nome) {
+export function getIndexPorNome(nome) {
     const slide = carousel.querySelector(`.slide-${nome}`);
     return Array.prototype.indexOf.call(slide.parentElement.children, slide);
 }
