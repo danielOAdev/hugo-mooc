@@ -1,0 +1,8 @@
+@use "bootstrap" as *;
+
+@for $i from 1 through length($spacers) {
+    .column-count-#{$i} {
+        column-count: $i;
+        column-width: 20ch;
+    }
+}

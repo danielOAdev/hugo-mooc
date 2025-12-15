@@ -2,8 +2,9 @@
 {{- $vigiicone := (.Get "vigiicone") -}}
 {{- $header := (.Get "header") -}}
 {{- $pista := .Get "pista" | default false -}}
+{{- $classes := .Get "classes" | default "" -}}
 
-<div class="vigi-card">
+<section class="vigi-card{{ with $classes }} {{ . }}{{ end }}">
     {{- with $vigiicone -}}
         <div class="vigi-card-header">
             {{ partial "vigiicone.html" (dict "icone" . "classes" "icone-4x" ) }}
@@ -19,4 +20,4 @@
     <div class="vigi-card-body{{ with $pista }} pista{{ end }}">
         {{ .Inner }}
     </div>
-</div>
+</section>

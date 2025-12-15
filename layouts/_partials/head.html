@@ -5,7 +5,21 @@
 <meta name="description" content="{{ .Summary }}">
 {{- partial "opengraph.html" . -}}
 {{- partial "twitter_cards.html" . -}}
-<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
+{{ if in .Site.MainSections .Section }}
+    {{ $modulo := "_" }}
+    {{ $aula := 0 }}
+    {{ $topico := 0 }}
+    {{ with (partial "funcao/indexOf.html" .) }}
+        {{ $topico = . }}
+    {{ end }}
+    {{ with .CurrentSection }}
+        {{ $aula = partial "funcao/indexOf.html" . }}
+    {{ end }}
+    {{ $modulo = substr .Section 0 1 | upper }}
+    <title>{{ printf "%s/%d/%d - %s | %s" $modulo $aula $topico .Title site.Title }}</title>
+{{ else }}
+    <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
+{{ end }}
 {{- partialCached "head/css.html" . -}}
 {{- partial "head/js.html" . -}}
 {{ range resources.Match "recursos/imagens/modulos/*.*" }}

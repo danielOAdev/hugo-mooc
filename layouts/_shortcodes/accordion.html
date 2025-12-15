@@ -1,10 +1,11 @@
 
 {{- $autoincrement := partial "funcao/autoincrement.html" (dict "context" . "name" "accordion") -}}
 {{- $id := print "accordion-" $autoincrement -}}
+{{- $classes := .Get "classes" | default "" -}}
 {{- $headers := split (.Get "headers") "---" -}}
 {{- $contents := split .Inner "---" -}}
 
-<div class="accordion" id="{{ $id }}">
+<div class="accordion{{ with $classes }} {{ . }}{{ end }}" id="{{ $id }}">
   {{ range $index, $header := $headers }}
     <div class="accordion-item">
       <span class="accordion-header h2" id="{{ $id }}-heading{{ add $index 1 }}">

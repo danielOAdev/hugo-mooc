@@ -1,7 +1,8 @@
 {{- $estilo := .Get "estilo" | default "solid" -}}
 {{- $icone := .Get "icone" | default "angle-right" -}}
 {{- $conteudos := split .Inner "---" -}}
-<ul class="ps-0" type="none" role="list">
+{{- $classes := .Get "classes" | default "" -}}
+<ul {{ with $classes }}class="{{ . }}"{{ end }} type="none" role="list">
     {{ range $index, $conteudo := $conteudos }}
     <li style="display: grid; grid-template-columns: 2rem auto;" role="listitem" aria-setsize="{{ len $conteudos }}" aria-posinset="{{ add $index 1}}">
         <span class="d-flex align-items-center" style="height: 1lh;">{{ partial "fontawesome.html" (dict "style" $estilo "icon" $icone) }}</span>

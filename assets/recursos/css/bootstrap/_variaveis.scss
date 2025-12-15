@@ -27,3 +27,5 @@ $input-btn-font-family: var(--#{$prefix}font-sans-serif);
 $btn-font-family:             $input-btn-font-family;
 $input-font-family:                     $input-btn-font-family;
 $form-select-font-family:           $input-font-family;
+
+$legend-font-size: inherit;

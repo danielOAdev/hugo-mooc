@@ -4,7 +4,7 @@
 
 .vigi-card {
     position: relative;
-    margin-block-start: 4rem;
+    margin-block-start: 3rem;
     &::before {
         content: '';
         position: absolute;
@@ -13,6 +13,9 @@
         border-radius: $border-radius;
         box-shadow: var(--vigi-box-shadow);
         background-color: color.change(cores.$vigi-branco-azulado, $alpha: 10%);
+        [data-bs-theme="light"] & {
+            background-color: color.change($white, $alpha: 50%);
+        }
         z-index: -1;
     }
 }
