@@ -1,11 +1,11 @@
 <ul>
 {{ range site.Pages }}
-    {{ if .HasShortcode "dev" }}
+    {{ if .HasShortcode "comentario" }}
         <li>
             {{ $noop := .WordCount }} {{/* force content rendering */}}
             <p>{{ .Path }}</p>
             <ul>
-                {{ range .Store.Get "dev_index" }}
+                {{ range .Store.Get "comentario_lista" }}
                 <li>
                     <a href="{{ .permalink }}#{{- .id -}}">{{ .title }} (<code>{{ .tipo }}</code>)</a>
                     <blockquote class="mt-0 small">{{ .preview | safeHTML }}</blockquote>
