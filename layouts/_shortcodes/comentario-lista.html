@@ -1,14 +1,14 @@
-<ul>
+<ul type="none">
 {{ range site.Pages }}
-    {{ if .HasShortcode "comentario" }}
+    {{ if and (.HasShortcode "comentario") (ne hugo.Environment "production") }}
         <li>
             {{ $noop := .WordCount }} {{/* force content rendering */}}
-            <p>{{ .Path }}</p>
-            <ul>
+            <code>{{ .Path }}</code>
+            <ul class="list-unstyled ms-5">
                 {{ range .Store.Get "comentario_lista" }}
-                <li>
-                    <a href="{{ .permalink }}#{{- .id -}}">{{ .title }} (<code>{{ .tipo }}</code>)</a>
-                    <blockquote class="mt-0 small">{{ .preview | safeHTML }}</blockquote>
+                <li class="d-flex">
+                    <a href="{{ .permalink }}#{{- .id -}}" target="_blank"></a>
+                    <aside class="dev {{ .tipo }} bg-body border-0">{{ .preview | safeHTML }}</aside>
                 </li>
                 {{ end }}
             </ul>

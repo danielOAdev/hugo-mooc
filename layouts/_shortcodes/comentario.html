@@ -1,15 +1,17 @@
 
-{{- $tipo := .Get "tipo" | default "comentario" -}}
-{{- $count := .Page.Store.Get "comentario_count" | default 0 -}}
-{{- $count = add $count 1 -}}
-{{- .Page.Store.Set "comentario_count" $count -}}
-{{- $id := print "comentario-" $count "_" (.Page.Title | anchorize) -}}
+{{- if ne hugo.Environment "production" -}}
+    {{- $tipo := .Get "tipo" | default "comentario" -}}
+    {{- $count := .Page.Store.Get "comentario_count" | default 0 -}}
+    {{- $count = add $count 1 -}}
+    {{- .Page.Store.Set "comentario_count" $count -}}
+    {{- $id := print "comentario-" $count "_" (.Page.Title | anchorize) -}}
 
-<aside id="{{ $id }}" class="dev {{ $tipo }}">
-  {{- if .Inner -}}
-    {{ .Inner | safeHTML }}
-  {{- end -}}
-</aside>
+    <aside id="{{ $id }}" class="dev {{ $tipo }}">
+    {{- if .Inner -}}
+        {{ .Inner | safeHTML }}
+    {{- end -}}
+    </aside>
 
-{{- $comentario := dict "permalink" .Page.RelPermalink "title" .Page.Title "tipo" $tipo "id" $id "preview" .Inner -}}
-{{- .Page.Store.Add "comentario_lista" (slice $comentario) -}}
+    {{- $comentario := dict "permalink" .Page.RelPermalink "tipo" $tipo "id" $id "preview" .Inner -}}
+    {{- .Page.Store.Add "comentario_lista" (slice $comentario) -}}
+{{ end }}

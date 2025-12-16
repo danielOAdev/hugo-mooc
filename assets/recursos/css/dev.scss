@@ -18,6 +18,9 @@ aside.dev {
             content: "Pendente: ";
             color: yellow;
             text-transform: uppercase;
+            [data-bs-theme="light"] & {
+                background-color: black;
+            }
         }
     }
 }
