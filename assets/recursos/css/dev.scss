@@ -6,15 +6,15 @@ aside.dev {
     line-height: 1;
     font-weight: bold;
 
-    > .comentario {
-        &::before {
+    &.comentario {
+        > :first-child::before {
             content: "Comentário: ";
             color: cyan;
         }
     }
 
-    > .todo {
-        &::before {
+    &.todo {
+        > :first-child::before {
             content: "Pendente: ";
             color: yellow;
             text-transform: uppercase;

@@ -1,0 +1,18 @@
+<ul>
+{{ range site.Pages }}
+    {{ if .HasShortcode "dev" }}
+        <li>
+            {{ $noop := .WordCount }} {{/* force content rendering */}}
+            <p>{{ .Path }}</p>
+            <ul>
+                {{ range .Store.Get "dev_index" }}
+                <li>
+                    <a href="{{ .permalink }}#{{- .id -}}">{{ .title }} (<code>{{ .tipo }}</code>)</a>
+                    <blockquote class="mt-0 small">{{ .preview | safeHTML }}</blockquote>
+                </li>
+                {{ end }}
+            </ul>
+        </li>
+    {{ end }}
+{{ end }}
+</ul>

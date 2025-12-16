@@ -1,0 +1,15 @@
+
+{{- $tipo := .Get "tipo" | default "comentario" -}}
+{{- $count := .Page.Store.Get "dev_count" | default 0 -}}
+{{- $count = add $count 1 -}}
+{{- .Page.Store.Set "dev_count" $count -}}
+{{- $id := print "comentario-" $count "_" (.Page.Title | anchorize) -}}
+
+<aside id="{{ $id }}" class="dev {{ $tipo }}">
+  {{- if .Inner -}}
+    {{ .Inner | safeHTML }}
+  {{- end -}}
+</aside>
+
+{{- $rec := dict "permalink" .Page.RelPermalink "title" .Page.Title "tipo" $tipo "id" $id "preview" .Inner -}}
+{{- .Page.Store.Add "dev_index" (slice $rec) -}}
