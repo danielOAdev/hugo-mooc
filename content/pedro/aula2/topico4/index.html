@@ -83,67 +83,32 @@
 </blockquote>
  {{< /figure-imagem >}}
 
-<div class="accordion" id="accordionDoc2">
 
-  <div class="accordion-item">
-    <span class="accordion-header" id="headingUm">
-      <button class="accordion-button" style="background-color: #000080;  color: aliceblue;  border-radius: 10px;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUm" aria-expanded="false" aria-controls="collapseUm">
-      <p>Documento 2</p>
-    </button>
-    </span>
-    <div id="collapseUm" class="accordion-collapse collapse " aria-labelledby="headingUm" data-bs-parent="#accordionDoc2">
-        <div class="accordion-body">
-            <div class="accordion" id="accordionPai">
+ {{< accordion
+    headers=`
+        Documento 2     
+    `
+>}}
 
-                    <div class="accordion-item">
-                        <span class="accordion-header" id="headingDois">
-                        <button class="accordion-button"  type="button" data-bs-toggle="collapse" data-bs-target="#collapseDois" aria-expanded="false" aria-controls="collapseDois">
-                        <p>Vigitel (Sistema de Vigilância de Fatores de Risco e Proteção para DCNT por Inquérito Telefônico)</p>
-                        </button>
-                        </span>
-                        <div id="collapseDois" class="accordion-collapse collapse " aria-labelledby="headingDois" data-bs-parent="#accordionFilho">
-                            <div class="accordion-body">
-                                <p>O Vigitel é uma pesquisa feita por telefone, realizada todos os anos desde 2006. As entrevistas são feitas com pessoas de 18 anos ou mais que moram nas capitais e no Distrito Federal e que tenham telefone. A partir de 2023, passaram a ser incluídos também os celulares.</p>
-                                <p>Ele coleta informações sobre doenças crônicas e os principais fatores de risco e proteção, como: tabagismo, alimentação, consumo de álcool, prática de atividade física, excesso de peso, obesidade e prevenção do câncer feminino.</p>
-                                <p>Além disso, o Vigitel traz dados sobre como as pessoas avaliam a própria saúde e se já receberam diagnóstico médico de diabetes ou hipertensão arterial. Os resultados são divulgados por cidade, região, sexo, idade e escolaridade, sempre de forma agrupada (sem identificar ninguém).</p>
-                                <p>Segundo o Ministério da Saúde, a partir de 2025 a pesquisa passará a incluir outros municípios, além das capitais.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <span class="accordion-header" id="headingTres">
-                        <button class="accordion-button"  type="button" data-bs-toggle="collapse" data-bs-target="#collapseTres" aria-expanded="false" aria-controls="collapseTres">
-                        <p>PeNSE (Pesquisa Nacional de Saúde do Escolar)</p>
-                        </button>
-                        </span>
-                        <div id="collapseTres" class="accordion-collapse collapse " aria-labelledby="headingTres" data-bs-parent="#accordionFilho">
-                            <div class="accordion-body">
-                                <p>A PeNSE é uma pesquisa feita com estudantes de escolas públicas e privadas, para entender melhor os hábitos e comportamentos dos adolescentes em relação à saúde. Ela ajuda a identificar fatores de risco e proteção para doenças crônicas.</p>
-                                <p>A primeira edição foi realizada em 2009 com alunos do 9º ano do Ensino Fundamental nas capitais e no Distrito Federal. Com o tempo, a pesquisa passou a incluir adolescentes de 13 a 17 anos de outros municípios e ganhou mais temas e indicadores.</p>
-                                <p>A PeNSE é realizada pelo IBGE, com apoio do Ministério da Saúde e do Ministério da Educação. As edições seguintes foram feitas em 2012, 2015, 2019 e 2024, portanto, com intervalos variados entre elas.</p>
-                                <p>Hoje, a pesquisa aborda temas como alimentação, atividade física, sono, uso de álcool, cigarro e outras drogas, saúde mental e emocional, renda familiar, moradia, acesso a serviços de saúde e até características do ambiente escolar, como segurança e alimentação oferecida.</p>
-                            </div>
-                            </div>
-                    </div>
-                    <div class="accordion-item">
-                            <span class="accordion-header" id="headingQuatro">
-                            <button class="accordion-button"  type="button" data-bs-toggle="collapse" data-bs-target="#collapseQuatro" aria-expanded="false" aria-controls="collapseQuatro">
-                            <p>Pesquisa Nacional de Saúde (PNS)</p>
-                            </button>
-                            </span>
-                            <div id="collapseQuatro" class="accordion-collapse collapse " aria-labelledby="headingQuatro" data-bs-parent="#accordionFilho">
-                                <div class="accordion-body">
-                                    <p>A PNS é a pesquisa de saúde mais completa feita no Brasil. É aplicada em domicílios e representa todo o País, incluindo áreas urbanas, rurais, regiões, estados e capitais. Por isso, é considerada a principal referência para entender a saúde da população brasileira.</p>
-                                    <p>Ela permite avaliar o SUS, identificar como está a saúde da população e monitorar doenças crônicas e seus fatores de risco. A PNS trata de temas como doenças, estilos de vida, uso dos serviços de saúde e condições de saúde em geral.</p>
-                                    <p>É realizada pelo IBGE, em parceria com o Ministério da Saúde. A primeira edição foi feita em 2013, com pessoas de 18 anos ou mais. A segunda edição, em 2019, passou a incluir pessoas a partir de 15 anos.</p>
-                                </div>
-                            </div>
-                    </div>                      
-                </div>
-            </div>         
-        </div>
-    </div>
-  </div>
+    {{< accordion headers="Vigitel (Sistema de Vigilância de Fatores de Risco e Proteção para DCNT por Inquérito Telefônico)---PeNSE (Pesquisa Nacional de Saúde do Escolar)---Pesquisa Nacional de Saúde (PNS)" >}}
+         <p>O Vigitel é uma pesquisa feita por telefone, realizada todos os anos desde 2006. As entrevistas são feitas com pessoas de 18 anos ou mais que moram nas capitais e no Distrito Federal e que tenham telefone. A partir de 2023, passaram a ser incluídos também os celulares.</p>
+         <p>Ele coleta informações sobre doenças crônicas e os principais fatores de risco e proteção, como: tabagismo, alimentação, consumo de álcool, prática de atividade física, excesso de peso, obesidade e prevenção do câncer feminino.</p>
+         <p>Além disso, o Vigitel traz dados sobre como as pessoas avaliam a própria saúde e se já receberam diagnóstico médico de diabetes ou hipertensão arterial. Os resultados são divulgados por cidade, região, sexo, idade e escolaridade, sempre de forma agrupada (sem identificar ninguém).</p>
+         <p>Segundo o Ministério da Saúde, a partir de 2025 a pesquisa passará a incluir outros municípios, além das capitais.</p>  
+   ---
+        <p>A PeNSE é uma pesquisa feita com estudantes de escolas públicas e privadas, para entender melhor os hábitos e comportamentos dos adolescentes em relação à saúde. Ela ajuda a identificar fatores de risco e proteção para doenças crônicas.</p>
+        <p>A primeira edição foi realizada em 2009 com alunos do 9º ano do Ensino Fundamental nas capitais e no Distrito Federal. Com o tempo, a pesquisa passou a incluir adolescentes de 13 a 17 anos de outros municípios e ganhou mais temas e indicadores.</p>
+        <p>A PeNSE é realizada pelo IBGE, com apoio do Ministério da Saúde e do Ministério da Educação. As edições seguintes foram feitas em 2012, 2015, 2019 e 2024, portanto, com intervalos variados entre elas.</p>
+        <p>Hoje, a pesquisa aborda temas como alimentação, atividade física, sono, uso de álcool, cigarro e outras drogas, saúde mental e emocional, renda familiar, moradia, acesso a serviços de saúde e até características do ambiente escolar, como segurança e alimentação oferecida.</p>
+                            
+    ---
+        <p>A PNS é a pesquisa de saúde mais completa feita no Brasil. É aplicada em domicílios e representa todo o País, incluindo áreas urbanas, rurais, regiões, estados e capitais. Por isso, é considerada a principal referência para entender a saúde da população brasileira.</p>
+        <p>Ela permite avaliar o SUS, identificar como está a saúde da população e monitorar doenças crônicas e seus fatores de risco. A PNS trata de temas como doenças, estilos de vida, uso dos serviços de saúde e condições de saúde em geral.</p>
+        <p>É realizada pelo IBGE, em parceria com o Ministério da Saúde. A primeira edição foi feita em 2013, com pessoas de 18 anos ou mais. A segunda edição, em 2019, passou a incluir pessoas a partir de 15 anos.</p>
+    {{< /accordion >}}
+{{< /accordion >}}
+
+
   <blockquote>Para mais informações sobre esses inquéritos e pesquisas de saúde, acesse o <a target="_blank" href="https://www.gov.br/saude/pt-br/composicao/svsa/inqueritos-de-saude">Link</a></blockquote>
 
 {{< heading-anchor
@@ -166,79 +131,42 @@ Esses documentos são fundamentais para entendermos como os sistemas nacionais d
 </blockquote>
  {{< /figure-imagem >}}
 
-<div class="accordion" id="accordionDoc3">
+{{< accordion
+    headers=`
+        Documento 3
+     
+    `
+>}}
 
-  <div class="accordion-item">
-    <span class="accordion-header" id="headingUmDois">
-      <button class="accordion-button" style="background-color: #000080;  color: aliceblue;  border-radius: 10px;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUmDois" aria-expanded="false" aria-controls="collapseUmDois">
-      <p>Documento 3</p>
-    </button>
-    </span>
-    <div id="collapseUmDois" class="accordion-collapse collapse " aria-labelledby="headingUmDois" data-bs-parent="#accordionDoc3">
-        <div class="accordion-body">
-            <div class="accordion" id="accordionPai">
+    {{< accordion headers="Sistema de Informações sobre Mortalidade (SIM)---Sistema de Informações Hospitalares do SUS (SIH/SUS)---Sistema de Informações Ambulatoriais do SUS (SIA/SUS)" >}}
+     <p>É o principal SIS quanto ao fornecimento de informações sobre óbitos. A inserção dos dados se dá a partir da declaração de óbito, que deve ser preenchida, exclusivamente, pelo profissional médico. Em locais onde não há médicos, oficiais de cartório podem assumir a função, mas nenhum sepultamento deve ocorrer sem a emissão da declaração de óbito.</p>
+     <p>Nessa declaração constam as causas de morte, codificadas com base na classificação Internacional de Doenças (CID), de modo a contemplar todas as doenças e agravos, inclusive as DCNT. Além das causas de morte (causa básica e associadas), constam informações sobre a pessoa (quem morre), tempo (quando morre), lugar (onde morre) e assistência prestada, sendo possível calcular diversos indicadores.</p>
+     <p>Utilizando dados do SIM é possível calcular indicadores como: mortalidade proporcional por DCNT (em geral e por cada tipo de DCNT, como diabetes e câncer), segundo faixa etária, local de ocorrência e de residência.</p>
+        {{< card
+                vigiicone="saiba-mais"
+                header="Dica Quente"
+            >}}
+    <p>Com base na declaração de óbito é possível extrair a informação quanto ao local de ocorrência do óbito e ao local de residência da pessoa que faleceu. O local de ocorrência do óbito indica onde a pessoa faleceu, se em hospital, outros estabelecimentos de saúde, via pública, domicílio ou outro local. Por sua vez, o local de residência indica o endereço onde a pessoa que faleceu residia (rua, bairro, município e estado), letalidade das doenças (mede a proporção de óbitos por determinada doença em relação ao total de pessoas diagnosticadas com aquela doença) e taxa de mortalidade por causas específicas (para definir o risco de morrer por causas como acidente vascular cerebral, infarto agudo do miocárdio, diabetes, doença pulmonar obstrutiva crônica (DPOC), entre outras).</p>
+    {{< /card >}}
+    <p>A ocorrência de óbitos indica a gravidade da doença/agravo à saúde e possíveis falhas na rede de atenção à saúde. Portanto, a análise de informações de mortalidade é importante para elencar prioridades nos programas e políticas de saúde.</p>
+    <p>As principais limitações do SIM são o sub-registro de óbitos (alguns óbitos ainda não são registrados, especialmente nas regiões Norte e Nordeste e nos grupos etários de menores de um ano e de idosos) e o número de óbitos registrados sem definição da causa básica (causas mal definidas), mas em geral é um sistema com boa qualidade da informação.</p>
+    <p>Para saber mais sobre o SIM, acesse o <a target="_blank" href="https://www.gov.br/saude/pt-br/composicao/svsa/sistemas-de-informacao/sim"> link</a> .</p> 
+---
+    <p>Gera informações de morbidade e mortalidade hospitalar por local de residência do paciente e por local de internação, considerando as hospitalizações financiadas pelo SUS. A inserção de dados se dá a partir da autorização para internação hospitalar (AIH), que é preenchida pelo estabelecimento hospitalar para habilitar a internação do paciente e gerar valores para pagamento. A AIH contempla dados como causas de internações, procedimentos realizados, valor pago pelo internamento, dias de internamento, sexo e idade do paciente e evolução da doença.</p>
+    <p>Utilizando dados do SIH/SUS é possível calcular indicadores como: proporção e taxa de internação hospitalar por DCNT no geral e por causas específicas (por exemplo, infarto agudo do miocárdio e câncer de mama), duração e custos da internação pelas diversas DCNT e proporção de hospitalização por determinada causa específica que evoluiu para o óbito (por exemplo, câncer de próstata).</p>
+    <p>Uma das limitações do SIH/SUS é que ele não capta dados de hospitalizações da rede privada não conveniada ao SUS, contudo capta de sua rede própria, contratada e conveniada ao SUS, o que corresponde a cerca de 70% das internações do País, variando por região. Além disso, por não ser um sistema criado para fins epidemiológicos, mas de processamento financeiro das internações (para pagamento), é possível haver duplicidade de registros do mesmo indivíduo, como decorrentes de casos de reinternações e de transferência para outros hospitais. Também ocorrem inconsistências, falhas no registro dos procedimentos realizados, de diagnósticos e do número de internamentos, em função da restrição de recursos.</p>
+    <p>Mesmo com as limitações supracitadas, o SIH/SUS é muito útil para a vigilância das DCNT, pois capta a maioria das hospitalizações, é oportuno e permite identificar e monitorar o perfil dessas doenças que levam à hospitalização. Assim, por meio do SIH/SUS é possível identificar quais as DCNT que mais geram hospitalizações e como estão se comportando ao longo do tempo (aumentando, reduzindo ou estável), desde o nível local até o nacional.</p>
+    <p>Os dados do SIH/SUS podem ser acessados no <a target="_blank" href="https://datasus.saude.gov.br/acesso-a-informacao/morbidade-hospitalar-do-sus-sih-sus/">link</a> .</p>
+---
+    <p>O SIA/SUS gera informações de produção ambulatorial realizada no âmbito do SUS. As informações são produzidas com base nos registros feitos por meio do Boletim de Produção Ambulatorial (BPA), que pode ser individualizado (BPA-I) ou consolidado (BPA-C), e da Autorização de Procedimentos Ambulatoriais de Alta Complexidade (APAC).</p>
+    <p>O BPA-C não costuma ser utilizado na vigilância em saúde, por gerar apenas informações agregadas, como o número de procedimentos realizados, e sem ser possível identificar qual foi o diagnóstico envolvido (CID). Já o BPA-I e a APAC registram os dados de forma individual, como local de residência, sexo, idade e raça/cor do indivíduo, bem como os procedimentos realizados e o diagnóstico (CID) do indivíduo, o que permite a análise de morbidade ambulatorial.</p>
+    <p>Assim, apesar de o SIA/SUS não ter sido criado para fins epidemiológicos e sim de processamento financeiro (como o SIH/SUS), também é útil para a vigilância de DCNT. Fornece informações sobre as doenças de pacientes submetidos a procedimentos/atendimentos ambulatoriais que vão desde atividades educativas a exames ou a tratamentos de alta complexidade/custo, como nas áreas de nefrologia, cardiologia e oncologia. Os procedimentos ambulatoriais de diagnóstico e terapia de alta complexidade/custo são captados por meio da APAC.</p>
+    <p>As limitações desse sistema são semelhantes às do SIH/SUS.</p>
+    <p>Para saber mais sobre o SIA/SUS, acesse o <a target="_blank" href=" http://sia.datasus.gov.br/principal/index.php">link</a> :</p>
+  {{< /accordion >}}
+{{< /accordion >}}
 
-                    <div class="accordion-item">
-                        <span class="accordion-header" id="headingCinco">
-                        <button class="accordion-button"  type="button" data-bs-toggle="collapse" data-bs-target="#collapseCinco" aria-expanded="false" aria-controls="collapseCinco">
-                        <p>Sistema de Informações sobre Mortalidade (SIM)</p>
-                        </button>
-                        </span>
-                        <div id="collapseCinco" class="accordion-collapse collapse " aria-labelledby="headingCinco" data-bs-parent="#accordionFilho">
-                            <div class="accordion-body">
-                                <p>É o principal SIS quanto ao fornecimento de informações sobre óbitos. A inserção dos dados se dá a partir da declaração de óbito, que deve ser preenchida, exclusivamente, pelo profissional médico. Em locais onde não há médicos, oficiais de cartório podem assumir a função, mas nenhum sepultamento deve ocorrer sem a emissão da declaração de óbito.</p>
-                                <p>Nessa declaração constam as causas de morte, codificadas com base na classificação Internacional de Doenças (CID), de modo a contemplar todas as doenças e agravos, inclusive as DCNT. Além das causas de morte (causa básica e associadas), constam informações sobre a pessoa (quem morre), tempo (quando morre), lugar (onde morre) e assistência prestada, sendo possível calcular diversos indicadores.</p>
-                                <p>Utilizando dados do SIM é possível calcular indicadores como: mortalidade proporcional por DCNT (em geral e por cada tipo de DCNT, como diabetes e câncer), segundo faixa etária, local de ocorrência e de residência.</p>
-                            {{< card
-                                    vigiicone="saiba-mais"
-                                    header="Saiba Mais"
-                                >}}
-                            <p>Com base na declaração de óbito é possível extrair a informação quanto ao local de ocorrência do óbito e ao local de residência da pessoa que faleceu. O local de ocorrência do óbito indica onde a pessoa faleceu, se em hospital, outros estabelecimentos de saúde, via pública, domicílio ou outro local. Por sua vez, o local de residência indica o endereço onde a pessoa que faleceu residia (rua, bairro, município e estado), letalidade das doenças (mede a proporção de óbitos por determinada doença em relação ao total de pessoas diagnosticadas com aquela doença) e taxa de mortalidade por causas específicas (para definir o risco de morrer por causas como acidente vascular cerebral, infarto agudo do miocárdio, diabetes, doença pulmonar obstrutiva crônica (DPOC), entre outras).</p>
-                            {{< /card >}}
-                            <p>A ocorrência de óbitos indica a gravidade da doença/agravo à saúde e possíveis falhas na rede de atenção à saúde. Portanto, a análise de informações de mortalidade é importante para elencar prioridades nos programas e políticas de saúde.</p>
-                            <p>As principais limitações do SIM são o sub-registro de óbitos (alguns óbitos ainda não são registrados, especialmente nas regiões Norte e Nordeste e nos grupos etários de menores de um ano e de idosos) e o número de óbitos registrados sem definição da causa básica (causas mal definidas), mas em geral é um sistema com boa qualidade da informação.</p>
-                            <p>Para saber mais sobre o SIM, acesse o <a target="_blank" href="https://www.gov.br/saude/pt-br/composicao/svsa/sistemas-de-informacao/sim"> link</a> .</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <span class="accordion-header" id="headingSeis">
-                        <button class="accordion-button"  type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeis" aria-expanded="false" aria-controls="collapseSeis">
-                        <p>Sistema de Informações Hospitalares do SUS (SIH/SUS)</p>
-                        </button>
-                        </span>
-                        <div id="collapseSeis" class="accordion-collapse collapse " aria-labelledby="headingSeis" data-bs-parent="#accordionFilho">
-                            <div class="accordion-body">
-                                <p>Gera informações de morbidade e mortalidade hospitalar por local de residência do paciente e por local de internação, considerando as hospitalizações financiadas pelo SUS. A inserção de dados se dá a partir da autorização para internação hospitalar (AIH), que é preenchida pelo estabelecimento hospitalar para habilitar a internação do paciente e gerar valores para pagamento. A AIH contempla dados como causas de internações, procedimentos realizados, valor pago pelo internamento, dias de internamento, sexo e idade do paciente e evolução da doença.</p>
-                                <p>Utilizando dados do SIH/SUS é possível calcular indicadores como: proporção e taxa de internação hospitalar por DCNT no geral e por causas específicas (por exemplo, infarto agudo do miocárdio e câncer de mama), duração e custos da internação pelas diversas DCNT e proporção de hospitalização por determinada causa específica que evoluiu para o óbito (por exemplo, câncer de próstata).</p>
-                                <p>Uma das limitações do SIH/SUS é que ele não capta dados de hospitalizações da rede privada não conveniada ao SUS, contudo capta de sua rede própria, contratada e conveniada ao SUS, o que corresponde a cerca de 70% das internações do País, variando por região. Além disso, por não ser um sistema criado para fins epidemiológicos, mas de processamento financeiro das internações (para pagamento), é possível haver duplicidade de registros do mesmo indivíduo, como decorrentes de casos de reinternações e de transferência para outros hospitais. Também ocorrem inconsistências, falhas no registro dos procedimentos realizados, de diagnósticos e do número de internamentos, em função da restrição de recursos.</p>
-                                <p>Mesmo com as limitações supracitadas, o SIH/SUS é muito útil para a vigilância das DCNT, pois capta a maioria das hospitalizações, é oportuno e permite identificar e monitorar o perfil dessas doenças que levam à hospitalização. Assim, por meio do SIH/SUS é possível identificar quais as DCNT que mais geram hospitalizações e como estão se comportando ao longo do tempo (aumentando, reduzindo ou estável), desde o nível local até o nacional.</p>
-                                <p>Os dados do SIH/SUS podem ser acessados no <a target="_blank" href="https://datasus.saude.gov.br/acesso-a-informacao/morbidade-hospitalar-do-sus-sih-sus/">link</a> .</p>
-                            </div>
-                            </div>
-                    </div>
-                    <div class="accordion-item">
-                            <span class="accordion-header" id="headingSete">
-                            <button class="accordion-button"  type="button" data-bs-toggle="collapse" data-bs-target="#collapseSete" aria-expanded="false" aria-controls="collapseSete">
-                            <p>Sistema de Informações Ambulatoriais do SUS (SIA/SUS)</p>
-                            </button>
-                            </span>
-                            <div id="collapseSete" class="accordion-collapse collapse " aria-labelledby="headingSete" data-bs-parent="#accordionFilho">
-                                <div class="accordion-body">
-                                    <p>O SIA/SUS gera informações de produção ambulatorial realizada no âmbito do SUS. As informações são produzidas com base nos registros feitos por meio do Boletim de Produção Ambulatorial (BPA), que pode ser individualizado (BPA-I) ou consolidado (BPA-C), e da Autorização de Procedimentos Ambulatoriais de Alta Complexidade (APAC).</p>
-                                    <p>O BPA-C não costuma ser utilizado na vigilância em saúde, por gerar apenas informações agregadas, como o número de procedimentos realizados, e sem ser possível identificar qual foi o diagnóstico envolvido (CID). Já o BPA-I e a APAC registram os dados de forma individual, como local de residência, sexo, idade e raça/cor do indivíduo, bem como os procedimentos realizados e o diagnóstico (CID) do indivíduo, o que permite a análise de morbidade ambulatorial.</p>
-                                    <p>Assim, apesar de o SIA/SUS não ter sido criado para fins epidemiológicos e sim de processamento financeiro (como o SIH/SUS), também é útil para a vigilância de DCNT. Fornece informações sobre as doenças de pacientes submetidos a procedimentos/atendimentos ambulatoriais que vão desde atividades educativas a exames ou a tratamentos de alta complexidade/custo, como nas áreas de nefrologia, cardiologia e oncologia. Os procedimentos ambulatoriais de diagnóstico e terapia de alta complexidade/custo são captados por meio da APAC.</p>
-                                    <p>As limitações desse sistema são semelhantes às do SIH/SUS.</p>
-                                    <p>Para saber mais sobre o SIA/SUS, acesse o <a target="_blank" href=" http://sia.datasus.gov.br/principal/index.php">link</a> :</p>
-                                
-                                </div>
-                            </div>
-                    </div>                      
-                </div>
-            </div>         
-        </div>
-    </div>
-  </div>
+
 
  {{< figure-imagem
     id = ""
@@ -251,74 +179,35 @@ Esses documentos são fundamentais para entendermos como os sistemas nacionais d
 </blockquote>
  {{< /figure-imagem >}}
 
+{{< accordion
+    headers=`
+        Documento 4
+     
+    `
+>}}
 
-<div class="accordion" id="accordionDoc4">
+    {{< accordion headers="Sistemas de Informatização do Registro Hospitalar de Câncer (RHC) e do Registro de Câncer de Base Populacional (RCBP) ---Sistema de Informação em Saúde para a Atenção Básica (Sisab)---Sistema de Vigilância Alimentar e Nutricional (Sisvan)" >}}
+        <p>Os registros de câncer são ferramentas importantes para a vigilância do câncer no Brasil, criadas pelo Inca. Por meio desses registros, junto com informações, principalmente do SIM, é possível obter informações sobre incidência, morbidade hospitalar e mortalidade por diversos tipos de cânceres.</p>
+        <p>O RHC é obrigatório para os hospitais habilitados na atenção especializada em oncologia do SUS e facultativo para os não habilitados. Nele, por meio da ficha de registro do tumor e da ficha de seguimento, são coletados e processados dados de pacientes confirmados com câncer assistidos nos referidos hospitais, portanto, contemplam dados de morbidade hospitalar.</p>
+        <p>A ferramenta é alimentada durante todo o período da assistência oncológica prestada nesses hospitais, gerando informações sobre o paciente, características do tumor, extensão da doença, tratamento realizado e evolução dos pacientes em atendimento hospitalar.</p>
+        <p>Com base no RHC podem ser extraídos os seguintes dados: origem do encaminhamento do paciente, se tinha ou não diagnóstico e tratamento prévios, localização primária do tumor, idade, sexo e grau de instrução do paciente, sintomatologia, estadiamento do tumor (se avançado ou não), tratamento, estado da doença ao final do primeiro tratamento e ao longo do acompanhamento do paciente (óbito, doença estável, entre outros), possibilitando, além do acompanhamento da assistência prestada, a realização de estudos de sobrevida pelos diferentes tipos de câncer, o perfil e mudanças ao longo do tempo.</p>
+        <p>O RCBP está implantado em alguns municípios e registra casos novos diagnosticados de câncer, usando diversas fontes de informação (hospitais, laboratórios, entre outras). O objetivo é estimar o número de casos novos (incidência) de câncer, sua distribuição e tendência ao longo dos anos, por tipo, nas áreas geográficas cobertas por esse registro (áreas de abrangência).</p>
+        <p>Com os dados do RCBP, pode ser estimada a taxa de incidência (risco de ocorrência de casos novos) segundo localização do tumor, por sexo e faixa etária, entre outros. Assim, suas informações permitem que sejam identificadas populações de risco para o câncer e avaliar a eficácia de programas de prevenção e controle dessa doença.</p>
+        <p>Para mais informações sobre os registros de câncer, acesse o <a target="_blank" href="https://www.gov.br/inca/pt-br/assuntos/cancer/numeros/registros"> link</a>.</p>
+---
+        <p>É um sistema relativamente recente, instituído em 2013, que consolida e integra as informações provenientes das fontes de captação de dados utilizadas na atenção primária à saúde (APS), sendo a principal o e-SUS APS, que agrega dados do prontuário eletrônico do cidadão (PEC), coleta de dados simplificados (CDS), entre outros.</p>
+        <p>O Sisab registra dados sociodemográficos e de saúde da população do território (população cadastrada), além de procedimentos e ações individuais e coletivas feitos pelos profissionais da APS. Fornece indicadores e relatórios que auxiliam no monitoramento da saúde dos indivíduos e famílias cadastradas e no planejamento de ações.</p>
+        <p>Entre os relatórios, estão os específicos sobre diabetes e hipertensão arterial, que contêm informações como número de pessoas com essas condições por sexo, faixa etária, local de residência e complicações, o que possibilita conhecer a distribuição dessas doenças no território.</p>
+        <p>Os dados podem ser extraídos desde o nível da equipe de saúde até o nacional, mas possuem as limitações de abranger apenas as áreas cobertas pela APS e de geralmente apresentarem incompletude e inconsistências./p>
+        <p>Na prática, a vigilância em saúde ainda utiliza pouco os dados do Sisab. Para mais informações sobre o sistema, consulte o <a target="_blank" href="https://sisab.saude.gov.br/"> link</a>.</p>
+---
+        <p>É uma ferramenta que fornece informações sobre os marcadores de consumo alimentar e o estado nutricional (baixo peso, peso adequado, sobrepeso, obesidade) de diferentes grupos populacionais, com base em dados de pessoas atendidas na rede da APS.</p>
+        <p>Os marcadores de consumo alimentar são fatores que influenciam o estado nutricional. São exemplos de marcadores de consumo: costume de comer assistindo televisão, consumo de frutas frescas, entre outros.</p>
+        <p>Os dados do Sisvan possibilitam conhecer, por exemplo, a prevalência de obesidade no País e, juntamente com os dados das pesquisas e inquéritos populacionais, permitem produzir um conjunto de indicadores importantes para auxiliar a formulação de políticas públicas e ações de atenção nutricional no País.</p>
+        <p>Para mais informações e acesso aos dados do Sisvan, acesse o<a target="_blank" href="https://sisaps.saude.gov.br/sisvan/"> link</a>.</p>
+                                    {{< /accordion >}}
+{{< /accordion >}}
 
-  <div class="accordion-item">
-    <span class="accordion-header" id="headingUmTres">
-      <button class="accordion-button" style="background-color: #000080;  color: aliceblue;  border-radius: 10px;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUmTres" aria-expanded="false" aria-controls="collapseUmTres">
-      <p>Documento 4</p>
-    </button>
-    </span>
-    <div id="collapseUmDois" class="accordion-collapse collapse " aria-labelledby="headingUmTres" data-bs-parent="#accordionDoc4">
-        <div class="accordion-body">
-            <div class="accordion" id="accordionPai">
-
-                    <div class="accordion-item">
-                        <span class="accordion-header" id="headingOito">
-                        <button class="accordion-button"  type="button" data-bs-toggle="collapse" data-bs-target="#collapseOito" aria-expanded="false" aria-controls="collapseOito">
-                        <p>Sistema de Informações sobre Mortalidade (SIM)</p>
-                        </button>
-                        </span>
-                        <div id="collapseOito" class="accordion-collapse collapse " aria-labelledby="headingOito" data-bs-parent="#accordionFilho">
-                            <div class="accordion-body">
-                             <p>Os registros de câncer são ferramentas importantes para a vigilância do câncer no Brasil, criadas pelo Inca. Por meio desses registros, junto com informações, principalmente do SIM, é possível obter informações sobre incidência, morbidade hospitalar e mortalidade por diversos tipos de cânceres.</p>
-                             <p>O RHC é obrigatório para os hospitais habilitados na atenção especializada em oncologia do SUS e facultativo para os não habilitados. Nele, por meio da ficha de registro do tumor e da ficha de seguimento, são coletados e processados dados de pacientes confirmados com câncer assistidos nos referidos hospitais, portanto, contemplam dados de morbidade hospitalar.</p>
-                             <p>A ferramenta é alimentada durante todo o período da assistência oncológica prestada nesses hospitais, gerando informações sobre o paciente, características do tumor, extensão da doença, tratamento realizado e evolução dos pacientes em atendimento hospitalar.</p>
-                             <p>Com base no RHC podem ser extraídos os seguintes dados: origem do encaminhamento do paciente, se tinha ou não diagnóstico e tratamento prévios, localização primária do tumor, idade, sexo e grau de instrução do paciente, sintomatologia, estadiamento do tumor (se avançado ou não), tratamento, estado da doença ao final do primeiro tratamento e ao longo do acompanhamento do paciente (óbito, doença estável, entre outros), possibilitando, além do acompanhamento da assistência prestada, a realização de estudos de sobrevida pelos diferentes tipos de câncer, o perfil e mudanças ao longo do tempo.</p>
-                             <p>O RCBP está implantado em alguns municípios e registra casos novos diagnosticados de câncer, usando diversas fontes de informação (hospitais, laboratórios, entre outras). O objetivo é estimar o número de casos novos (incidência) de câncer, sua distribuição e tendência ao longo dos anos, por tipo, nas áreas geográficas cobertas por esse registro (áreas de abrangência).</p>
-                             <p>Com os dados do RCBP, pode ser estimada a taxa de incidência (risco de ocorrência de casos novos) segundo localização do tumor, por sexo e faixa etária, entre outros. Assim, suas informações permitem que sejam identificadas populações de risco para o câncer e avaliar a eficácia de programas de prevenção e controle dessa doença.</p>
-                             <p>Para mais informações sobre os registros de câncer, acesse o <a target="_blank" href="https://www.gov.br/inca/pt-br/assuntos/cancer/numeros/registros"> link</a>.</p>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <span class="accordion-header" id="headingSeis">
-                        <button class="accordion-button"  type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeis" aria-expanded="false" aria-controls="collapseSeis">
-                        <p>Sistema de Informação em Saúde para a Atenção Básica (Sisab)</p>
-                        </button>
-                        </span>
-                        <div id="collapseSeis" class="accordion-collapse collapse " aria-labelledby="headingSeis" data-bs-parent="#accordionFilho">
-                            <div class="accordion-body">
-                                <p>É um sistema relativamente recente, instituído em 2013, que consolida e integra as informações provenientes das fontes de captação de dados utilizadas na atenção primária à saúde (APS), sendo a principal o e-SUS APS, que agrega dados do prontuário eletrônico do cidadão (PEC), coleta de dados simplificados (CDS), entre outros.</p>
-                                <p>O Sisab registra dados sociodemográficos e de saúde da população do território (população cadastrada), além de procedimentos e ações individuais e coletivas feitos pelos profissionais da APS. Fornece indicadores e relatórios que auxiliam no monitoramento da saúde dos indivíduos e famílias cadastradas e no planejamento de ações.</p>
-                                <p>Entre os relatórios, estão os específicos sobre diabetes e hipertensão arterial, que contêm informações como número de pessoas com essas condições por sexo, faixa etária, local de residência e complicações, o que possibilita conhecer a distribuição dessas doenças no território.</p>
-                                <p>Os dados podem ser extraídos desde o nível da equipe de saúde até o nacional, mas possuem as limitações de abranger apenas as áreas cobertas pela APS e de geralmente apresentarem incompletude e inconsistências./p>
-                                <p>Na prática, a vigilância em saúde ainda utiliza pouco os dados do Sisab. Para mais informações sobre o sistema, consulte o <a target="_blank" href="https://sisab.saude.gov.br/"> link</a>.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                            <span class="accordion-header" id="headingSete">
-                            <button class="accordion-button"  type="button" data-bs-toggle="collapse" data-bs-target="#collapseSete" aria-expanded="false" aria-controls="collapseSete">
-                            <p>Sistema de Vigilância Alimentar e Nutricional (Sisvan)</p>
-                            </button>
-                            </span>
-                            <div id="collapseSete" class="accordion-collapse collapse " aria-labelledby="headingSete" data-bs-parent="#accordionFilho">
-                                <div class="accordion-body">
-                                  <p>É uma ferramenta que fornece informações sobre os marcadores de consumo alimentar e o estado nutricional (baixo peso, peso adequado, sobrepeso, obesidade) de diferentes grupos populacionais, com base em dados de pessoas atendidas na rede da APS.</p>
-                                  <p>Os marcadores de consumo alimentar são fatores que influenciam o estado nutricional. São exemplos de marcadores de consumo: costume de comer assistindo televisão, consumo de frutas frescas, entre outros.</p>
-                                  <p>Os dados do Sisvan possibilitam conhecer, por exemplo, a prevalência de obesidade no País e, juntamente com os dados das pesquisas e inquéritos populacionais, permitem produzir um conjunto de indicadores importantes para auxiliar a formulação de políticas públicas e ações de atenção nutricional no País.</p>
-                                  <p>Para mais informações e acesso aos dados do Sisvan, acesse o<a target="_blank" href="https://sisaps.saude.gov.br/sisvan/"> link</a>.</p>
-                                </div>
-                            </div>
-                    </div>                      
-                </div>
-            </div>         
-        </div>
-    </div>
-  </div>
 
 <video autoplay loop controls width="800px">
     <source src="./recursos/videos/ILUSTRAÇÃO ANIMAÇÃO 11.mp4" type="video/mp4"> 
