@@ -24,3 +24,13 @@ aside.dev {
         }
     }
 }
+
+figure:has(.figcontent)  {
+    &:has(
+        img:not([alt]),
+        img[alt=" Selecione para expandir a imagem."],
+        img[alt^="TODO" i]
+    ) {
+        outline: medium dashed red;
+    }
+}

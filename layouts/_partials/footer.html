@@ -3,14 +3,16 @@
     <div class="row" style="--vigi-gutter-y: 1.5rem">
         <div class="col-12 col-sm-6">
             <div class="align-items-center d-flex flex-column flex-sm-row gap-3 justify-content-center">
-                <img src="/recursos/svgs/logo_dcnt.svg" alt="" style="width: 80px;object-fit: contain;">
-                <div class="text-center text-sm-start">
-                    Curso
-                    <br>
-                    <span class="fw-semibold">{{ site.Title }}</span>
-                    <br>
-                    {{ site.Params.subtitle }}
-                </div>
+                <a href="{{ .Site.Home.RelPermalink }}"><img src="/recursos/svgs/logo_dcnt.svg" alt="" style="width: 80px;object-fit: contain;"></a>
+                <a href="{{ .Site.Home.RelPermalink }}" class="text-light text-decoration-none">
+                    <div class="text-center text-sm-start">
+                        Curso
+                        <br>
+                        <span class="fw-semibold">{{ site.Title }}</span>
+                        <br>
+                        {{ site.Params.subtitle }}
+                    </div>
+                </a>
             </div>
         </div>
         <div class="col-12 col-sm-6">
@@ -39,8 +41,11 @@
         </div>
     </div>
 </div>
-<p class="small" style="text-align: justify">Este site é regido pela Política de Acesso Aberto ao Conhecimento, que busca garantir à sociedade o acesso gratuito, público e aberto ao conteúdo integral de toda obra intelectual produzida pela Fiocruz.</p>
-<p class="small" style="text-align: justify">O conteúdo deste site pode ser utilizado para todos os fins não comerciais, respeitados e reservados os direitos morais dos autores.</p>
+<p class="acesso-aberto small">Este site é regido pela Política de Acesso Aberto ao Conhecimento, que busca garantir à sociedade o acesso gratuito, público e aberto ao conteúdo integral de toda obra intelectual produzida pela Fiocruz.</p>
+<div class="licensa d-flex flex-sm-nowrap flex-wrap gap-3 justify-content-center">
+    <img src="/recursos/svgs/by-nc.svg" alt="Creative Commons Atribuição + NãoComercial" class="object-fit-contain">
+    <p class="m-0 small">O conteúdo deste site pode ser utilizado para todos os fins não comerciais, respeitados e reservados os direitos morais dos autores.</p>
+</div>
 <div class="vigi-subgrid vigi-coluna-cheia bg-white py-5">
     <div class="regua-logos vigi-coluna-padrao">
         <a title="Campus Virtual Fiocruz" href="https://campusvirtual.fiocruz.br" target="_blank"><img src="{{ "/recursos/imagens/logos/cvf.svg" | relURL }}" alt="Logomarca Campus Virtual Fiocruz" aria-hidden="true" draggable="false"></a>

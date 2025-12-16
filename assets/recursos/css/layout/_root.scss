@@ -1,3 +1,7 @@
 :root:has(dialog[open]) {
     overflow: hidden;
 }
+
+:root {
+    --scrollbar-width: calc(100vw - 100%);
+}

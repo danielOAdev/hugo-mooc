@@ -1,18 +1,23 @@
-<ul type="none">
-{{ range sort site.Pages "File.Path" }}
-    {{ if and (.HasShortcode "comentario") (ne hugo.Environment "production") }}
-        <li>
-            {{ $noop := .WordCount }} {{/* force content rendering */}}
-            <code>{{ .Path }}</code>
-            <ul class="list-unstyled ms-5">
-                {{ range .Store.Get "comentario_lista" }}
-                <li class="d-flex">
-                    <a href="{{ .permalink }}#{{- .id -}}" target="_blank"></a>
-                    <aside class="dev {{ .tipo }} bg-body border-0">{{ .preview | safeHTML }}</aside>
-                </li>
-                {{ end }}
-            </ul>
-        </li>
+{{ $count := 0}}
+<div class="gap-row-3" style="display: flex;flex-direction: column-reverse;">
+    <ul type="none">
+    {{ range sort site.Pages "File.Path" }}
+        {{ if and (.HasShortcode "comentario") (ne hugo.Environment "production") }}
+            <li>
+                {{ $noop := .WordCount }} {{/* force content rendering */}}
+                <code>{{ .Path }}</code>
+                <ul class="list-unstyled ms-5">
+                    {{ range .Store.Get "comentario_lista" }}
+                    {{ $count = add $count 1 }}
+                    <li class="d-flex">
+                        <a href="{{ .permalink }}#{{- .id -}}" target="_blank"></a>
+                        <aside class="dev {{ .tipo }} bg-body border-0">{{ .preview | safeHTML }}</aside>
+                    </li>
+                    {{ end }}
+                </ul>
+            </li>
+        {{ end }}
     {{ end }}
-{{ end }}
-</ul>
+    </ul>
+    <p class="h3">{{ $count }} comentários</p>
+</div>

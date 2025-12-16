@@ -21,6 +21,10 @@ body > footer {
         color: $body-color-highcontrast;
         background-color: $gray-900;
     }
+
+    .acesso-aberto, .licensa {
+        text-align: justify
+    }
 }
 
 .regua-logos {
@@ -29,18 +33,20 @@ body > footer {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    text-align: center;
 
     img {
+        object-fit: contain;
         --logos-height-base: 3rem;
         flex-shrink: 1;
         flex-grow: 0;
         flex-basis: auto;
         width: auto;
-        max-width: 10rem;
+        max-width: min(calc(100vw - var(--scrollbar-width)), 10rem);
         height: var(--logos-height-base);
 
         &.logo-govfed {
-            max-width: none;
+            max-width: calc(100vw - var(--scrollbar-width));
             height: calc(var(--logos-height-base) * 1.8);
         }
     }
