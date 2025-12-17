@@ -1,7 +1,7 @@
 @use "bootstrap" as *;
 @use "sass:map";
 
-main, .vigi-grid {
+main, .vigi-grid, .vigi-card-body {
     --minimum-content-padding: 1rem;
 
     /** TRACK WIDTHS **/
@@ -57,7 +57,7 @@ main, .vigi-grid {
     grid-template-columns: subgrid;
 }
 
-.vigi-coluna-padrao, :where(main > *, .vigi-grid  > *) {
+.vigi-coluna-padrao, :where(main > *, .vigi-grid  > *, .vigi-card-body > *) {
     grid-column: vigi-coluna-padrao;
 }
 
