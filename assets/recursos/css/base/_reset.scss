@@ -20,7 +20,9 @@ html {
     scroll-padding-top: 10rem;
 }
 
-ol, ul, p, blockquote {
+address, article, aside, blockquote, canvas, dd, div, dl, dt, fieldset,
+figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6,
+header, hr, li, main, nav, noscript, ol, p {
     * + & {
         margin-block-start: 1rem;
     }
