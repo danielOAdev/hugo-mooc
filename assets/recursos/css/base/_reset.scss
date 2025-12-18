@@ -20,7 +20,7 @@ html {
     scroll-padding-top: 10rem;
 }
 
-address, article, aside, blockquote, canvas, dd, div, dl, dt, fieldset,
+address, article, aside, blockquote, canvas, dd, dl, dt, fieldset,
 figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6,
 header, hr, li, main, nav, noscript, ol, p {
     * + & {
@@ -38,6 +38,40 @@ li {
     + li {
         margin-block-start: .5lh;
     }
+}
+
+/*
+EXEMPLO DE LISTA DE DESCRIÇÕES
+<dl>
+    <dt>Designer Educacional</dt>
+    <dd>Alexsandra Barbosa Joaquim</dd>
+    <dd>Shênia Mineiro Martins</dd>
+</dl>
+<dl>
+    <dt>Conteudistas</dt>
+    <dd>
+        <dl>
+            <dt>Annick Fontbonne</dt>
+            <dd>Médica, epidemiologista, com doutorado em Saúde Pública pela Universidade de Paris XI (Paris-Sud). Pesquisadora titular do Inserm (Institut National de la Santé et de la Recherche Medicale, France).</dd>
+        </dl>
+    </dd>
+    <dd>
+        <dl>
+            <dt>Carolline de Araújo Mariz</dt>
+            <dd>Enfermeira pela Fundação de Ensino Superior de Olinda, com mestrado em Ciências da Saúde e doutorado em Medicina Tropical pela Universidade Federal de Pernambuco.</dd>
+        </dl>
+    </dd>
+</dl> */
+dd + dd, dt + dd {
+    margin-block-start: .25rem;
+}
+
+dd > dl, dt + dt {
+    margin-block-start: 1rem;
+}
+
+dl + dl {
+    margin-block-start: 2rem;
 }
 
 .vstack {
