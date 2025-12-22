@@ -8,9 +8,9 @@
 {{- $titulo := .Get "titulo" | default "" -}}
 {{- $fonte := .Get "fonte" | safeHTML | default "" -}}
 {{- $pista := .Get "pista" | default false -}}
-{{- $eVideo := eq (path.Ext $arquivo) ".mp4" -}}
+{{- $eVideo := .Get "evideo" | default (eq (path.Ext $arquivo) ".mp4") -}}
 {{- $eWebp := eq (path.Ext $arquivo) ".webp" -}}
-{{- $atributos := .Get "atributos" | default (cond $eVideo "controls" "") | safeHTMLAttr -}}
+{{- $atributos := .Get "atributos" | default (cond $eVideo "controls playsinline" "") | safeHTMLAttr -}}
 
 <figure {{ with $classes }}class="{{ . }}"{{ end }}>
     {{ with $titulo }}
