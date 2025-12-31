@@ -11,7 +11,7 @@
 {{- $eVideo := .Get "evideo" | default (eq (path.Ext $arquivo) ".mp4") -}}
 {{- $eWebp := eq (path.Ext $arquivo) ".webp" -}}
 {{- $atributos := .Get "atributos" | default (cond $eVideo "controls playsinline" "") | safeHTMLAttr -}}
-{{- $posicao := .Get "posicao" | default "bottom-right" -}}
+{{- $posicao := .Get "posicao" | default (cond $eVideo "top-right" "bottom-right") -}}
 
 <figure {{ with $classes }}class="{{ . }}"{{ end }}>
     {{ with $titulo }}

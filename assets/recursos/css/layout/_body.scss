@@ -19,7 +19,7 @@ main {
     font-family: var(--#{$prefix}main-font-family);
     margin-bottom: 2rem;
 
-    *:has(> p) {
+    div:has(> p) {
         container-type: inline-size;
     }
 

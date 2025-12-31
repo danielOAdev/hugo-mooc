@@ -298,46 +298,68 @@
     </blockquote>
 {{< /figure-imagem >}}
 
-
-
-
-{{< quiz
-    pergunta = `<p class="d-inline-block">Quais das informações abaixo são pistas verdadeiras e relevantes para o mistério que Luana está investigando?</p>
-    <p><span class="fw-bold">Sua missão</span>: escolher as 5 afirmações verdadeiras. O futuro da investigação depende disso.</p>`
-    multi = true
-    opcao0 = "As doenças crônicas estão controladas nas regiões de fronteira.  "
-    opcao10 = "O consumo abusivo de álcool está aumentando, com destaque para o crescimento entre as mulheres. "
-    opcao20 = "IAs DCNT são causadas apenas por herança genética."
-    opcao30 = "A prática de atividade física diminuiu fortemente nos últimos anos. "
-    opcao40 = "O consumo de frutas e hortaliças, importante para a prevenção das DCNT, está em queda. "
-    opcao50 = " A hipertensão continua afetando uma parte significativa da população."
-    opcao60 = "A obesidade é um fator de risco que está crescendo no Brasil. "
-    opcao70 = "O tabagismo está entre os principais fatores que mais crescem atualmente. "
-    opcao80 = "O principal fator de risco hoje é a desnutrição. "
-    opcao90 = " Mesmo com avanços no controle de alguns de seus fatores de risco, o quadro geral das DCNT no Brasil continua preocupante. "
-    corretos = "10,40,50,60,90"
-    feedbackpositivo = `<p>Ótimo trabalho! Agora conseguimos ver o que realmente está acontecendo: os fatores de risco estão aumentando em várias frentes, e isso pode explicar por que os dados não revelam o que está acontecendo em Alto do Vale. Vamos continuar investigando.</p>
-<p>Agora Luana tem as provas necessárias para mostrar por que os dados oficiais não revelam o que de fato acontece nas regiões de fronteira.</p>
-<p>O problema das DCNT vai muito além dos hábitos individuais: ele envolve interesses poderosos, estratégias dissimuladas e estruturas que precisam ser enfrentadas com políticas públicas firmes.</p>
-<blockquote class="blockquote">— Obrigada por estar comigo até aqui. Agora, precisamos seguir. Na próxima aula, vou precisar ainda mais de você. As pistas estão ficando mais difíceis de encontrar… e mais urgentes de decifrar.</blockquote>`
-    feedbacknegativo = `<p>Algumas dessas pistas não ajudam muito. Tente rever o que você leu e pensar no que realmente indica um agravamento da situação de saúde</p>
-<p>A investigação ainda não está completa. Pode ser que algumas informações tenham te confundido — e isso é comum em casos como este.</p>
-<blockquote class="blockquote">— Volte às pistas, releia os relatórios, pense no que vimos sobre influência econômica, desigualdades e marketing. Você está perto. E eu sigo contando com você.</blockquote>`
+{{< card
+    vigiicone = "quiz"
+    header = "Responda..."
+    classes = "vigi-coluna-destaque"
 >}}
-
-
-
+    {{< quiz
+        pergunta = `
+            <p class="d-inline-block">
+                Quais das informações abaixo são pistas verdadeiras e relevantes para o mistério que Luana está investigando?
+            </p>
+            <p>
+                <span class="fw-bold">Sua missão</span>: escolher as 5 afirmações verdadeiras. O futuro da investigação depende disso.
+            </p>
+        `
+        multi = true
+        opcao0 = "As doenças crônicas estão controladas nas regiões de fronteira.  "
+        opcao1 = "O consumo abusivo de álcool está aumentando, com destaque para o crescimento entre as mulheres. "
+        opcao2 = "IAs DCNT são causadas apenas por herança genética."
+        opcao3 = "A prática de atividade física diminuiu fortemente nos últimos anos. "
+        opcao4 = "O consumo de frutas e hortaliças, importante para a prevenção das DCNT, está em queda. "
+        opcao5 = "A hipertensão continua afetando uma parte significativa da população."
+        opcao6 = "A obesidade é um fator de risco que está crescendo no Brasil. "
+        opcao7 = "O tabagismo está entre os principais fatores que mais crescem atualmente. "
+        opcao8 = "O principal fator de risco hoje é a desnutrição. "
+        opcao9 = " Mesmo com avanços no controle de alguns de seus fatores de risco, o quadro geral das DCNT no Brasil continua preocupante. "
+        corretos = "1,4,5,6,9"
+        feedbackpositivo = `
+            <p>
+                Ótimo trabalho! Agora conseguimos ver o que realmente está acontecendo: os fatores de risco estão aumentando em várias frentes, e isso pode explicar por que os dados não revelam o que está acontecendo em Alto do Vale. Vamos continuar investigando.
+            </p>
+            <p>
+                Agora Luana tem as provas necessárias para mostrar por que os dados oficiais não revelam o que de fato acontece nas regiões de fronteira.
+            </p>
+            <p>
+                O problema das DCNT vai muito além dos hábitos individuais: ele envolve interesses poderosos, estratégias dissimuladas e estruturas que precisam ser enfrentadas com políticas públicas firmes.
+            </p>
+            <blockquote class="blockquote">
+                — Obrigada por estar comigo até aqui. Agora, precisamos seguir. Na próxima aula, vou precisar ainda mais de você. As pistas estão ficando mais difíceis de encontrar… e mais urgentes de decifrar.
+            </blockquote>
+        `
+        feedbacknegativo = `
+            <p>
+                Algumas dessas pistas não ajudam muito. Tente rever o que você leu e pensar no que realmente indica um agravamento da situação de saúde
+            </p>
+            <p>
+                A investigação ainda não está completa. Pode ser que algumas informações tenham te confundido — e isso é comum em casos como este.
+            </p>
+            <blockquote class="blockquote">
+                — Volte às pistas, releia os relatórios, pense no que vimos sobre influência econômica, desigualdades e marketing. Você está perto. E eu sigo contando com você.
+            </blockquote>
+        `
+    >}}
+{{< /card >}}
 
 {{< figure-imagem
     arquivo = "recursos/imagens/ARTE 16 copy.jpg"
     alt = "Ilustração de Luana com as mãos levemente erguidas e abertas."
-
-    >}}
+>}}
     <p>Luana diz:</p>
     <blockquote>
         “Eu nem sei como te agradecer pelas valiosas pistas que você me ajudou a reunir. Com elas, conseguimos montar uma parte importante desse quebra-cabeça. Mas ainda há algo que me inquieta… Será que estamos deixando de lado uma peça essencial? Algo me diz que precisamos olhar com mais atenção para os fatores socioeconômicos. Talvez aí esteja a explicação que os gráficos e relatórios ainda não conseguiram revelar”.
     </blockquote>
-
 {{< /figure-imagem >}}
 
 
