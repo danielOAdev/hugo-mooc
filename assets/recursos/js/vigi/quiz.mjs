@@ -31,7 +31,7 @@ class Quiz {
             throw new Error('Botão "Mostrar resposta" para Quiz não encontrado.');
         }
 
-        const labelsDeOpcoes = Array.from(fieldset.querySelectorAll('label.opcao:has(input)'));
+        const labelsDeOpcoes = Array.from(fieldset.querySelectorAll('label.opcao:has(input,select)'));
         this.opcoes = labelsDeOpcoes.map(label => new OpcaoQuiz(label));
 
         if (!this.opcoes) {
@@ -47,8 +47,16 @@ class Quiz {
         });
     }
 
-    eMulti() {
-        return this.fieldset.dataset.hasOwnProperty('multi');
+    eMultiplo() {
+        return this.fieldset.dataset.quiz === 'multiplo';
+    }
+
+    eUnico() {
+        return this.fieldset.dataset.quiz === 'unico';
+    }
+
+    eMapa() {
+        return this.fieldset.dataset.quiz === 'mapa';
     }
 
     restaurar(opcoes = false) {
@@ -65,10 +73,11 @@ class Quiz {
 class OpcaoQuiz {
     constructor(label) {
         this.input = label.querySelector('input');
+        this.select = label.querySelector('select');
         this.label = label
 
         // Tipo: "radio" ou "checkbox"
-        this.tipo = this.input.type;
+        this.tipo = this.input?.type || 'checkbox';
     }
 
     eCorreto() {
@@ -80,7 +89,12 @@ class OpcaoQuiz {
     }
 
     restaurar() {
-        this.input.checked = false;
+        if (this.input) {
+            this.input.checked = false;
+        }
+        if (this.select) {
+            this.select.value = '';
+        }
     }
 }
 

@@ -1,50 +1,83 @@
 {{- $autoincrement := partial "funcao/autoincrement.html" (dict "context" . "name" "quiz") -}}
 {{- $classes := .Get "classes" | default "" -}}
 {{- $pergunta := .Get "pergunta" | safeHTML }}
+{{/*  tipo = unico|multiplo|mapa  */}}
+
+{{/*  Normaliza e obtem 'tipo' com "multiplo" como padrão  */}}
+{{- $tipo := .Get "tipo" | default "multiplo" | lower | strings.TrimSpace -}}
+
+{{/*  Flags  */}}
+{{- $eUnico := eq $tipo "unico" -}}
+{{- $eMultiplo := eq $tipo "multiplo" -}}
+{{- $eMapa  := eq $tipo "mapa"  -}}
 
 {{- $opcoes := slice -}}
-{{- $multi := .Get "multi" | default true -}}
 {{- $corretos := split (.Get "corretos") "," -}}
-{{- if not $multi -}}
+{{- $mapa := split (.Get "mapa") "," -}}
+{{- $forma := "square" -}}
+{{/*  Se for do tipo único, usamos apenas o primeiro valor da lista  */}}
+{{- if $eUnico -}}
     {{- $corretos = slice (index $corretos 0) -}}
-{{- else -}}
-
+    {{- $forma = "circle" -}}
 {{- end -}}
-{{- $forma := (cond $multi "square" "circle") -}}
 
 {{- range seq 0 99 -}}
-    {{- $indexStr := printf "%d" . -}}
-    {{- $key := printf "opcao%d" . -}}
-    {{- if $.IsNamedParams -}}
-        {{- $texto := $.Get $key -}}
-        {{- if $texto -}}
-            {{- $eCorreto := in $corretos $indexStr -}}
-            {{- $opcao := dict "index" (cond $multi $indexStr "") "texto" ($texto | safeHTML) "correto" $eCorreto -}}
-            {{- $opcoes = $opcoes | append $opcao -}}
+    {{- $param := printf "opcao%d" . -}}
+    {{- $texto := $.Get $param -}}
+    {{- if $texto -}}
+        {{- $index := printf "%d" . -}} {{/*  opcao[N]  */}}
+        {{- $opcao := dict "index" . "texto" ($texto | safeHTML) -}}
+        {{- if $eMapa -}}
+            {{/*  Com mapas, parametro de opções devem começar com index 0 e incrementar 1 a cada nova opção.  */}}
+            {{- $opcao = merge $opcao (dict "corretoClass" (print "correto-" (index $corretos .))) -}}
+        {{- else if in $corretos $index -}}
+            {{- $opcao = merge $opcao (dict "corretoClass" "correto") -}}
         {{- end -}}
+        {{- $opcoes = $opcoes | append $opcao -}}
     {{- end -}}
 {{- end -}}
 
-{{- $feedbackpositivo := .Get "feedbackpositivo" | safeHTML }}
-{{- $feedbacknegativo := .Get "feedbacknegativo" | safeHTML }}
+{{- $feedbackpositivo := .Get "feedbackpositivo" | safeHTML -}}
+{{- $feedbacknegativo := .Get "feedbacknegativo" | safeHTML -}}
 
-<fieldset class="vigi-quiz vstack gap-1 {{ with $classes }} {{ . }}{{ end }}" {{ if $multi }}data-multi{{ end }}>
+<fieldset class="vigi-quiz vstack gap-1 {{ with $classes }} {{ . }}{{ end }}" data-quiz="{{ $tipo }}">
     <legend>{{ $pergunta }}</legend>
     <div class="opcoes">
-        {{ range $opcoes }}
-            <label class="opcao btn btn-secondary {{- cond .correto " correto" "" -}}">
-                {{ partial "fontawesome.html" (dict "style" "regular" "icon" $forma "classes" (print $forma " icone-lg")) }}
-                {{ partial "fontawesome.html" (dict "style" "regular" "icon" (print $forma "-check") "classes" (print $forma "-check icone-lg")) }}
-                <input type="{{ cond $multi "checkbox" "radio"}}" name="quiz{{ $autoincrement }}-opcao">
+        {{- range $opcoes -}}
+            <label class="opcao btn btn-secondary{{ with .corretoClass }} {{ . }}{{ end }}">
+                {{- if $eMapa -}}
+                    <select name="quiz{{ $autoincrement }}-opcao">
+                        <option value=""></option>
+                        {{ range $opcoes }}
+                            <option value="{{ .index }}">{{ index $mapa .index | default .index }}</option>
+                        {{ end }}
+                    </select>
+                {{ else }}
+                    {{ partial "fontawesome.html" (dict "style" "regular" "icon" $forma "classes" (print $forma " icone-lg")) }}
+                    {{ partial "fontawesome.html" (dict "style" "regular" "icon" (print $forma "-check") "classes" (print $forma "-check icone-lg")) }}
+                    <input type="{{ cond $eUnico "radio" "checkbox"}}" name="quiz{{ $autoincrement }}-opcao">
+                {{ end }}
                 <div>
                     <span class="alert alert-success small p-0 px-1 correcao-correto">
                         {{ partial "fontawesome.html" (dict "style" "solid" "icon" "check") }}
-                        <span>A sua resposta está correta</span>
+                        <span>A sua resposta está correta.</span>
                     </span>
-                    <span class="alert alert-danger small p-0 px-1 correcao-errado">
-                        {{ partial "fontawesome.html" (dict "style" "solid" "icon" "xmark") }}
-                        <span>A sua resposta está errada</span>
-                    </span>
+                        {{ if $eMapa }}
+                            <span class="alert alert-danger small p-0 px-1 correcao-errado">
+                                {{ partial "fontawesome.html" (dict "style" "solid" "icon" "xmark") }}
+                                <span>A resposta correta é "{{ index $mapa (index $corretos .index | int) | default .index }}".</span>
+                            </span>
+                        {{ else if and $eUnico .corretoClass }}
+                            <span class="alert alert-success small p-0 px-1 correcao-errado">
+                                {{ partial "fontawesome.html" (dict "style" "solid" "icon" "check") }}
+                                <span>Essa é a resposta correta.</span>
+                            </span>
+                        {{ else }}
+                            <span class="alert alert-danger small p-0 px-1 correcao-errado">
+                                {{ partial "fontawesome.html" (dict "style" "solid" "icon" "xmark") }}
+                                <span>A sua resposta está errada.</span>
+                            </span>
+                        {{ end }}
                     <div>{{ .texto }}</div>
                 </div>
             </label>

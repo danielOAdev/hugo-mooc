@@ -1,8 +1,6 @@
 @use "bootstrap" as *;
 
 .vigi-quiz {
-    margin-top: 3rem;
-
     legend > :last-child {
         margin-bottom: 0;
     }
@@ -20,7 +18,7 @@
     label.opcao {
         text-align: start;
         display: grid;
-        grid-template-columns: auto 1fr auto;
+        grid-template-columns: auto 1fr;
         justify-content: space-between;
         align-items: center;
         align-self: stretch;
@@ -60,7 +58,9 @@
         display: none;
     }
 
-    &:not(:has(.opcao > :checked)) {
+    &[data-quiz="unico"]:not(:has(.opcao > :checked)),
+    &[data-quiz="multiplo"]:not(:has(.opcao > :checked)),
+    &[data-quiz="mapa"]:has(.opcao [value=""]:checked) {
         .confirmar {
             opacity: 50%;
             pointer-events: none;
@@ -99,7 +99,7 @@
         .corrigir-ocultar {
             display: inline;
         }
-        &[data-multi] {
+        &[data-quiz="multiplo"] {
             label.opcao {
                 &.correto:has(input:checked), &:not(.correto):has(input:not(:checked)) {
                     .correcao-correto {
@@ -114,7 +114,7 @@
             }
         }
 
-        &:not([data-multi]) {
+        &[data-quiz="unico"] {
             label.opcao {
                 &.correto:has(input:checked) {
                     .correcao-correto {
@@ -128,6 +128,32 @@
                 }
             }
         }
+
+        &[data-quiz="mapa"] {
+            label.opcao {
+                &.correto-0:has(option[value="0"]:checked) {.correcao-correto {display: inline;}}
+                &.correto-1:has(option[value="1"]:checked) {.correcao-correto {display: inline;}}
+                &.correto-2:has(option[value="2"]:checked) {.correcao-correto {display: inline;}}
+                &.correto-3:has(option[value="3"]:checked) {.correcao-correto {display: inline;}}
+                &.correto-4:has(option[value="4"]:checked) {.correcao-correto {display: inline;}}
+                &.correto-5:has(option[value="5"]:checked) {.correcao-correto {display: inline;}}
+                &.correto-6:has(option[value="6"]:checked) {.correcao-correto {display: inline;}}
+                &.correto-7:has(option[value="7"]:checked) {.correcao-correto {display: inline;}}
+                &.correto-8:has(option[value="8"]:checked) {.correcao-correto {display: inline;}}
+                &.correto-9:has(option[value="9"]:checked) {.correcao-correto {display: inline;}}
+
+                &.correto-0:not(:has(option[value="0"]:checked)) {.correcao-errado {display: inline;}}
+                &.correto-1:not(:has(option[value="1"]:checked)) {.correcao-errado {display: inline;}}
+                &.correto-2:not(:has(option[value="2"]:checked)) {.correcao-errado {display: inline;}}
+                &.correto-3:not(:has(option[value="3"]:checked)) {.correcao-errado {display: inline;}}
+                &.correto-4:not(:has(option[value="4"]:checked)) {.correcao-errado {display: inline;}}
+                &.correto-5:not(:has(option[value="5"]:checked)) {.correcao-errado {display: inline;}}
+                &.correto-6:not(:has(option[value="6"]:checked)) {.correcao-errado {display: inline;}}
+                &.correto-7:not(:has(option[value="7"]:checked)) {.correcao-errado {display: inline;}}
+                &.correto-8:not(:has(option[value="8"]:checked)) {.correcao-errado {display: inline;}}
+                &.correto-9:not(:has(option[value="9"]:checked)) {.correcao-errado {display: inline;}}
+            }
+        }
     }
 
     .feedback-positivo, .feedback-negativo {
@@ -135,25 +161,71 @@
     }
 
     &:has(.confirmar>:checked) {
-        //Tudo certo
-        &:not(:has(.opcao.correto input:not(:checked), .opcao:not(.correto) input:checked)) {
-            .feedback-positivo {
-                display: block;
+        &[data-quiz="unico"], &[data-quiz="multiplo"] {
+            //Tudo certo
+            &:not(:has(.opcao.correto input:not(:checked), .opcao:not(.correto) input:checked)) {
+                .feedback-positivo {
+                    display: block;
+                }
+
+                .tentar {
+                    display: none;
+                }
             }
 
-            .tentar {
-                display: none;
+            // Algum errado
+            &:has(.opcao.correto input:not(:checked), .opcao:not(.correto) input:checked) {
+                .feedback-negativo {
+                    display: block;
+                }
+
+                .recomecar {
+                    display: none;
+                }
             }
         }
 
-        // Algum errado
-        &:has(.opcao.correto input:not(:checked), .opcao:not(.correto) input:checked) {
-            .feedback-negativo {
-                display: block;
+        &[data-quiz="mapa"] {
+            &:not(:has(
+                .correto-0 option[value="0"]:not(:checked),
+                .correto-1 option[value="1"]:not(:checked),
+                .correto-2 option[value="2"]:not(:checked),
+                .correto-3 option[value="3"]:not(:checked),
+                .correto-4 option[value="4"]:not(:checked),
+                .correto-5 option[value="5"]:not(:checked),
+                .correto-6 option[value="6"]:not(:checked),
+                .correto-7 option[value="7"]:not(:checked),
+                .correto-8 option[value="8"]:not(:checked),
+                .correto-9 option[value="9"]:not(:checked)
+            )) {
+                .feedback-positivo {
+                    display: block;
+                }
+
+                .tentar {
+                    display: none;
+                }
             }
 
-            .recomecar {
-                display: none;
+            &:has(
+                .correto-0 option[value="0"]:not(:checked),
+                .correto-1 option[value="1"]:not(:checked),
+                .correto-2 option[value="2"]:not(:checked),
+                .correto-3 option[value="3"]:not(:checked),
+                .correto-4 option[value="4"]:not(:checked),
+                .correto-5 option[value="5"]:not(:checked),
+                .correto-6 option[value="6"]:not(:checked),
+                .correto-7 option[value="7"]:not(:checked),
+                .correto-8 option[value="8"]:not(:checked),
+                .correto-9 option[value="9"]:not(:checked)
+            ) {
+                .feedback-negativo {
+                    display: block;
+                }
+
+                .recomecar {
+                    display: none;
+                }
             }
         }
     }
