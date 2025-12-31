@@ -1,46 +1,72 @@
+{{- $autoincrement := partial "funcao/autoincrement.html" (dict "context" . "name" "quiz") -}}
+{{- $classes := .Get "classes" | default "" -}}
 {{- $pergunta := .Get "pergunta" | safeHTML }}
 
 {{- $opcoes := slice -}}
 {{- $multi := .Get "multi" | default true -}}
 {{- $corretos := split (.Get "corretos") "," -}}
 {{- if not $multi -}}
-  {{- $corretos = slice (index $corretos 0) -}}
+    {{- $corretos = slice (index $corretos 0) -}}
 {{- else -}}
 
 {{- end -}}
 {{- $forma := (cond $multi "square" "circle") -}}
 
 {{- range seq 0 99 -}}
-  {{- $indexStr := printf "%d" . -}}
-  {{- $key := printf "opcao%d" . -}}
-  {{- if $.IsNamedParams -}}
-    {{- $texto := $.Get $key -}}
-    {{- if $texto -}}
-      {{- $eCorreto := in $corretos $indexStr -}}
-      {{- $opcao := dict "index" (cond $multi $indexStr "") "texto" ($texto | safeHTML) "correto" $eCorreto -}}
-      {{- $opcoes = $opcoes | append $opcao -}}
+    {{- $indexStr := printf "%d" . -}}
+    {{- $key := printf "opcao%d" . -}}
+    {{- if $.IsNamedParams -}}
+        {{- $texto := $.Get $key -}}
+        {{- if $texto -}}
+            {{- $eCorreto := in $corretos $indexStr -}}
+            {{- $opcao := dict "index" (cond $multi $indexStr "") "texto" ($texto | safeHTML) "correto" $eCorreto -}}
+            {{- $opcoes = $opcoes | append $opcao -}}
+        {{- end -}}
     {{- end -}}
-  {{- end -}}
 {{- end -}}
 
-{{- $feedbackpositivo := default "[Feedback positivo]" (.Get "feedbackpositivo" | safeHTML) }}
-{{- $feedbacknegativo := default "[Feedback negativo]" (.Get "feedbacknegativo" | safeHTML) }}
+{{- $feedbackpositivo := .Get "feedbackpositivo" | safeHTML }}
+{{- $feedbacknegativo := .Get "feedbacknegativo" | safeHTML }}
 
-<fieldset class="vigi-quiz vstack gap-1" {{ if $multi }}data-multi{{ end }}>
+<fieldset class="vigi-quiz vstack gap-1 {{ with $classes }} {{ . }}{{ end }}" {{ if $multi }}data-multi{{ end }}>
     <legend>{{ $pergunta }}</legend>
-    {{ range $opcoes }}
-        <label class="opcao btn btn-secondary {{- cond .correto " correto" "" -}}">
-            {{ partial "fontawesome.html" (dict "style" "regular" "icon" $forma "classes" (print "icone-lg " $forma)) }}
-            {{ partial "fontawesome.html" (dict "style" "regular" "icon" (print $forma "-check") "classes" (print $forma "-check icone-lg")) }}
-            <input type="{{ cond $multi "checkbox" "radio"}}" name="opcao{{ .index }}">
-            <div>{{ .texto }}</div>
-        </label>
+    <div class="opcoes">
+        {{ range $opcoes }}
+            <label class="opcao btn btn-secondary {{- cond .correto " correto" "" -}}">
+                {{ partial "fontawesome.html" (dict "style" "regular" "icon" $forma "classes" (print $forma " icone-lg")) }}
+                {{ partial "fontawesome.html" (dict "style" "regular" "icon" (print $forma "-check") "classes" (print $forma "-check icone-lg")) }}
+                <input type="{{ cond $multi "checkbox" "radio"}}" name="quiz{{ $autoincrement }}-opcao">
+                <div>
+                    <span class="alert alert-success small p-0 px-1 correcao-correto">
+                        {{ partial "fontawesome.html" (dict "style" "solid" "icon" "check") }}
+                        <span>A sua resposta está correta</span>
+                    </span>
+                    <span class="alert alert-danger small p-0 px-1 correcao-errado">
+                        {{ partial "fontawesome.html" (dict "style" "solid" "icon" "xmark") }}
+                        <span>A sua resposta está errada</span>
+                    </span>
+                    <div>{{ .texto }}</div>
+                </div>
+            </label>
+        {{ end }}
+    </div>
+    <label type="button" class="confirmar btn btn-primary">
+        Confirmar
+        <input type="checkbox" name="quiz{{ $autoincrement }}-confirmar">
+    </label>
+    {{ with $feedbackpositivo }}
+        <div class="feedback-positivo alert alert-success">{{ . }}</div>
     {{ end }}
-    <button type="button" class="confirmar btn btn-primary">Confirmar</button>
+    {{ with $feedbacknegativo }}
+        <div class="feedback-negativo alert alert-danger">{{ . }}</div>
+    {{ end }}
     <div class="acoesfinais gap-1 flex-wrap">
         <button type="button" class="tentar btn btn-primary flex-grow-1">Tentar novamente</button>
-        <button type="button" class="correcao btn btn-secondary flex-grow-1">Mostrar resposta</button>
+        <button type="button" class="recomecar btn btn-primary flex-grow-1">Recomeçar</button>
+        <label type="button" class="corrigir btn btn-secondary flex-grow-1">
+            <span class="corrigir-mostrar">Mostrar correção</span>
+            <span class="corrigir-ocultar">Ocultar correção</span>
+            <input class="d-none" type="checkbox" name="quiz{{ $autoincrement }}-corrigir">
+        </label>
     </div>
-    <div class="feedback feedback-positivo alert alert-success">{{ $feedbackpositivo }}</div>
-    <div class="feedback feedback-negativo alert alert-danger">{{ $feedbacknegativo }}</div>
 </fieldset>
