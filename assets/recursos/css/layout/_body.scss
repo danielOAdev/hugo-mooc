@@ -4,6 +4,10 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100dvh;
+
+    @media screen and (max-width: 20rem) {
+        hyphens: auto;
+    }
 }
 
 :root {
@@ -15,8 +19,15 @@ main {
     font-family: var(--#{$prefix}main-font-family);
     margin-bottom: 2rem;
 
+    *:has(> p) {
+        container-type: inline-size;
+    }
+
     p {
         text-align: justify;
+        @container (max-width: 15rem) {
+            text-align: start;
+        }
 
         a {
             border-image-source: url(../../recursos/imagens/wave-border.svg);
