@@ -22,7 +22,7 @@ html {
 
 address, article, aside, blockquote, canvas, dd, dl, dt, fieldset, figcaption,
 figure, form, h1, h2, h3, h4, h5, h6, hr, li,
-nav, noscript, ol, p {
+nav, noscript, ol, p, ul {
     * + & {
         margin-block-start: 1rem;
     }

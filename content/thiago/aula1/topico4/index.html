@@ -101,7 +101,7 @@
         classes = "col-sm-6 float-sm-end mb-sm-2 ms-sm-4"
         arquivo = "recursos/imagens/DASH-Easting-Plan-Pinterest_V3_Port.jpg"
         alt = "Infográfico do plano alimentar DASH, com lista de alimentos recomendados à esquerda e itens que devem ser limitados à direita."
-        fonte = ` Plano Alimentar DASH. Disponível em: <a href="www.nhlbi.nih.gov/DASH" target="_blank">www.nhlbi.nih.gov/DASH</a> . Imagem traduzida para o português e refeita pela equipe do curso.`
+        fonte = `<a href="https://www.nhlbi.nih.gov/DASH" target="_blank">National Heart, Lung, and Blood Institute</a>. Imagem traduzida para o português e refeita pela equipe do curso.`
     >}}
        <p> 
         O plano alimentar DASH tem como benefício a redução da pressão arterial e do colesterol LDL. No infográfico há duas colunas:
@@ -193,73 +193,88 @@
 </p>
 
 {{< quiz
-    pergunta = `<p class="d-inline-block">Você receberá uma lista de itens que representam hábitos alimentares coletados em Alto do Vale. Sua tarefa é identificar se cada item pertence a um padrão alimentar saudável ou não saudável.</p>
-    <p><span class="fw-bold">Evidência 1</span>: Arroz integral com feijão e legumes refogados.</p>
-    <p>Isso representa:</p>`
+    pergunta = `
+        <p class="d-inline-block">
+            Você receberá uma lista de itens que representam hábitos alimentares coletados em Alto do Vale. Sua tarefa é identificar se cada item pertence a um padrão alimentar saudável ou não saudável.
+        </p>
+        <p><span class="fw-bold">Evidência 1</span>: Arroz integral com feijão e legumes refogados.</p>
+        <p>Isso representa:</p>
+    `
     multi = false
     opcao0 = "Padrão alimentar saudável"
-    opcao10 = "Padrão alimentar não saudável "
+    opcao1 = "Padrão alimentar não saudável"
 
     corretos = "0"
-    feedbackpositivo = `<p>Parabéns! Você acertou!</p>
-    <p>Esse conjunto é rico em fibras, vitaminas e minerais. Uma das combinações mais completas da cultura alimentar brasileira.</p>`
-    feedbacknegativo = ``
+    feedbackpositivo = `
+        <p>Parabéns! Você acertou!</p>
+        <p>Esse conjunto é rico em fibras, vitaminas e minerais. Uma das combinações mais completas da cultura alimentar brasileira.</p>
+    `
 >}}
 
 
 {{< quiz
     pergunta = `
-    <p><span class="fw-bold">Evidência 2</span>: Refrigerante consumido diariamente.</p>
-    <p>Isso representa:</p>`
+        <p><span class="fw-bold">Evidência 2</span>: Refrigerante consumido diariamente.</p>
+        <p>Isso representa:</p>
+    `
     multi = false
     opcao0 = "Padrão alimentar saudável"
-    opcao10 = "Padrão alimentar não saudável "
+    opcao1 = "Padrão alimentar não saudável "
 
-    corretos = "10"
-    feedbackpositivo = `<p>Parabéns! Você acertou!</p>
-    <p>Bebidas adoçadas com açúcar são marcadores clássicos de dietas não saudáveis e estão ligadas a maior risco de DCNT.  </p>`
-    feedbacknegativo = ``
+    corretos = "1"
+    feedbackpositivo = `
+        <p>Parabéns! Você acertou!</p>
+        <p>Bebidas adoçadas com açúcar são marcadores clássicos de dietas não saudáveis e estão ligadas a maior risco de DCNT.</p>
+    `
 >}}
 
 {{< quiz
     pergunta = `
-    <p><span class="fw-bold">Evidência 3</span>:Frutas frescas no lanche da tarde  </p>
-    <p>Isso representa:</p>`
+        <p><span class="fw-bold">Evidência 3</span>: Frutas frescas no lanche da tarde.</p>
+        <p>Isso representa:</p>
+    `
     multi = false
     opcao0 = "Padrão alimentar saudável"
-    opcao10 = "Padrão alimentar não saudável "
+    opcao1 = "Padrão alimentar não saudável"
 
     corretos = "0"
-    feedbackpositivo = `<p>Parabéns! Você acertou!</p>
-    <p>Alimentos ultraprocessados, como pizzas congeladas, são ricos em gordura, sódio e aditivos — com baixo valor nutricional   </p>`
-    feedbacknegativo = ``
+    feedbackpositivo = `
+        <p>Parabéns! Você acertou!</p>
+        <p>Frutas estão entre os principais alimentos recomendados em dietas equilibradas, ricas em antioxidantes e fibras.</p>
+    `
 >}}
 {{< quiz
     pergunta = `
-    <p><span class="fw-bold">Evidência 4</span>: Pizza congelada no jantar três vezes por semana</p>
-    <p>Isso representa:</p>`
+        <p><span class="fw-bold">Evidência 4</span>: Pizza congelada no jantar três vezes por semana.</p>
+        <p>Isso representa:</p>
+    `
     multi = false
     opcao0 = "Padrão alimentar saudável"
-    opcao10 = "Padrão alimentar não saudável "
+    opcao1 = "Padrão alimentar não saudável"
 
-    corretos = "10"
-    feedbackpositivo = `<p>Parabéns! Você acertou!</p>
-    <p>Frutas estão entre os principais alimentos recomendados em dietas equilibradas, ricas em antioxidantes e fibras.   </p>`
-    feedbacknegativo = ``
+    corretos = "1"
+    feedbackpositivo = `
+        <p>Parabéns! Você acertou!</p>
+        <p>Alimentos ultraprocessados, como pizzas congeladas, são ricos em gordura, sódio e aditivos — com baixo valor nutricional.</p>
+    `
 >}}
 {{< quiz
     pergunta = `
-    <p><span class="fw-bold">Evidência 5</span>: Azeite de oliva usado como tempero diário  </p>
-    <p>Isso representa:</p>`
+        <p><span class="fw-bold">Evidência 5</span>: Azeite de oliva usado como tempero diário.</p>
+        <p>Isso representa:</p>
+    `
     multi = false
     opcao0 = "Padrão alimentar saudável"
-    opcao10 = "Padrão alimentar não saudável "
+    opcao1 = "Padrão alimentar não saudável"
 
     corretos = "0"
-    feedbackpositivo = `<p>Parabéns! Você acertou!</p>
-    <p>O azeite de oliva é parte do padrão da dieta Mediterrânea, com efeitos protetores sobre o sistema cardiovascular.    </p>
-    <blockquote class="blockquote">“Excelente trabalho! Com essas evidências organizadas, podemos traçar um panorama mais claro dos padrões alimentares aqui em Alto do Vale. Saber identificar essas práticas é o primeiro passo para propor caminhos mais saudáveis, justos e sustentáveis. Prepare-se: nossa próxima missão vai exigir ainda mais atenção.”</blockquote>`
-    feedbacknegativo = ``
+    feedbackpositivo = `
+        <p>Parabéns! Você acertou!</p>
+        <p>O azeite de oliva é parte do padrão da dieta Mediterrânea, com efeitos protetores sobre o sistema cardiovascular.</p>
+        <blockquote class="blockquote">
+            “Excelente trabalho! Com essas evidências organizadas, podemos traçar um panorama mais claro dos padrões alimentares aqui em Alto do Vale. Saber identificar essas práticas é o primeiro passo para propor caminhos mais saudáveis, justos e sustentáveis. Prepare-se: nossa próxima missão vai exigir ainda mais atenção.”
+        </blockquote>
+    `
 >}}
 
 
