@@ -58,26 +58,33 @@
                     <input type="{{ cond $eUnico "radio" "checkbox"}}" name="quiz{{ $autoincrement }}-opcao">
                 {{ end }}
                 <div>
-                    <span class="alert alert-success small p-0 px-1 correcao-correto">
-                        {{ partial "fontawesome.html" (dict "style" "solid" "icon" "check") }}
-                        <span>A sua resposta está correta.</span>
-                    </span>
-                        {{ if $eMapa }}
-                            <span class="alert alert-danger small p-0 px-1 correcao-errado">
-                                {{ partial "fontawesome.html" (dict "style" "solid" "icon" "xmark") }}
-                                <span>A resposta correta é "{{ index $mapa (index $corretos .index | int) | default .index }}".</span>
-                            </span>
-                        {{ else if and $eUnico .corretoClass }}
-                            <span class="alert alert-success small p-0 px-1 correcao-errado">
-                                {{ partial "fontawesome.html" (dict "style" "solid" "icon" "check") }}
-                                <span>Essa é a resposta correta.</span>
-                            </span>
-                        {{ else }}
-                            <span class="alert alert-danger small p-0 px-1 correcao-errado">
-                                {{ partial "fontawesome.html" (dict "style" "solid" "icon" "xmark") }}
-                                <span>A sua resposta está errada.</span>
-                            </span>
-                        {{ end }}
+                    {{ if $eMapa }}
+                        <span class="alert alert-success small p-0 px-1 correcao-correto">
+                            {{ partial "fontawesome.html" (dict "style" "solid" "icon" "check") }}
+                            <span>A sua resposta está correta.</span>
+                        </span>
+                    {{ else }}
+                        <span class="alert alert-success small p-0 px-1 correcao-correto">
+                            {{ partial "fontawesome.html" (dict "style" "solid" "icon" "check") }}
+                            <span>A marcação está correta.</span>
+                        </span>
+                    {{ end }}
+                    {{ if $eMapa }}
+                        <span class="alert alert-danger small p-0 px-1 correcao-errado">
+                            {{ partial "fontawesome.html" (dict "style" "solid" "icon" "xmark") }}
+                            <span>A resposta correta é "{{ index $mapa (index $corretos .index | int) | default .index }}".</span>
+                        </span>
+                    {{ else if and $eUnico .corretoClass }}
+                        <span class="alert alert-success small p-0 px-1 correcao-errado">
+                            {{ partial "fontawesome.html" (dict "style" "solid" "icon" "check") }}
+                            <span>Essa é era a escolha correta.</span>
+                        </span>
+                    {{ else }}
+                        <span class="alert alert-danger small p-0 px-1 correcao-errado">
+                            {{ partial "fontawesome.html" (dict "style" "solid" "icon" "xmark") }}
+                            <span>A marcação está errada.</span>
+                        </span>
+                    {{ end }}
                     <div>{{ .texto }}</div>
                 </div>
             </label>

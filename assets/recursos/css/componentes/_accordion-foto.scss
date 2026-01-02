@@ -1,0 +1,52 @@
+@use "sass:color";
+@use "base/cores";
+@use "bootstrap" as *;
+
+.accordion.accordion-foto {
+    box-shadow: none;
+
+    .accordion-item {
+        background: none;
+    }
+
+    .accordion-button {
+        padding: 0;
+        background: none;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: .5rem;
+
+        img {
+            width: 100%;
+            transition: filter ease .3s;
+            max-height: 12rem;
+            object-fit: contain;
+        }
+
+        &:has(~ .accordion-collapse:not(.show, .collapsing)) img {
+            filter: saturate(.5);
+        }
+
+        &::after {
+            margin-left: 0;
+        }
+    }
+
+    .accordion-collapse {
+        margin-top: 1rem;
+        background-color: #{color.change(cores.$vigi-branco-azulado, $alpha: 10%)};
+        [data-bs-theme="light"] & {
+            background-color: #{color.change($white, $alpha: 50%)};
+        }
+    }
+
+    .accordion-body {
+        font-size: 85%;
+        line-height: 1.5;
+        box-shadow: var(--vigi-box-shadow);
+
+        p {
+            text-align: center;
+        }
+    }
+}
