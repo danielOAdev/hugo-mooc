@@ -91,34 +91,41 @@
 {{< /figure-imagem >}}
 
 
-<div class="container my-5 row ">
-  <div class="col-6 " >
-    <p class="text-center fw-bold">Modo de Vida</p>
+<div class="vigi-coluna-destaque row g-0 mt-5 mb-2">
+    {{< card
+        classes = "col-md-5 m-0 small lh-base text-center-p"
+    >}}
+        <p class="h5 text-center">Modo de Vida</p>
         <p>
-          Refere-se às condições sociais e econômicas moldam escolhas: que essas trabalho, renda, moradia, acesso à cultura e ao lazer.
+        Refere-se às condições sociais e econômicas moldam escolhas: que essas trabalho, renda, moradia, acesso à cultura e ao lazer.
         </p>
         <p>
-          É explicado por <b>determinantes intermediários e distais</b>, como classe social e organização do trabalho.
+        É explicado por <b>determinantes intermediários e distais</b>, como classe social e organização do trabalho.
         </p>
         <p>
-          Reconhece que o indivíduo exerce apenas <b>certo grau de controle</b>, condicionado por sua realidade estrutural.
+        Reconhece que o indivíduo exerce apenas <b>certo grau de controle</b>, condicionado por sua realidade estrutural.
         </p>
-  </div>
-   <div class="col-6 ">
-      <p class="text-center fw-bold">Estilo de Vida</p>
-      <p>
-        Refere-se às escolhas individuais sobre saúde, como alimentação, atividade tabagismo. física e tabagismo
-    </p>
-      <p>
-        stá inserido entre os <b>determinantes proximais</b> do processo saúde-doença.
-    </p>
-      <p>
-        Pressupõe que o indivíduo tem controle total sobre decisões.
-    </p>
-      <p>
-        É frequentemente usado como base para intervenções  clínicas focadas em mudança de comportamento.
-    </p>
+    {{< /card >}}
+    <div class="col-md-2 align-self-center d-flex justify-content-center">
+        {{< fa/solid xmark "icone-lg m-4">}}
     </div>
+        {{< card
+            classes = "col-md-5 m-0 small lh-base text-center-p"
+        >}}
+            <p class="h5 text-center">Estilo de Vida</p>
+            <p>
+                Refere-se às escolhas individuais sobre saúde, como alimentação, atividade física e tabagismo.
+            </p>
+            <p>
+                Está inserido entre os <b>determinantes proximais</b> do processo saúde-doença.
+            </p>
+            <p>
+                Pressupõe que o indivíduo tem controle total sobre decisões.
+            </p>
+            <p>
+                É frequentemente usado como base para intervenções  clínicas focadas em mudança de comportamento.
+            </p>
+    {{< /card >}}
 </div>
 
 
@@ -139,35 +146,45 @@
     `
 >}}
 
-    {{< accordion headers="1​​. O que é um setor? ---2. Como funciona a intersetorialidade na PS?---3. Por que romper com a fragmentação?---4. Intersetorialidade como política pública---​​​5. E no Brasil? A intersetorialidade nas políticas nacionais---  ">}}
-  <p>
-    Falamos muito da importância da articulação intersetorial para alcançarmos efeitos sinérgicos voltados à determinação social da saúde e à PS. Mas você já parou para pensar sobre o que é um setor?
-</p>
-  <p>
-    Setores são áreas organizadas da sociedade que operam com lógicas, linguagens e objetivos próprios. Quando falamos de saúde, educação, assistência social, cultura, meio ambiente — estamos falando de setores que, muitas vezes, atuam de forma isolada. A intersetorialidade propõe uma nova lógica: romper as barreiras entre esses setores para construir soluções compartilhadas.
-</p>
-
-    ---
-    <p>
-        Para que a intersetorialidade aconteça na PS, é necessário que os setores envolvidos integrem suas ações, articuladas sob uma gestão central ou pactuada.
-    </p>
-    <p>
-        Parcerias bem-sucedidas dependem de abertura ao diálogo, compartilhamento de saberes e disposição para cocriar estratégias. Isso exige a disposição dos setores para construir vínculos, respeitar diferenças e apostar na cogestão — também chamada de gestão compartilhada.
-    </p> 
-       
-    ---
-    <p>
-        A intersetorialidade deve superar práticas fragmentadas e sobrepostas que podem prejudicam o cuidado às pessoas. Essa abordagem favorece a integração entre serviços públicos, sociedade civil e instituições privadas, criando respostas mais potentes e coordenadas.
-    </p>
-    <p>
-        Nesse sentido, práticas intersetoriais são também inovadoras e, muitas vezes, experimentais, impulsionados pelo interesse de sujeitos sociais locais em fortalecer ações integrais e diálogos multiculturais.
-    </p>
-    ---
-     <p>
-        A intersetorialidade não é só uma ideia: ela está presente como fundamento das políticas públicas de saúde. Desde a <b>I Conferência Internacional sobre Cuidados Primários de Saúde</b>, em <b>Alma Ata (1978)</b>, e da <b>Carta de Ottawa (1986)</b> — marco da Promoção da Saúde —, a articulação entre setores vem sendo reafirmada em conferências internacionais sucessivas:
-    </p>
+    {{< accordion
+        headers = `
+            1​​. O que é um setor?
+            ---
+            2. Como funciona a intersetorialidade na PS?
+            ---
+            3. Por que romper com a fragmentação?
+            ---
+            4. Intersetorialidade como política pública
+            ---​​​
+            5. E no Brasil? A intersetorialidade nas políticas nacionais
+        `
+    >}}
+        <p>
+            Falamos muito da importância da articulação intersetorial para alcançarmos efeitos sinérgicos voltados à determinação social da saúde e à PS. Mas você já parou para pensar sobre o que é um setor?
+        </p>
+        <p>
+            Setores são áreas organizadas da sociedade que operam com lógicas, linguagens e objetivos próprios. Quando falamos de saúde, educação, assistência social, cultura, meio ambiente — estamos falando de setores que, muitas vezes, atuam de forma isolada. A intersetorialidade propõe uma nova lógica: romper as barreiras entre esses setores para construir soluções compartilhadas.
+        </p>
+        ---
+        <p>
+            Para que a intersetorialidade aconteça na PS, é necessário que os setores envolvidos integrem suas ações, articuladas sob uma gestão central ou pactuada.
+        </p>
+        <p>
+            Parcerias bem-sucedidas dependem de abertura ao diálogo, compartilhamento de saberes e disposição para cocriar estratégias. Isso exige a disposição dos setores para construir vínculos, respeitar diferenças e apostar na cogestão — também chamada de gestão compartilhada.
+        </p>
+        ---
+        <p>
+            A intersetorialidade deve superar práticas fragmentadas e sobrepostas que podem prejudicam o cuidado às pessoas. Essa abordagem favorece a integração entre serviços públicos, sociedade civil e instituições privadas, criando respostas mais potentes e coordenadas.
+        </p>
+        <p>
+            Nesse sentido, práticas intersetoriais são também inovadoras e, muitas vezes, experimentais, impulsionados pelo interesse de sujeitos sociais locais em fortalecer ações integrais e diálogos multiculturais.
+        </p>
+        ---
+        <p>
+            A intersetorialidade não é só uma ideia: ela está presente como fundamento das políticas públicas de saúde. Desde a <b>I Conferência Internacional sobre Cuidados Primários de Saúde</b>, em <b>Alma Ata (1978)</b>, e da <b>Carta de Ottawa (1986)</b> — marco da Promoção da Saúde —, a articulação entre setores vem sendo reafirmada em conferências internacionais sucessivas:
+        </p>
         <ul>
-           <li> Declaração de Adelaide (1988)</li>
+           <li>Declaração de Adelaide (1988)</li>
 
            <li> Declaração de Sundsvall (1991)</li>
 
@@ -179,23 +196,31 @@
 
             <li>Conferência de Genebra (2021)</li>
         </ul>
-     ---
-      <p>
-        No Brasil, a intersetorialidade é um dos eixos da Política Nacional de Promoção da Saúde (PNPS), entendida como:
-    </p>
+        ---
+        <p>
+            No Brasil, a intersetorialidade é um dos eixos da Política Nacional de Promoção da Saúde (PNPS), entendida como:
+        </p>
         <p>
             <i>“conjunto de estratégias e formas de produzir saúde, no âmbito individual e coletivo, caracterizando-se pela articulação e cooperação intra e intersetorial, pela formação da Rede de Atenção à Saúde, buscando articular suas ações com as demais redes de proteção social, com ampla participação e controle social”.</i>
         </p>
         <p>
-            Além disso, o relatório da <b>OMS (1998)</b> ― Health Promotion Evaluation: Recommendations to Policymakers ― destaca que uma política de Promoção da Saúde só se realiza plenamente quando fundamentada em:</p>
-        <ul>
-            ​<p>​✔​ Concepção holística</p>
-            <p>​✔​ Empoderamento</p>
-            <p>​✔​ Participação social</p>
-            <p>​✔​ Equidade</p>
-            <p>​✔​ Sustentabilidade</p>
-            <p>​✔​ Intersetorialidade</p>
-        </ul>
+            Além disso, o relatório da <b>OMS (1998)</b> ― Health Promotion Evaluation: Recommendations to Policymakers ― destaca que uma política de Promoção da Saúde só se realiza plenamente quando fundamentada em:
+        </p>
+        {{< lista-icone
+            icone = "check"
+        >}}
+            <p>Concepção holística</p>
+            ---
+            <p>Empoderamento</p>
+            ---
+            <p>Participação social</p>
+            ---
+            <p>Equidade</p>
+            ---
+            <p>Sustentabilidade</p>
+            ---
+            <p>Intersetorialidade</p>
+        {{< /lista-icone >}}
     {{< /accordion >}}
 {{< /accordion >}}
 

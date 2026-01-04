@@ -183,9 +183,10 @@ figcaption:last-child {
 
 .figfonte {
     margin: 0;
-    font-size: 1rem;
+    font-size: .9rem;
     line-height: $line-height-base;
     text-align: center;
+    font-family: $font-family-sans-serif;
 }
 
 .collapse-nothidden.collapse:not(.show) {

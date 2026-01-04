@@ -69,7 +69,7 @@ main {
 }
 
 .ff-serif {
-    font-family: var(--#{$prefix}body-font-family) !important;
+    font-family: $font-family-serif !important;
 }
 
 .ff-sans-serif {

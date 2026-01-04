@@ -1,7 +1,32 @@
+@use "base/cores";
+@use "sass:color";
+@use "bootstrap" as *;
+
 :root:has(dialog[open]) {
     overflow: hidden;
 }
 
 :root {
     --scrollbar-width: calc(100vw - 100%);
+
+    --vigi-body-component-bg: #{color.change(cores.$vigi-branco-azulado, $alpha: 10%)} !important;
+    [data-bs-theme="light"] & {
+        --vigi-body-component-bg: #{color.change($white, $alpha: 50%)} !important;
+    }
+
+    --vigi-tema-light-color: #{cores.$vigi-preto-azulado};
+    --vigi-tema-light-bg: #{cores.$vigi-branco-azulado};
+
+    --vigi-tema-dark-color: #{$body-color-dark};
+    --vigi-tema-dark-bg: #{$body-bg-dark};
+
+    --vigi-tema-highcontrast-color: #{$body-color-highcontrast};
+    --vigi-tema-highcontrast-bg: #{$body-bg-highcontrast};
+
+    --vigi-tema-bg-primario: #{cores.$vigi-azul-logo-dark-3x};
+    --vigi-tema-bg-secundario: #{shade-color(cores.$vigi-azul-logo-dark-3x, 50%)};
+    [data-bs-theme="highcontrast"] & {
+        --vigi-tema-bg-primario: #{$gray-800};
+        --vigi-tema-bg-secundario: #{$gray-900};
+    }
 }

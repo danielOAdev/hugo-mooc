@@ -1,5 +1,4 @@
-@use "sass:color";
-@use "base/cores";
+@use "utilidades/mixins";
 @use "bootstrap" as *;
 
 .accordion.accordion-foto {
@@ -34,10 +33,7 @@
 
     .accordion-collapse {
         margin-top: 1rem;
-        background-color: #{color.change(cores.$vigi-branco-azulado, $alpha: 10%)};
-        [data-bs-theme="light"] & {
-            background-color: #{color.change($white, $alpha: 50%)};
-        }
+        @include mixins.bg-body-vigi;
     }
 
     .accordion-body {

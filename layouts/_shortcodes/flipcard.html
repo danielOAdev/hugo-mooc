@@ -1,0 +1,34 @@
+{{- $autoincrement := partial "funcao/autoincrement.html" (dict "context" . "name" "flipcard") -}}
+{{- $frente := index (split .Inner "---") 0 | safeHTML | default "" }}
+{{- $verso := index (split .Inner "---") 1 | safeHTML | default "" }}
+{{- $altura := .Get "altura" | default "" -}}
+
+<section class="flipcard" {{ with $altura }} data-height="{{ . }}" {{ end }}>
+    <input type="checkbox" id="flipcard{{ $autoincrement }}-input" aria-hidden="true">
+    <div class="flipcard-inner">
+        <!-- FRENTE -->
+        <div class="vigi-card flipcard-frente" role="group">
+            <div class="vigi-card-body">
+                {{ $frente }}
+            </div>
+            <div class="vigi-card-footer">
+                <button class="flipcard-btn btn btn-secondary icon-link">
+                    {{ partial "fontawesome.html" (dict "style" "solid" "icon" "repeat") }}
+                    Virar
+                </button>
+            </div>
+        </div>
+        <!-- VERSO -->
+        <div class="vigi-card flipcard-verso" role="group">
+            <div class="vigi-card-footer">
+                <button class="flipcard-btn btn btn-secondary icon-link">
+                    {{ partial "fontawesome.html" (dict "style" "solid" "icon" "repeat") }}
+                    Desvirar
+                </button>
+            </div>
+            <div class="vigi-card-body">
+                {{ $verso }}
+            </div>
+        </div>
+    </div>
+</section>

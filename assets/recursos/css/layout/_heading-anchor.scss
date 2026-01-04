@@ -24,6 +24,10 @@ a.heading-anchor {
         }
     }
 
+    .vigi-card-title > &::before {
+        content: none;
+    }
+
     @media (width <= 769px) {
         padding-right: 1.1ch;
 
@@ -31,6 +35,11 @@ a.heading-anchor {
             margin-left: 0.25em;
             content: "#";
         }
+    }
+
+    .vigi-card-title &::after {
+        margin-left: 0.25em;
+        content: "#";
     }
 
     &:not(:hover, :focus) {

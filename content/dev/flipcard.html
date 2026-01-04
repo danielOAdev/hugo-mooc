@@ -3,20 +3,30 @@ title = "Flipcard"
 aliases = ['/flipcard']
 +++
 
-<div class="flip-card">
-    <input type="checkbox" id="flipcard1" aria-hidden="true">
-    <div class="flip-card-inner">
-        <!-- FRENTE -->
-        <div class="flip-card-front">
-            {{< card >}}
-            <p>FRENTE</p>
-            <label for="flipcard1" class="btn btn-outline-light" aria-hidden="true"></label>
-            {{< /card >}}
-        </div>
-        <!-- VERSO -->
-        <div class="flip-card-back">
-            <p>VERSO</p>
-            <label for="flipcard1" class="btn btn-outline-light" aria-hidden="true"></label>
-        </div>
+<section class="row justify-content-around g-3 mt-3">
+    <div class="col-md-6">
+        {{< flipcard altura = "40vh" >}}
+            <p class="text-center display-6">FRENTE</p>
+            ---
+            <p>Lorem ipsum dolor sit amet.</p>
+        {{< /flipcard >}}
     </div>
-</div>
+    <div class="col-md-6">
+        {{< flipcard altura = "40vh" >}}
+            <p class="text-center display-6">FRENTE</p>
+            ---
+            <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore ipsam veniam deserunt, eos cumque fuga.
+            </p>
+        {{< /flipcard >}}
+    </div>
+    <div class="col-md-6">
+        {{< flipcard >}}
+            <p class="text-center display-6">FRENTE</p>
+            ---
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates perspiciatis quas expedita, qui aliquam ipsum, harum earum sint reiciendis mollitia pariatur tempore cumque itaque. Est.
+            </p>
+        {{< /flipcard >}}
+    </div>
+</section>

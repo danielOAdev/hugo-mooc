@@ -1,3 +1,5 @@
+@use "base/cores";
+@use "sass:color";
 @use "bootstrap" as *;
 
 @mixin focus-visible-outline {
@@ -9,5 +11,12 @@
 
     header &, &:where(dialog) {
         outline-color: $white !important;
+    }
+}
+
+@mixin bg-body-vigi {
+    background-color: #{color.change(cores.$vigi-branco-azulado, $alpha: 10%)} !important;
+    [data-bs-theme="light"] & {
+        background-color: #{color.change($white, $alpha: 50%)} !important;
     }
 }

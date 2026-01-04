@@ -1,0 +1,19 @@
+@use "base/cores";
+@use "sass:color";
+@use "utilidades/mixins";
+@use "bootstrap" as *;
+
+.text-center-p p {
+    text-align: center !important;
+}
+
+.bg-body-vigi {
+    @include mixins.bg-body-vigi;
+}
+
+:root {
+    --vigi-componente-bg: #{color.change(cores.$vigi-branco-azulado, $alpha: 10%)};
+    [data-bs-theme="light"] & {
+        --vigi-componente-bg: #{color.change($white, $alpha: 50%)};
+    }
+}

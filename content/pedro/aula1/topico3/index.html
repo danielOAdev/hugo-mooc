@@ -44,61 +44,20 @@
     <blockquote>
         “Para não perder nenhum detalhe, pedi à nossa colega epidemiologista, a Luana, para que enviasse alguns conceitos importantes dentro do campo da Vigilância em Saúde. Veja cada aba desse documento, leia com calma e grife o que pode nos ajudar a decifrar as inconsistências de Alto do Vale. Essas definições serão nosso mapa quando os números começarem a saltar da tela”.
     </blockquote>
-    {{< /figure-imagem >}}
+{{< /figure-imagem >}}
 
-{{< comentario tipo = "todo" >}}<p>Verificar abas</p>
- <div class="container aling-itens-center border" style="max-width:100%;">
-
-    <!-- Nav de abas -->
-    <ul class="nav nav-tabs  p-0 " id="myTab" role="tablist">
-      <li class="nav-item mx-auto" role="presentation">
-        <p class="nav-link active text-center " id="tab-home" data-bs-toggle="tab" data-bs-target="#pane-home" type="button" role="tab" aria-controls="pane-home" aria-selected="true">
-            Análise da situação<br> de saúde   
-      </p>
-      </li>
-
-      <li class="nav-item mx-auto" role="presentation">
-        <p class="nav-link text-center" id="tab-profile" data-bs-toggle="tab" data-bs-target="#pane-profile" type="button" role="tab" aria-controls="pane-profile" aria-selected="false">
-          Determinantes<br> Sociais de Saúde
-        </p>
-      </li>
-
-      <li class="nav-item mx-auto" role="presentation">
-        <p class="nav-link text-center" id="tab-settings" data-bs-toggle="tab" data-bs-target="#pane-settings" type="button" role="tab" aria-controls="pane-settings" aria-selected="false">
-          Riscos à<br> saúde 
-        </p>
-      </li>
-    
-
-         <li class="nav-item mx-auto" role="presentation">
-        <p class="nav-link text-center" id="tab-settings" data-bs-toggle="tab" data-bs-target="#DanosSaude" type="button" role="tab" aria-controls="DanosSaude" aria-selected="false">
-            Danos à<br> saúde 
-        </p>
-      </li>
-    </ul>
-
-    <!-- Conteúdo das abas -->
-    <div class="tab-panel tab-content" id="myTabContent">
-      <div class="tab-pane fade show active border" id="pane-home" role="tabpanel" aria-labelledby="tab-home" tabindex="0">
-        <p class="p-3"><b>Análise da Situação de Saúde</b>: Monitoramento do comportamento dos principais indicadores de saúde de determinada localidade (país, estado, município, território). Contribui para a priorização de problemas relevantes, para um planejamento mais assertivo e para a avaliação da eficácia e da efetividade das políticas públicas.  </p>
-      </div>
-
-      <div class="tab-pane fade border" id="pane-profile" role="tabpanel" aria-labelledby="tab-profile" tabindex="0">
-        <p class="p-3"><b>Determinantes sociais da saúde (DSS)</b>: São os fatores sociais, econômicos, culturais, étnicos/raciais, psicológicos e comportamentais que influenciam a ocorrência de fatores de risco e doenças na população. Como exemplo temos as condições de moradia, alimentação, escolaridade, renda, emprego, etc.</p>
-      </div>
-
-      <div class="tab-pane fade border" id="pane-settings" role="tabpanel" aria-labelledby="tab-settings" tabindex="0">
-        <p class="p-3"><b>Riscos à saúde</b>: Fatores físicos (ruídos, vibrações, calor, umidade, etc.), químicos (gases, vapores, medicamentos, etc.) ou biológicos (vírus, fungos, bactérias, sangue, secreções, etc.) que aumentam a probabilidade do desenvolvimento de doenças ou danos à saúde.</p>
-      </div>
-      <div class="tab-pane fade border" id="DanosSaude" role="tabpanel" aria-labelledby="tab-settings" tabindex="0">
-       <p class="p-3"><b>Danos à saúde</b>: Qualquer condição, doença ou lesão que afete negativamente o bemestar físico, mental ou emocional de uma pessoa.</p>
-
-      </div>
-    </div>
-  </div>
-{{< /comentario >}}
-
-
+<nav class="nav nav-tabs flex-sm-nowrap fs-body lh-sm" id="nav-tab" role="tablist">
+    <button class="nav-link btn-secondary ff-sans-serif fw-bold active" id="nav-analise-tab" data-bs-toggle="tab" data-bs-target="#nav-analise" type="button" role="tab" aria-controls="nav-analise" aria-selected="true">Análise da situação de saúde</button>
+    <button class="nav-link btn-secondary ff-sans-serif fw-bold" id="nav-determinantes-tab" data-bs-toggle="tab" data-bs-target="#nav-determinantes" type="button" role="tab" aria-controls="nav-determinantes" aria-selected="false">Determinantes Sociais de Saúde</button>
+    <button class="nav-link btn-secondary ff-sans-serif fw-bold" id="nav-riscos-tab" data-bs-toggle="tab" data-bs-target="#nav-riscos" type="button" role="tab" aria-controls="nav-riscos" aria-selected="false">Riscos à saúde</button>
+    <button class="nav-link btn-secondary ff-sans-serif fw-bold" id="nav-danos-tab" data-bs-toggle="tab" data-bs-target="#nav-danos" type="button" role="tab" aria-controls="nav-danos" aria-selected="false">Danos à saúde</button>
+</nav>
+<div class="tab-content">
+    <div class="tab-pane fade show active" id="nav-analise" role="tabpanel" aria-labelledby="nav-analise-tab" tabindex="0">Monitoramento do comportamento dos principais indicadores de saúde de determinada localidade (país, estado, município, território). Contribui para a priorização de problemas relevantes, para um planejamento mais assertivo e para a avaliação da eficácia e da efetividade das políticas públicas.  </div>
+    <div class="tab-pane fade" id="nav-determinantes" role="tabpanel" aria-labelledby="nav-determinantes-tab" tabindex="0">São os fatores sociais, econômicos, culturais, étnicos/raciais, psicológicos e comportamentais que influenciam a ocorrência de fatores de risco e doenças na população. Como exemplo temos as condições de moradia, alimentação, escolaridade, renda, emprego, etc.</div>
+    <div class="tab-pane fade" id="nav-riscos" role="tabpanel" aria-labelledby="nav-riscos-tab" tabindex="0">Fatores físicos (ruídos, vibrações, calor, umidade, etc.), químicos (gases, vapores, medicamentos, etc.) ou biológicos (vírus, fungos, bactérias, sangue, secreções, etc.) que aumentam a probabilidade do desenvolvimento de doenças ou danos à saúde.</div>
+    <div class="tab-pane fade" id="nav-danos" role="tabpanel" aria-labelledby="nav-danos-tab" tabindex="0">Qualquer condição, doença ou lesão que afete negativamente o bemestar físico, mental ou emocional de uma pessoa.</div>
+</div>
 
 {{< figure-imagem
     arquivo = "recursos/imagens/ARTE 05 copy.jpg"
@@ -170,8 +129,7 @@
 
 {{< accordion
     headers=`
-        Documento 1  Documento DNCT
-       
+        Documento 1 – Documento DNCT
     `
 >}}
  <p>
@@ -212,7 +170,7 @@
             As ações de vigilância das DCNT vêm se estruturando no Brasil desde a década de 2000, com a criação da Coordenação Geral de Doenças e Agravos Não Transmissíveis (CGDANT) no Ministério da Saúde, e foi impulsionada com o lançamento do Plano de ações estratégicas para o enfrentamento das doenças crônicas não transmissíveis no Brasil, 2011 a 2022. Este plano foi atualizado para o período de 2021 a 2030, e hoje contém as principais ações e metas para o período. Desde então, estados e municípios vêm estruturando e desenvolvendo ações de vigilância das DCNT.
         </p>
         <p>
-            Para saber um pouco mais sobre o Plano de ações estratégicas para o enfrentamento das doenças crônicas não transmissíveis no Brasil 2021 a 2030, <a target="_blank" href="https://www.gov.br/saude/pt-br/centrais-de-conteudo/publicacoes/svsa/doencas-cronicas-nao-transmissiveis-dcnt/09-plano-de-dant-2022_2030.pdf"></a>Clique aqui!
+            Saiba um pouco mais sobre o <a target="_blank" href="https://www.gov.br/saude/pt-br/centrais-de-conteudo/publicacoes/svsa/doencas-cronicas-nao-transmissiveis-dcnt/09-plano-de-dant-2022_2030.pdf">Plano de ações estratégicas para o enfrentamento das doenças crônicas não transmissíveis no Brasil 2021 a 2030</a>.
         </p>
 
 {{< /accordion >}}
@@ -236,22 +194,30 @@
 {{< accordion
     headers=`
         Documento 2 – Componentes da Vigilância Epidemiológica das DCNT
-     
     `
 >}}
-
-    {{< accordion headers="Monitoramento dos fatores de risco:---Análise das tendências temporais de morbidade (adoecimento) e mortalidade:---Resposta dos sistemas de saúde:---Monitoramento e avaliação:" >}}
-    <p>
-        Realizado por meio de inquéritos regulares e especiais, esses inquéritos trazem informações valiosas sobre os principais fatores de risco para as DCNT, como o tabagismo, consumo alimentar, atividade física e medidas antropométricas (peso e altura). Entre eles podemos destacar: a Pesquisa Nacional por Amostra de Domicílios (PNAD); Pesquisa Nacional de Saúde do Escolar (PeNSE) e o Sistema de Vigilância de Fatores de Risco e Proteção para Doenças Crônicas por Inquérito Telefônico (VIGITEL).
-    </p>
-    ---
-   <p>
-    A análise de tendências temporais é um conjunto de dados coletados em intervalos sequenciais e regulares ao longo do tempo. Por exemplo: dados de óbitos por neoplasia de pulmão, coletados anualmente, no período de 2014 a 2024. As análises dessas tendências auxiliam na previsão de acontecimentos futuros, bem como na avaliação de medidas de prevenção e controle adotadas. As principais fontes de dados para a análise das tendências de morbidade são: o Sistema de Informação Hospitalar (SIH/SUS), que contém as informações de todas as internações hospitalares realizadas na rede própria e conveniada ao SUS; o Sistema de Autorização de Procedimentos de Alta Complexidade (APAC); os Registros Hospitalares de Câncer; e os Registros de Câncer de base populacional. Para análise das tendências de mortalidade, a principal fonte de dados é o Sistema de Informações sobre Mortalidade (SIM), que contém as informações de todos os óbitos ocorridos em território nacional. Na figura abaixo vocês podem observar um exemplo de análise da série temporal de obesidade (IMC ≥ 30 kg/m₂) em adultos (≥ 18 anos) no Brasil, com dados do Vigitel para o período de 2006 a 2023. Os dados demostram uma tendência de crescimento da obesidade entre adultos.
-</p>
+    {{< accordion
+        headers=`
+            Monitoramento dos fatores de risco
+            ---
+            Análise das tendências temporais de morbidade (adoecimento) e mortalidade
+            ---
+            Resposta dos sistemas de saúde
+            ---
+            Monitoramento e avaliação
+        `
+    >}}
+        <p>
+            Realizado por meio de inquéritos regulares e especiais, esses inquéritos trazem informações valiosas sobre os principais fatores de risco para as DCNT, como o tabagismo, consumo alimentar, atividade física e medidas antropométricas (peso e altura). Entre eles podemos destacar: a Pesquisa Nacional por Amostra de Domicílios (PNAD); Pesquisa Nacional de Saúde do Escolar (PeNSE) e o Sistema de Vigilância de Fatores de Risco e Proteção para Doenças Crônicas por Inquérito Telefônico (VIGITEL).
+        </p>
+        ---
+        <p>
+            A análise de tendências temporais é um conjunto de dados coletados em intervalos sequenciais e regulares ao longo do tempo. Por exemplo: dados de óbitos por neoplasia de pulmão, coletados anualmente, no período de 2014 a 2024. As análises dessas tendências auxiliam na previsão de acontecimentos futuros, bem como na avaliação de medidas de prevenção e controle adotadas. As principais fontes de dados para a análise das tendências de morbidade são: o Sistema de Informação Hospitalar (SIH/SUS), que contém as informações de todas as internações hospitalares realizadas na rede própria e conveniada ao SUS; o Sistema de Autorização de Procedimentos de Alta Complexidade (APAC); os Registros Hospitalares de Câncer; e os Registros de Câncer de base populacional. Para análise das tendências de mortalidade, a principal fonte de dados é o Sistema de Informações sobre Mortalidade (SIM), que contém as informações de todos os óbitos ocorridos em território nacional. Na figura abaixo vocês podem observar um exemplo de análise da série temporal de obesidade (IMC ≥ 30 kg/m₂) em adultos (≥ 18 anos) no Brasil, com dados do Vigitel para o período de 2006 a 2023. Os dados demostram uma tendência de crescimento da obesidade entre adultos.
+        </p>
        {{< figure-imagem
             arquivo = "recursos/imagens/modulo-04-aula-01-grafico-02.png"
             alt = "Gráfico de linha mostrando o aumento da obesidade em adultos nas capitais brasileiras de 2006 a 2023, com a taxa subindo de 11,8% para 24,3%."
-            fonte = `Brasil, 2024. Disponível em: <a href="http://bvsms.saude.gov.br/bvs/publicacoes/vigitel_2006_2023_estado_nutricional.pdf" target="_blank"> http://bvsms.saude.gov.br/bvs/publicacoes/vigitel_2006_2023_estado_nutricional.pdf</a>. Imagem refeita pela equipe do curso.`
+            fonte = `Brasil, 2024. Disponível em: <a href="http://bvsms.saude.gov.br/bvs/publicacoes/vigitel_2006_2023_estado_nutricional.pdf" target="_blank">http://bvsms.saude.gov.br/bvs/publicacoes/vigitel_2006_2023_estado_nutricional.pdf</a>. Imagem refeita pela equipe do curso.`
         >}}
             <p>
                 O gráfico apresenta uma linha tracejada amarela, com pontos marcando a evolução do percentual de adultos (18 anos ou mais) com obesidade (IMC ≥ 30 kg/m²).
@@ -266,24 +232,19 @@
             <p>
                 Os valores destacados mostram crescimento contínuo: 11,8% (2006), 13,7% (2008), 15,1% (2010), 17,4% (2012), 18,9% (2015), 20,3% (2018), 21,5% (2020) e 24,3% (2023).
             </p>
-          
-  
-
        {{< /figure-imagem >}}
-
-        
-    ---
+        ---
+            <p>
+                As informações produzidas pela vigilância possibilitam a elaboração de ações de promoção à saúde, prevenção e controle das DCNT de forma mais precisa, bem como subsidia a elaboração das linhas de cuidado, como a de obesidade, hipertensão, diabetes, entre outras. Várias iniciativas vêm sendo desenvolvidas voltadas à promoção da saúde e prevenção das DCNT, como os Programas da Academia da Saúde, Controle do Tabagismo e Saúde na Escola, além da implantação de hortas comunitárias e o estímulo à alimentação saudável.
+            </p>
+        ---
         <p>
-            As informações produzidas pela vigilância possibilitam a elaboração de ações de promoção à saúde, prevenção e controle das DCNT de forma mais precisa, bem como subsidia a elaboração das linhas de cuidado, como a de obesidade, hipertensão, diabetes, entre outras. Várias iniciativas vêm sendo desenvolvidas voltadas à promoção da saúde e prevenção das DCNT, como os Programas da Academia da Saúde, Controle do Tabagismo e Saúde na Escola, além da implantação de hortas comunitárias e o estímulo à alimentação saudável.
+            O monitoramento e a avaliação são elementos fundamentais na gestão da saúde. Eles permitem identificar o que está funcionando bem e readequar as atividades que não estão obtendo os resultados esperados. Ajuda na tomada de decisão e na aplicação dos recursos de forma eficiente.
         </p>
-    ---
-   <p>
-     O monitoramento e a avaliação são elementos fundamentais na gestão da saúde. Eles permitem identificar o que está funcionando bem e readequar as atividades que não estão obtendo os resultados esperados. Ajuda na tomada de decisão e na aplicação dos recursos de forma eficiente.
-    </p>
-    {{< figure-imagem
+        {{< figure-imagem
             arquivo = "recursos/imagens/modulo-04-aula-01-tabela-02.png"
             alt = "Tabela das fontes de dados para a vigilância das DCNT, distribuída em três colunas: fatores de risco e proteção, morbidade e mortalidade."
-            fonte = `Elaborado por Juliana Martins e recriada pela equipe do curso.`
+            fonte = "Elaborado por Juliana Martins e recriada pela equipe do curso."
         >}}
             <p>Coluna 1 - Fatores de risco e proteção:</p>
             <ul>
@@ -305,12 +266,8 @@
             
             </ul>
         {{< /figure-imagem >}}
-
-        {{< /accordion >}}
+    {{< /accordion >}}
 {{< /accordion >}}
-
-
-
 
 {{< figure-imagem
     arquivo = "recursos/imagens/ARTE 07 copy.jpg"

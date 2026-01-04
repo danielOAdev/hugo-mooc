@@ -1,0 +1,17 @@
+@use "utilidades/mixins";
+@use "bootstrap" as *;
+
+.nav-link.active {
+    @include media-breakpoint-down(sm) {
+        order: 99;
+    }
+
+    &[class*="btn-"] {
+        background-color: var(--vigi-btn-bg);
+    }
+}
+
+.tab-content {
+    margin-top: 0;
+    padding: 1rem;
+}
