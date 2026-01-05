@@ -157,7 +157,7 @@
     arquivo = "recursos/imagens/ARTE 07 copy.jpg"
     alt = "Ilustração de Thiago em perfil diante de prateleiras com caixas verdes e amarelas. Ele veste colete azul-ciano com símbolo do SUS. Segura uma caixa verde com as duas mãos."
 >}}
-    <p>thiiago diz:</p>
+    <p>Thiago diz:</p>
     <blockquote>
         “Nossa, parece que ainda há muita coisa para ser investigada… Mas sabe, acho que chegou a hora de focarmos nos padrões alimentares. Entendi que alimentação não é só sobre o que a gente come individualmente, mas sobre um sistema. A alimentação é representada pelo conjunto de alimentos consumidos por uma pessoa ou população, que são produzidos pela interação entre o sistema alimentar hegemônico e os sistemas alimentares locais. E esse conjunto é moldado pelos contextos sociopolíticos, culturais e históricos de cada região, país, continente”.
     </blockquote>
@@ -168,7 +168,7 @@
     arquivo = "recursos/imagens/ARTE 08 copy.jpg"
     alt = "Ilustração de Thiago diante de prateleiras com várias caixas. Ele usa colete do SUS e segura uma caixa verde escrita ‘CEREAL’, com a mão direita apoiada no queixo."
 >}}
-    <p>Thiiago diz:</p>
+    <p>Thiago diz:</p>
     <blockquote>
          “Você consegue perceber como isso muda tudo? Um padrão alimentar saudável pode reduzir o risco de diabetes tipo 2, fraturas, câncer colorretal e de mama. Já um padrão alimentar não saudável aumenta esse risco, além de favorecer a síndrome metabólica. E não se trata de uma ou outra escolha isolada. O que comemos com frequência é o que conta. Vamos analisar juntos quais alimentos predominam em Alto do Vale? Isso pode ser uma pista valiosa”.
     </blockquote>
@@ -179,92 +179,97 @@
     Após analisar os primeiros relatórios, Thiago descobriu que os padrões alimentares praticados pela população de Alto do Vale são diversos — alguns promovem saúde e equilíbrio, outros estão diretamente associados a doenças crônicas.
 </p>
 <p>
-    Sua missão agora é examinar uma série de pistas alimentares que encontramos no território e classificar corretamente cada uma. Atenção: essa etapa é fundamental para avançarmos no caso. Prepare sua lupa e vamos começar
+    Sua missão agora é examinar uma série de pistas alimentares que encontramos no território e classificar corretamente cada uma. Atenção: essa etapa é fundamental para avançarmos no caso. Prepare sua lupa e vamos começar.
 </p>
 
-{{< quiz
-    pergunta = `
-        <p class="d-inline-block">
-            Você receberá uma lista de itens que representam hábitos alimentares coletados em Alto do Vale. Sua tarefa é identificar se cada item pertence a um padrão alimentar saudável ou não saudável.
-        </p>
-        <p><span class="fw-bold">Evidência 1</span>: Arroz integral com feijão e legumes refogados.</p>
-        <p>Isso representa:</p>
-    `
-    multi = false
-    opcao0 = "Padrão alimentar saudável"
-    opcao1 = "Padrão alimentar não saudável"
-
-    corretos = "0"
-    feedbackpositivo = `
-        <p>Parabéns! Você acertou!</p>
-        <p>Esse conjunto é rico em fibras, vitaminas e minerais. Uma das combinações mais completas da cultura alimentar brasileira.</p>
-    `
+{{< card
+    vigiicone = "quiz"
+    header = "Missão: Classifique as pistas de acordo com o padrão alimentar"
+    classes = "vigi-coluna-destaque"
 >}}
+    <p class="mt-3">
+        Você receberá uma lista de itens que representam hábitos alimentares coletados em Alto do Vale. Sua tarefa é identificar se cada item pertence a um padrão alimentar saudável ou não saudável.
+    </p>
+    {{< quiz
+        pergunta = `
+            <p><span class="fw-bold">Evidência 1</span>: Arroz integral com feijão e legumes refogados.</p>
+        `
+        classes = "mt-5"
+        tipo = "unico"
+        opcao0 = "Padrão alimentar saudável"
+        opcao1 = "Padrão alimentar não saudável"
 
+        corretos = "0"
+        feedbackpositivo = `
+            <p>Parabéns! Você acertou!</p>
+            <p>Esse conjunto é rico em fibras, vitaminas e minerais. Uma das combinações mais completas da cultura alimentar brasileira.</p>
+        `
+    >}}
+    {{< quiz
+        pergunta = `
+            <p><span class="fw-bold">Evidência 2</span>: Refrigerante consumido diariamente.</p>
+        `
+        classes = "mt-5"
+        tipo = "unico"
+        opcao0 = "Padrão alimentar saudável"
+        opcao1 = "Padrão alimentar não saudável "
+    
+        corretos = "1"
+        feedbackpositivo = `
+            <p>Parabéns! Você acertou!</p>
+            <p>Bebidas adoçadas com açúcar são marcadores clássicos de dietas não saudáveis e estão ligadas a maior risco de DCNT.</p>
+        `
+    >}}
+    
+    {{< quiz
+        pergunta = `
+            <p><span class="fw-bold">Evidência 3</span>: Frutas frescas no lanche da tarde.</p>
+        `
+        classes = "mt-5"
+        tipo = "unico"
+        opcao0 = "Padrão alimentar saudável"
+        opcao1 = "Padrão alimentar não saudável"
+    
+        corretos = "0"
+        feedbackpositivo = `
+            <p>Parabéns! Você acertou!</p>
+            <p>Frutas estão entre os principais alimentos recomendados em dietas equilibradas, ricas em antioxidantes e fibras.</p>
+        `
+    >}}
+    {{< quiz
+        pergunta = `
+            <p><span class="fw-bold">Evidência 4</span>: Pizza congelada no jantar três vezes por semana.</p>
+        `
+        classes = "mt-5"
+        tipo = "unico"
+        opcao0 = "Padrão alimentar saudável"
+        opcao1 = "Padrão alimentar não saudável"
+    
+        corretos = "1"
+        feedbackpositivo = `
+            <p>Parabéns! Você acertou!</p>
+            <p>Alimentos ultraprocessados, como pizzas congeladas, são ricos em gordura, sódio e aditivos — com baixo valor nutricional.</p>
+        `
+    >}}
+    {{< quiz
+        pergunta = `
+            <p><span class="fw-bold">Evidência 5</span>: Azeite de oliva usado como tempero diário.</p>
+        `
+        classes = "mt-5"
+        tipo = "unico"
+        opcao0 = "Padrão alimentar saudável"
+        opcao1 = "Padrão alimentar não saudável"
+    
+        corretos = "0"
+        feedbackpositivo = `
+            <p>Parabéns! Você acertou!</p>
+            <p>O azeite de oliva é parte do padrão da dieta Mediterrânea, com efeitos protetores sobre o sistema cardiovascular.</p>
+            <blockquote class="blockquote">
+                “Excelente trabalho! Com essas evidências organizadas, podemos traçar um panorama mais claro dos padrões alimentares aqui em Alto do Vale. Saber identificar essas práticas é o primeiro passo para propor caminhos mais saudáveis, justos e sustentáveis. Prepare-se: nossa próxima missão vai exigir ainda mais atenção.”
+            </blockquote>
+        `
+    >}}
+{{< /card >}}
 
-{{< quiz
-    pergunta = `
-        <p><span class="fw-bold">Evidência 2</span>: Refrigerante consumido diariamente.</p>
-        <p>Isso representa:</p>
-    `
-    multi = false
-    opcao0 = "Padrão alimentar saudável"
-    opcao1 = "Padrão alimentar não saudável "
-
-    corretos = "1"
-    feedbackpositivo = `
-        <p>Parabéns! Você acertou!</p>
-        <p>Bebidas adoçadas com açúcar são marcadores clássicos de dietas não saudáveis e estão ligadas a maior risco de DCNT.</p>
-    `
->}}
-
-{{< quiz
-    pergunta = `
-        <p><span class="fw-bold">Evidência 3</span>: Frutas frescas no lanche da tarde.</p>
-        <p>Isso representa:</p>
-    `
-    multi = false
-    opcao0 = "Padrão alimentar saudável"
-    opcao1 = "Padrão alimentar não saudável"
-
-    corretos = "0"
-    feedbackpositivo = `
-        <p>Parabéns! Você acertou!</p>
-        <p>Frutas estão entre os principais alimentos recomendados em dietas equilibradas, ricas em antioxidantes e fibras.</p>
-    `
->}}
-{{< quiz
-    pergunta = `
-        <p><span class="fw-bold">Evidência 4</span>: Pizza congelada no jantar três vezes por semana.</p>
-        <p>Isso representa:</p>
-    `
-    multi = false
-    opcao0 = "Padrão alimentar saudável"
-    opcao1 = "Padrão alimentar não saudável"
-
-    corretos = "1"
-    feedbackpositivo = `
-        <p>Parabéns! Você acertou!</p>
-        <p>Alimentos ultraprocessados, como pizzas congeladas, são ricos em gordura, sódio e aditivos — com baixo valor nutricional.</p>
-    `
->}}
-{{< quiz
-    pergunta = `
-        <p><span class="fw-bold">Evidência 5</span>: Azeite de oliva usado como tempero diário.</p>
-        <p>Isso representa:</p>
-    `
-    multi = false
-    opcao0 = "Padrão alimentar saudável"
-    opcao1 = "Padrão alimentar não saudável"
-
-    corretos = "0"
-    feedbackpositivo = `
-        <p>Parabéns! Você acertou!</p>
-        <p>O azeite de oliva é parte do padrão da dieta Mediterrânea, com efeitos protetores sobre o sistema cardiovascular.</p>
-        <blockquote class="blockquote">
-            “Excelente trabalho! Com essas evidências organizadas, podemos traçar um panorama mais claro dos padrões alimentares aqui em Alto do Vale. Saber identificar essas práticas é o primeiro passo para propor caminhos mais saudáveis, justos e sustentáveis. Prepare-se: nossa próxima missão vai exigir ainda mais atenção.”
-        </blockquote>
-    `
->}}
 
 

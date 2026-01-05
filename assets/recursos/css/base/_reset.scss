@@ -115,3 +115,7 @@ blockquote {
 video {
     border-radius: $border-radius;
 }
+
+picture > img {
+    display: block;
+}

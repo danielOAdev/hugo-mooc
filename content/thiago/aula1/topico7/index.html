@@ -246,12 +246,11 @@
 
 {{< card
     vigiicone = "quiz"
-    header = "Responda..."
+    header = "Desafio da Aula 1 – “A Trama Invisível”"
     classes = "vigi-coluna-destaque"
 >}}
     {{< quiz
         pergunta = `
-            <p><b>Desafio da Aula 1 – “A Trama Invisível”</b></p>
             <p>
                 Os dados oficiais mostravam uma melhora nos indicadores de mortalidade por DCNT. Mas os relatos do território contavam outra história: jovens hipertensos, diagnósticos tardios, desigualdades invisibilizadas.
             </p>
@@ -267,17 +266,19 @@
             </p>
             <p>O futuro da investigação depende disso.</p>
         `
-        multi = true
-        opcao0 = "Entre os alimentos mais consumidos diariamente pelos brasileiros, há bebidas que, apesar de populares, estão associadas ao aumento de doenças como diabetes tipo 2 e certos tipos de câncer, por exemplo as bebidas açucaradas, que estão cada vez mais frequentes na alimentação e se tornaram um marcador de padrões alimentares não saudáveis, quando o ideal para um padrão alimentar saudável e cardioprotetor é baseado em alimentos in natura."
-        opcao1 = "Toda pessoa com excesso de peso é sedentária e come mal por escolha. "
-        opcao2 = "Basta contar calorias para garantir uma alimentação equilibrada. "
+        tipo = "multiplo"
+        opcao0 = `
+            Entre os alimentos mais consumidos diariamente pelos brasileiros, há bebidas que, apesar de populares, estão associadas ao aumento de doenças como diabetes tipo 2 e certos tipos de câncer, por exemplo as bebidas açucaradas, que estão cada vez mais frequentes na alimentação e se tornaram um marcador de padrões alimentares não saudáveis, quando o ideal para um padrão alimentar saudável e cardioprotetor é baseado em alimentos <span class="fst-italic">in natura</span>.
+        `
+        opcao1 = "Toda pessoa com excesso de peso é sedentária e come mal por escolha."
+        opcao2 = "Basta contar calorias para garantir uma alimentação equilibrada."
         opcao3 = "Nem tudo que é prático faz bem à saúde. Certos alimentos, por trás do sabor e da conveniência, carregam aditivos e compostos que podem causar inflamações, desregular o metabolismo e até alterar o corpo por dentro — e não é só por causa do açúcar ou da gordura"
-        opcao4 = "Produtos ​​ultraprocessados com adição de ​​fibras e vitaminas são sempre boas fontes de nutrientes. "
-        opcao5 = "Pessoas ativas não precisam se preocupar com o tipo de alimento que consomem. "
+        opcao4 = "Produtos ​​ultraprocessados com adição de ​​fibras e vitaminas são sempre boas fontes de nutrientes."
+        opcao5 = "Pessoas ativas não precisam se preocupar com o tipo de alimento que consomem."
         opcao6 = "O sedentarismo é influenciado por condições sociais, ambientais e econômicas — não apenas por escolha pessoal."
-        opcao7 = "Os alimentos ultraprocessados são perigosos apenas se consumidos em grandes quantidades. "
-        opcao8 = "A Classificação NOVA ajuda a compreender o impacto ​​do grau e da finalidade do processamento dos alimentos na saúde. "
-        opcao9 = "A alimentação saudável depende também do acesso a alimentos in natura, cultura alimentar local e tempo para preparar refeições. "
+        opcao7 = "Os alimentos ultraprocessados são perigosos apenas se consumidos em grandes quantidades."
+        opcao8 = "A Classificação NOVA ajuda a compreender o impacto ​​do grau e da finalidade do processamento dos alimentos na saúde."
+        opcao9 = `A alimentação saudável depende também do acesso a alimentos <span class="fst-italic">in natura</span>, cultura alimentar local e tempo para preparar refeições.`
         corretos = "0,3,6,8,9"
         feedbackpositivo = `
             <p>Parabéns! Você desvendou a trama invisível que mantém a população sob risco.</p>
