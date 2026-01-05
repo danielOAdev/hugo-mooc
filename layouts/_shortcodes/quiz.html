@@ -40,7 +40,7 @@
 {{- $feedbackpositivo := .Get "feedbackpositivo" | safeHTML -}}
 {{- $feedbacknegativo := .Get "feedbacknegativo" | safeHTML -}}
 
-<fieldset class="vigi-quiz vstack gap-1 {{ with $classes }} {{ . }}{{ end }}" data-quiz="{{ $tipo }}" data-resposta-index="2">
+<fieldset class="vigi-quiz vstack gap-1 {{ with $classes }} {{ . }}{{ end }}" data-quiz="{{ $tipo }}">
     <legend>{{ $pergunta }}</legend>
     <div class="opcoes">
         {{- range $opcoes -}}
@@ -100,9 +100,6 @@
     {{ with $feedbacknegativo }}
         <div class="feedback-negativo alert alert-danger">{{ . }}</div>
     {{ end }}
-    <div class="feedback-negativo alert alert-danger" data-quiz-feedback-index="1">index-1</div>
-    <div class="feedback-negativo alert alert-danger" data-quiz-feedback-index="2">index-2</div>
-    <div class="feedback-negativo alert alert-danger" data-quiz-feedback-index="3">index-3</div>
     <div class="acoesfinais gap-1 flex-wrap">
         <button type="button" class="tentar btn btn-primary flex-grow-1">Tentar novamente</button>
         <button type="button" class="recomecar btn btn-primary flex-grow-1">Recomeçar</button>
