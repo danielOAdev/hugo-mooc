@@ -315,8 +315,51 @@
 <p class="fst-italic">Agora é sua vez de ajudá-la a fechar esse caso. Acompanhe as pistas e escolha a alternativa correta:
 
 </p>
-    {{< comentario tipo = "todo" >}}<p><b>Quiz de alocação</b></p>{{< /comentario >}}
 
+ {{< comentario tipo = "todo d-inline" >}}
+ <p>Verificar Quiz de correlacioanar</p>
+{{< card
+    vigiicone = "quiz"
+    header = "Desafio da Aula 2 – “Entre Redes, Fronteiras e Saberes” "
+    classes = "vigi-coluna-destaque"
+>}}
+    {{< quiz
+        tipo = "mapa"
+        pergunta = `<p class="fst-italic">Você lembra do mistério que nos trouxe até aqui? </p><p class="d-inline-block fst-italic">
+            Mariana descobriu que, mesmo com a Rede de Atenção à Saúde formalmente organizada, a APS enfrenta muitos desafios para garantir um cuidado contínuo, integral e efetivo às pessoas com doenças crônicas em Alto do Vale. É importante pensar, na prática, sobre como a APS exerce seu papel como porta de entrada, ordenadora e coordenadora do cuidado — e como a atuação articulada com as equipes multiprofissionais (eMulti) pode fortalecer (ou enfraquecer) esse processo.
+        </p>
+        <p class="fst-italic">
+            O desafio se torna ainda mais complexo nas regiões de fronteira, onde diferentes sistemas de saúde se encontram, e onde é fundamental que as estratégias estejam muito bem alinhadas, para que ninguém se perca no caminho do cuidado.
+        </p>
+        <p class="fst-italic">
+            Agora é com você! Ajude Mariana a concluir mais essa etapa da investigação: monte a teia do cuidado, organizando corretamente o que compete à APS de forma geral e qual seria o papel mais específico da eMulti. 
+        </p>
+        <p class="fst-italic text-center fw-bold">
+            Leia cada item com atenção e decida se aquela ação ou responsabilidade faz parte da Atenção Primária à Saúde (APS) de forma mais geral ou se seria um trabalho mais específico executado pela eMulti, que atua de forma matricial apoiando as equipes da APS.
+        </p>`
+        opcao0  = "Porta de entrada da RAS "
+        opcao1  = "Apoio matricial "
+        opcao2  = "Coordenação do cuidado, mesmo quando o paciente usa outros serviços da rede "
+        opcao3  = "Atendimento compartilhado com a equipe da APS "
+        opcao4  = "Rastreamento, diagnóstico, tratamento e acompanhamento das DCNT no território "
+        opcao5  = "Discussão de casos com as equipes da Estratégias de Saúde da Família "
+        opcao6  = "Ordenadora da RAS "
+        corretos = "1,0,1,0,1,0,1"
+        mapa = "eMulti, APS"
+        feedbackpositivo = `
+            <p>Perfeito! Você conseguiu organizar corretamente as responsabilidades da APS e da eMulti. </p>
+            <p>Agora ficou claro que, quando cada ponto da rede cumpre seu papel, o cuidado às pessoas com DCNT acontece de forma mais contínua, integral e efetiva. </p>
+            <blockquote class="blockquote">—Missão cumprida — por enquanto. Mas prepare-se! A investigação continua no próximo módulo, e os desafios que vêm pela frente exigem ainda mais atenção, estratégia e trabalho em rede. Espero que continue conosco, sua ajuda tem sido valiosa! </blockquote>
+        `
+        feedbacknegativo = `
+            <p>Hmm… algumas peças não se encaixaram.</p>
+            <p>A investigação ainda não está completa. Pode ser que algumas informações tenham te confundido — e isso é comum em casos como este.</p>
+            <blockquote class="blockquote">— Volte às pistas, releia os relatórios, pense no que vimos sobre influência econômica, desigualdades e marketing. Você está perto. E eu sigo contando com você.</blockquote>
+        `
+    >}}
+{{< /card >}}
+
+        {{< /comentario >}}
 
 
 
