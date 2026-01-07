@@ -119,3 +119,7 @@ video {
 picture > img {
     display: block;
 }
+
+label:has(> input.visually-hidden:focus-visible) {
+    @include mixins.focus-visible-outline;
+}

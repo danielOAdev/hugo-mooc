@@ -55,16 +55,15 @@
         }
     }
 
-    input {
-        display: none;
-    }
-
     &[data-quiz="unico"]:not(:has(.opcao > :checked)),
     &[data-quiz="multiplo"]:not(:has(.opcao > :checked)),
     &[data-quiz="mapa"]:has(.opcao [value=""]:checked) {
         .confirmar {
             opacity: 50%;
             pointer-events: none;
+            input {
+                display: none;
+            }
         }
     }
 
@@ -93,6 +92,10 @@
         display: none;
     }
 
+    .correcao-correto, .correcao-errado {
+        margin: 0;
+    }
+
     &:has(.corrigir>:checked) {
         .corrigir-mostrar {
             display: none;
@@ -104,12 +107,12 @@
             label.opcao {
                 &.correto:has(input:checked), &:not(.correto):has(input:not(:checked)) {
                     .correcao-correto {
-                        display: inline;
+                        display: revert;
                     }
                 }
                 &.correto:has(input:not(:checked)), &:not(.correto):has(input:checked) {
                     .correcao-errado {
-                        display: inline;
+                        display: revert;
                     }
                 }
             }
@@ -119,12 +122,12 @@
             label.opcao {
                 &.correto:has(input:checked) {
                     .correcao-correto {
-                        display: inline;
+                        display: revert;
                     }
                 }
                 &.correto:has(input:not(:checked)), &:not(.correto):has(input:checked) {
                     .correcao-errado {
-                        display: inline;
+                        display: revert;
                     }
                 }
             }
@@ -132,27 +135,27 @@
 
         &[data-quiz="mapa"] {
             label.opcao {
-                &.correto-0:has(option[value="0"]:checked) {.correcao-correto {display: inline;}}
-                &.correto-1:has(option[value="1"]:checked) {.correcao-correto {display: inline;}}
-                &.correto-2:has(option[value="2"]:checked) {.correcao-correto {display: inline;}}
-                &.correto-3:has(option[value="3"]:checked) {.correcao-correto {display: inline;}}
-                &.correto-4:has(option[value="4"]:checked) {.correcao-correto {display: inline;}}
-                &.correto-5:has(option[value="5"]:checked) {.correcao-correto {display: inline;}}
-                &.correto-6:has(option[value="6"]:checked) {.correcao-correto {display: inline;}}
-                &.correto-7:has(option[value="7"]:checked) {.correcao-correto {display: inline;}}
-                &.correto-8:has(option[value="8"]:checked) {.correcao-correto {display: inline;}}
-                &.correto-9:has(option[value="9"]:checked) {.correcao-correto {display: inline;}}
+                &.correto-0:has(option[value="0"]:checked) {.correcao-correto {display: revert;}}
+                &.correto-1:has(option[value="1"]:checked) {.correcao-correto {display: revert;}}
+                &.correto-2:has(option[value="2"]:checked) {.correcao-correto {display: revert;}}
+                &.correto-3:has(option[value="3"]:checked) {.correcao-correto {display: revert;}}
+                &.correto-4:has(option[value="4"]:checked) {.correcao-correto {display: revert;}}
+                &.correto-5:has(option[value="5"]:checked) {.correcao-correto {display: revert;}}
+                &.correto-6:has(option[value="6"]:checked) {.correcao-correto {display: revert;}}
+                &.correto-7:has(option[value="7"]:checked) {.correcao-correto {display: revert;}}
+                &.correto-8:has(option[value="8"]:checked) {.correcao-correto {display: revert;}}
+                &.correto-9:has(option[value="9"]:checked) {.correcao-correto {display: revert;}}
 
-                &.correto-0:not(:has(option[value="0"]:checked)) {.correcao-errado {display: inline;}}
-                &.correto-1:not(:has(option[value="1"]:checked)) {.correcao-errado {display: inline;}}
-                &.correto-2:not(:has(option[value="2"]:checked)) {.correcao-errado {display: inline;}}
-                &.correto-3:not(:has(option[value="3"]:checked)) {.correcao-errado {display: inline;}}
-                &.correto-4:not(:has(option[value="4"]:checked)) {.correcao-errado {display: inline;}}
-                &.correto-5:not(:has(option[value="5"]:checked)) {.correcao-errado {display: inline;}}
-                &.correto-6:not(:has(option[value="6"]:checked)) {.correcao-errado {display: inline;}}
-                &.correto-7:not(:has(option[value="7"]:checked)) {.correcao-errado {display: inline;}}
-                &.correto-8:not(:has(option[value="8"]:checked)) {.correcao-errado {display: inline;}}
-                &.correto-9:not(:has(option[value="9"]:checked)) {.correcao-errado {display: inline;}}
+                &.correto-0:not(:has(option[value="0"]:checked)) {.correcao-errado {display: revert;}}
+                &.correto-1:not(:has(option[value="1"]:checked)) {.correcao-errado {display: revert;}}
+                &.correto-2:not(:has(option[value="2"]:checked)) {.correcao-errado {display: revert;}}
+                &.correto-3:not(:has(option[value="3"]:checked)) {.correcao-errado {display: revert;}}
+                &.correto-4:not(:has(option[value="4"]:checked)) {.correcao-errado {display: revert;}}
+                &.correto-5:not(:has(option[value="5"]:checked)) {.correcao-errado {display: revert;}}
+                &.correto-6:not(:has(option[value="6"]:checked)) {.correcao-errado {display: revert;}}
+                &.correto-7:not(:has(option[value="7"]:checked)) {.correcao-errado {display: revert;}}
+                &.correto-8:not(:has(option[value="8"]:checked)) {.correcao-errado {display: revert;}}
+                &.correto-9:not(:has(option[value="9"]:checked)) {.correcao-errado {display: revert;}}
             }
         }
     }

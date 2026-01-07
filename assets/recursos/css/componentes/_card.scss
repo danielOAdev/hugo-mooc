@@ -17,10 +17,12 @@
             background-color: color.change($white, $alpha: 50%);
         }
         z-index: -1;
+
     }
 
     &:has(.vigi-card-header) {
         &::before {
+            mask-image: linear-gradient(to bottom, rgb(0 0 0 / .5), black 5rem);
             top: 2rem;
         }
 

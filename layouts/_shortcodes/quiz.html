@@ -37,6 +37,16 @@
     {{- end -}}
 {{- end -}}
 
+{{- $feedbacks := slice -}}
+{{- range seq 0 99 -}}
+    {{- $parampositivo := printf "feedbackpositivo%d" . -}}
+    {{- $paramnegativo := printf "feedbacknegativo%d" . -}}
+    {{- $textopositivo := $.Get $parampositivo -}}
+    {{- $textonegativo := $.Get $paramnegativo -}}
+    {{- $feedback := dict "index" . "textopositivo" ($textopositivo | safeHTML) "textonegativo" ($textonegativo | safeHTML) -}}
+    {{- $feedbacks = $feedbacks | append $feedback -}}
+{{- end -}}
+
 {{- $feedbackpositivo := .Get "feedbackpositivo" | safeHTML -}}
 {{- $feedbacknegativo := .Get "feedbacknegativo" | safeHTML -}}
 
@@ -61,29 +71,45 @@
                 {{ else }}
                     {{ partial "fontawesome.html" (dict "style" "regular" "icon" $forma "classes" (print $forma " icone-lg")) }}
                     {{ partial "fontawesome.html" (dict "style" "regular" "icon" (print $forma "-check") "classes" (print $forma "-check icone-lg")) }}
-                    <input type="{{ cond $eUnico "radio" "checkbox"}}" name="quiz{{ $autoincrement }}-opcao">
+                    <input class="visually-hidden" type="{{ cond $eUnico "radio" "checkbox"}}" name="quiz{{ $autoincrement }}-opcao">
                 {{ end }}
                 <div>
-                    <span class="alert alert-success small p-0 px-1 correcao-correto">
-                        {{ partial "fontawesome.html" (dict "style" "solid" "icon" "thumbs-up") }}
-                        <span>Você acertou!</span>
-                    </span>
+                    <div class="alert alert-success small p-0 px-1 correcao-correto">
+                        <p>
+                            {{ partial "fontawesome.html" (dict "style" "solid" "icon" "thumbs-up") }}
+                            <span class="fw-bold">Você acertou!</span>
+                        </p>
+                        {{ with index $feedbacks .index }}
+                            {{ with .textopositivo }}
+                                <p class="m-0">{{ . }}</p>
+                            {{ end }}
+                        {{ end }}
+                    </div>
                     {{ if $eMapa }}
-                        <span class="alert alert-danger small p-0 px-1 correcao-errado">
-                            {{ partial "fontawesome.html" (dict "style" "solid" "icon" "thumbs-down") }}
-                            <span>A resposta correta é "{{ index $mapa (index $corretos .index | int) | default .index }}".</span>
-                        </span>
+                        <div class="alert alert-danger small p-0 px-1 correcao-errado">
+                            <p>
+                                {{ partial "fontawesome.html" (dict "style" "solid" "icon" "thumbs-down") }}
+                                <span class="fw-bold">A resposta correta é "{{ index $mapa (index $corretos .index | int) | default .index }}".</span>
+                            </p>
                     {{ else if and $eUnico .corretoClass }}
-                        <span class="alert alert-success small p-0 px-1 correcao-errado">
-                            {{ partial "fontawesome.html" (dict "style" "solid" "icon" "check") }}
-                            <span>Essa é a escolha correta.</span>
-                        </span>
+                        <div class="alert alert-success small p-0 px-1 correcao-errado">
+                            <p>
+                                {{ partial "fontawesome.html" (dict "style" "solid" "icon" "check") }}
+                                <span class="fw-bold">Essa é a escolha correta.</span>
+                            </p>
                     {{ else }}
-                        <span class="alert alert-danger small p-0 px-1 correcao-errado">
-                            {{ partial "fontawesome.html" (dict "style" "solid" "icon" "thumbs-down") }}
-                            <span>Você errou&hellip;</span>
-                        </span>
+                        <div class="alert alert-danger small p-0 px-1 correcao-errado">
+                            <p>
+                                {{ partial "fontawesome.html" (dict "style" "solid" "icon" "thumbs-down") }}
+                                <span class="fw-bold">Você errou&hellip;</span>
+                            </p>
                     {{ end }}
+                    {{ with index $feedbacks .index }}
+                        {{ with .textonegativo }}
+                            {{ . }}
+                        {{ end }}
+                    {{ end }}
+                    </div>
                     <div>{{ .texto }}</div>
                 </div>
             </label>
@@ -91,7 +117,7 @@
     </div>
     <label type="button" class="confirmar btn btn-primary">
         Confirmar
-        <input type="checkbox" name="quiz{{ $autoincrement }}-confirmar">
+        <input class="visually-hidden" type="checkbox" name="quiz{{ $autoincrement }}-confirmar">
     </label>
     {{ with $feedbackpositivo }}
         <div class="feedback-positivo alert alert-success">{{ . }}</div>
@@ -105,7 +131,7 @@
         <label type="button" class="corrigir btn btn-secondary flex-grow-1">
             <span class="corrigir-mostrar">Mostrar correção</span>
             <span class="corrigir-ocultar">Ocultar correção</span>
-            <input class="d-none" type="checkbox" name="quiz{{ $autoincrement }}-corrigir">
+            <input class="visually-hidden" type="checkbox" name="quiz{{ $autoincrement }}-corrigir">
         </label>
     </div>
 </fieldset>
