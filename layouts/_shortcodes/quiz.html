@@ -49,7 +49,13 @@
                     <select name="quiz{{ $autoincrement }}-opcao">
                         <option value=""></option>
                         {{ range $opcoes }}
-                            <option value="{{ .index }}">{{ index $mapa .index | default .index }}</option>
+                            {{ if $mapa }}
+                                {{ if index $mapa .index }}
+                                    <option value="{{ .index }}">{{ index $mapa .index }}</option>
+                                {{ end }}
+                            {{ else }}
+                                <option value="{{ .index }}">{{ .index }}</option>
+                            {{ end }}
                         {{ end }}
                     </select>
                 {{ else }}
