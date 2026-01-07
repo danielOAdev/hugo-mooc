@@ -13,11 +13,11 @@
             linear-gradient(to top, rgba(var(--vigi-body-bg-rgb), .75), rgba(var(--vigi-body-bg-rgb), .25)),
             url(../imagens/banners/comum-banner-1.jpg),
         ;
-        background-position-x: calc(65% - ((min(2560px, 100vw) / 2560px) * 15%));
+        background-position: right max(50%,min(35%,0px)) center;
         background-repeat: repeat-x, no-repeat;
         background-size: auto, auto 100%;
         mask-image: url(../imagens/banners/banner-mask.jpg);
-        mask-position: calc(65% - ((min(2560px, 100vw) / 2560px) * 15%));
+        mask-position: center;
         mask-repeat: no-repeat;
         mask-size: auto 100%;
         mask-mode: luminance;
