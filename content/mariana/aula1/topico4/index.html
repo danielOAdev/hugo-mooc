@@ -34,23 +34,73 @@
     </blockquote>
 {{< /figure-imagem >}}
 
-
 <p class="fst-italic">
     Mariana abre uma gaveta, tira pequenos cartões coloridos e os coloca sobre a mesa, à sua frente. Cada cartão tem palavras como “Consulta inicial na UBS”, “Práticas de promoção à saúde”, “Consulta com especialista”, “Atendimento na emergência”, entre outros.
 </p>
-<p class="fst-italic">
-    Agora é sua vez. Utilize estes cartões para montar os possíveis itinerários terapêuticos que o Sr. Antônio poderia percorrer no SUS. Pense nas necessidades dele, nos diferentes níveis de atenção que conhecemos e em como podemos garantir um cuidado integral e contínuo. Quando estiver pronto, vamos conferir juntos se esse percurso corresponde aos objetivos oficiais das Linhas de Cuidado.
-</p>
 
-{{< comentario tipo = "todo" >}}<p>fazer levantamento da atividade</p>
-<p class="fw-bold"> Atividade Interativa</p>
-{{< /comentario >}}
+{{< card
+    vigiicone = "quiz"
+    header = "Desafio da Aula 2 – “Entre Redes, Fronteiras e Saberes” "
+    classes = "vigi-coluna-destaque"
+>}}
+    <p class="fst-italic">
+        Agora é sua vez. Utilize estes cartões para montar os possíveis itinerários terapêuticos que o Sr. Antônio poderia percorrer no SUS. Pense nas necessidades dele, nos diferentes níveis de atenção que conhecemos e em como podemos garantir um cuidado integral e contínuo. Quando estiver pronto, vamos conferir juntos se esse percurso corresponde aos objetivos oficiais das Linhas de Cuidado.
+    </p>
+    {{< comentario tipo = "todo" >}}
+        <p>Está ok a abreviação das opções do quiz?</p>
+        <p>Sugestões:</p>
+        <ul>
+            <li>1ª, 2ª e 3ª</li>
+            <li>APS, ASS e ATS</li>
+        </ul>
+    {{< /comentario >}}
+    {{< quiz
+        classes = "nowrap"
+        pergunta = `
+            <p>Correlacione as com as seguintes opções:</p>
+            <ul type="none">
+                <li>[<span class="fw-bold">1ª</span>] Atenção Primária à Saúde (APS)</li>
+                <li>[<span class="fw-bold">2ª</span>] Atenção Secundária (especializada)</li>
+                <li>[<span class="fw-bold">3ª</span>] Atenção Terciária (hospitalar)</li>
+            </ul>
+        `
+        tipo = "mapa"
+        opcao0  = "Atendimento na Emergência"
+        opcao1  = "Internamento em UTI"
+        opcao2  = "Consulta inicial na UBS"
+        opcao3  = "Consulta com especialista (endocrinologista e cardiologista)"
+        opcao4  = "Encaminhamento para o especialista"
+        opcao5  = "Práticas de promoção à saúde"
+        opcao6  = "Realização de cirurgia"
+        mapa = "1ª,2ª,3ª"
+        corretos = "1,2,0,1,0,0,2"
+        feedbackpositivo = `
+            <p class="fst-italic">
+                Muito bem! Você conseguiu montar um itinerário claro para o Sr. Antônio.
+            </p>
+        `
+        feedbacknegativo = `
+            <p class="fst-italic">
+                Ops! Parece que o itinerário do Sr. Antônio ficou incompleto ou teve alguns desvios.
+            </p>
+            <p class="fst-italic">
+                <span class="fw-bold">Lembre-se</span>: o cuidado em saúde precisa considerar os diferentes níveis da rede — primário, secundário e terciário — e articular todos os serviços necessários, desde a consulta inicial na UBS até os apoios especializados, exames, possíveis internações e o retorno para o acompanhamento regular.
+            </p>
+            <p class="fst-italic">
+                <span class="fw-bold">Dica</span>: Reflita se você organizou as etapas na ordem certa e se incluiu todas as partes importantes do percurso. Tente identificar quais pontos ficaram faltando ou foram colocados no nível errado.
+            </p>
+            <p class="fst-italic">
+                Não desanime! Tente novamente montar o itinerário. Cada tentativa é uma chance de aprender mais sobre como garantir um cuidado integral e de qualidade para os pacientes com doenças crônicas.
+            </p>
+        `
+    >}}
+{{< /card >}}
+
 <p class="fst-italic">
     Com a atividade finalizada, Mariana observa atentamente o itinerário montado para o Sr. Antônio. Agora, é hora de conferir se ele reflete os princípios que organizam as Linhas de Cuidado no SUS.
 </p>
 
 <p class="fst-italic">Mariana pega um quadro-resumo na parede e aponta:</p>
-
 
 {{< figure-imagem
     arquivo = "recursos/imagens/ARTE 09 copy.jpg"
@@ -61,9 +111,7 @@
     </p>
 {{< /figure-imagem >}}
 
-
-
- <p class="fst-italic">Ela respira fundo e acrescenta:</p>
+<p class="fst-italic">Ela respira fundo e acrescenta:</p>
 
 {{< figure-imagem
     arquivo = "recursos/imagens/ARTE 10 copy.jpg"
@@ -182,8 +230,7 @@ Definição de indicadores e metas de acompanhamento e avaliação para as linha
     </blockquote>
 {{< /figure-imagem >}}
 
- <p class="fst-italic">Ela estende dois papéis sobre a mesa com os links destacados:</p>
-
+<p class="fst-italic">Ela estende dois papéis sobre a mesa com os links destacados:</p>
 
 {{< lista-icone
     icone = "note-sticky"

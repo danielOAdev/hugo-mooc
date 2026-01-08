@@ -4,7 +4,7 @@ aliases = ['/acordeon']
 +++
 
 {{< accordion
-    headers=`
+    headers = `
         Item 1
         ---
         Item <b>2</b>
@@ -12,26 +12,22 @@ aliases = ['/acordeon']
         Item <code>3</code>
     `
 >}}
-<p>Conteúdo do primeiro item</p>
----
-<p>Conteúdo do segundo item</p>
----
-    {{< accordion headers="Item 1---Item 2---Item 3" >}}
     <p>Conteúdo do primeiro item</p>
     ---
     <p>Conteúdo do segundo item</p>
     ---
-    <p>Conteúdo do terceiro item</p>
+    {{< accordion headers = "Item 1---Item 2---Item 3" >}}
+        <p>Conteúdo do primeiro item</p>
+        ---
+        <p>Conteúdo do segundo item</p>
+        ---
+        <p>Conteúdo do terceiro item</p>
     {{< /accordion >}}
 {{< /accordion >}}
 
 {{< accordion
-    headers=`
-        Item 1
-     
-    `
+    headers = "Item 1"
 >}}
-
     {{< accordion headers="Item 1---Item 2---Item 3" >}}
     <p>Conteúdo do primeiro item</p>
     ---
@@ -41,19 +37,14 @@ aliases = ['/acordeon']
     {{< /accordion >}}
 {{< /accordion >}}
 
-
 {{< accordion
-    headers=`
+    headers = `
         Item 1
         ---
         Item <b>2</b>
-        
     `
 >}}
-<p>Conteúdo do primeiro item</p>
----
-<p>Conteúdo do segundo item</p>
----
-
+    <p>Conteúdo do primeiro item</p>
+    ---
+    <p>Conteúdo do segundo item</p>
 {{< /accordion >}}
-

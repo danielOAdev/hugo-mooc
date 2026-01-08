@@ -5,7 +5,7 @@
 {{- $headers := split (.Get "headers") "---" -}}
 {{- $contents := split .Inner "---" -}}
 
-<div class="accordion{{ with $classes }} {{ . }}{{ end }}" id="{{ $id }}">
+<section class="accordion{{ with $classes }} {{ . }}{{ end }}" id="{{ $id }}">
   {{ range $index, $header := $headers }}
     <div class="accordion-item">
       <span class="accordion-header h2" id="{{ $id }}-heading{{ add $index 1 }}">
@@ -25,4 +25,4 @@
       </div>
     </div>
   {{ end }}
-</div>
+</section>

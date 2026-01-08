@@ -41,14 +41,14 @@
         }
     }
 
-    .flipcard-btn {
+    .vigi-card-body, .vigi-card-footer {
         transition: display ease .3s allow-discrete;
     }
 }
 
 .flipcard:has(> :checked) .flipcard-frente,
 .flipcard:not(:has(> :checked)) .flipcard-verso {
-    .flipcard-btn {
+    .vigi-card-body, .vigi-card-footer {
         display: none;
     }
 }

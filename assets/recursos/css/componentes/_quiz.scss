@@ -10,7 +10,9 @@
         display: grid;
         grid-template-columns: 1fr;
         gap: .25rem;
+    }
 
+    &:not(.nowrap) .opcoes {
         @include media-breakpoint-up(md) {
             grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
         }
@@ -94,6 +96,10 @@
 
     .correcao-correto, .correcao-errado {
         margin: 0;
+
+        p:nth-of-type(2) {
+            margin-top: 0;
+        }
     }
 
     &:has(.corrigir>:checked) {

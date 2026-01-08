@@ -50,8 +50,10 @@
 {{- $feedbackpositivo := .Get "feedbackpositivo" | safeHTML -}}
 {{- $feedbacknegativo := .Get "feedbacknegativo" | safeHTML -}}
 
-<fieldset class="vigi-quiz vstack gap-1 {{ with $classes }} {{ . }}{{ end }}" data-quiz="{{ $tipo }}">
-    <legend>{{ $pergunta }}</legend>
+<fieldset class="vigi-quiz vstack gap-1{{ with $classes }} {{ . }}{{ end }}" data-quiz="{{ $tipo }}">
+    {{- with $pergunta -}}
+        <legend>{{ . }}</legend>
+    {{- end -}}
     <div class="opcoes">
         {{- range $opcoes -}}
             <label class="opcao btn btn-secondary{{ with .corretoClass }} {{ . }}{{ end }}">
@@ -59,7 +61,7 @@
                     <select name="quiz{{ $autoincrement }}-opcao">
                         <option value=""></option>
                         {{ range $opcoes }}
-                            {{ if $mapa }}
+                            {{ if index $mapa 0 }}
                                 {{ if index $mapa .index }}
                                     <option value="{{ .index }}">{{ index $mapa .index }}</option>
                                 {{ end }}
