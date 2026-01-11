@@ -22,13 +22,13 @@
             {{ $direcao = "Próxima aula" }}
         {{ end }}
         {{ $subtitulo := print "Tópico " (partial "funcao/indexOf.html" .) " de " .Page.Parent.Pages.Len }}
-    <a href="{{ .RelPermalink }}" class="btn btn-secondary proximo">
-        <span class="texto">
-            <span class="direcao">{{ $direcao }}</span>
-            <span class="titulo">{{.LinkTitle}} ({{ $subtitulo }})</span>
-        </span>
-        {{ partial "fontawesome.html" (dict "style" "solid" "icon" "caret-right")}}
-    </a>
+        <a href="{{ .RelPermalink }}" class="btn btn-secondary proximo">
+            <span class="texto">
+                <span class="direcao">{{ $direcao }}</span>
+                <span class="titulo">{{.LinkTitle}} ({{ $subtitulo }})</span>
+            </span>
+            {{ partial "fontawesome.html" (dict "style" "solid" "icon" "caret-right")}}
+        </a>
     {{ end }}
 </nav>
 

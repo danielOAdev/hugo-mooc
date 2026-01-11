@@ -1,0 +1,8 @@
+<section class="fabs bottom-0 end-0 position-fixed vstack gap-1 align-items-end">
+    {{ with .GetPage "/dev/comentarios" }}
+        <a href="{{ .RelPermalink }}" class="btn btn-secondary btn-lg btn-icone align-self-end me-3" title="{{ .LinkTitle  }}">
+            {{ partial "fontawesome.html" (dict "style" "solid" "icon" "comment-dots") }}
+        </a>
+    {{ end }}
+    <span class="buildtime small bg-black px-2"><a href="https://github.com/danielOAdev/hugo-mooc/commit/HEAD" target="_blank">Atualizado em {{ time.Now | time.Format "02/01/2006 15:04:05" }}</a></span>
+</section>

@@ -1,5 +1,6 @@
 baseURL = '/'
 defaultContentLanguage = 'pt-br'
+timeZone = 'America/Sao_Paulo'
 title = 'Doenças Crônicas não Transmissíveis'
 summary = 'Curso Doenças Crônicas não Transmissíveis (DCNT) e o Desafio da Vigilância em Saúde nas Regiões Fronteiriças'
 relativeURLs = true

@@ -2,3 +2,6 @@
 {{- partial "cookie-banner.html" . -}}
 {{- partial "lightbox.html" . -}}
 {{- partial "legenda.html" . -}}
+{{- if ne hugo.Environment "production" -}}
+    {{- partial "fabs.html" . -}}
+{{- end -}}
