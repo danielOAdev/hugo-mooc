@@ -27,7 +27,7 @@
                 <button class="btn nav-link text-start icon-link" value="privacidade" id="menu-privacidade-tab" data-bs-toggle="pill" data-bs-target="#menu-privacidade-conteudo" type="button" role="tab" aria-controls="menu-privacidade-conteudo" aria-selected="false">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "shield-halved") }}Privacidade</button>
                 {{- if ne hugo.Environment "production" -}}
                     <hr class="my-1">
-                    <a href="{{ (.context.GetPage "dev").RelPermalink }}" class="btn btn-link px-3 py-2 text-decoration-none text-start icon-link" value="dev" id="menu-dev-tab">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "code") }}<h1 class="fs-body fw-normal m-0 lh-base">Dev</h1></a>
+                    <a href="{{ (.context.GetPage "dev").RelPermalink }}" class="btn btn-link px-3 py-2 text-decoration-none text-start icon-link" id="menu-dev-tab">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "code") }}<h1 class="fs-body fw-normal m-0 lh-base">Dev</h1></a>
                 {{- end -}}
             </div>
         </div>

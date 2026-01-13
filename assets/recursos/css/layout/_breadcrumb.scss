@@ -32,4 +32,10 @@
     > * {
         vertical-align: middle;
     }
+
+    .breadcrumb-tiulo-topico {
+        @media screen and (max-height: 38rem) {
+            display: none;
+        }
+    }
 }

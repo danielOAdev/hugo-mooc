@@ -1,5 +1,5 @@
 {{$slideCount := 0}}
-<div id="modulosCarrossel{{ .suffix }}" class="modulos-carrossel carousel slide" data-bs-wrap="false">
+<div id="modulosCarrossel{{ .suffix }}" class="modulos-carrossel carousel slide" data-bs-wrap="false" data-bs-touch="false">
     <div class="carousel-inner">
         <div class="carousel-item active">
             <div class="h3 mb-2 text-center">Escolha um módulo:</div>
@@ -7,7 +7,7 @@
                 {{ range (where .context.Site.Sections "Section" "in" .context.Site.MainSections).ByWeight }}
                     {{ $section := .Section}}
                     <button class="border rounded {{ $section }}" type="button" data-bs-target="#modulosCarrossel{{$.suffix}}" data-bs-slide-to="{{ partial "funcao/indexOf.html" . }}">
-                        <h2 class="display-5 fw-bold m-0">{{ .LinkTitle }}</h2>
+                        <span class="display-5 fw-bold m-0">{{ .LinkTitle }}</span>
                         {{- with resources.Get (print "/recursos/imagens/modulos/" $section "-off.png") -}}
                             <img src="{{ .RelPermalink }}" alt="" aria-hidden="true" draggable="false">
                         {{ end }}
@@ -20,9 +20,12 @@
         </div>
         {{ range (where .context.Site.Sections "Section" "in" .context.Site.MainSections).ByWeight }}
             <div class="carousel-item slide-{{ .Section }}">
-                <div class="modulos-carrosel-titulo {{ .Section }} rounded">
-                    <button class="btn btn-outline-light mb-3 icon-link fw-medium" data-bs-target="#modulosCarrossel{{$.suffix}}" data-bs-slide-to="0">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "chevron-left")}}Escolher personagem</button>
-                    <p class="display-5 fw-bold text-light">{{ strings.FirstUpper .Page.Section }}</p>
+                <div class="modulos-carrosel-titulo {{ .Section }} rounded d-flex gap-2 flex-row flex-sm-column align-items-center align-items-sm-start">
+                    <button class="btn btn-outline-light icon-link fw-medium" data-bs-target="#modulosCarrossel{{$.suffix}}" data-bs-slide-to="0">
+                        {{ partial "fontawesome.html" (dict "style" "solid" "icon" "chevron-left")}}
+                        <span class="d-none d-sm-inline">Escolher personagem</span>
+                    </button>
+                    <span class="display-5 fw-bold text-light">{{ strings.FirstUpper .Page.Section }}</span>
                 </div>
             {{ range (where .Sections "Type" "eq" "aula").ByWeight }}
                 {{ partial "slide-aula.html" (dict "Page" . "suffix" $.suffix) }}

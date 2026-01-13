@@ -59,7 +59,7 @@
             {{- with .Parent -}}
                 {{- $total = .Pages.Len -}}
             {{- end -}}
-            <a href="{{ .RelPermalink }}">{{ .LinkTitle }} ({{ partial "funcao/prettyType.html" .Type }} {{ $index }} de {{ $total }})</a>
+            <a href="{{ .RelPermalink }}"><span class="breadcrumb-tiulo-topico">{{ .LinkTitle }} (</span>{{ partial "funcao/prettyType.html" .Type }} {{ $index }} de {{ $total }}<span class="breadcrumb-tiulo-topico">)</span></a>
         {{- else if .RelPermalink -}}
             <a href="{{ .RelPermalink }}">{{- .LinkTitle -}}</a>
         {{- else -}}

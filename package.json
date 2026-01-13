@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "main": "index.js",
   "scripts": {
-    "server": "hugo server --cleanDestinationDir",
+    "server": "hugo server --bind 0.0.0.0 --cleanDestinationDir",
     "build": "hugo build --cleanDestinationDir",
     "prettier": "prettier --write --ignore-path \"\" \"./public/*.html\" \"./public/**/*.html\"",
     "build + prettier": "npm run build && npm run prettier",
@@ -25,6 +25,7 @@
     "@fortawesome/fontawesome-free": "^7.0.0",
     "autoprefixer": "^10.4.21",
     "bootstrap": "^5.3.3",
+    "es-module-shims": "^2.8.0",
     "hugo-extended": "^0.147.8",
     "panzoom": "^9.4.3",
     "postcss": "^8.5.6",

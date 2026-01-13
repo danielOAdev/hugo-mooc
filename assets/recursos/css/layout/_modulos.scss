@@ -22,12 +22,20 @@
         grid-template: 1fr 1fr / 1fr 1fr;
         gap: 1rem;
 
-        :has(> &) {
-            container-type: inline-size;
+        @supports (container-type: inline-size) {
+            :has(> &) {
+                container-type: inline-size;
+            }
+
+            @container (width < 500px) {
+                grid-template: 1fr / 1fr;
+            }
         }
 
-        @container (width < 500px) {
-            grid-template: 1fr / 1fr;
+        @supports not (container-type: inline-size) {
+            @include media-breakpoint-down(sm) {
+                grid-template: 1fr / 1fr;
+            }
         }
 
         button {
@@ -125,8 +133,17 @@
         padding: 1rem;
         background-position-y: center;
         background-size: cover;
-        min-height: min(8rem, 20dvh);
         box-shadow: 0 0 1rem 1rem var(--vigi-tertiary-bg), 0px -1rem 0px 1rem var(--vigi-tertiary-bg);
+
+        @media screen and (max-height: 38rem) {
+            padding: .5rem;
+            flex-direction: row !important;
+            align-items: center !important;
+
+            button > span {
+                display: none !important;
+            }
+        }
 
         &.luana {
             background-image: url(../imagens/modulos/luana-bg.jpg);

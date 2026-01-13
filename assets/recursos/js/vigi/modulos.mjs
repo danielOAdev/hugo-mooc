@@ -20,7 +20,7 @@ modulosCarrossel.forEach(moduloCarrossel => {
 });
 
 export function exibirSlide(elemCarrossel, index) {
-    const hidden = !elemCarrossel.checkVisibility();
+    const hidden = !elemCarrossel.checkVisibility?.() || false;
     const carrossel = Carousel.getOrCreateInstance(elemCarrossel);
     if (hidden) {
         elemCarrossel.classList.remove('slide'); // Remover classe "slide" remove animação de transição

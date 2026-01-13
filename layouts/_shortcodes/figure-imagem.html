@@ -21,18 +21,18 @@
     {{ end }}
     <div class="figcontent{{ with $pista }} pista{{ end }}">
         {{ with $eVideo }}
-        <video class="img-fluid" src="{{ $arquivo }}" alt="{{ $alt }}" {{ $atributos }}></video>
+        <video class="img-fluid" src="{{ $arquivo }}" {{ $atributos }}></video>
         {{ else with $eWebp }}
         <picture>
-            <source srcset="{{ replaceRE "\\.webp$" ".jpg" $arquivo | safeURL }}" media="(prefers-reduced-motion: reduce)"> 
-            <img class="img-fluid lightbox" src="{{ $arquivo }}" type="image/webp" alt="{{ $alt }}">
+            <source srcset="{{ replaceRE "\\.webp$" ".jpg" $arquivo | safeURL }}" type="image/jpeg" media="(prefers-reduced-motion: reduce)"> 
+            <img class="img-fluid lightbox" src="{{ $arquivo }}" alt="{{ $alt }}">
         </picture>
         {{ else }}
         <img class="img-fluid lightbox" src="{{ $arquivo }}" alt="{{ $alt }}" tabindex="0">
         {{ end }}
         {{ with (.Inner | strings.TrimSpace | safeHTML) }}
         <details>
-            <summary class="btn btn-secondary btn-sm {{ $posicao }}" type="button">
+            <summary class="btn btn-secondary btn-sm {{ $posicao }}">
                 <span class="transcricao-abrir">Transcrição</span>
                 <span class="transcricao-fechar" title="Fechar transcrição">Fechar</span>
             </summary>

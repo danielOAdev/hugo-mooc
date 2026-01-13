@@ -12,10 +12,10 @@ dialog {
     -webkit-tap-highlight-color: rgba($black, 0); // 4
 }
 
-#menu:open {
+#menu[open] {
     display: grid;
     grid-template-rows: auto 1fr;
-    min-height: min(35rem, 80dvh);
+    height: min(35rem, 80dvh);
     max-height: 80dvh;
     width: auto;
     max-width: Min(80vw, 110ch);
@@ -26,8 +26,24 @@ dialog {
     top: 10dvh;
 
     @include media-breakpoint-down(md) {
-        width: auto;
+        margin: 0 .5rem;
+        max-width: none;
         gap: .5rem;
+    }
+
+    @media screen and (max-height: 38rem) {
+        max-height: none;
+        height: auto;
+        bottom: .5rem;
+        top: .5rem;
+    }
+}
+
+#menu-titlebar {
+    align-items: center;
+
+    @media screen and (max-height: 38rem) {
+        padding: .5rem !important;
     }
 }
 
@@ -53,6 +69,13 @@ dialog {
     scroll-margin-block-start: 10rem;
     scrollbar-gutter: stable;
     scroll-behavior: smooth;
+
+    @media screen and (max-height: 38rem) {
+        padding: .5rem
+    }
+    @include media-breakpoint-down(md) {
+        padding: .5rem
+    }
 
     @media (prefers-reduced-motion: reduce) {
         scroll-behavior: auto;
@@ -87,9 +110,10 @@ dialog {
     }
 
     > span {
+        display: inline-block;
         white-space: nowrap;
         min-width: 0;
-        overflow: clip;
+        overflow: hidden;
     }
 
     &:hover {

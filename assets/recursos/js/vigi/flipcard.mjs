@@ -1,12 +1,12 @@
 class Flipcard {
     constructor(elemento) {
-        if (!elemento.classList.contains("flipcard")) {
+        if (!elemento.classList.contains('flipcard')) {
             throw new Error('O elemento deve ter a classe "flipcard".');
         }
 
         this.flipcard = elemento;
 
-        this.input = this.flipcard.querySelector('& > input');
+        this.input = this.flipcard.querySelector(':scope > input');
         if (!this.input) {
             throw new Error('Input não encontrado.');
         }

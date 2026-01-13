@@ -105,26 +105,28 @@ export class Pista {
         if (!valor && this.input.classList.contains('pista-exibida')) {
             return;
         }
+        this.#trocaTagLabel(this.label, valor ? 'div' : 'label');
         this.input.checked = valor;
         this.#atualizaAtributos(true);
     }
 
     #trocaTagLabel(elemento, novaTag) {
         // Cria um novo elemento do tipo escolhido
-        this.label = document.createElement(novaTag);
+        const newLabel = document.createElement(novaTag);
 
         // Copia atributos do elemento antigo
         for (let attr of elemento.attributes) {
-            this.label.setAttribute(attr.name, attr.value);
+            newLabel.setAttribute(attr.name, attr.value);
         }
 
         // Move os nós filhos (conteúdo) para o novo elemento
         while (elemento.firstChild) {
-            this.label.appendChild(elemento.firstChild);
+            newLabel.appendChild(elemento.firstChild);
         }
 
         //Substitui o elemento antigo pelo novo no DOM
-        elemento.parentNode.replaceChild(this.label, elemento);
+        elemento.parentNode.replaceChild(newLabel, elemento);
+        this.label = newLabel;
     }
 }
 

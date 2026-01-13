@@ -99,6 +99,9 @@ a {
 
 dialog::backdrop {
     backdrop-filter: blur(2px) brightness(0.5);
+    @supports not (backdrop-filter: blur()) {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
 }
 
 :focus-visible {

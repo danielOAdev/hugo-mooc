@@ -30,6 +30,9 @@ mainSections = ['luana', 'thiago', 'mariana', 'pedro']
     source = "node_modules/bootstrap/dist/js/bootstrap.esm.min.js"
     target = "assets/recursos/js/bootstrap/bootstrap.min.mjs"
   [[module.mounts]]
+    source = "node_modules/es-module-shims/dist/es-module-shims.js"
+    target = "assets/recursos/js/es-module-shims/es-module-shims.js"
+  [[module.mounts]]
     source = "node_modules/@popperjs/core/dist/esm"
     target = "assets/recursos/js/popperjs/core/dist/esm"
   [[module.mounts]]

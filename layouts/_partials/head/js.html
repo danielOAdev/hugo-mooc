@@ -13,12 +13,16 @@
     {{- end }}
 {{- end -}}
 
+{{- with resources.Get "recursos/js/es-module-shims/es-module-shims.js" -}}
+    <script async src="{{ .RelPermalink }}"></script>
+{{- end -}}
+
 {{/* Import map para popperjs */}}
 <script type="importmap">
     {
         "imports": {
-        {{ with resources.Get "recursos/js/popperjs/core/dist/esm/popper.js" }}
-            "@popperjs/core":"{{ partial "funcao/linkRelativo.html" (dict "Page" $ "url" .RelPermalink) }}"
+        {{ with resources.Get "recursos/js/popperjs/core/dist/esm/index.js" }}
+            "@popperjs/core": "{{ partial "funcao/linkRelativo.html" (dict "Page" $ "url" .RelPermalink) }}"
         {{ end }}
         }
     }

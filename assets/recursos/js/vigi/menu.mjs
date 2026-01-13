@@ -71,7 +71,7 @@ voltarAoTopo.addEventListener('click', (event) => {
 document.addEventListener('keydown', function(event) {
     if (event.shiftKey || event.ctrlKey || event.altKey || event.metaKey) return;
 
-    if (!document.querySelector(':open') && event.code === 'Escape') {
+    if (!document.querySelector('[open]') && event.code === 'Escape') {
         event.preventDefault();
         const modulo = document.documentElement.dataset.vigiModulo;
         const aulaIndex = document.documentElement.dataset.vigiPageIndex;
@@ -137,7 +137,7 @@ function dynamicTarget(url) {
     target = menu.querySelector(url.hash);
 
     // Se o alvo já está visível na tela, paramos aqui e deixamos o navegador assumir o controle.
-    if (target && target.checkVisibility()) return;
+    if (target && target.checkVisibility?.() || false) return;
 
     // Hashs dinâmicos para os itens do menu.
     // Dinâmicos pois não existe um elemento com esse ID no DOM.
