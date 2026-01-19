@@ -15,23 +15,23 @@
         <div class="d-inline-block">
             {{ $pages := .FirstSection.RegularPagesRecursive.ByWeight.Reverse }}
             {{ with $pages.Prev . }}
-                {{ $direcao := "Tópico anterior" }}
-                {{ if ne $.Parent.LinkTitle .Parent.LinkTitle }}
-                    {{ $direcao = "Aula anterior" }}
-                {{ end }}
+                {{- $direcao := "Tópico anterior" -}}
+                {{- if ne $.Parent.LinkTitle .Parent.LinkTitle -}}
+                    {{- $direcao = "Aula anterior" -}}
+                {{- end -}}
                 <a href="{{ .RelPermalink }}" title="{{ .LinkTitle }}" class="me-3">
-                    {{ partial "fontawesome.html" (dict "style" "solid" "icon" "caret-left" "classes" "me-1 align-baseline icone-2xs") }}
-                    {{ $direcao }}
+                    {{- partial "fontawesome.html" (dict "style" "solid" "icon" "caret-left" "classes" "align-baseline icone-2xs") -}}
+                    {{- $direcao -}}
                 </a>
             {{ end }}
             {{ with $pages.Next . }}
-                {{ $direcao := "Próximo tópico" }}
-                {{ if ne $.Parent.LinkTitle .Parent.LinkTitle }}
-                    {{ $direcao = "Próxima aula" }}
-                {{ end }}
+                {{- $direcao := "Próximo tópico" -}}
+                {{- if ne $.Parent.LinkTitle .Parent.LinkTitle -}}
+                    {{- $direcao = "Próxima aula" -}}
+                {{- end -}}
                 <a href="{{ .RelPermalink }}" title="{{ .LinkTitle }}">
-                    {{ $direcao }}
-                    {{ partial "fontawesome.html" (dict "style" "solid" "icon" "caret-right" "classes" "ms-1 align-baseline icone-2xs") }}
+                    {{- $direcao -}}
+                    {{- partial "fontawesome.html" (dict "style" "solid" "icon" "caret-right" "classes" "align-baseline icone-2xs") -}}
                 </a>
             {{ end }}
         </div>

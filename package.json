@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "main": "index.js",
   "scripts": {
-    "server": "hugo server --bind 0.0.0.0 --cleanDestinationDir",
+    "server": "hugo server --cleanDestinationDir",
     "build": "hugo build --cleanDestinationDir",
     "prettier": "prettier --write --ignore-path \"\" \"./public/*.html\" \"./public/**/*.html\"",
     "build + prettier": "npm run build && npm run prettier",

@@ -36,12 +36,12 @@ export class Pista {
             throw new Error('O elemento deve possuir a classe "pista".');
         }
 
-        this.#trocaTagLabel(elemento, 'label');
+        this.#trocarTag('label');
 
         this.input = document.createElement('input');
         this.input.setAttribute('type', 'checkbox');
         this.input.setAttribute('name', 'pista');
-        this.label.prepend(this.input);
+        this.elemento.prepend(this.input);
 
         this.#salvaAtributosOriginais();
         this.#atualizaAtributos();
@@ -50,10 +50,10 @@ export class Pista {
             this.#atualizaAtributos();
         });
 
-        this.label.addEventListener('keydown', event => {
+        this.elemento.addEventListener('keydown', event => {
             if (event.key === 'Enter' || event.key === ' ') {
                 event.preventDefault();
-                this.label.click();
+                this.elemento.click();
             }
         });
 
@@ -61,7 +61,7 @@ export class Pista {
     }
 
     get elementos() {
-        return this.label.querySelectorAll('*:not(input[name="pista"], summary, details)');
+        return this.elemento.querySelectorAll('*:not(input[name="pista"], summary, details)');
     }
 
     #salvaAtributosOriginais() {
@@ -89,11 +89,11 @@ export class Pista {
         if (this.eExibido()) {
             if (!externo) this.input.classList.add('pista-exibida');
             this.input.setAttribute('disabled', '');
-            this.label.removeAttribute('tabindex');
-            this.#trocaTagLabel(this.label, 'div');
+            this.elemento.removeAttribute('tabindex');
+            this.#trocarTag(this.elemento, 'div');
         } else {
             this.input.removeAttribute('disabled');
-            this.label.setAttribute('tabindex', this.label.getAttribute('tabindex') ?? '0');
+            this.elemento.setAttribute('tabindex', this.elemento.getAttribute('tabindex') ?? '0');
         }
     };
 
@@ -105,28 +105,28 @@ export class Pista {
         if (!valor && this.input.classList.contains('pista-exibida')) {
             return;
         }
-        this.#trocaTagLabel(this.label, valor ? 'div' : 'label');
+        this.#trocarTag(valor ? 'div' : 'label');
         this.input.checked = valor;
         this.#atualizaAtributos(true);
     }
 
-    #trocaTagLabel(elemento, novaTag) {
+    #trocarTag(nomeTag) {
         // Cria um novo elemento do tipo escolhido
-        const newLabel = document.createElement(novaTag);
+        const novoElemento = document.createElement(nomeTag);
 
         // Copia atributos do elemento antigo
-        for (let attr of elemento.attributes) {
-            newLabel.setAttribute(attr.name, attr.value);
+        for (let atributo of this.elemento.attributes) {
+            novoElemento.setAttribute(atributo.name, atributo.value);
         }
 
         // Move os nós filhos (conteúdo) para o novo elemento
-        while (elemento.firstChild) {
-            newLabel.appendChild(elemento.firstChild);
+        while (this.elemento.firstChild) {
+            novoElemento.appendChild(this.elemento.firstChild);
         }
 
         //Substitui o elemento antigo pelo novo no DOM
-        elemento.parentNode.replaceChild(newLabel, elemento);
-        this.label = newLabel;
+        this.elemento.parentNode.replaceChild(novoElemento, this.elemento);
+        this.elemento = novoElemento;
     }
 }
 

@@ -25,12 +25,20 @@ aside.dev {
     }
 }
 
-figure:has(.figcontent)  {
+figure:has(.figcontent) {
     &:has(
         img:not([alt]),
         img[alt=" Selecione para expandir a imagem."],
         img[alt^="TODO" i]
     ) {
         outline: medium dashed red;
+    }
+}
+
+.fabs {
+    pointer-events: none;
+
+    > * {
+        pointer-events: auto;
     }
 }

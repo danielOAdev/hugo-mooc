@@ -15,7 +15,6 @@ dialog {
 #menu[open] {
     display: grid;
     grid-template-rows: auto 1fr;
-    height: min(35rem, 80dvh);
     max-height: 80dvh;
     width: auto;
     max-width: Min(80vw, 110ch);

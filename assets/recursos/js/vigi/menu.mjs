@@ -190,9 +190,6 @@ window.addEventListener('hashchange', () => {
 
 /**
  * Abre o menu.
- * 
- * @param {null|string} nomeAba Nome da aba na qual o menu deve exibir ao abrir.
- * Ou deixe nulo para abrir menu na aba padrão.
  */
 export function abrir() {
     menu.showModal();
@@ -205,6 +202,12 @@ export function fechar() {
     menu.close();
 }
 
+/**
+ * Exibe a aba especificada no menu.
+ *
+ * @param {string} nomeAba - O identificador da aba a ser exibida.
+ * @returns {boolean} Retorna true se a aba existir e for exibida, caso contrário, false.
+ */
 export function exibirAba(nomeAba) {
     const tab = menu.querySelector(`#menu-${nomeAba}-tab[data-bs-target]`);
     if (!tab) return false;

@@ -69,7 +69,7 @@ input[name=pista]:first-child {
         display: none;
     }
 
-    *.pista:has(> &:not(:checked)) {
+    *.pista:has(> &:not(:checked) ~ img) {
         overflow: clip;
 
         &::after {
