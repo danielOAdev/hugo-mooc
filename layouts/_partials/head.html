@@ -2,9 +2,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="keywords" content="vigisaude vigilância fronteiras vigifronteiras mooc campus virtual fiocruz cvf" />
 <meta name="author" content="Fiocruz, Programa Educacional de Vigilância em Saúde (VigiSaúde)">
-<meta name="description" content="{{ .Summary }}">
-{{- partial "opengraph.html" . -}}
-{{- partial "twitter_cards.html" . -}}
 {{ if in .Site.MainSections .Section }}
     {{ $modulo := "_" }}
     {{ $aula := 0 }}
@@ -16,8 +13,10 @@
         {{ $aula = partial "funcao/indexOf.html" . }}
     {{ end }}
     {{ $modulo = substr .Section 0 1 | upper }}
-    <title>{{ printf "%s/%d/%d - %s | %s" $modulo $aula $topico .Title site.Title }}</title>
+    <meta name="description" content="{{ printf `Tópico %d "%s" da "Aula %d" do módulo "%s" no Curso %s` $topico .Title $aula (strings.FirstUpper .Section) site.Title }}">
+    <title>{{ printf "%s/%d/%d – %s | %s" $modulo $aula $topico .Title site.Title }}</title>
 {{ else }}
+    <meta name="description" content="Curso {{ site.Title }}">
     <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
 {{ end }}
 {{- partialCached "head/css.html" . -}}

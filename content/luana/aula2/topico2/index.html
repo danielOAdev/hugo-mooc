@@ -55,76 +55,31 @@
 >}}
    <p>Luana diz:</p>
    <blockquote>
-    “Precisamos dar continuidade à nossa investigação. Parece que há algumas pistas na imagem abaixo. Você pode conferir para a gente?”.
+        “Precisamos dar continuidade à nossa investigação. Parece que há algumas pistas na imagem abaixo. Você pode conferir para a gente?”.
    </blockquote>
 {{< /figure-imagem >}}
 
-
-
-
-
 <p>
-    Dados da Organização Mundial da Saúde (OMS) estimam que cerca de 70% de todas as mortes no mundo, o que corresponde a uma estimativa de 38 milhões de mortes anuais, ocorrem devido às DCNT, particularmente, as doenças cardiovasculares, as respiratórias crônicas, as neoplasias e ao diabetes mellitus. Essas doenças multifatoriais se desenvolvem no curso da vida e possuem longa duração. Estão relacionadas a diversos fatores, condicionantes e determinantes sociais, a maioria ocasionada por fatores de risco modificáveis.
+    Dados da Organização Mundial da Saúde (OMS) estimam que cerca de 70% de todas as mortes no mundo, o que corresponde a uma estimativa de 38 milhões de mortes anuais, ocorrem devido às DCNT, particularmente, as doenças cardiovasculares, as respiratórias crônicas, as neoplasias e ao diabetes mellitus. Essas doenças multifatoriais se desenvolvem no curso da vida e possuem longa duração. Estão relacionadas a diversos fatores, <a href="#glossario--condicionantes-e-determinantes-sociais">condicionantes e determinantes sociais</a>, a maioria ocasionada por fatores de risco modificáveis.
 </p>
 
+{{< figure-imagem
+    arquivo = "recursos/imagens/ARTE 04 copy.jpg"
+    alt = "Ilustração de um homem negro de cabelos curtos sentado em uma poltrona, comendo um hambúrguer diante da televisão. Sobre a mesa ao lado há batatas fritas, cerveja, refrigerante, salgadinhos e molho."
+>}}
+{{< /figure-imagem >}}
 
-
-<div class="accordion" id="accordionCard">
-    <div class="accordion-item">
-        <h2 class="accordion-header" id="headingImg">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCards">
-            {{< figure-imagem
-                arquivo = "recursos/imagens/ARTE 04 copy.jpg"
-                alt = "Ilustração de um homem negro de cabelos curtos sentado em uma poltrona, comendo um hambúrguer diante da televisão. Sobre a mesa ao lado há batatas fritas, cerveja, refrigerante, salgadinhos e molho."
-            >}}
-               
-            {{< /figure-imagem >}}
-
-            </button>
-        </h2>
-
-
-        <!-- Área que abre com 4 cards -->
-        <div id="collapseCards" class="accordion-collapse collapse" data-bs-parent="#accordionCard">
-            <div class="accordion-body">
-
-
-                <div class="row g-3">
-                    <!-- Card 1 -->
-                    <div class="col-md-3">
-                        <div class="info-card h-100 p-0 ">
-                            <h5 class="fw-bold">Tabagismo</h5>
-                            <p class="text-center">Fumar está associado a diversas doenças crônicas, incluindo câncer, doenças respiratórias e cardiovasculares. Mesmo a exposição passiva ao cigarro representa risco à saúde.</p>
-                        </div>
-                    </div>
-                       <!-- Card 2 -->
-                    <div class="col-md-3">
-                        <div class="info-card h-100 p-0 ">
-                            <h5 class="fw-bold">Sedentarismo</h5>
-                            <p class="text-center">A falta de atividade física regular contribui para o aumento da obesidade, diabetes, hipertensão e outras DCNT. Caminhadas, trabalhos manuais ou lazer ativo ajudam na prevenção.</p>
-                        </div>
-                    </div>
-                       <!-- Card 3 -->
-                    <div class="col-md-3">
-                        <div class="info-card h-100 p-0 ">
-                            <h5 class="fw-bold">Alcoolismo</h5>
-                            <p class="text-center">O consumo abusivo de álcool está relacionado a problemas no fígado, doenças cardiovasculares, hipertensão, obesidade e câncer. O uso frequente e excessivo agrava o risco.</p>
-                        </div>
-                    </div>
-                        <!-- Card 4 -->
-                        <div class="col-md-3">
-                            <div class="info-card h-110 p-0 ">
-                                <h5 class="fw-bold">Alimentação Não Saudável</h5>
-                                <p class="text-center text-wrap">Dieta rica em ultraprocessa<br>dos, açúcar, sal e gorduras está fortemente associada a diversas DCNT. A baixa ingestão de frutas, hortaliças e fibras piora ainda mais o quadro.</p>
-                            </div>
-                        </div>
-                    
-                </div>
-
-
-            </div>
-        </div>
-    </div>
+<nav class="nav nav-tabs flex-sm-nowrap fs-body lh-sm" id="nav-tab" role="tablist">
+    <button class="nav-link btn-secondary ff-sans-serif fw-bold active" id="nav-tabagismo-tab" data-bs-toggle="tab" data-bs-target="#nav-tabagismo" type="button" role="tab" aria-controls="nav-tabagismo" aria-selected="true">Tabagismo</button>
+    <button class="nav-link btn-secondary ff-sans-serif fw-bold" id="nav-sedentarismo-tab" data-bs-toggle="tab" data-bs-target="#nav-sedentarismo" type="button" role="tab" aria-controls="nav-sedentarismo" aria-selected="false">Sedentarismo</button>
+    <button class="nav-link btn-secondary ff-sans-serif fw-bold" id="nav-alcoolismo-tab" data-bs-toggle="tab" data-bs-target="#nav-alcoolismo" type="button" role="tab" aria-controls="nav-alcoolismo" aria-selected="false">Alcoolismo</button>
+    <button class="nav-link btn-secondary ff-sans-serif fw-bold" id="nav-alimentação-tab" data-bs-toggle="tab" data-bs-target="#nav-alimentação" type="button" role="tab" aria-controls="nav-alimentação" aria-selected="false">Alimentação Não Saudável</button>
+</nav>
+<div class="tab-content">
+    <div class="tab-pane fade show active" id="nav-tabagismo" role="tabpanel" aria-labelledby="nav-tabagismo-tab" tabindex="0"><p>Fumar está associado a diversas doenças crônicas, incluindo câncer, doenças respiratórias e cardiovasculares. Mesmo a exposição passiva ao cigarro representa risco à saúde.</p></div>
+    <div class="tab-pane fade" id="nav-sedentarismo" role="tabpanel" aria-labelledby="nav-sedentarismo-tab" tabindex="0"><p>A falta de atividade física regular contribui para o aumento da obesidade, diabetes, hipertensão e outras DCNT. Caminhadas, trabalhos manuais ou lazer ativo ajudam na prevenção.</p></div>
+    <div class="tab-pane fade" id="nav-alcoolismo" role="tabpanel" aria-labelledby="nav-alcoolismo-tab" tabindex="0"><p>O consumo abusivo de álcool está relacionado a problemas no fígado, doenças cardiovasculares, hipertensão, obesidade e câncer. O uso frequente e excessivo agrava o risco.</p></div>
+    <div class="tab-pane fade" id="nav-alimentação" role="tabpanel" aria-labelledby="nav-alimentação-tab" tabindex="0"><p>Dieta rica em ultraprocessados, açúcar, sal e gorduras está fortemente associada a diversas DCNT. A baixa ingestão de frutas, hortaliças e fibras piora ainda mais o quadro.</p></div>
 </div>
 
 {{< figure-imagem
