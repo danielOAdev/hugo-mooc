@@ -36,6 +36,8 @@ export class Pista {
             throw new Error('O elemento deve possuir a classe "pista".');
         }
 
+        this.elemento = elemento;
+
         this.#trocarTag('label');
 
         this.input = document.createElement('input');
@@ -90,7 +92,7 @@ export class Pista {
             if (!externo) this.input.classList.add('pista-exibida');
             this.input.setAttribute('disabled', '');
             this.elemento.removeAttribute('tabindex');
-            this.#trocarTag(this.elemento, 'div');
+            this.#trocarTag('div');
         } else {
             this.input.removeAttribute('disabled');
             this.elemento.setAttribute('tabindex', this.elemento.getAttribute('tabindex') ?? '0');
