@@ -69,9 +69,7 @@ input[name=pista]:first-child {
         display: none;
     }
 
-    *.pista:has(> &:not(:checked) ~ img) {
-        overflow: clip;
-
+    *.pista:has(> &:not(:checked)) {
         &::after {
             content: '';
             position: absolute;
@@ -113,6 +111,10 @@ input[name=pista]:first-child {
                 2px 2px 0 $white;
             background-size: 0 0;
         }
+    }
+
+    *.pista:has(> &:not(:checked) ~ img) {
+        overflow: clip;
     }
 
     *.pista > &:not(:checked) {
