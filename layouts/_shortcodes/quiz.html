@@ -1,4 +1,4 @@
-{{- $autoincrement := partial "funcao/autoincrement.html" (dict "context" . "name" "quiz") -}}
+{{- $autoincrement := partial "funcao/autoincrement.html" (dict "context" . "name" "quizname") -}}
 {{- $classes := .Get "classes" | default "" -}}
 {{- $pergunta := .Get "pergunta" | safeHTML }}
 {{/*  tipo = unico|multiplo|mapa  */}}

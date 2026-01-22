@@ -1,9 +1,10 @@
 
-{{- $autoincrement := partial "funcao/autoincrement.html" (dict "context" . "name" "card") -}}
 {{- $vigiicone := (.Get "vigiicone") -}}
 {{- $header := (.Get "header") -}}
 {{- $pista := .Get "pista" | default false -}}
 {{- $classes := .Get "classes" | default "" -}}
+{{- $autoincrement := partial "funcao/autoincrement.html" (dict "context" . "name" $vigiicone) -}}
+{{- $autoincrement = cond (le $autoincrement 1) "" $autoincrement -}}
 
 <section class="vigi-card{{ with $classes }} {{ . }}{{ end }}">
     {{- with $vigiicone -}}
