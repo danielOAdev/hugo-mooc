@@ -20,6 +20,7 @@
                 <button class="btn nav-link text-start icon-link" value="contato" id="menu-contato-tab" data-bs-toggle="pill" data-bs-target="#menu-contato-conteudo" type="button" role="tab" aria-controls="menu-contato-conteudo" aria-selected="false">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "phone") }}Contato</button>
                 <h1 class="visually-hidden">Créditos</h1>
                 <button class="btn nav-link text-start icon-link" value="creditos" id="menu-creditos-tab" data-bs-toggle="pill" data-bs-target="#menu-creditos-conteudo" type="button" role="tab" aria-controls="menu-creditos-conteudo" aria-selected="false">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "signature") }}Créditos</button>
+                <button class="btn nav-link text-start icon-link" value="creditos2" id="menu-creditos2-tab" data-bs-toggle="pill" data-bs-target="#menu-creditos2-conteudo" type="button" role="tab" aria-controls="menu-creditos2-conteudo" aria-selected="false">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "signature") }}Créditos 2</button>
                 <hr class="my-1">
                 <h1 class="visually-hidden">Acessibilidade</h1>
                 <button class="btn nav-link text-start icon-link" value="acessibilidade" id="menu-acessibilidade-tab" data-bs-toggle="pill" data-bs-target="#menu-acessibilidade-conteudo" type="button" role="tab" aria-controls="menu-acessibilidade-conteudo" aria-selected="false">{{ partial "fontawesome.html" (dict "style" "solid" "icon" "universal-access") }}Acessibilidade</button>
@@ -39,6 +40,7 @@
                 <option value="atalhos">Atalhos</option>
                 <option value="contato">Contato</option>
                 <option value="creditos">Créditos</option>
+                <option value="creditos2">Créditos 2</option>
                 <hr>
                 <option value="acessibilidade">Acessibilidade</option>
                 <option value="privacidade">Privacidade</option>
@@ -74,6 +76,11 @@
             </div>
             <div class="vigi-grid tab-pane fade" id="menu-creditos-conteudo" role="tabpanel" aria-labelledby="menu-creditos-tab" tabindex="0">
                 {{ with .context.GetPage "/creditos" }}
+                    {{ .Content }}
+                {{ end }}
+            </div>
+            <div class="vigi-grid tab-pane fade" id="menu-creditos2-conteudo" role="tabpanel" aria-labelledby="menu-creditos2-tab" tabindex="0">
+                {{ with .context.GetPage "/creditos2" }}
                     {{ .Content }}
                 {{ end }}
             </div>
